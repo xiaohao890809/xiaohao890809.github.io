@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Etiquette's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习基础之概率论">
+<meta property="og:url" content="http://xiaohao890809.github.io/2018/03/07/The-note-of-probability-theory/index.html">
+<meta property="og:site_name" content="Etiquette&#39;s Blog">
+<meta property="og:description" content="机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。">
+<meta property="og:image" content="http://opsnyxhx4.bkt.clouddn.com/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A.jpg">
+<meta property="og:updated_time" content="2018-04-04T11:28:37.775Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习基础之概率论">
+<meta name="twitter:description" content="机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。">
+<meta name="twitter:image" content="http://opsnyxhx4.bkt.clouddn.com/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xiaohao890809.github.io/2018/03/07/The-note-of-probability-theory/"/>
+
+
+
+
+
+  <title>机器学习基础之概率论 | Etiquette's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a5db5bc9a86719379988e71b38e6dd81";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Etiquette's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">越努力，越幸运！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'eSNRQcfBht1smJ-hn_iQ','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiaohao890809.github.io/2018/03/07/The-note-of-probability-theory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追寻原风景">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Etiquette's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习基础之概率论</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T23:54:23+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数学/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。<br><a id="more"></a> </p>
+<p>三箱零件，其中第一箱 10 个零件，第二箱 20 个零件，第三箱 15 个。检验结果表明第一箱有 1 个不合格，第二箱有 3 个不合格，第三箱有 2 个不合格，从中抽取一个零件，合格的概率有多少？</p>
+<blockquote>
+<p>记 $A_i$ 为从第 $i$ 个箱子拿的零件，拿到正品的事件记为B。<br>$$<br>\begin{align}<br>P(B)&amp;=P(A_1)\cdot P(B|A_1)+P(A_2)\cdot P(B|A_2)+P(A_3)\cdot P(B|A_3)\\<br>&amp;=P(A_1)+P(A_2)\cdot P(B|A_2)+P(A_3)\cdot P(B|A_3)\\<br>&amp;=\frac{1}{3}\cdot \frac{9}{10}+\frac{1}{3}\cdot \frac{17}{20}+\frac{1}{3}\cdot \frac{13}{15}\\<br>&amp;=0.872<br>\end{align}<br>$$问题：求逆向概率$P(A_{1}|B)$，抽到的这个合格品来自箱子 $A_{1}$ 的概率。<br>$$<br>\begin{align}<br>P(A_{1}|B)&amp;=\frac{P(A_1\cdot B)}{P(B)}\\<br>&amp;=\frac{P(A_1)\cdot P(B|A_1)}{P(B)}\\<br>&amp;=\frac{\frac{1}{3}\cdot \frac{9}{10}}{P(B)}\\<br>&amp;=\frac{0.3}{0.872}=0.344<br>\end{align}<br>$$</p>
+</blockquote>
+<p>注意条件概率 $P(B|A_1)$ 和联合概率 $P(A_1\cdot B)$ 的使用。</p>
+<p><strong>分类问题概述：</strong><br>通过对已知类别信息的数据进行学习后获得分类模型(classifier)，利用分类模型对未知类别信息的数据进行分类(classification)。</p>
+<h2 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><p>分类算法举例——朴素贝叶斯(Naive Bayesian Model, NBM)</p>
+<p>$$\begin{cases}<br>P(C_i|X)=\frac{P(X|C_i)\cdot P(C_i)}{P(X)}\\<br>P(X|C_i)=\prod_{K=1}^{n}P(X_k|C_i)\\<br>P(AB)=P(A)\cdot P(B)\\<br>\end{cases}<br>$$</p>
+<ul>
+<li>$P(C_i|X)$: 后验概率</li>
+<li>$P(X|C_i)$: 条件概率</li>
+<li>$P(C_i)$: 最大似然估计</li>
+</ul>
+<p>通过数据元组的各个属性表示(值)，计算出该数据元素属于$C_i$的概率。<br>根据贝叶斯定理，将已知各属性表示求所属后验概率的问题转为已知所属类各属性表示组合的条件概率的问题。</p>
+<p>需要对已标记类别的训练样本进行统计分析。<br>对样本库数据计算各类的最大似然用以估计各类的先验概率。<br>计算各属性值的条件概率。<br>假设各属性间相互独立。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">ID</th>
+<th style="text-align:center">age</th>
+<th style="text-align:center">income</th>
+<th style="text-align:center">student</th>
+<th style="text-align:center">credit</th>
+<th style="text-align:center">class:buy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">youth</td>
+<td style="text-align:center">high</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">fair</td>
+<td style="text-align:center">no</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">youth</td>
+<td style="text-align:center">high</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">excellent</td>
+<td style="text-align:center">no</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">middle</td>
+<td style="text-align:center">high</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">fair</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">senior</td>
+<td style="text-align:center">medium</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">fair</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">senior</td>
+<td style="text-align:center">low</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">fair</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">senior</td>
+<td style="text-align:center">low</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">excelent</td>
+<td style="text-align:center">no</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">middle</td>
+<td style="text-align:center">low</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">excelent</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">youth</td>
+<td style="text-align:center">medium</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">fair</td>
+<td style="text-align:center">no</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">youth</td>
+<td style="text-align:center">low</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">fair</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">senior</td>
+<td style="text-align:center">medium</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">fair</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">youth</td>
+<td style="text-align:center">medium</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">excelent</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">middle</td>
+<td style="text-align:center">medium</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">excelent</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">middle</td>
+<td style="text-align:center">high</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">fair</td>
+<td style="text-align:center">yes</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">senior</td>
+<td style="text-align:center">medium</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">excelent</td>
+<td style="text-align:center">no</td>
+</tr>
+</tbody>
+</table>
+<p>样本库中各类数据的先验概率：<br>$$<br>\begin{align}<br>&amp;P(buy=yes)=\frac{9}{14}=0.643\\<br>&amp;P(buy=no)=\frac{5}{14}=0.357<br>\end{align}<br>$$</p>
+<p>每一项属性值的条件概率：<br>$$<br>\begin{align}<br>&amp;P(age=youth|buy=yes)=\frac{2}{9}=0.222\\<br>&amp;P(age=youth|buy=no)=\frac{3}{5}=0.600\\<br>&amp;P(income=medium|buy=yes)=\frac{4}{9}=0.444\\<br>&amp;P(income=medium|buy=no)=\frac{2}{5}=0.400\\<br>&amp;P(student=yes|buy=yes)=\frac{6}{9}=0.667\\<br>&amp;P(student=yes|buy=no)=\frac{1}{5}=0.200\\<br>&amp;P(credict=fair|buy=yes)=\frac{6}{9}=0.667\\<br>&amp;P(credict=fair|buy=no)=\frac{2}{5}=0.400<br>\end{align}<br>$$</p>
+<p>求 $x=(youth,medium,yes,fair)$ 属于哪个类？<br>假设各属性之间相互独立，求得测试数据属性向量的条件该概率：<br>$$<br>\begin{align}<br>P(x|buy=yes)&amp;=P(age=youth|buy=yes)\\<br>&amp;\cdot P(income=medium|buy=yes)\\<br>&amp;\cdot P(student=yes|buy=yes)\\<br>&amp;\cdot P(credit=fair|buy=yes)\\<br>&amp;=0.222\cdot 0.444\cdot 0.667\cdot 0.667\\<br>&amp;=0.044<br>\end{align}<br>$$</p>
+<p>同理：<br>$$<br>P(x|buy=no)=0.019<br>$$</p>
+<p>选取能使以下公式取值最大的分类：<br>$$<br>P(C_i|x)=\frac{P(x|C_i)\cdot P(C_i)}{P(x)}<br>$$</p>
+<p>其中 $P(x)$ 为该特征向量取值的先验概率，始终为常量。<br>$$<br>\begin{align}<br>&amp;P(x|buy=yes)\cdot P(buy=yes)=0.044\cdot 0.643=0.082\\<br>&amp;P(x|buy=no)\cdot P(buy=no)=0.019\cdot 0.357=0.007<br>\end{align}<br>$$<br>所以判定测试数据属于 $buy=yes$类。</p>
+<h2 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h2><blockquote>
+<p>摘自：数据挖掘中决策树的探讨(马秀红)</p>
+</blockquote>
+<p>某装备维修项目如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">役龄</th>
+<th style="text-align:center">价格</th>
+<th style="text-align:center">是否关键部件</th>
+<th style="text-align:center">可靠性</th>
+<th style="text-align:center">是否更换</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;=10</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=10</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">好</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">11-20</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;20</td>
+<td style="text-align:center">中</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;20</td>
+<td style="text-align:center">低</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;20</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">好</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">11-20</td>
+<td style="text-align:center">低</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=10</td>
+<td style="text-align:center">中</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=10</td>
+<td style="text-align:center">低</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;20</td>
+<td style="text-align:center">中</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">好</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;=10</td>
+<td style="text-align:center">中</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">11-20</td>
+<td style="text-align:center">中</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">好</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">11-20</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">一般</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">11-20</td>
+<td style="text-align:center">中</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">好</td>
+<td style="text-align:center">否</td>
+</tr>
+</tbody>
+</table>
+<p>使用信息增益进行属性选择，更新的备件数为$p$，不更新的备件数为$n$，则样本分类的期望信息：</p>
+<p>$$<br>\begin{align}<br>I(p,n)&amp;=I(9,5)\\<br>&amp;=-\frac{9}{14}\cdot log_{2}\frac{9}{14}-\frac{5}{14}\cdot log_{2}\frac{5}{14}\\<br>&amp;=0.940<br>\end{align}<br>$$</p>
+<p>计算各属性的熵：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">役龄</th>
+<th style="text-align:center">$P_i$</th>
+<th style="text-align:center">$N_i$</th>
+<th style="text-align:center">$I(P_i,N_i)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;=10</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0.971</td>
+</tr>
+<tr>
+<td style="text-align:center">11-20</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0.971</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;20</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p>有役龄划分为子集的熵：</p>
+<p>$$<br>\begin{align}<br>E(役龄)&amp;=\frac{5}{14}I(2,3)+\frac{5}{14}I(3,2)+\frac{4}{14}I(4,0)\\<br>&amp;=0.6936<br>\end{align}<br>$$</p>
+<p>役龄为属性，具有3个不同取值的信息增益为：</p>
+<p>$$<br>Gain(役龄)=I(p,n)-E(役龄)=0.2464<br>$$</p>
+<p>同理：</p>
+<p>$$<br>\begin{align}<br>&amp;Gain(价格)=0.2098\\<br>&amp;Gain(关键部件)=0.151\\<br>&amp;Gain(可靠性)=0.10194<br>\end{align}<br>$$</p>
+<p>因此：<br>$$<br>Gain(可靠性)&lt;Gain(关键部件)&lt;Gain(价格)&lt;Gain(役龄)<br>$$</p>
+<p>分类结果如图所示：<br><img src="http://opsnyxhx4.bkt.clouddn.com/%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A.jpg" alt="信息增益" title="信息增益"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/01/The-note-of-vba/" rel="next" title="VBA知识点总结">
+                <i class="fa fa-chevron-left"></i> VBA知识点总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/18/The-note-of-big-data/" rel="prev" title="大数据积累笔记">
+                大数据积累笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="追寻原风景" />
+            
+              <p class="site-author-name" itemprop="name">追寻原风景</p>
+              <p class="site-description motion-element" itemprop="description">得一善，则拳拳服膺而弗失之矣！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xiaohao890809" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/xiaohao89" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯"><span class="nav-number">1.</span> <span class="nav-text">朴素贝叶斯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息增益"><span class="nav-number">2.</span> <span class="nav-text">信息增益</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">追寻原风景</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

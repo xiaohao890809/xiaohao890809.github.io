@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Etiquette's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后来想了下，VBA作为 Office 工具的原生态语言，何不用 VBA 实现呢，于是整理了下便写出来了，下面介绍下过程，为方便起见，弄了一些简易的数据，针对不同的数据需要做一些相应的调整。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VBA实现Excel的笛卡尔积">
+<meta property="og:url" content="http://xiaohao890809.github.io/2018/01/12/The-decare-by-excel/index.html">
+<meta property="og:site_name" content="Etiquette&#39;s Blog">
+<meta property="og:description" content="最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后来想了下，VBA作为 Office 工具的原生态语言，何不用 VBA 实现呢，于是整理了下便写出来了，下面介绍下过程，为方便起见，弄了一些简易的数据，针对不同的数据需要做一些相应的调整。">
+<meta property="og:image" content="http://opsnyxhx4.bkt.clouddn.com/beforeDiCar.jpeg">
+<meta property="og:image" content="http://opsnyxhx4.bkt.clouddn.com/mould.jpeg">
+<meta property="og:image" content="http://opsnyxhx4.bkt.clouddn.com/afterDiCar.jpeg">
+<meta property="og:updated_time" content="2018-01-30T13:47:04.580Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VBA实现Excel的笛卡尔积">
+<meta name="twitter:description" content="最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后来想了下，VBA作为 Office 工具的原生态语言，何不用 VBA 实现呢，于是整理了下便写出来了，下面介绍下过程，为方便起见，弄了一些简易的数据，针对不同的数据需要做一些相应的调整。">
+<meta name="twitter:image" content="http://opsnyxhx4.bkt.clouddn.com/beforeDiCar.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xiaohao890809.github.io/2018/01/12/The-decare-by-excel/"/>
+
+
+
+
+
+  <title>VBA实现Excel的笛卡尔积 | Etiquette's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a5db5bc9a86719379988e71b38e6dd81";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Etiquette's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">越努力，越幸运！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'eSNRQcfBht1smJ-hn_iQ','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiaohao890809.github.io/2018/01/12/The-decare-by-excel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="追寻原风景">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Etiquette's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VBA实现Excel的笛卡尔积</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-12T23:40:23+08:00">
+                2018-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后来想了下，VBA作为 Office 工具的原生态语言，何不用 VBA 实现呢，于是整理了下便写出来了，下面介绍下过程，为方便起见，弄了一些简易的数据，针对不同的数据需要做一些相应的调整。<br><a id="more"></a> </p>
+<p>Excel的原始数据如下：</p>
+<p><img src="http://opsnyxhx4.bkt.clouddn.com/beforeDiCar.jpeg" alt="原始数据" title="原始数据"></p>
+<p>整个 <code>VBA</code> 的代码框架如下：</p>
+<p><img src="http://opsnyxhx4.bkt.clouddn.com/mould.jpeg" alt="代码框架" title="代码框架"></p>
+<h2 id="类模块"><a href="#类模块" class="headerlink" title="类模块"></a>类模块</h2><p>原始数据对应的首行信息，每一列对应一个元素，将其列出，作为一个新的数组。<br><figure class="highlight vb"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Public</span> a <span class="keyword">As</span> <span class="built_in">String</span></div><div class="line"><span class="keyword">Public</span> b <span class="keyword">As</span> <span class="built_in">String</span></div><div class="line"><span class="keyword">Public</span> c <span class="keyword">As</span> <span class="built_in">String</span></div><div class="line"><span class="keyword">Public</span> d <span class="keyword">As</span> <span class="built_in">String</span></div></pre></td></tr></table></figure></p>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><figure class="highlight vb"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Public</span> <span class="keyword">Const</span> maxNum = <span class="number">100000</span></div><div class="line"><span class="keyword">Public</span> MyArr(maxNum) <span class="keyword">As</span> <span class="keyword">New</span> MyAttr</div><div class="line"><span class="keyword">Public</span> MyNum <span class="keyword">As</span> <span class="built_in">Integer</span></div></pre></td></tr></table></figure>
+<h2 id="主函数"><a href="#主函数" class="headerlink" title="主函数"></a>主函数</h2><p>思路是分别拆分每一行的那两列元素，然后将得到的元素做两个循环，遍历写入新的数组中，然后将新的数组传到工作簿中。</p>
+<h3 id="获取最大行数"><a href="#获取最大行数" class="headerlink" title="获取最大行数"></a>获取最大行数</h3><figure class="highlight vb"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Public</span> <span class="keyword">Function</span> GetLastRow(theSheet <span class="keyword">As</span> Worksheet, <span class="keyword">ByVal</span> col <span class="keyword">As</span> <span class="built_in">Integer</span>) <span class="keyword">As</span> <span class="built_in">Integer</span></div><div class="line">  </div><div class="line">  <span class="keyword">Dim</span> findreg <span class="keyword">As</span> Range, ret <span class="keyword">As</span> Range</div><div class="line">  <span class="keyword">Set</span> findreg = theSheet.Columns(col)</div><div class="line">  <span class="keyword">Set</span> ret = findreg.Find(what:=<span class="string">"*"</span>, searchDirection:=xlPrevious)</div><div class="line">  <span class="keyword">If</span> <span class="keyword">Not</span> ret <span class="keyword">Is</span> <span class="literal">Nothing</span> <span class="keyword">Then</span></div><div class="line">    GetLastRow = ret.Row</div><div class="line">  <span class="keyword">Else</span></div><div class="line">    GetLastRow = <span class="number">0</span></div><div class="line">  <span class="keyword">End</span> <span class="keyword">If</span></div><div class="line"></div><div class="line"><span class="keyword">End</span> <span class="keyword">Function</span></div></pre></td></tr></table></figure>
+<h3 id="写入数组元素"><a href="#写入数组元素" class="headerlink" title="写入数组元素"></a>写入数组元素</h3><figure class="highlight vb"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Public</span> <span class="keyword">Function</span> WriteMsg(a <span class="keyword">As</span> <span class="built_in">String</span>, b <span class="keyword">As</span> <span class="built_in">String</span>, c <span class="keyword">As</span> <span class="built_in">String</span>, d <span class="keyword">As</span> <span class="built_in">String</span>)</div><div class="line"></div><div class="line">  MyArr(MyNum).a = a</div><div class="line">  MyArr(MyNum).b = b</div><div class="line">  MyArr(MyNum).c = c</div><div class="line">  MyArr(MyNum).d = d</div><div class="line">  MyNum = MyNum + <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">End</span> <span class="keyword">Function</span></div></pre></td></tr></table></figure>
+<h3 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h3><p>假设新的工作簿的名字叫<code>Sheet2</code>，并且首行元素已经事先写好。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">Sub calc()</div><div class="line">    </div><div class="line">  Dim thisSheet As Worksheet</div><div class="line">  Set thisSheet = ActiveSheet</div><div class="line">  </div><div class="line">  Dim lastRow As Integer</div><div class="line">  lastRow = GetLastRow(thisSheet, 1)</div><div class="line"></div><div class="line">  MyNum = 0</div><div class="line">  </div><div class="line">  Dim a As Variant</div><div class="line">  Dim b As Variant</div><div class="line">  Dim c As Variant</div><div class="line">  Dim d As Variant</div><div class="line"></div><div class="line">  Dim tmp1 As String</div><div class="line">  Dim tmp2 As String</div><div class="line"></div><div class="line">  For i = 2 To lastRow</div><div class="line">    a = Split(Range("B" &amp; i), ";")</div><div class="line">    b = UBound(a)</div><div class="line">    c = Split(Range("C" &amp; i), ";")</div><div class="line">    d = UBound(c)</div><div class="line"></div><div class="line">    For j = 0 To b</div><div class="line">      tmp1 = a(j)</div><div class="line">      For k = 0 To d</div><div class="line">        tmp2 = c(k)</div><div class="line">        WriteMsg Range("A" &amp; i), tmp1, tmp2, Range("D" &amp; i)</div><div class="line">      Next</div><div class="line"></div><div class="line">    Next</div><div class="line"></div><div class="line">  Next</div><div class="line">  </div><div class="line">  MsgBox MyNum</div><div class="line">  </div><div class="line">  For i = 0 To MyNum - 1</div><div class="line">    Sheets("Sheet2").Range("A" &amp; i + 2) = MyArr(i).a</div><div class="line">    Sheets("Sheet2").Range("B" &amp; i + 2) = MyArr(i).b</div><div class="line">    Sheets("Sheet2").Range("C" &amp; i + 2) = MyArr(i).c</div><div class="line">    Sheets("Sheet2").Range("D" &amp; i + 2) = MyArr(i).d</div><div class="line">  Next</div><div class="line"></div><div class="line">End Sub</div></pre></td></tr></table></figure></p>
+<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="http://opsnyxhx4.bkt.clouddn.com/afterDiCar.jpeg" alt="效果预览" title="效果预览"></p>
+<h2 id="文件链接"><a href="#文件链接" class="headerlink" title="文件链接"></a>文件链接</h2><p><a href="http://opsnyxhx4.bkt.clouddn.com/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.xlsm" target="_blank" rel="external">笛卡尔积.xlsm</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/11/The-classic-sorts/" rel="next" title="经典排序法之Python版">
+                <i class="fa fa-chevron-left"></i> 经典排序法之Python版
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/30/The-functions-of-python/" rel="prev" title="Python知识总结">
+                Python知识总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="追寻原风景" />
+            
+              <p class="site-author-name" itemprop="name">追寻原风景</p>
+              <p class="site-description motion-element" itemprop="description">得一善，则拳拳服膺而弗失之矣！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xiaohao890809" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/xiaohao89" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类模块"><span class="nav-number">1.</span> <span class="nav-text">类模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常量"><span class="nav-number">2.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主函数"><span class="nav-number">3.</span> <span class="nav-text">主函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取最大行数"><span class="nav-number">3.1.</span> <span class="nav-text">获取最大行数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写入数组元素"><span class="nav-number">3.2.</span> <span class="nav-text">写入数组元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主程序"><span class="nav-number">3.3.</span> <span class="nav-text">主程序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果预览"><span class="nav-number">4.</span> <span class="nav-text">效果预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件链接"><span class="nav-number">5.</span> <span class="nav-text">文件链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">追寻原风景</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
