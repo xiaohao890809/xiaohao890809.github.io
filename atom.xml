@@ -574,10 +574,10 @@
     <link href="http://xiaohao890809.github.io/2017/12/31/The-leetcode-of-python/"/>
     <id>http://xiaohao890809.github.io/2017/12/31/The-leetcode-of-python/</id>
     <published>2017-12-31T03:26:23.000Z</published>
-    <updated>2018-04-18T14:43:03.727Z</updated>
+    <updated>2018-08-10T12:59:11.126Z</updated>
     
     <content type="html"><![CDATA[<p>记录 LeetCode 的算法习题，用 Python3 语言进行实现，Python还是很强大的，有些 built-in 函数很简洁，一行代码解决问题。<br><a id="more"></a> </p>
-<h2 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h2><h3 id="Power-of-Two"><a href="#Power-of-Two" class="headerlink" title="Power of Two"></a>Power of Two</h3><p><a href="https://leetcode.com/problems/power-of-two/description/" target="_blank" rel="external">231. Power of Two</a><br>Given an integer, write a function to determine if it is a power of two.</p>
+<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><h3 id="2的幂"><a href="#2的幂" class="headerlink" title="2的幂"></a>2的幂</h3><p><a href="https://leetcode.com/problems/power-of-two/description/" target="_blank" rel="external">231. 2的幂</a><br>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p>
 <p><strong>题解：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">isPowerOfTwo</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    :type n: int</div><div class="line">    :rtype: bool</div><div class="line">    """</div><div class="line">    <span class="keyword">return</span> n &gt; <span class="number">0</span> <span class="keyword">and</span> <span class="keyword">not</span> (n &amp; n<span class="number">-1</span>)</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>n &amp; n - 1 removes the left most bit of n. If an integer is power of 2, there is a single bit in the binary representation of n. e.g. 16 = b10000, 16 - 1 = b01111, and 16 &amp; 16 - 1 = b10000 &amp; b01111 = 0, also 16 != 0, based on these facts there is only one bit in b10000, so 16 is power of 2.</p>
