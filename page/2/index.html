@@ -2,15 +2,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -32,62 +44,12 @@
 
 
 
-  <meta name="baidu-site-verification" content="true" />
 
 
 
 
 
 
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -96,46 +58,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Etiquette's Blog" type="application/atom+xml" />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
 
 
 
 
 
 
-<meta name="description" content="得一善，则拳拳服膺而弗失之矣！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Etiquette&#39;s Blog">
-<meta property="og:url" content="http://xiaohao890809.github.io/page/2/index.html">
-<meta property="og:site_name" content="Etiquette&#39;s Blog">
-<meta property="og:description" content="得一善，则拳拳服膺而弗失之矣！">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Etiquette&#39;s Blog">
-<meta name="twitter:description" content="得一善，则拳拳服膺而弗失之矣！">
 
 
 
@@ -143,16 +84,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -164,12 +103,37 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="得一善，则拳拳服膺而弗失之矣！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Etiquette&#39;s Blog">
+<meta property="og:url" content="http://xiaohao890809.github.io/page/2/index.html">
+<meta property="og:site_name" content="Etiquette&#39;s Blog">
+<meta property="og:description" content="得一善，则拳拳服膺而弗失之矣！">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Etiquette&#39;s Blog">
+<meta name="twitter:description" content="得一善，则拳拳服膺而弗失之矣！">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Etiquette's Blog" type="application/atom+xml" />
+
+
+
 
   <link rel="canonical" href="http://xiaohao890809.github.io/page/2/"/>
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>Etiquette's Blog</title>
   
@@ -178,18 +142,36 @@
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?a5db5bc9a86719379988e71b38e6dd81";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
 </head>
 
@@ -210,19 +192,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Etiquette's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">越努力，越幸运！</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -230,55 +214,37 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Accueil</a>
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
 
       
+      
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -286,12 +252,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -304,6 +278,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -313,7 +289,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追寻原风景">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="得一善，则拳拳服膺而弗失之矣！">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -328,25 +304,52 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/12/The-decare-by-excel/" itemprop="url">VBA实现Excel的笛卡尔积</a></h1>
+                <a class="post-title-link" href="/2018/01/12/The-decare-by-excel/" itemprop="url">
+                  VBA实现Excel的笛卡尔积
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posté le</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-12T23:40:23+08:00">
-                2018-01-12
-              </time>
+
+              
+                
+              
+
+              <time title="Post created: 2018-01-12 23:40:23" itemprop="dateCreated datePublished" datetime="2018-01-12T23:40:23+08:00">2018-01-12</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-01-30 21:47:04" itemprop="dateModified" datetime="2018-01-30T21:47:04+08:00">2018-01-30</time>
+              
             
           </span>
 
@@ -359,14 +362,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
@@ -405,13 +404,16 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/12/The-decare-by-excel/#more" rel="contents">
-              阅读全文 &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
@@ -450,6 +452,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -459,7 +463,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追寻原风景">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="得一善，则拳拳服膺而弗失之矣！">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -474,25 +478,52 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/11/The-classic-sorts/" itemprop="url">经典排序法之Python版</a></h1>
+                <a class="post-title-link" href="/2018/01/11/The-classic-sorts/" itemprop="url">
+                  经典排序法之Python版
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posté le</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-11T23:11:23+08:00">
-                2018-01-11
-              </time>
+
+              
+                
+              
+
+              <time title="Post created: 2018-01-11 23:11:23" itemprop="dateCreated datePublished" datetime="2018-01-11T23:11:23+08:00">2018-01-11</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-01-12 20:09:13" itemprop="dateModified" datetime="2018-01-12T20:09:13+08:00">2018-01-12</time>
+              
             
           </span>
 
@@ -505,14 +536,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
@@ -551,13 +578,16 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/11/The-classic-sorts/#more" rel="contents">
-              阅读全文 &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
@@ -596,6 +626,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -605,7 +637,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追寻原风景">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="得一善，则拳拳服膺而弗失之矣！">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -620,25 +652,40 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/07/The-poetry-of-nowdays/" itemprop="url">近代诗歌节选</a></h1>
+                <a class="post-title-link" href="/2018/01/07/The-poetry-of-nowdays/" itemprop="url">
+                  近代诗歌节选
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posté le</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-07T21:04:23+08:00">
-                2018-01-07
-              </time>
+
+              
+                
+              
+
+              <time title="Post created: 2018-01-07 21:04:23 / Updated at: 21:08:19" itemprop="dateCreated datePublished" datetime="2018-01-07T21:04:23+08:00">2018-01-07</time>
             
 
             
+              
 
+              
             
           </span>
 
@@ -651,14 +698,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/阅读/" itemprop="url" rel="index">
-                    <span itemprop="name">阅读</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/阅读/" itemprop="url" rel="index"><span itemprop="name">阅读</span></a></span>
 
                 
                 
@@ -699,13 +742,16 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/07/The-poetry-of-nowdays/#more" rel="contents">
-              阅读全文 &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
@@ -744,6 +790,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -753,7 +801,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追寻原风景">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="得一善，则拳拳服膺而弗失之矣！">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -768,25 +816,52 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/31/The-leetcode-of-python/" itemprop="url">LeetCode题解Python版本</a></h1>
+                <a class="post-title-link" href="/2017/12/31/The-leetcode-of-python/" itemprop="url">
+                  LeetCode题解Python版本
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posté le</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-31T11:26:23+08:00">
-                2017-12-31
-              </time>
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-31 11:26:23" itemprop="dateCreated datePublished" datetime="2017-12-31T11:26:23+08:00">2017-12-31</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-04-18 22:43:03" itemprop="dateModified" datetime="2018-04-18T22:43:03+08:00">2018-04-18</time>
+              
             
           </span>
 
@@ -799,14 +874,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
@@ -845,13 +916,16 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/31/The-leetcode-of-python/#more" rel="contents">
-              阅读全文 &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
@@ -890,6 +964,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -899,7 +975,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="追寻原风景">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="得一善，则拳拳服膺而弗失之矣！">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -914,25 +990,52 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/31/The-humorous-words/" itemprop="url">幽默语录</a></h1>
+                <a class="post-title-link" href="/2017/12/31/The-humorous-words/" itemprop="url">
+                  幽默语录
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posté le</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-31T09:56:23+08:00">
-                2017-12-31
-              </time>
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-31 09:56:23" itemprop="dateCreated datePublished" datetime="2017-12-31T09:56:23+08:00">2017-12-31</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-01-07 21:22:44" itemprop="dateModified" datetime="2018-01-07T21:22:44+08:00">2018-01-07</time>
+              
             
           </span>
 
@@ -972,13 +1075,16 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/31/The-humorous-words/#more" rel="contents">
-              阅读全文 &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
@@ -1013,15 +1119,12 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1048,50 +1151,74 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.gif"
-                alt="追寻原风景" />
-            
               <p class="site-author-name" itemprop="name">追寻原风景</p>
               <p class="site-description motion-element" itemprop="description">得一善，则拳拳服膺而弗失之矣！</p>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">articles</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">15</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
+            </nav>
+          
 
           
             <div class="feed-link motion-element">
@@ -1103,22 +1230,6 @@
           
 
           
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/xiaohao890809" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="http://weibo.com/xiaohao89" target="_blank" title="微博">
-                      
-                        <i class="fa fa-fw fa-weibo"></i>微博</a>
-                  </span>
-                
-            </div>
-          
 
           
           
@@ -1126,6 +1237,9 @@
           
           
 
+          
+            
+          
           
 
         </div>
@@ -1145,17 +1259,21 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">追寻原风景</span>
+
+  
 
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.3.5</div>
 
 
 
@@ -1163,19 +1281,12 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">Thème – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-
-  
-</div>
 
 
 
@@ -1192,13 +1303,14 @@
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
-          <span id="scrollpercent"><span>0</span>%</span>
-        
       </div>
     
 
     
+	
+    
 
+    
   </div>
 
   
@@ -1217,7 +1329,11 @@
 
 
 
-  
+
+
+
+
+
 
 
 
@@ -1237,16 +1353,6 @@
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -1255,51 +1361,25 @@
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
 
 
 
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
   
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
 
 
 
@@ -1307,11 +1387,7 @@
 
 
 
-
-
   
-
-
 
 
 
@@ -1333,48 +1409,17 @@
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
 
+  
 
   
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
+  
 
   
 
