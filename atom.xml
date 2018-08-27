@@ -574,7 +574,7 @@
     <link href="http://xiaohao890809.github.io/2017/12/31/The-leetcode-of-python/"/>
     <id>http://xiaohao890809.github.io/2017/12/31/The-leetcode-of-python/</id>
     <published>2017-12-31T03:26:23.000Z</published>
-    <updated>2018-08-27T12:23:46.256Z</updated>
+    <updated>2018-08-27T12:25:30.308Z</updated>
     
     <content type="html"><![CDATA[<p>记录 LeetCode 的算法习题，用 Python3 语言进行实现，Python还是很强大的，有些 built-in 函数很简洁，一行代码解决问题。<br><a id="more"></a> </p>
 <h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><h3 id="2的幂"><a href="#2的幂" class="headerlink" title="2的幂"></a>2的幂</h3><p><a href="https://leetcode.com/problems/power-of-two/description/" target="_blank" rel="external">231. 2的幂</a><br>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p>
@@ -644,19 +644,7 @@
 </ol>
 <h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><h3 id="最小路径和"><a href="#最小路径和" class="headerlink" title="最小路径和"></a>最小路径和</h3><p><a href="https://leetcode.com/problems/minimum-path-sum/description/" target="_blank" rel="external">64. 最小路径和</a><br>给定一个包含非负整数的 m x n 网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。<br><strong>说明：</strong>每次只能向下或者向右移动一步。</p>
 <p><strong>示例</strong><br>‘’’<br>输入:<br>[<br>  [1,3,1],<br>  [1,5,1],<br>  [4,2,1]<br>]<br>输出: 7<br>解释: 因为路径 1→3→1→1→1 的总和最小。<br>‘’’</p>
-<p><strong>解题：</strong><br><code>`</code>python<br>def minPathSum(grid):<br>    “””<br>    :type grid: List[List[int]]<br>    :rtype: int<br>    “””<br>    m = len(grid) # 宽度<br>    n = len(grid[0]) # 长度</p>
-<pre><code># 第一列累加求和
-for i in range(1,m):
-    grid[i][0] += grid[i-1][0]
-# 第一行累加求和
-for i in range(1,n):
-    grid[0][i] += grid[0][i-1]
-# 依次往下往右取上面和左边的最小值进行累加求和
-for i in range(1,m):
-    for j in range(1,n):
-        grid[i][j] += min(grid[i][j-1],grid[i-1][j])
-return grid[-1][-1]
-</code></pre><h1 id="类似百度地图的求最短路径"><a href="#类似百度地图的求最短路径" class="headerlink" title="类似百度地图的求最短路径"></a>类似百度地图的求最短路径</h1><p>‘’’</p>
+<p><strong>解题：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">minPathSum</span><span class="params">(grid)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    :type grid: List[List[int]]</div><div class="line">    :rtype: int</div><div class="line">    """</div><div class="line">    m = len(grid) <span class="comment"># 宽度</span></div><div class="line">    n = len(grid[<span class="number">0</span>]) <span class="comment"># 长度</span></div><div class="line">    <span class="comment"># 第一列累加求和</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,m):</div><div class="line">        grid[i][<span class="number">0</span>] += grid[i<span class="number">-1</span>][<span class="number">0</span>]</div><div class="line">    <span class="comment"># 第一行累加求和</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n):</div><div class="line">        grid[<span class="number">0</span>][i] += grid[<span class="number">0</span>][i<span class="number">-1</span>]</div><div class="line">    <span class="comment"># 依次往下往右取上面和左边的最小值进行累加求和</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,m):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,n):</div><div class="line">            grid[i][j] += min(grid[i][j<span class="number">-1</span>],grid[i<span class="number">-1</span>][j])</div><div class="line">    <span class="keyword">return</span> grid[<span class="number">-1</span>][<span class="number">-1</span>]</div><div class="line"></div><div class="line"><span class="comment"># 类似百度地图的求最短路径</span></div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
