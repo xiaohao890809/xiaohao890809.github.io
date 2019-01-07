@@ -46,7 +46,7 @@
     <link href="http://xiaohao890809.github.io/2018/03/07/The-note-of-probability-theory/"/>
     <id>http://xiaohao890809.github.io/2018/03/07/The-note-of-probability-theory/</id>
     <published>2018-03-07T15:54:23.000Z</published>
-    <updated>2019-01-07T11:56:05.237Z</updated>
+    <updated>2019-01-07T11:57:53.097Z</updated>
     
     <content type="html"><![CDATA[<p>机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。<br><a id="more"></a> </p>
 <p>三箱零件，其中第一箱 10 个零件，第二箱 20 个零件，第三箱 15 个。检验结果表明第一箱有 1 个不合格，第二箱有 3 个不合格，第三箱有 2 个不合格，从中抽取一个零件，合格的概率有多少？</p>
@@ -351,7 +351,7 @@
 <p>同理：</p>
 <p>$$<br>\begin{align}<br>&amp;Gain(价格)=0.2098\\<br>&amp;Gain(关键部件)=0.151\\<br>&amp;Gain(可靠性)=0.10194<br>\end{align}<br>$$</p>
 <p>因此：<br>$$<br>Gain(可靠性)&lt;Gain(关键部件)&lt;Gain(价格)&lt;Gain(役龄)<br>$$</p>
-<p>分类结果如图所示：<br><img src="信息增益.jpg" alt="信息增益" title="信息增益"></p>
+<p>分类结果如图所示：<br><img src="/images/信息增益.jpg" alt="信息增益" title="信息增益"></p>
 ]]></content>
     
     <summary type="html">
