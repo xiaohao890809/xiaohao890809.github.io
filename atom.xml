@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaohao890809.github.io/"/>
-  <updated>2018-08-09T03:19:51.852Z</updated>
+  <updated>2019-01-07T15:47:56.973Z</updated>
   <id>http://xiaohao890809.github.io/</id>
   
   <author>
@@ -20,13 +20,13 @@
     <link href="http://xiaohao890809.github.io/2018/03/18/The-note-of-big-data/"/>
     <id>http://xiaohao890809.github.io/2018/03/18/The-note-of-big-data/</id>
     <published>2018-03-18T15:55:23.000Z</published>
-    <updated>2018-08-09T03:19:51.852Z</updated>
+    <updated>2019-01-07T15:47:56.973Z</updated>
     
     <content type="html"><![CDATA[<p>本文记载一些平时遇到的大数据相关的问题，坑遇多了，相应的处理问题的能力也提高了。<br><a id="more"></a> </p>
 <h2 id="presto"><a href="#presto" class="headerlink" title="presto"></a>presto</h2><h3 id="presto无法删除表"><a href="#presto无法删除表" class="headerlink" title="presto无法删除表"></a>presto无法删除表</h3><blockquote>
 <p>presto Access Denied: Cannot drop table</p>
 </blockquote>
-<p><strong>解决办法：</strong><br>在 Catalog 文件里修改 hive 配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hive.allow-drop-table = true</div></pre></td></tr></table></figure></p>
+<p><strong>解决办法：</strong><br>在 Catalog 文件里修改 hive 配置 😇<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hive.allow-drop-table = true</div></pre></td></tr></table></figure></p>
 <h3 id="presto不能删除某行"><a href="#presto不能删除某行" class="headerlink" title="presto不能删除某行"></a>presto不能删除某行</h3><p>建表的时候设置 partitioned_by 参数，如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">user</span>(</div><div class="line">    <span class="keyword">id</span> <span class="built_in">bigint</span>,</div><div class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span></div><div class="line">)<span class="keyword">WITH</span>(</div><div class="line">    partitioned_by = <span class="built_in">ARRAY</span>[<span class="string">'name'</span>]</div><div class="line">);</div></pre></td></tr></table></figure></p>
 ]]></content>
     
@@ -518,14 +518,14 @@
     <link href="http://xiaohao890809.github.io/2018/01/11/The-classic-sorts/"/>
     <id>http://xiaohao890809.github.io/2018/01/11/The-classic-sorts/</id>
     <published>2018-01-11T15:11:23.000Z</published>
-    <updated>2018-01-12T12:09:13.876Z</updated>
+    <updated>2019-02-27T02:46:03.362Z</updated>
     
     <content type="html"><![CDATA[<p>大学的时候学习的经典算法忘记差不多了，现在赶紧拾起来，基本算法往往是复杂算法的基础，牢记掌握才是王道。<br><a id="more"></a> </p>
-<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p><img src="http://opsnyxhx4.bkt.clouddn.com/sort/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.gif" alt="冒泡排序"></p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p><img src="/images/冒泡排序.jif" alt="冒泡排序"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">BubbleSorted</span><span class="params">(nums)</span>:</span></div><div class="line">    length = len(nums)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(length<span class="number">-1</span>):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(length-i<span class="number">-1</span>):</div><div class="line">            <span class="keyword">if</span> nums[j]&gt;nums[j+<span class="number">1</span>]:</div><div class="line">                nums[j],nums[j+<span class="number">1</span>] = nums[j+<span class="number">1</span>],nums[j]</div><div class="line">    <span class="keyword">return</span> nums</div></pre></td></tr></table></figure>
-<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p><img src="http://opsnyxhx4.bkt.clouddn.com/sort/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.gif" alt="插入排序"></p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p><img src="/images/插入排序.jif" alt="插入排序"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">InsertSorted</span><span class="params">(nums)</span>:</span></div><div class="line">    <span class="comment"># 从第二元素开始直到最后一个元素</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</div><div class="line">        tmp = nums[i]</div><div class="line">        print(nums)</div><div class="line">        j = i<span class="number">-1</span></div><div class="line">        <span class="keyword">while</span> j&gt;=<span class="number">0</span> <span class="keyword">and</span> nums[j]&gt;tmp:</div><div class="line">            nums[j+<span class="number">1</span>] = nums[j]</div><div class="line">            j = j - <span class="number">1</span></div><div class="line">        nums[j+<span class="number">1</span>] = tmp</div><div class="line">    <span class="keyword">return</span> nums</div></pre></td></tr></table></figure>
-<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p><img src="http://opsnyxhx4.bkt.clouddn.com/sort/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" alt="选择排序"></p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p><img src="/images/选择排序.jif" alt="选择排序"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">SelectSorted</span><span class="params">(nums)</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)<span class="number">-1</span>):</div><div class="line">        minIndex = i</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,len(nums)):</div><div class="line">            <span class="keyword">if</span> nums[j] &lt; nums[minIndex]:</div><div class="line">                minIndex = j</div><div class="line">        nums[i],nums[minIndex] = nums[minIndex],nums[i]</div><div class="line">    <span class="keyword">return</span> nums</div></pre></td></tr></table></figure>
 <p><strong>图片来源：</strong><a href="http://www.cnblogs.com/ytb-wpq/p/6479240.html" target="_blank" rel="external">常用算法js版</a></p>
 ]]></content>

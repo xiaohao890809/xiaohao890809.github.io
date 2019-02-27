@@ -160,7 +160,7 @@
 <meta property="og:url" content="http://xiaohao890809.github.io/2018/03/18/The-note-of-big-data/index.html">
 <meta property="og:site_name" content="Etiquette&#39;s Blog">
 <meta property="og:description" content="本文记载一些平时遇到的大数据相关的问题，坑遇多了，相应的处理问题的能力也提高了。">
-<meta property="og:updated_time" content="2018-08-09T03:19:51.852Z">
+<meta property="og:updated_time" content="2019-01-07T15:47:56.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据积累笔记">
 <meta name="twitter:description" content="本文记载一些平时遇到的大数据相关的问题，坑遇多了，相应的处理问题的能力也提高了。">
@@ -416,7 +416,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-09 11:19:51" itemprop="dateModified" datetime="2018-08-09T11:19:51+08:00">2018-08-09</time>
+                <time title="修改时间：2019-01-07 23:47:56" itemprop="dateModified" datetime="2019-01-07T23:47:56+08:00">2019-01-07</time>
               
             
           </span>
@@ -481,7 +481,7 @@
 <h2 id="presto"><a href="#presto" class="headerlink" title="presto"></a>presto</h2><h3 id="presto无法删除表"><a href="#presto无法删除表" class="headerlink" title="presto无法删除表"></a>presto无法删除表</h3><blockquote>
 <p>presto Access Denied: Cannot drop table</p>
 </blockquote>
-<p><strong>解决办法：</strong><br>在 Catalog 文件里修改 hive 配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hive.allow-drop-table = true</div></pre></td></tr></table></figure></p>
+<p><strong>解决办法：</strong><br>在 Catalog 文件里修改 hive 配置 😇<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hive.allow-drop-table = true</div></pre></td></tr></table></figure></p>
 <h3 id="presto不能删除某行"><a href="#presto不能删除某行" class="headerlink" title="presto不能删除某行"></a>presto不能删除某行</h3><p>建表的时候设置 partitioned_by 参数，如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">user</span>(</div><div class="line">    <span class="keyword">id</span> <span class="built_in">bigint</span>,</div><div class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span></div><div class="line">)<span class="keyword">WITH</span>(</div><div class="line">    partitioned_by = <span class="built_in">ARRAY</span>[<span class="string">'name'</span>]</div><div class="line">);</div></pre></td></tr></table></figure></p>
 
       
