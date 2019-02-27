@@ -518,7 +518,7 @@
     <link href="http://xiaohao890809.github.io/2018/01/11/The-classic-sorts/"/>
     <id>http://xiaohao890809.github.io/2018/01/11/The-classic-sorts/</id>
     <published>2018-01-11T15:11:23.000Z</published>
-    <updated>2019-02-27T03:08:52.273Z</updated>
+    <updated>2019-02-27T03:09:07.064Z</updated>
     
     <content type="html"><![CDATA[<p>大学的时候学习的经典算法忘记差不多了，现在赶紧拾起来，基本算法往往是复杂算法的基础，牢记掌握才是王道。<br><a id="more"></a> </p>
 <h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p><img src="/images/冒泡排序.gif" alt="冒泡排序"></p>
@@ -529,7 +529,7 @@
 <p>属性：</p>
 </blockquote>
 <ul>
-<li>最有时间复杂度：$O(n)$(表示遍历一次没有发现任何可以交换的元素，排序结束)</li>
+<li>最有时间复杂度：$O(n)$ (表示遍历一次没有发现任何可以交换的元素，排序结束)</li>
 <li>最坏时间复杂度：$O(n^2)$</li>
 <li>稳定性：稳定</li>
 </ul>
