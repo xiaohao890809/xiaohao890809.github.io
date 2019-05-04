@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaohao890809.github.io/"/>
-  <updated>2019-01-07T15:47:56.973Z</updated>
+  <updated>2019-01-07T11:57:53.097Z</updated>
   <id>http://xiaohao890809.github.io/</id>
   
   <author>
@@ -14,32 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>大数据积累笔记</title>
-    <link href="http://xiaohao890809.github.io/2018/03/18/The-note-of-big-data/"/>
-    <id>http://xiaohao890809.github.io/2018/03/18/The-note-of-big-data/</id>
-    <published>2018-03-18T15:55:23.000Z</published>
-    <updated>2019-01-07T15:47:56.973Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文记载一些平时遇到的大数据相关的问题，坑遇多了，相应的处理问题的能力也提高了。<br><a id="more"></a> </p>
-<h2 id="presto"><a href="#presto" class="headerlink" title="presto"></a>presto</h2><h3 id="presto无法删除表"><a href="#presto无法删除表" class="headerlink" title="presto无法删除表"></a>presto无法删除表</h3><blockquote>
-<p>presto Access Denied: Cannot drop table</p>
-</blockquote>
-<p><strong>解决办法：</strong><br>在 Catalog 文件里修改 hive 配置 😇<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hive.allow-drop-table = true</div></pre></td></tr></table></figure></p>
-<h3 id="presto不能删除某行"><a href="#presto不能删除某行" class="headerlink" title="presto不能删除某行"></a>presto不能删除某行</h3><p>建表的时候设置 partitioned_by 参数，如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">user</span>(</div><div class="line">    <span class="keyword">id</span> <span class="built_in">bigint</span>,</div><div class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span></div><div class="line">)<span class="keyword">WITH</span>(</div><div class="line">    partitioned_by = <span class="built_in">ARRAY</span>[<span class="string">'name'</span>]</div><div class="line">);</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文记载一些平时遇到的大数据相关的问题，坑遇多了，相应的处理问题的能力也提高了。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="http://xiaohao890809.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>机器学习基础之概率论</title>
