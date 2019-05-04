@@ -82,14 +82,6 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[工作备忘录]]></title>
-    <url>%2F2017%2F12%2F02%2FThe-notes-of-work%2F</url>
-    <content type="text"><![CDATA[记录一些工作过程中可能遇到的一些配置，汇总起来作为参考，以便以后使用。 requests代理设置123456789import requestsmy_headers = &#123;"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"&#125;my_proxies = &#123; 'http':'http://用户名:密码@proxycn2.huawei.com:8080/', 'https':'https://用户名:密码@proxycn2.huawei.com:8080/'&#125;res = requests.get('http:www.baidu.com', headers=my_headers, proxies=my_proxies)res.encoding = 'utf-8'print(res.text) 弹窗验证方案(http验证)首先需要下载 Chromedriver.exe 在 python 安装根目录里 123456789101112131415161718192021222324252627import timeimport pyautoguiimport pyperclipfrom selenium import webdriveruser_name = ""user_pwd = ""def login(url): driver = webdriver.Chrome() driver.get(url) time.sleep(0.5) pyperclip.copy(user_name) pyautogui.hotkey('ctrl','v') time.sleep(1) pyperclip.copy(user_pwd) # keyDown表示按下去 pyautogui.keyDown('tab') pyautogui.hotkey('ctrl','v') time.sleep(1) pyautogui.keyDown('enter') time.sleep(3) return driverdriver = log('http://...')# 获取网页源代码print(driver.page_source)driver.close() 还有另外一种方法，更加直接，通过 requests 访问： http:账号:密码@网页]]></content>
-      <categories>
-        <category>工作</category>
-      </categories>
-  </entry>
-  <entry>
     <title><![CDATA[保持某些好的习惯]]></title>
     <url>%2F2017%2F09%2F26%2FSome-good-habits-need-to-insist%2F</url>
     <content type="text"><![CDATA[优秀是一种习惯，保持一个良好的习惯往往能引导一种健康的生活姿态，现在记录一些自己认为是比较好的一些习惯，自己经常去看看，用于监督和督促自己。 生活 一周至少运动两次（跑步，爬山，打球等） 晚上11点半准备看书，然后睡觉 一天至少三大杯水 平时多吃点水果 一个月清理一次房间 晚上睡前刷牙 技术 代码写完后多检查下注释有没有写全，没写的补上，以免以后都不知道自己当初写的啥 LeetCode过三遍 js和go语言了解下 正则表达式多熟悉 反思 每天问一遍自己，想进BAT吗，以你现在的能力能进BAT吗，不能的话哪些地方需要加强呢？ 工作 平时多看下面试相关的信息，刷刷题 把跟自己业务相关的数据库表多检查下 英语 熟读新概念英语第三册前30篇]]></content>
