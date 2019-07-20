@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaohao890809.github.io/"/>
-  <updated>2019-07-20T14:51:58.008Z</updated>
+  <updated>2019-07-20T14:55:14.023Z</updated>
   <id>http://xiaohao890809.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://xiaohao890809.github.io/2019/07/20/The-data-science-learning_1/"/>
     <id>http://xiaohao890809.github.io/2019/07/20/The-data-science-learning_1/</id>
     <published>2019-07-20T14:42:23.000Z</published>
-    <updated>2019-07-20T14:51:58.008Z</updated>
+    <updated>2019-07-20T14:55:14.023Z</updated>
     
     <content type="html"><![CDATA[<h2 id="数据的集中趋势"><a href="#数据的集中趋势" class="headerlink" title="数据的集中趋势"></a>数据的集中趋势</h2><h3 id="众数"><a href="#众数" class="headerlink" title="众数"></a>众数</h3><p>一组数据中出现次数最多的数值，叫<strong>众数</strong>。</p>
 <a id="more"></a> 
@@ -104,6 +104,8 @@
     
       <category term="数据" scheme="http://xiaohao890809.github.io/categories/%E6%95%B0%E6%8D%AE/"/>
     
+    
+      <category term="居士" scheme="http://xiaohao890809.github.io/tags/%E5%B1%85%E5%A3%AB/"/>
     
   </entry>
   
