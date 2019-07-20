@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaohao890809.github.io/"/>
-  <updated>2019-01-07T11:57:53.097Z</updated>
+  <updated>2019-07-20T14:51:58.008Z</updated>
   <id>http://xiaohao890809.github.io/</id>
   
   <author>
@@ -14,6 +14,98 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>居士自习室作业第一周</title>
+    <link href="http://xiaohao890809.github.io/2019/07/20/The-data-science-learning_1/"/>
+    <id>http://xiaohao890809.github.io/2019/07/20/The-data-science-learning_1/</id>
+    <published>2019-07-20T14:42:23.000Z</published>
+    <updated>2019-07-20T14:51:58.008Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="数据的集中趋势"><a href="#数据的集中趋势" class="headerlink" title="数据的集中趋势"></a>数据的集中趋势</h2><h3 id="众数"><a href="#众数" class="headerlink" title="众数"></a>众数</h3><p>一组数据中出现次数最多的数值，叫<strong>众数</strong>。</p>
+<a id="more"></a> 
+<blockquote>
+<p>注意：有时众数在一组数中有1个或多个，也可能不存在。</p>
+</blockquote>
+<h3 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h3><p>中位数，又称<strong>中点数</strong>，<strong>中值</strong>。</p>
+<p>中位数是按顺序排列的一组数据中居于中间位置的数，即在这组数据中，有一半的数据比他大，有一半的数据比他小。</p>
+<h3 id="平均数"><a href="#平均数" class="headerlink" title="平均数"></a>平均数</h3><ul>
+<li><p>算数平均数</p>
+<ul>
+<li>算术平均数是指在一组数据中所有数据之和再除以数据的个数。</li>
+<li>它是反映数据集中趋势的一项指标。</li>
+</ul>
+</li>
+<li><p>加权平均数</p>
+<ul>
+<li><strong>加权平均数</strong>即将各数值乘以相应的权数，然后加总求和得到总体值，再除以总的单位数。</li>
+<li>加权平均数也称<strong>加权平均值</strong>。</li>
+</ul>
+</li>
+<li><p>几何平均数</p>
+<ul>
+<li>几何平均数是n个变量值连乘积的n次方根。</li>
+</ul>
+</li>
+</ul>
+<h3 id="分位数"><a href="#分位数" class="headerlink" title="分位数"></a>分位数</h3><p>分位数(Quantile)，亦称分位点，是指将一个随机变量的概率分布范围分为几个等份的数值点。</p>
+<p>常用的有中位数(即二分位数)、四分位数、百分位数等。</p>
+<h2 id="数据的离中趋势"><a href="#数据的离中趋势" class="headerlink" title="数据的离中趋势"></a>数据的离中趋势</h2><h3 id="数值型数据"><a href="#数值型数据" class="headerlink" title="数值型数据"></a>数值型数据</h3><ul>
+<li><p>方差</p>
+<ul>
+<li>统计中的方差(样本方差)是每个样本值与全体样本值的平均数之差的<strong>平方值</strong>的平均数。</li>
+</ul>
+</li>
+<li><p>标准差</p>
+<ul>
+<li>标准差是方差的算术平方根。</li>
+</ul>
+</li>
+<li>极差<ul>
+<li>极差又称范围误差或全距(Range)，以R表示，是用来表示统计资料中的变异量数(measures of variation)。</li>
+<li>其最大值与最小值之间的差距，即最大值减最小值后所得之数据。</li>
+</ul>
+</li>
+<li>平均差<ul>
+<li>平均差(Mean Deviation)是表示各个变量值之间差异程度的数值之一。</li>
+<li>指各个变量值同平均数的离差绝对值的算术平均数。</li>
+</ul>
+</li>
+</ul>
+<h3 id="顺序数据"><a href="#顺序数据" class="headerlink" title="顺序数据"></a>顺序数据</h3><ul>
+<li>四分位差<ul>
+<li>四分位差(quartile deviation)，它是上四分位数(Q3，即位于75%)与下四分位数(Q1，即位于25%)的差。</li>
+</ul>
+</li>
+</ul>
+<h3 id="分类数据"><a href="#分类数据" class="headerlink" title="分类数据"></a>分类数据</h3><ul>
+<li>异众比率<ul>
+<li>异众比率(variation ratio)是统计学名词，是统计学当中研究现象离中趋势的指标之一。</li>
+<li>异众比率指的是总体中非众数次数与总体全部次数之比。</li>
+<li>换句话说，异众比率指非众数组的频数占总频数的比例。</li>
+</ul>
+</li>
+</ul>
+<h2 id="相对离散程度"><a href="#相对离散程度" class="headerlink" title="相对离散程度"></a>相对离散程度</h2><h3 id="离散系数"><a href="#离散系数" class="headerlink" title="离散系数"></a>离散系数</h3><p>在概率论和统计学中，离散系数(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为标准差 $\sigma$ 与平均值 $\mu$ 之比。</p>
+<h2 id="分布的形状"><a href="#分布的形状" class="headerlink" title="分布的形状"></a>分布的形状</h2><h3 id="偏态系数"><a href="#偏态系数" class="headerlink" title="偏态系数"></a>偏态系数</h3><p>偏态系数以平均值与中位数之差对标准差之比率来衡量偏斜的程度，用SK表示偏斜系数。</p>
+<ul>
+<li>偏态系数小于0，因为平均数在众数之左，是一种左偏的分布，又称为负偏。</li>
+<li>偏态系数大于0，因为均值在众数之右，是一种右偏的分布，又称为正偏。</li>
+</ul>
+<h3 id="峰态系数"><a href="#峰态系数" class="headerlink" title="峰态系数"></a>峰态系数</h3><p>峰度系数是用来反映频数分布曲线顶端尖峭或扁平程度的指标。</p>
+<p>有时两组数据的算术平均数、标准差和偏态系数都相同，但他们分布曲线顶端的高耸程度却不同。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;数据的集中趋势&quot;&gt;&lt;a href=&quot;#数据的集中趋势&quot; class=&quot;headerlink&quot; title=&quot;数据的集中趋势&quot;&gt;&lt;/a&gt;数据的集中趋势&lt;/h2&gt;&lt;h3 id=&quot;众数&quot;&gt;&lt;a href=&quot;#众数&quot; class=&quot;headerlink&quot; title=&quot;众数&quot;&gt;&lt;/a&gt;众数&lt;/h3&gt;&lt;p&gt;一组数据中出现次数最多的数值，叫&lt;strong&gt;众数&lt;/strong&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据" scheme="http://xiaohao890809.github.io/categories/%E6%95%B0%E6%8D%AE/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>机器学习基础之概率论</title>
