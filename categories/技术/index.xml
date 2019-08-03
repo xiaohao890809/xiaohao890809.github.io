@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>技术 on Even - A super concise theme for Hugo</title>
+    <title>技术 on 追寻原风景|耗子的博客</title>
     <link>http://xiaohao890809.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
-    <description>Recent content in 技术 on Even - A super concise theme for Hugo</description>
+    <description>Recent content in 技术 on 追寻原风景|耗子的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 01 Mar 2018 22:53:23 +0000</lastBuildDate>
@@ -44,7 +44,7 @@
       <pubDate>Thu, 11 Jan 2018 23:11:23 +0000</pubDate>
       
       <guid>http://xiaohao890809.github.io/post/2018-01-11-the-classic-sorts/</guid>
-      <description>大学的时候学习的经典算法忘记差不多了，现在赶紧拾起来，基本算法往往是复杂算法的基础，牢记掌握才是王道。 冒泡排序 center -- 1 2 3 4 5 6 7 def BubbleSorted(nums): length = len(nums) for</description>
+      <description>大学的时候学习的经典算法忘记差不多了，现在赶紧拾起来，基本算法往往是复杂算法的基础，牢记掌握才是王道。 冒泡排序 1 2 3 4 5 6 7 def BubbleSorted(nums): length = len(nums) for i in</description>
     </item>
     
   </channel>
