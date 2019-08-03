@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>VBA知识点总结 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="枕霞惜友" /><meta name="description" content="VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://xiaohao890809.github.io/post/2018-03-01-the-note-of-vba/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.9ff62e94.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="VBA知识点总结" />
+<meta property="og:description" content="VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xiaohao890809.github.io/post/2018-03-01-the-note-of-vba/" />
+<meta property="article:published_time" content="2018-03-01T22:53:23&#43;00:00"/>
+<meta property="article:modified_time" content="2018-03-01T22:53:23&#43;00:00"/>
+
+<meta itemprop="name" content="VBA知识点总结">
+<meta itemprop="description" content="VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法">
+
+
+<meta itemprop="datePublished" content="2018-03-01T22:53:23&#43;00:00" />
+<meta itemprop="dateModified" content="2018-03-01T22:53:23&#43;00:00" />
+<meta itemprop="wordCount" content="459">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="VBA知识点总结"/>
+<meta name="twitter:description" content="VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">追寻原风景</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">追寻原风景</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">VBA知识点总结</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-03-01 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 459 字 </span>
+          <span class="more-meta"> 预计阅读 1 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#常见错误">常见错误</a>
+<ul>
+<li><a href="#问题1">问题1</a></li>
+</ul></li>
+<li><a href="#常用函数">常用函数</a>
+<ul>
+<li><a href="#获取最大有效行数">获取最大有效行数</a></li>
+<li><a href="#获取最大有效列数">获取最大有效列数</a></li>
+</ul></li>
+<li><a href="#常用操作">常用操作</a>
+<ul>
+<li><a href="#分割字符串">分割字符串</a></li>
+<li><a href="#写入txt">写入txt</a></li>
+<li><a href="#查看下拉框所有内容">查看下拉框所有内容</a></li>
+<li><a href="#下拉框进行赋值">下拉框进行赋值</a></li>
+<li><a href="#获取选定单元格所在的行和列">获取选定单元格所在的行和列</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法。
+<!-- more --> </p>
+
+<h2 id="常见错误">常见错误</h2>
+
+<h3 id="问题1">问题1</h3>
+
+<blockquote>
+<p>此文件正由应用程序或另一用户使用。</p>
+</blockquote>
+
+<p>解决方案：打开后记得做退出关闭操作。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="k">Set</span> <span class="n">wdApp</span> <span class="o">=</span> <span class="n">GetObject</span><span class="p">(,</span><span class="s">&#34;word.application&#34;</span><span class="p">)</span>
+<span class="k">If</span> <span class="n">wdApp</span> <span class="ow">is</span> <span class="k">Nothing</span> <span class="k">Then</span>
+   <span class="n">Sef</span> <span class="n">wdApp</span> <span class="o">=</span> <span class="n">CreatObject</span><span class="p">(</span><span class="s">&#34;word.application&#34;</span><span class="p">)</span>
+   <span class="n">wdApp</span><span class="p">.</span><span class="n">Visible</span> <span class="o">=</span> <span class="k">True</span>
+<span class="k">End</span> <span class="k">If</span>
+<span class="n">wdApp</span><span class="p">.</span><span class="n">NormalTemplate</span><span class="p">.</span><span class="n">Saved</span> <span class="o">=</span> <span class="k">True</span>
+<span class="n">wdApp</span><span class="p">.</span><span class="n">Quit</span>
+<span class="k">Set</span> <span class="n">wdApp</span> <span class="o">=</span> <span class="k">Nothing</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="常用函数">常用函数</h2>
+
+<h3 id="获取最大有效行数">获取最大有效行数</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="k">Public</span> <span class="k">Function</span> <span class="nf">GetLastRow</span><span class="p">(</span><span class="n">theSheet</span> <span class="ow">As</span> <span class="n">Worksheet</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">col</span> <span class="ow">As</span> <span class="kt">Integer</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Integer</span>
+  
+   <span class="k">Dim</span> <span class="n">findreg</span> <span class="ow">As</span> <span class="n">Range</span><span class="p">,</span> <span class="n">ret</span> <span class="ow">As</span> <span class="n">Range</span>
+   <span class="k">Set</span> <span class="n">findreg</span> <span class="o">=</span> <span class="n">theSheet</span><span class="p">.</span><span class="n">Columns</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+   <span class="k">Set</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">findreg</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">what</span><span class="p">:</span><span class="o">=</span><span class="s">&#34;*&#34;</span><span class="p">,</span> <span class="n">searchDirection</span><span class="p">:</span><span class="o">=</span><span class="n">xlPrevious</span><span class="p">)</span>
+   <span class="k">If</span> <span class="k">Not</span> <span class="n">ret</span> <span class="ow">Is</span> <span class="k">Nothing</span> <span class="k">Then</span>
+      <span class="n">GetLastRow</span> <span class="o">=</span> <span class="n">ret</span><span class="p">.</span><span class="n">Row</span>
+   <span class="k">Else</span>
+      <span class="n">GetLastRow</span> <span class="o">=</span> <span class="n">0</span>
+   <span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Function</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="获取最大有效列数">获取最大有效列数</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="k">Public</span> <span class="k">Function</span> <span class="nf">GetLastCol</span><span class="p">(</span><span class="n">theSheet</span> <span class="ow">As</span> <span class="n">Worksheet</span><span class="p">,</span> <span class="k">ByVal</span> <span class="n">row</span> <span class="ow">As</span> <span class="kt">Integer</span><span class="p">)</span> <span class="ow">As</span> <span class="kt">Integer</span>
+  
+   <span class="k">Dim</span> <span class="n">findreg</span> <span class="ow">As</span> <span class="n">Range</span><span class="p">,</span> <span class="n">ret</span> <span class="ow">As</span> <span class="n">Range</span> 
+   <span class="k">Set</span> <span class="n">findreg</span> <span class="o">=</span> <span class="n">theSheet</span><span class="p">.</span><span class="n">Rows</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+   <span class="k">Set</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">findreg</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">what</span><span class="p">:</span><span class="o">=</span><span class="s">&#34;*&#34;</span><span class="p">,</span> <span class="n">searchDirection</span><span class="p">:</span><span class="o">=</span><span class="n">xlPrevious</span><span class="p">)</span>
+   <span class="k">If</span> <span class="k">Not</span> <span class="n">ret</span> <span class="ow">Is</span> <span class="k">Nothing</span> <span class="k">Then</span>
+      <span class="n">GetLastCol</span> <span class="o">=</span> <span class="n">ret</span><span class="p">.</span><span class="n">Column</span>
+   <span class="k">Else</span>
+      <span class="n">GetLastCol</span> <span class="o">=</span> <span class="n">0</span>
+   <span class="k">End</span> <span class="k">If</span>
+
+<span class="k">End</span> <span class="k">Function</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="常用操作">常用操作</h2>
+
+<h3 id="分割字符串">分割字符串</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="k">Dim</span> <span class="n">a</span> <span class="ow">as</span> <span class="kt">Variant</span>
+<span class="k">Dim</span> <span class="n">b</span> <span class="ow">as</span> <span class="kt">Variant</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">Split</span><span class="p">(</span><span class="s">&#34;Red$Blue$Yellow&#34;</span><span class="p">,</span><span class="s">&#34;$&#34;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">ubound</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span> <span class="k">to</span> <span class="n">b</span>
+   <span class="n">MsgBox</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">Next</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="写入txt">写入txt</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="k">Sub</span> <span class="nf">test</span><span class="p">()</span>
+   <span class="n">Open</span> <span class="n">ThisWorkbook</span><span class="p">.</span><span class="n">Path</span> <span class="o">&amp;</span> <span class="s">&#34;1.txt&#34;</span> <span class="k">For</span> <span class="n">Output</span><span class="p">(</span><span class="n">覆盖</span><span class="p">)</span><span class="o">/</span><span class="n">Append</span><span class="p">(</span><span class="n">追加</span><span class="p">)</span> <span class="ow">As</span> <span class="p">#</span><span class="n">1</span>
+   <span class="n">Print</span> <span class="p">#</span><span class="n">1</span><span class="p">,</span> <span class="s">&#34;test2&#34;</span>
+   <span class="n">Print</span> <span class="p">#</span><span class="n">1</span><span class="p">,</span> <span class="s">&#34;test3&#34;</span>
+   <span class="n">Close</span> <span class="p">#</span><span class="n">1</span>
+<span class="k">End</span> <span class="k">Sub</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="查看下拉框所有内容">查看下拉框所有内容</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="n">Range</span><span class="p">(</span><span class="s">&#34;D4&#34;</span><span class="p">).</span><span class="n">Validation</span><span class="p">.</span><span class="n">Formula1</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="下拉框进行赋值">下拉框进行赋值</h3>
+
+<ol>
+<li><p>第一种方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="n">ComboBox1</span><span class="p">.</span><span class="n">List</span> <span class="o">=</span> <span class="n">Split</span><span class="p">(</span><span class="s">&#34;张三,李四&#34;</span><span class="p">,</span><span class="s">&#34;,&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p>第二种方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="k">With</span> <span class="n">ComboBox1</span>
+<span class="p">.</span><span class="n">AddItem</span><span class="p">(</span><span class="s">&#34;str1&#34;</span><span class="p">)</span>
+<span class="k">End</span> <span class="k">With</span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+<h3 id="获取选定单元格所在的行和列">获取选定单元格所在的行和列</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="n">ActiveCell</span><span class="p">.</span><span class="n">Row</span>
+<span class="n">ActiveCell</span><span class="p">.</span><span class="n">Column</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2018-03-07-the-note-of-probability-theory/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">机器学习基础之概率论</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2018-02-27-the-study-of-reg-expression/">
+            <span class="next-text nav-default">正则表达式知识积累</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:xiaohao890809@126.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/xiaohao890809" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/xiaohao89" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://space.bilibili.com/259316011" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://xiaohao890809.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">枕霞惜友</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
