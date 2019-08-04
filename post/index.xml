@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 追寻原风景|耗子的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 20 Jul 2019 22:42:23 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jul 2019 17:42:23 +0000</lastBuildDate>
     
 	<atom:link href="http://xiaohao890809.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>居士自习室作业第二周</title>
+      <link>http://xiaohao890809.github.io/post/2019-07-28-the-data-science-learning_2/</link>
+      <pubDate>Sun, 28 Jul 2019 17:42:23 +0000</pubDate>
+      
+      <guid>http://xiaohao890809.github.io/post/2019-07-28-the-data-science-learning_2/</guid>
+      <description>在用 pandas 处理报表邮件的时候，有时会遇到处理二级表头，并进行合并的例子。例如： 研究了一下 pandas 的多级表头功能，发现它有一个 columns 的设置参数，可以新增两列</description>
+    </item>
     
     <item>
       <title>居士自习室作业第一周</title>

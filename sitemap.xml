@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xiaohao890809.github.io/post/2019-07-28-the-data-science-learning_2/</loc>
+    <lastmod>2019-07-28T17:42:23+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://xiaohao890809.github.io/post/2019-07-20-the-data-science-learning_1/</loc>
     <lastmod>2019-07-20T22:42:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -66,7 +73,7 @@
   
   <url>
     <loc>http://xiaohao890809.github.io/post/</loc>
-    <lastmod>2019-07-20T22:42:23+00:00</lastmod>
+    <lastmod>2019-07-28T17:42:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -87,7 +94,7 @@
   
   <url>
     <loc>http://xiaohao890809.github.io/tags/%E5%B1%85%E5%A3%AB/</loc>
-    <lastmod>2019-07-20T22:42:23+00:00</lastmod>
+    <lastmod>2019-07-28T17:42:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -122,7 +129,7 @@
   
   <url>
     <loc>http://xiaohao890809.github.io/</loc>
-    <lastmod>2019-07-20T22:42:23+00:00</lastmod>
+    <lastmod>2019-07-28T17:42:23+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
