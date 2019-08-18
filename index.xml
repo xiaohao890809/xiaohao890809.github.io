@@ -6,10 +6,19 @@
     <description>Recent content on 追寻原风景|耗子的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 28 Jul 2019 17:42:23 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Aug 2019 12:51:41 +0800</lastBuildDate>
     
 	<atom:link href="http://xiaohao890809.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>居士自习室作业第五周</title>
+      <link>http://xiaohao890809.github.io/post/2019-08-18-the-data-science-learning_5/</link>
+      <pubDate>Sun, 18 Aug 2019 12:51:41 +0800</pubDate>
+      
+      <guid>http://xiaohao890809.github.io/post/2019-08-18-the-data-science-learning_5/</guid>
+      <description>最常用的统计量与抽样分布 统计量 样本均值：样本均值(sample mean)又叫样本均数，即为样本的均值。均值是表示一组数据集中趋势的量数，是指</description>
+    </item>
     
     <item>
       <title>居士自习室作业第二周</title>
