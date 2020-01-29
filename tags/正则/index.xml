@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>正则 on 追寻原风景|耗子的博客</title>
+    <link>http://xiaohao890809.github.io/tags/%E6%AD%A3%E5%88%99/</link>
+    <description>Recent content in 正则 on 追寻原风景|耗子的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 27 Feb 2018 23:07:23 +0000</lastBuildDate>
+    
+	<atom:link href="http://xiaohao890809.github.io/tags/%E6%AD%A3%E5%88%99/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>正则表达式知识积累</title>
+      <link>http://xiaohao890809.github.io/post/2018-02-27-the-study-of-reg-expression/</link>
+      <pubDate>Tue, 27 Feb 2018 23:07:23 +0000</pubDate>
+      
+      <guid>http://xiaohao890809.github.io/post/2018-02-27-the-study-of-reg-expression/</guid>
+      <description>众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻</description>
+    </item>
+    
+  </channel>
+</rss>

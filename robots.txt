@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://xiaohao890809.github.io/sitemap.xml
