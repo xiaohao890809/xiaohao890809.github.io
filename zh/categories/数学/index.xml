@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数学 on 耗子的博客</title>
-    <link>http://xiaohao890809.github.io/zh/categories/%E6%95%B0%E5%AD%A6/</link>
+    <link>https://xiaohao890809.github.io/zh/categories/%E6%95%B0%E5%AD%A6/</link>
     <description>Recent content in 数学 on 耗子的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
@@ -11,17 +11,17 @@
     <copyright>&amp;copy;2015-{year}, All Rights Reserved</copyright>
     <lastBuildDate>Wed, 07 Mar 2018 23:54:23 +0900</lastBuildDate>
     
-        <atom:link href="http://xiaohao890809.github.io/zh/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://xiaohao890809.github.io/zh/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     
     
     
       
       <item>
         <title>机器学习基础之概率论</title>
-        <link>http://xiaohao890809.github.io/zh/posts/2018-03-07-the-note-of-probability-theory/</link>
+        <link>https://xiaohao890809.github.io/zh/posts/2018-03-07-the-note-of-probability-theory/</link>
         <pubDate>Wed, 07 Mar 2018 23:54:23 +0900</pubDate>
         <author>xiaohao890809@126.com (追寻原风景)</author>
-        <guid>http://xiaohao890809.github.io/zh/posts/2018-03-07-the-note-of-probability-theory/</guid>
+        <guid>https://xiaohao890809.github.io/zh/posts/2018-03-07-the-note-of-probability-theory/</guid>
         <description>机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。</description>
       </item>
       

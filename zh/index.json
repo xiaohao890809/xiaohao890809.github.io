@@ -1,6 +1,6 @@
 [
 {
-	"uri": "http://xiaohao890809.github.io/zh/showcase/hugo/hugo-theme-zzo/",
+	"uri": "https://xiaohao890809.github.io/zh/showcase/hugo/hugo-theme-zzo/",
 	"title": "Hugo Zzo Theme",
 	"tags": [],
 	"categories": [],
@@ -9,7 +9,7 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/showcase/hugo/hugo-theme-zdoc/",
+	"uri": "https://xiaohao890809.github.io/zh/showcase/hugo/hugo-theme-zdoc/",
 	"title": "Hugo zDoc Theme",
 	"tags": [],
 	"categories": [],
@@ -18,7 +18,7 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/",
+	"uri": "https://xiaohao890809.github.io/zh/",
 	"title": "",
 	"tags": [],
 	"categories": [],
@@ -27,43 +27,7 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/showcase/hugo/",
-	"title": "Hugo",
-	"tags": [],
-	"categories": [],
-	"series": [],
-	"description": "Hugo theme collection",
-	"content": ""
-},
-{
-	"uri": "http://xiaohao890809.github.io/zh/showcase/",
-	"title": "Showcase overview",
-	"tags": [],
-	"categories": [],
-	"series": [],
-	"description": "My portfolio, repos, works overview page",
-	"content": ""
-},
-{
-	"uri": "http://xiaohao890809.github.io/zh/gallery/cartoon/",
-	"title": "Cartoon",
-	"tags": [],
-	"categories": [],
-	"series": [],
-	"description": "cartoon gallery",
-	"content": "Sample images from Pixabay\n"
-},
-{
-	"uri": "http://xiaohao890809.github.io/zh/gallery/photo/",
-	"title": "Photo",
-	"tags": [],
-	"categories": [],
-	"series": [],
-	"description": "photo gallery",
-	"content": "Sample images from Pixabay\n"
-},
-{
-	"uri": "http://xiaohao890809.github.io/zh/categories/",
+	"uri": "https://xiaohao890809.github.io/zh/categories/",
 	"title": "Categories",
 	"tags": [],
 	"categories": [],
@@ -72,16 +36,7 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/pt/first/",
-	"title": "First",
-	"tags": [""],
-	"categories": [],
-	"series": [""],
-	"description": "My first presentation",
-	"content": ""
-},
-{
-	"uri": "http://xiaohao890809.github.io/zh/series/",
+	"uri": "https://xiaohao890809.github.io/zh/series/",
 	"title": "Series",
 	"tags": [],
 	"categories": [],
@@ -90,7 +45,25 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/tags/",
+	"uri": "https://xiaohao890809.github.io/zh/tags/shortcode/",
+	"title": "shortcode",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/shortcodes/",
+	"title": "Shortcodes",
+	"tags": ["shortcode"],
+	"categories": [],
+	"series": [""],
+	"description": "tabs, code-tabs, expand, alert, warning, notice, img, box",
+	"content": "Markdownify box This is boxmd shortcode Simple box This is **box** shortcode  Code tabs Make it easy to switch between different code\njava javascript  1  System.out.println(\u0026#39;Hello World!\u0026#39;);     1  console.log(\u0026#39;Hello World!\u0026#39;);       'use strict'; var containerId = JSON.parse(\"\\\"642b4352e05d9e04\\\"\"); var containerElem = document.getElementById(containerId); var codetabLinks = null; var codetabContents = null; var ids = []; if (containerElem) { codetabLinks = containerElem.querySelectorAll('.codetab__link'); codetabContents = containerElem.querySelectorAll('.codetab__content'); } for (var i = 0; i 0) { codetabContents[0].style.display = 'block'; }  Tabs for general purpose Windows MacOS Ubuntu  Windows section 1  console.log(\u0026#39;Hello World!\u0026#39;);   ⚠️Becareful that the content in the tab should be different from each other. The tab makes unique id hashes depending on the tab contents. So, If you just copy-paste the tabs with multiple times, since it has the same contents, the tab will not work.\n MacOS section Hello world!  Ubuntu section Great!    'use strict'; var containerId = JSON.parse(\"\\\"f09fb25fccaa3686\\\"\"); var containerElem = document.getElementById(containerId); var tabLinks = null; var tabContents = null; var ids = []; if (containerElem) { tabLinks = containerElem.querySelectorAll('.tab__link'); tabContents = containerElem.querySelectorAll('.tab__content'); } for (var i = 0; i 0) { tabContents[0].style.display = 'block'; }  Expand   Expand me  Title contents     Expand me2  Title2 contents2   Alert Colored box\nthis is a text this is a text this is a text this is a text Image Diaplay image with title and caption\n Title: example caption   Notice success text  info text  warning text  error text  "
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/",
 	"title": "Tags",
 	"tags": [],
 	"categories": [],
@@ -99,52 +72,7 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/pt/",
-	"title": "幻灯片",
-	"tags": [],
-	"categories": [],
-	"series": [],
-	"description": "Presentation list with reveal.js",
-	"content": ""
-},
-{
-	"uri": "http://xiaohao890809.github.io/zh/archive/",
-	"title": "Archive",
-	"tags": [],
-	"categories": [],
-	"series": [],
-	"description": "Archive Page",
-	"content": ""
-},
-{
-	"uri": "http://xiaohao890809.github.io/zh/gallery/",
-	"title": "画廊",
-	"tags": [],
-	"categories": [],
-	"series": [],
-	"description": "Gallery Page",
-	"content": ""
-},
-{
-	"uri": "http://xiaohao890809.github.io/zh/categories/%E5%B1%85%E5%A3%AB/",
-	"title": "居士",
-	"tags": [],
-	"categories": [],
-	"series": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "http://xiaohao890809.github.io/zh/posts/2019-08-18-the-data-science-learning_5/",
-	"title": "居士自习室作业第五周",
-	"tags": [""],
-	"categories": [],
-	"series": [""],
-	"description": "统计量与抽样分布",
-	"content": "最常用的统计量与抽样分布\n统计量\n  样本均值：样本均值(sample mean)又叫样本均数，即为样本的均值。均值是表示一组数据集中趋势的量数，是指在一组数据中所有数据之和再除以这组数据的个数。它是反映数据集中趋势的一项指标。\n  样本方差：先求出总体各单位变量值与其算术平均数的离差的平方，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的变异程度。\n  变异系数：在概率论和统计学中，变异系数，又称“离散系数”(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为标准差与平均值之比。变异系数也被称为标准离差率或单位风险。\n  样本矩：有一类常用的统计量是样本的数字特征，他们是模拟总体数字特征构造的，称为样本矩，看看以下两种：\n 样本 $k$ 阶原点矩：$\\bar{\\alpha}_{k}=\\frac{1}{n}\\sum_{i=1}^{n}x_{i}^{k}$ 样本 $k$ 阶中心矩：$\\bar{\\beta}_{k}=\\frac{1}{n}\\sum_{i=1}^{n}(x_{i}-\\bar{x})^{k}$    样本偏度：样本偏度(sample skewness)一种基本统计量，是样本三阶中心矩除以样本二阶中心矩的3/2次幂的商。\n  样本峰度：样本峰度(sample kurtosis)一种基本统计量，样本的峰度和偏度都是作为检验总体分布正态性的统计量。是样本四阶中心矩除以样本二阶中心矩平方的商再减去3。\n  抽样分布\n  卡方分布：若 $n$ 个相互独立的随机变量 $\\xi_{1},\\xi_{2},\u0026hellip;,\\xi_{n}$ 均服从标准正态分布(也称独立同分布于标准正态分布)，则这 $n$ 个服从标准正态分布的随机变量的平方和构成一新的随机变量，其分布规律称为卡方($\\chi^{2}$)分布(chi-square distribution)。\n  T分布：假设 $X$ 服从标准正态分布$N(0,1)$，Y服从 $\\chi^{2}(n)$ 分布，那么 $Z=\\frac{X}{\\sqrt{Y/n}}$ 的分布称为自由度为 $n$ 的 T分布,记为$Z\\sim t(n)$。\n  F分布：若总体$X\\sim N(0,1)$，$(X_{1},X_{2},\u0026hellip;,X_{n_{1}})$与$(Y_{1},Y_{2},\u0026hellip;,Y_{n_{2}})$来自 $X$ 的两个独立样本，设统计量$F=\\cfrac{\\sum_{i=1}^{n_{1}}X_{i}^{2}}{N_{1}}/\\cfrac{\\sum_{i=1}^{n_{2}}Y_{i}^{2}}{N_{2}}$，则称统计量 $F$ 服从自由度 $n_{1}$ 和 $n_{2}$ 的 F分布，记为$F\\sim F(n_{1},n_{2})$。\n  样本方差的分布：设 $X_{1},X_{2},\u0026hellip;,X_{n}$ 为来自正态分布 $N(\\mu ,\\sigma ^{2})$ 的样本，则可以推出以下结果：\n 设总体样本分布为 $(n-1)\\cfrac{S^{2}}{\\sigma ^{2}}\\sim \\chi ^{2}(N-1)$ 的正态分布，则样本方差 $S^{2}$ 的分布为，其中，将 $\\chi ^{2}(n-1)$ 称为自由度为 $n-1$ 的卡方分布。    两个样本平均值之差的分布：设 $X_{1},X_{2},\u0026hellip;,X_{n_{1}}$ 是来自正态分布 $N(\\mu_{1} ,\\sigma_{1} ^{2})$ 的一个样本，$Y_{1},Y_{2},\u0026hellip;,Y_{n_{2}}$ 是来自正态分布 $N(\\mu_{2} ,\\sigma_{2} ^{2})$ 的一个样本，且 $X_{i}(i=1,2,\u0026hellip;,n_{1})$ 与 $Y_{i}(i=1,2,\u0026hellip;,n_{2})$ 相互独立，则：\n $\\cfrac{S_{x}^{2}/S_{y}^{2}}{\\sigma _{1}^{2}/\\sigma _{2}^{2}}=\\cfrac{S_{x}^{2}/\\sigma _{1}^{2}}{S_{y}^{2}/\\sigma _{2}^{2}} \\sim F(n_{1}-1,n_{2}-1)$，其中 $F(n_{1}-1,n_{2}-1)$ 是第一自由度(分子自由度)为 $n_{1}-1$，第二自由度(分母自由度)为 $n_{2}-1$ 的 F分布。    样本比例的抽样分布：我们常假定总体中对具有某一特征产品的喜好比例为$\\pi$，如果在样本大小为 $n$ 的样本中具有某一特征的个体数为$X$，则样本比例用 $\\widehat{p}$ 表示，其分布函数为$\\widehat{p}=\\frac{X}{n}$。\n  中心极限定理：中心极限定理是概率论中最著名的结果之一，它提出，大量的独立随机变量之和具有近似于正态的分布。\n  "
-},
-{
-	"uri": "http://xiaohao890809.github.io/zh/posts/",
+	"uri": "https://xiaohao890809.github.io/zh/posts/",
 	"title": "文章",
 	"tags": ["index"],
 	"categories": [],
@@ -153,7 +81,394 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/tags/%E5%B1%85%E5%A3%AB/",
+	"uri": "https://xiaohao890809.github.io/zh/showcase/hugo/",
+	"title": "Hugo",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "Hugo theme collection",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/showcase/",
+	"title": "Showcase overview",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "My portfolio, repos, works overview page",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/css/",
+	"title": "css",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/html/",
+	"title": "html",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/markdown/",
+	"title": "markdown",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/markdown-syntax/",
+	"title": "Markdown Syntax Guide",
+	"tags": ["markdown", "css", "html", "themes"],
+	"categories": [],
+	"series": ["Themes Guide"],
+	"description": "Sample article showcasing basic Markdown syntax and formatting for HTML elements.",
+	"content": "This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.\nHeadings The following HTML \u0026lt;h1\u0026gt;—\u0026lt;h6\u0026gt; elements represent six levels of section headings. \u0026lt;h1\u0026gt; is the highest section level while \u0026lt;h6\u0026gt; is the lowest.\nH1 H2 H3 H4 H5 H6 Paragraph Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.\nItatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.\nBlockquotes The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a footer or cite element, and optionally with in-line changes such as annotations and abbreviations.\nBlockquote without attribution  Tiam, ad mint andaepu dandae nostion secatur sequo quae.\nNote that you can use Markdown syntax within a blockquote.\n Blockquote with attribution  Don't communicate by sharing memory, share memory by communicating.\n— Rob Pike1\n Tables Tables aren't part of the core Markdown spec, but Hugo supports supports them out-of-the-box.\n   Name Age     Bob 27   Alice 23    Inline Markdown within tables    Inline  Markdown  In  Table     italics bold strikethrough  code    Code Blocks Code block with backticks html \u0026lt;!DOCTYPE html\u0026gt; \u0026lt;html lang=\u0026quot;en\u0026quot;\u0026gt; \u0026lt;head\u0026gt; \u0026lt;meta charset=\u0026quot;UTF-8\u0026quot;\u0026gt; \u0026lt;title\u0026gt;Example HTML5 Document\u0026lt;/title\u0026gt; \u0026lt;/head\u0026gt; \u0026lt;body\u0026gt; \u0026lt;p\u0026gt;Test\u0026lt;/p\u0026gt; \u0026lt;/body\u0026gt; \u0026lt;/html\u0026gt; Code block indented with four spaces \u0026lt;!DOCTYPE html\u0026gt; \u0026lt;html lang=\u0026quot;en\u0026quot;\u0026gt; \u0026lt;head\u0026gt; \u0026lt;meta charset=\u0026quot;UTF-8\u0026quot;\u0026gt; \u0026lt;title\u0026gt;Example HTML5 Document\u0026lt;/title\u0026gt; \u0026lt;/head\u0026gt; \u0026lt;body\u0026gt; \u0026lt;p\u0026gt;Test\u0026lt;/p\u0026gt; \u0026lt;/body\u0026gt; \u0026lt;/html\u0026gt;  Code block with Hugo's internal highlight shortcode 1 2 3 4 5 6 7 8 9 10  \u0026lt;!DOCTYPE html\u0026gt; \u0026lt;html lang=\u0026#34;en\u0026#34;\u0026gt; \u0026lt;head\u0026gt; \u0026lt;meta charset=\u0026#34;UTF-8\u0026#34;\u0026gt; \u0026lt;title\u0026gt;Example HTML5 Document\u0026lt;/title\u0026gt; \u0026lt;/head\u0026gt; \u0026lt;body\u0026gt; \u0026lt;p\u0026gt;Test\u0026lt;/p\u0026gt; \u0026lt;/body\u0026gt; \u0026lt;/html\u0026gt;   List Types Ordered List  First item Second item Third item  Unordered List  List item Another item And another item  Nested list  Item   First Sub-item Second Sub-item  Other Elements — abbr, sub, sup, kbd, mark GIF is a bitmap image format.\nH2O\nXn + Yn: Zn\nPress CTRL+ALT+Delete to end the session.\nMost salamanders are nocturnal, and hunt for insects, worms, and other small creatures.\n The above quote is excerpted from Rob Pike's talk during Gopherfest, November 18, 2015. \u0026#x21a9;\u0026#xfe0e;\n  "
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/categories/syntax/",
+	"title": "syntax",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/categories/themes/",
+	"title": "themes",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/themes/",
+	"title": "themes",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/series/themes-guide/",
+	"title": "Themes Guide",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/privacy/",
+	"title": "privacy",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/rich-content/",
+	"title": "Rich Content",
+	"tags": ["shortcodes", "privacy"],
+	"categories": [],
+	"series": [],
+	"description": "A brief description of Hugo Shortcodes",
+	"content": "Hugo ships with several Built-in Shortcodes for rich content, along with a Privacy Config and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.\nInstagram Simple Shortcode YouTube Privacy Enhanced Shortcode Twitter Simple Shortcode Vimeo Simple Shortcode"
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/shortcodes/",
+	"title": "shortcodes",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/hugo/",
+	"title": "hugo",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/categories/hugo/",
+	"title": "hugo",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/syntax-highlight/",
+	"title": "Syntax highlighting",
+	"tags": ["hugo"],
+	"categories": [],
+	"series": [""],
+	"description": "Syntax highlighting test",
+	"content": "Code Syntax Highlighting Verify the following code blocks render as code blocks and highlight properly.\nDiff 1 2 3 4 5 6 7 8 9 10  *** /path/to/original\t\u0026#39;\u0026#39;timestamp\u0026#39;\u0026#39; --- /path/to/new\t\u0026#39;\u0026#39;timestamp\u0026#39;\u0026#39; *************** *** 1 **** ! This is a line. --- 1 --- ! This is a replacement line. It is important to spell -removed line +new line   Makefile 1 2 3 4 5  CC=gcc CFLAGS=-I. hellomake: hellomake.o hellofunc.o $(CC) -o hellomake hellomake.o hellofunc.o -I.   JSON 1 2 3  {\u0026#34;employees\u0026#34;:[ {\u0026#34;firstName\u0026#34;:\u0026#34;John\u0026#34;, \u0026#34;lastName\u0026#34;:\u0026#34;Doe\u0026#34;}, ]}   Markdown 1 2 3  **bold** *italics* [link](www.example.com)   JavaScript 1  document.write(\u0026#39;Hello, world!\u0026#39;);   CSS 1 2 3  body { background-color: red; }   Objective C 1 2 3 4 5 6  #import \u0026lt;stdio.h\u0026gt; int main (void) { printf (\u0026#34;Hello world!\\n\u0026#34;); }   Python 1  print \u0026#34;Hello, world!\u0026#34;   XML 1 2 3 4 5  \u0026lt;employees\u0026gt; \u0026lt;employee\u0026gt; \u0026lt;firstName\u0026gt;John\u0026lt;/firstName\u0026gt; \u0026lt;lastName\u0026gt;Doe\u0026lt;/lastName\u0026gt; \u0026lt;/employee\u0026gt; \u0026lt;/employees\u0026gt;   Perl 1  print \u0026#34;Hello, World!\\n\u0026#34;;   Bash 1  echo \u0026#34;Hello World\u0026#34;   PHP 1  \u0026lt;?php echo \u0026#39;\u0026lt;p\u0026gt;Hello World\u0026lt;/p\u0026gt;\u0026#39;; ?\u0026gt;   CoffeeScript 1  console.log(“Hello world!”);   C# 1 2 3 4 5 6 7 8  using System; class Program { public static void Main(string[] args) { Console.WriteLine(\u0026#34;Hello, world!\u0026#34;); } }   C++ 1 2 3 4 5 6 7  #include \u0026lt;iostream.h\u0026gt; main() { cout \u0026lt;\u0026lt; \u0026#34;Hello World!\u0026#34;; return 0; }   SQL 1 2  SELECT column_name,column_name FROM table_name;   Go 1 2 3 4 5  package main import \u0026#34;fmt\u0026#34; func main() { fmt.Println(\u0026#34;Hello, 世界\u0026#34;) }   Ruby 1  puts \u0026#34;Hello, world!\u0026#34;   Java 1 2 3 4 5 6 7 8 9 10 11 12  import javax.swing.JFrame; //Importing class JFrame import javax.swing.JLabel; //Importing class JLabel public class HelloWorld { public static void main(String[] args) { JFrame frame = new JFrame(); //Creating frame  frame.setTitle(\u0026#34;Hi!\u0026#34;); //Setting title frame  frame.add(new JLabel(\u0026#34;Hello, world!\u0026#34;));//Adding text to frame  frame.pack(); //Setting size to smallest  frame.setLocationRelativeTo(null); //Centering frame  frame.setVisible(true); //Showing frame  } }   Latex Equation 1  \\frac{d}{dx}\\left( \\int_{0}^{x} f(u)\\,du\\right)=f(x).   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38  import {x, y} as p from \u0026#39;point\u0026#39;; const ANSWER = 42; class Car extends Vehicle { constructor(speed, cost) { super(speed); var c = Symbol(\u0026#39;cost\u0026#39;); this[c] = cost; this.intro = `This is a car runs at ${speed}.`; } } for (let num of [1, 2, 3]) { console.log(num + 0b111110111); } function $initHighlight(block, flags) { try { if (block.className.search(/\\bno\\-highlight\\b/) != -1) return processBlock(block.function, true, 0x0F) + \u0026#39; class=\u0026#34;\u0026#34;\u0026#39;; } catch (e) { /* handle exception */ var e4x = \u0026lt;div\u0026gt;Example \u0026lt;p\u0026gt;1234\u0026lt;/p\u0026gt;\u0026lt;/div\u0026gt;; } for (var i = 0 / 2; i \u0026lt; classes.length; i++) { // \u0026#34;0 / 2\u0026#34; should not be parsed as regexp  if (checkCondition(classes[i]) === undefined) return /\\d+[\\s/]/g; } console.log(Array.every(classes, Boolean)); } export $initHighlight;   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  \u0026lt;!DOCTYPE html\u0026gt; \u0026lt;html lang=\u0026#34;en\u0026#34;\u0026gt; \u0026lt;head\u0026gt; \u0026lt;meta charset=\u0026#34;utf-8\u0026#34;\u0026gt; \u0026lt;title\u0026gt;Hello world\u0026lt;/title\u0026gt; \u0026lt;link href=\u0026#39;http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic\u0026#39; rel=\u0026#39;stylesheet\u0026#39; type=\u0026#39;text/css\u0026#39;\u0026gt; \u0026lt;link rel=\u0026#34;stylesheet\u0026#34; href=\u0026#34;index.css\u0026#34; /\u0026gt; \u0026lt;/head\u0026gt; \u0026lt;body\u0026gt; \u0026lt;div id=\u0026#34;app\u0026#34;\u0026gt;\u0026lt;/div\u0026gt; \u0026lt;script src=\u0026#34;//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js\u0026#34;\u0026gt;\u0026lt;/script\u0026gt; \u0026lt;script src=\u0026#34;vendor/prism.js\u0026#34;\u0026gt;\u0026lt;/script\u0026gt; \u0026lt;script src=\u0026#34;examples.bundle.js\u0026#34;\u0026gt;\u0026lt;/script\u0026gt; \u0026lt;/body\u0026gt; \u0026lt;/html\u0026gt;   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41  /********************************************************* * General */ pre[class*=\u0026#34;language-\u0026#34;], code { color: #5c6e74; font-size: 13px; text-shadow: none; font-family: Consolas, Monaco, \u0026#39;Andale Mono\u0026#39;, \u0026#39;Ubuntu Mono\u0026#39;, monospace; direction: ltr; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; line-height: 1.5; tab-size: 4; hyphens: none; } pre[class*=\u0026#34;language-\u0026#34;]::selection, code::selection { text-shadow: none; background: #b3d4fc; } @media print { pre[class*=\u0026#34;language-\u0026#34;], code { text-shadow: none; } } pre[class*=\u0026#34;language-\u0026#34;] { padding: 1em; margin: .5em 0; overflow: auto; background: #f8f5ec; } :not(pre) \u0026gt; code { padding: .1em .3em; border-radius: .3em; color: #db4c69; background: #f9f2f4; }   "
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/math-typesetting/",
+	"title": "Math Typesetting",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "A brief guide to setup KaTeX",
+	"content": "We need goldmark katex entension which is not yet we have: [https://github.com/gohugoio/hugo/issues/6544](https://github.com/gohugoio/hugo/issues/6544)  Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.\nIn this example we will be using KaTeX\n Create a partial under /layouts/partials/math.html Within this partial reference the Auto-render Extension or host these scripts locally. Include the partial in your templates like so:  {{ if or .Params.math .Site.Params.math }} {{ partial \u0026quot;math.html\u0026quot; . }} {{ end }}  To enable KaTex globally set the parameter math to true in a project's configuration To enable KaTex on a per page basis include the parameter math: true in content files.  Note: Use the online reference of Supported TeX Functions\nExamples Inline math: $$ \\varphi = \\dfrac{1+\\sqrt5}{2}= 1.6180339887… $$\nBlock math:\n$$\n\\varphi = 1+\\frac{1} {1+\\frac{1} {1+\\frac{1} {1+\\cdots} } }\n$$\n"
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/amoji/",
+	"title": "amoji",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/bamoji/",
+	"title": "bamoji",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/emoji/",
+	"title": "emoji",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/emoji-support/",
+	"title": "Emoji Support",
+	"tags": ["emoji", "gamoji", "namoji", "bamoji", "amoji"],
+	"categories": [],
+	"series": [],
+	"description": "Guide to emoji usage in Hugo",
+	"content": "Emoji can be enabled in a Hugo project in a number of ways.\nThe emojify function can be called directly in templates or Inline Shortcodes.\nTo enable emoji globally, set enableEmoji to true in your site’s configuration and then you can type emoji shorthand codes directly in content files; e.g.\n🙈 🙈 🙉 🙉 🙊 🙊\nThe Emoji cheat sheet is a useful reference for emoji shorthand codes.\nN.B. The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.\n1 2 3  .emoji { font-family: Apple Color Emoji,Segoe UI Emoji,NotoColorEmoji,Segoe UI Symbol,Android Emoji,EmojiSymbols; }  "
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/gamoji/",
+	"title": "gamoji",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/namoji/",
+	"title": "namoji",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/categories/diagram/",
+	"title": "diagram",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/test-viz/",
+	"title": "Viz support",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "A hack to put Graphviz on the web.",
+	"content": "digraph G { subgraph cluster_0 { style=filled; color=lightgrey; node [style=filled,color=white]; a0 -\u0026gt; a1 -\u0026gt; a2 -\u0026gt; a3; label = \u0026quot;process #1\u0026quot;; } subgraph cluster_1 { node [style=filled]; b0 -\u0026gt; b1 -\u0026gt; b2 -\u0026gt; b3; label = \u0026quot;process #2\u0026quot;; color=blue } start -\u0026gt; a0; start -\u0026gt; b0; a1 -\u0026gt; b3; b2 -\u0026gt; a3; a3 -\u0026gt; a0; a3 -\u0026gt; end; b3 -\u0026gt; end; start [shape=Mdiamond]; end [shape=Msquare]; } "
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/test-wavedrom/",
+	"title": "Wavedrom support",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "WaveDrom is a Free and Open Source online digital timing diagram (waveform) rendering engine that uses javascript, HTML5 and SVG to convert a WaveJSON input text description into SVG vector graphics.",
+	"content": "{ \u0026quot;signal\u0026quot;: [ {\u0026quot;name\u0026quot;: \u0026quot;CLK\u0026quot;, \u0026quot;wave\u0026quot;: \u0026quot;p.....|...\u0026quot;}, {\u0026quot;name\u0026quot;:\u0026quot;DAT\u0026quot;, \u0026quot;wave\u0026quot;:\u0026quot;x.345x|=.x\u0026quot;, \u0026quot;data\u0026quot;:[\u0026quot;A\u0026quot;,\u0026quot;B\u0026quot;,\u0026quot;C\u0026quot;,\u0026quot;D\u0026quot;]}, {\u0026quot;name\u0026quot;: \u0026quot;REQ\u0026quot;, \u0026quot;wave\u0026quot;: \u0026quot;0.1..0|1.0\u0026quot;}, {}, {\u0026quot;name\u0026quot;: \u0026quot;ACK\u0026quot;, \u0026quot;wave\u0026quot;: \u0026quot;1.....|01.\u0026quot;} ]} "
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/test-chartjs/",
+	"title": "Chart support",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "Simple yet flexible JavaScript charting for designers &amp; developers",
+	"content": "{ \u0026quot;type\u0026quot;: \u0026quot;bar\u0026quot;, \u0026quot;data\u0026quot;: { \u0026quot;labels\u0026quot;: [\u0026quot;One\u0026quot;, \u0026quot;Two\u0026quot;, \u0026quot;Three\u0026quot;, \u0026quot;Four\u0026quot;, \u0026quot;Five\u0026quot;, \u0026quot;Six\u0026quot;], \u0026quot;datasets\u0026quot;: [{ \u0026quot;label\u0026quot;: \u0026quot;# of Votes\u0026quot;, \u0026quot;data\u0026quot;: [12, 19, 3, 5, 3, 8] }] } } { \u0026quot;type\u0026quot;: \u0026quot;line\u0026quot;, \u0026quot;data\u0026quot;: { \u0026quot;labels\u0026quot;: [\u0026quot;One\u0026quot;, \u0026quot;Two\u0026quot;, \u0026quot;Three\u0026quot;, \u0026quot;Four\u0026quot;, \u0026quot;Five\u0026quot;, \u0026quot;Six\u0026quot;], \u0026quot;datasets\u0026quot;: [ { \u0026quot;label\u0026quot;: \u0026quot;# of Votes\u0026quot;, \u0026quot;data\u0026quot;: [12, 19, 3, 5, 2, 3], \u0026quot;backgroundColor\u0026quot;:\u0026quot;transparent\u0026quot;, \u0026quot;borderColor\u0026quot;:\u0026quot;orange\u0026quot; }, { \u0026quot;label\u0026quot;: \u0026quot;Some other set\u0026quot;, \u0026quot;data\u0026quot;: [15, 8, 13, 5, 5, 9], \u0026quot;backgroundColor\u0026quot;:\u0026quot;transparent\u0026quot;, \u0026quot;borderColor\u0026quot;:\u0026quot;#44ccff\u0026quot; } ] } } "
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/test-js-sequence-diagrams/",
+	"title": "JS Sequence Diagram support",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "Generates UML sequence diagrams from simple text",
+	"content": "Alice-\u0026gt;Bob: Hello Bob, how are you? Note right of Bob: Bob thinks Bob--\u0026gt;Alice: I am good thanks! Title: Here is a title A-\u0026gt;B: Normal line B--\u0026gt;C: Dashed line C-\u0026gt;\u0026gt;D: Open arrow D--\u0026gt;\u0026gt;A: Dashed open arrow "
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/diagram/",
+	"title": "diagram",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/test-mermaid/",
+	"title": "Mermaid support",
+	"tags": ["diagram"],
+	"categories": [],
+	"series": [""],
+	"description": "Generate diagrams, charts, graphs or flows from markdown-like text via javascript.",
+	"content": "graph TD; A--\u0026gt;B; A--\u0026gt;C; B--\u0026gt;D; C--\u0026gt;D; sequenceDiagram participant Alice participant Bob Alice-\u0026gt;John: Hello John, how are you? loop Healthcheck John-\u0026gt;John: Fight against hypochondria end Note right of John: Rational thoughts \u0026lt;br/\u0026gt;prevail... John--\u0026gt;Alice: Great! John-\u0026gt;Bob: How about you? Bob--\u0026gt;John: Jolly good! graph TD A[Hard] --\u0026gt;|Text| B(Round) B --\u0026gt; C{Decision} C --\u0026gt;|One| D[Result 1] C --\u0026gt;|Two| E[Result 2] gantt section Section Completed :done, des1, 2014-01-06,2014-01-08 Active :active, des2, 2014-01-07, 3d Parallel 1 : des3, after des1, 1d Parallel 2 : des4, after des1, 1d Parallel 3 : des5, after des3, 1d Parallel 4 : des6, after des4, 1d classDiagram Class01 \u0026lt;|-- AveryLongClass : Cool \u0026lt;\u0026lt;interface\u0026gt;\u0026gt; Class01 Class09 --\u0026gt; C2 : Where am i? Class09 --* C3 Class09 --|\u0026gt; Class07 Class07 : equals() Class07 : Object[] elementData Class01 : size() Class01 : int chimp Class01 : int gorilla class Class10 { \u0026lt;\u0026lt;service\u0026gt;\u0026gt; int id size() } stateDiagram [*] --\u0026gt; Still Still --\u0026gt; [*] Still --\u0026gt; Moving Moving --\u0026gt; Still Moving --\u0026gt; Crash Crash --\u0026gt; [*] pie \u0026quot;Dogs\u0026quot; : 386 \u0026quot;Cats\u0026quot; : 85 \u0026quot;Rats\u0026quot; : 15 "
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/categories/math/",
+	"title": "math",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/test-mathjax/",
+	"title": "MathJax support",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "A JavaScript display engine for mathematics that works in all browsers.No more setup for readers. It just works.",
+	"content": "When \\(a \\ne 0\\), there are two solutions to \\((ax^2 + bx + c = 0)\\) and they are\n\\[x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.\\]\n"
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/test-katex/",
+	"title": "Katex support",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "KaTeX is a fast, easy-to-use JavaScript library for TeX math rendering on the web.",
+	"content": "We need goldmark katex entension which is not yet we have: [https://github.com/gohugoio/hugo/issues/6544](https://github.com/gohugoio/hugo/issues/6544)  The following\n$$ \\int_{a}^{b} x^2 dx $$\nIs an integral\n$$\n\\varphi = 1+\\frac{1} {1+\\frac{1} {1+\\frac{1} {1+\\cdots} } }\n$$\nEnable Katex in the config file by setting the katex param to true. This will import the necessary Katex CSS/JS.\nSee the online reference of supported TeX functions.\nNote: For inline math to render correctly, your content file extension must be .mmark. See the official mmark site.\nInline math: $$ \\varphi = \\dfrac{1+\\sqrt5}{2}= 1.6180339887… $$ Inline math: $$ \\varphi = \\dfrac{1+\\sqrt5}{2}= 1.6180339887… $$\nBlock math: $$ \\varphi = 1+\\frac{1} {1+\\frac{1} {1+\\frac{1} {1+\\cdots} } } $$ Block math:\n$$\n\\varphi = 1+\\frac{1} {1+\\frac{1} {1+\\frac{1} {1+\\cdots} } }\n$$\n"
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/test-flowchart/",
+	"title": "Flowchart support",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "flowchart.js is a flowchart DSL and SVG render that runs in the browser and terminal. Nodes and connections are defined in separately so that nodes can be reused and connections can be quickly changed.",
+	"content": "st=\u0026gt;start: Start|past:\u0026gt;http://www.google.com[blank] e=\u0026gt;end: End|future:\u0026gt;http://www.google.com op1=\u0026gt;operation: My Operation|past op2=\u0026gt;operation: Stuff|current sub1=\u0026gt;subroutine: My Subroutine|invalid cond=\u0026gt;condition: Yes or No?|approved:\u0026gt;http://www.google.com c2=\u0026gt;condition: Good idea|rejected io=\u0026gt;inputoutput: catch something...|future st-\u0026gt;op1(right)-\u0026gt;cond cond(yes, right)-\u0026gt;c2 cond(no)-\u0026gt;sub1(left)-\u0026gt;op1 c2(yes)-\u0026gt;io-\u0026gt;e c2(no)-\u0026gt;op2-\u0026gt;e "
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/gallery/cartoon/",
+	"title": "Cartoon",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "cartoon gallery",
+	"content": "Sample images from Pixabay\n"
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/gallery/photo/",
+	"title": "Photo",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "photo gallery",
+	"content": "Sample images from Pixabay\n"
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/pt/dir/fourth/",
+	"title": "Fourth",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "My fourth presentation",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/pt/",
+	"title": "幻灯片",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "Presentation list with reveal.js",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/pt/third/",
+	"title": "Third",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "My third presentation",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/pt/second/",
+	"title": "Second",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "My second presentation",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/pt/first/",
+	"title": "First",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "My first presentation",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/archive/",
+	"title": "Archive",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "Archive Page",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/gallery/",
+	"title": "画廊",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "Gallery Page",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/categories/%E5%B1%85%E5%A3%AB/",
 	"title": "居士",
 	"tags": [],
 	"categories": [],
@@ -162,7 +477,25 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/posts/2019-07-28-the-data-science-learning_2/",
+	"uri": "https://xiaohao890809.github.io/zh/posts/2019-08-18-the-data-science-learning_5/",
+	"title": "居士自习室作业第五周",
+	"tags": [""],
+	"categories": [],
+	"series": [""],
+	"description": "统计量与抽样分布",
+	"content": "最常用的统计量与抽样分布\n统计量\n  样本均值：样本均值(sample mean)又叫样本均数，即为样本的均值。均值是表示一组数据集中趋势的量数，是指在一组数据中所有数据之和再除以这组数据的个数。它是反映数据集中趋势的一项指标。\n  样本方差：先求出总体各单位变量值与其算术平均数的离差的平方，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的变异程度。\n  变异系数：在概率论和统计学中，变异系数，又称“离散系数”(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为标准差与平均值之比。变异系数也被称为标准离差率或单位风险。\n  样本矩：有一类常用的统计量是样本的数字特征，他们是模拟总体数字特征构造的，称为样本矩，看看以下两种：\n 样本 $k$ 阶原点矩：$\\bar{\\alpha}_{k}=\\frac{1}{n}\\sum_{i=1}^{n}x_{i}^{k}$ 样本 $k$ 阶中心矩：$\\bar{\\beta}_{k}=\\frac{1}{n}\\sum_{i=1}^{n}(x_{i}-\\bar{x})^{k}$    样本偏度：样本偏度(sample skewness)一种基本统计量，是样本三阶中心矩除以样本二阶中心矩的3/2次幂的商。\n  样本峰度：样本峰度(sample kurtosis)一种基本统计量，样本的峰度和偏度都是作为检验总体分布正态性的统计量。是样本四阶中心矩除以样本二阶中心矩平方的商再减去3。\n  抽样分布\n  卡方分布：若 $n$ 个相互独立的随机变量 $\\xi_{1},\\xi_{2},\u0026hellip;,\\xi_{n}$ 均服从标准正态分布(也称独立同分布于标准正态分布)，则这 $n$ 个服从标准正态分布的随机变量的平方和构成一新的随机变量，其分布规律称为卡方($\\chi^{2}$)分布(chi-square distribution)。\n  T分布：假设 $X$ 服从标准正态分布$N(0,1)$，Y服从 $\\chi^{2}(n)$ 分布，那么 $Z=\\frac{X}{\\sqrt{Y/n}}$ 的分布称为自由度为 $n$ 的 T分布,记为$Z\\sim t(n)$。\n  F分布：若总体$X\\sim N(0,1)$，$(X_{1},X_{2},\u0026hellip;,X_{n_{1}})$与$(Y_{1},Y_{2},\u0026hellip;,Y_{n_{2}})$来自 $X$ 的两个独立样本，设统计量$F=\\cfrac{\\sum_{i=1}^{n_{1}}X_{i}^{2}}{N_{1}}/\\cfrac{\\sum_{i=1}^{n_{2}}Y_{i}^{2}}{N_{2}}$，则称统计量 $F$ 服从自由度 $n_{1}$ 和 $n_{2}$ 的 F分布，记为$F\\sim F(n_{1},n_{2})$。\n  样本方差的分布：设 $X_{1},X_{2},\u0026hellip;,X_{n}$ 为来自正态分布 $N(\\mu ,\\sigma ^{2})$ 的样本，则可以推出以下结果：\n 设总体样本分布为 $(n-1)\\cfrac{S^{2}}{\\sigma ^{2}}\\sim \\chi ^{2}(N-1)$ 的正态分布，则样本方差 $S^{2}$ 的分布为，其中，将 $\\chi ^{2}(n-1)$ 称为自由度为 $n-1$ 的卡方分布。    两个样本平均值之差的分布：设 $X_{1},X_{2},\u0026hellip;,X_{n_{1}}$ 是来自正态分布 $N(\\mu_{1} ,\\sigma_{1} ^{2})$ 的一个样本，$Y_{1},Y_{2},\u0026hellip;,Y_{n_{2}}$ 是来自正态分布 $N(\\mu_{2} ,\\sigma_{2} ^{2})$ 的一个样本，且 $X_{i}(i=1,2,\u0026hellip;,n_{1})$ 与 $Y_{i}(i=1,2,\u0026hellip;,n_{2})$ 相互独立，则：\n $\\cfrac{S_{x}^{2}/S_{y}^{2}}{\\sigma _{1}^{2}/\\sigma _{2}^{2}}=\\cfrac{S_{x}^{2}/\\sigma _{1}^{2}}{S_{y}^{2}/\\sigma _{2}^{2}} \\sim F(n_{1}-1,n_{2}-1)$，其中 $F(n_{1}-1,n_{2}-1)$ 是第一自由度(分子自由度)为 $n_{1}-1$，第二自由度(分母自由度)为 $n_{2}-1$ 的 F分布。    样本比例的抽样分布：我们常假定总体中对具有某一特征产品的喜好比例为$\\pi$，如果在样本大小为 $n$ 的样本中具有某一特征的个体数为$X$，则样本比例用 $\\widehat{p}$ 表示，其分布函数为$\\widehat{p}=\\frac{X}{n}$。\n  中心极限定理：中心极限定理是概率论中最著名的结果之一，它提出，大量的独立随机变量之和具有近似于正态的分布。\n  "
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/tags/%E5%B1%85%E5%A3%AB/",
+	"title": "居士",
+	"tags": [],
+	"categories": [],
+	"series": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://xiaohao890809.github.io/zh/posts/2019-07-28-the-data-science-learning_2/",
 	"title": "居士自习室作业第二周",
 	"tags": ["居士"],
 	"categories": [],
@@ -171,7 +504,7 @@
 	"content": "在用 pandas 处理报表邮件的时候，有时会遇到处理二级表头，并进行合并的例子。例如：\n研究了一下 pandas 的多级表头功能，发现它有一个columns的设置参数，可以新增两列参数，作为二级表头。\n1 2 3 4 5 6 7 8  data = [[\u0026#39;2016-07-23\u0026#39;,\u0026#39;整体\u0026#39;,4540,557.34,1235,469,69.23,334], [\u0026#39;2016-07-22\u0026#39;,\u0026#39;整体\u0026#39;,4410,567.34,1135,459,68.23,324], [\u0026#39;2016-07-21\u0026#39;,\u0026#39;整体\u0026#39;,4380,564.34,1115,439,67.23,314]] data_pd = pd.DataFrame(data) data_pd.columns = [[\u0026#39;日期\u0026#39;, \u0026#39;品类\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;支付\u0026#39;, \u0026#39;支付\u0026#39;, \u0026#39;支付\u0026#39;], [\u0026#39;日期\u0026#39;, \u0026#39;品类\u0026#39;, \u0026#39;下单笔数\u0026#39;, \u0026#39;下单金额\u0026#39;, \u0026#39;下单人数\u0026#39;, \u0026#39;成功笔数\u0026#39;, \u0026#39;成功金额\u0026#39;, \u0026#39;成功人数\u0026#39;]]   二级表头处理\n发现第一列和第二列并没有合并，下单和支付的大类也没有居中显示。那么怎么样才能实现这样的功能呢？其实 html 里的表格有一个colspan参数，我们可以对这个参数进行修改即可，比如，我们可以手动给第二行表头的日期和品类改为删除标识，然后对其进行删除，最后把第一行表头的colspan扩展为2，就可以进行合并了，也不影响整体表格的功能，至于居中样式可以设置表格的 style 样式。\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31  # 重新自定义html的格式 def get_type_html(df_html): html = str(df_html).replace(\u0026#39;\u0026lt;table border=\u0026#34;1\u0026#34;class=\u0026#34;dataframe\u0026#34;\u0026gt;\u0026#39;, \u0026#39;\u0026lt;table border=\u0026#34;1\u0026#34;style=\u0026#34;font-family: verdana,arial,sans-serif;font-size:11px;\\ color:#333333;border-width: 1px;border-color: #666666;border-collapse: collapse;\u0026#34;\u0026gt;\u0026#39;) html = html.replace(\u0026#39;\u0026lt;td\u0026gt;\u0026#39;, \u0026#39;\u0026lt;td colspan=\u0026#34;1\u0026#34;rowspan=\u0026#34;1\u0026#34;style=\u0026#34;background-color:#FFFFFF;color:#000000;font-weight:normal;\\ padding:10px;text-align:center;white-space:pre\u0026#34;\u0026gt;\u0026#39;) \u0026#34;\u0026#34;\u0026#34;html = html.replace(\u0026#39;\u0026lt;th\u0026gt;\u0026#39;,\u0026#39;\u0026lt;th colspan=\u0026#34;1\u0026#34;rowspan=\u0026#34;1\u0026#34;style=\u0026#34;background-color:#dedede;border:1;color:black;font-weight:\\ bold;padding:8px;text-align:center;white-space:pre\u0026#34;\u0026gt;\u0026#39;)\u0026#34;\u0026#34;\u0026#34; html = html.replace(\u0026#39;\u0026lt;th\u0026gt;删除\u0026lt;/th\u0026gt;\u0026#39;, \u0026#39;\u0026#39;) html = html.replace(\u0026#39;\u0026lt;th\u0026gt;\u0026#39;, \u0026#39;\u0026lt;th colspan=\u0026#34;1\u0026#34;rowspan=\u0026#34;2\u0026#34;style=\u0026#34;background-color:#dedede;border:1;color:black;font-weight:\\ bold;padding:8px;text-align:center;white-space:pre\u0026#34;\u0026gt;\u0026#39;) html = html.replace(\u0026#39;\u0026lt;th colspan=\u0026#34;2\u0026#34;halign=\u0026#34;left\u0026#34;\u0026gt;\u0026#39;, \u0026#39;\u0026lt;th colspan=\u0026#34;2\u0026#34;style=\u0026#34;background-color:#dedede;border:1;color:black;font-weight:\\ bold;padding:8px;text-align:center;white-space:pre\u0026#34;\u0026gt;\u0026#39;) html = html.replace(\u0026#39;\u0026lt;th colspan=\u0026#34;3\u0026#34;halign=\u0026#34;left\u0026#34;\u0026gt;\u0026#39;, \u0026#39;\u0026lt;th colspan=\u0026#34;3\u0026#34;style=\u0026#34;background-color:#dedede;border:1;color:black;font-weight:\\ bold;padding:8px;text-align:center;white-space:pre\u0026#34;\u0026gt;\u0026#39;) html = html.replace(\u0026#39;\u0026lt;th colspan=\u0026#34;4\u0026#34;halign=\u0026#34;left\u0026#34;\u0026gt;\u0026#39;, \u0026#39;\u0026lt;th colspan=\u0026#34;4\u0026#34;style=\u0026#34;background-color:#dedede;border:1;color:black;font-weight:\\ bold;padding:8px;text-align:center;white-space:pre\u0026#34;\u0026gt;\u0026#39;) html = html.replace(\u0026#39;\u0026lt;th colspan=\u0026#34;5\u0026#34;halign=\u0026#34;left\u0026#34;\u0026gt;\u0026#39;, \u0026#39;\u0026lt;th colspan=\u0026#34;5\u0026#34;style=\u0026#34;background-color:#dedede;border:1;color:black;font-weight:\\ bold;padding:8px;text-align:center;white-space:pre\u0026#34;\u0026gt;\u0026#39;) return html   千分位分隔符\n对于大额数字，我们一般使用千位分隔符进行分割，这样看起来更清晰。\npython里进行千位分割很简单：\n 对于整数，'{:,}'.format(item) 对于保留两位小数的，'{:,.2f}'.format(item)  现在我们构建数据集，进行测试\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  import pandas as pd from IPython.display import HTML data = [[\u0026#39;2016-07-23\u0026#39;,\u0026#39;整体\u0026#39;,4540,557.34,1235,469,69.23,334], [\u0026#39;2016-07-22\u0026#39;,\u0026#39;整体\u0026#39;,4410,567.34,1135,459,68.23,324], [\u0026#39;2016-07-21\u0026#39;,\u0026#39;整体\u0026#39;,4380,564.34,1115,439,67.23,314]] data_pd.iloc[:,2] = [\u0026#39;{:,}\u0026#39;.format(item) for item in data_pd.iloc[:,2]] data_pd.iloc[:,3] = [\u0026#39;{:,.2f}\u0026#39;.format(item) for item in data_pd.iloc[:,3]] data_pd.iloc[:,4] = [\u0026#39;{:,}\u0026#39;.format(item) for item in data_pd.iloc[:,4]] data_pd.iloc[:,5] = [\u0026#39;{:,}\u0026#39;.format(item) for item in data_pd.iloc[:,6]] data_pd.iloc[:,6] = [\u0026#39;{:,.2f}\u0026#39;.format(item) for item in data_pd.iloc[:,6]] data_pd.iloc[:,7] = [\u0026#39;{:,}\u0026#39;.format(item) for item in data_pd.iloc[:,7]] data_pd.columns = [[\u0026#39;日期\u0026#39;, \u0026#39;品类\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;支付\u0026#39;, \u0026#39;支付\u0026#39;, \u0026#39;支付\u0026#39;], [\u0026#39;删除\u0026#39;, \u0026#39;删除\u0026#39;, \u0026#39;下单笔数\u0026#39;, \u0026#39;下单金额\u0026#39;, \u0026#39;下单人数\u0026#39;, \u0026#39;成功笔数\u0026#39;, \u0026#39;成功金额\u0026#39;, \u0026#39;成功人数\u0026#39;]] html = data_pd.to_html(index=False) html = get_type_html(html) HTML(html)   效果如下：\n"
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/posts/2019-07-20-the-data-science-learning_1/",
+	"uri": "https://xiaohao890809.github.io/zh/posts/2019-07-20-the-data-science-learning_1/",
 	"title": "居士自习室作业第一周",
 	"tags": ["居士"],
 	"categories": [],
@@ -180,7 +513,7 @@
 	"content": "数据的集中趋势 众数 一组数据中出现次数最多的数值，叫众数。\n 注意：有时众数在一组数中有1个或多个，也可能不存在。\n 中位数 中位数，又称中点数，中值。\n中位数是按顺序排列的一组数据中居于中间位置的数，即在这组数据中，有一半的数据比他大，有一半的数据比他小。\n平均数   算数平均数\n 算术平均数是指在一组数据中所有数据之和再除以数据的个数。 它是反映数据集中趋势的一项指标。    加权平均数\n 加权平均数即将各数值乘以相应的权数，然后加总求和得到总体值，再除以总的单位数。 加权平均数也称加权平均值。    几何平均数\n 几何平均数是n个变量值连乘积的n次方根。    分位数 分位数(Quantile)，亦称分位点，是指将一个随机变量的概率分布范围分为几个等份的数值点。\n常用的有中位数(即二分位数)、四分位数、百分位数等。\n数据的离中趋势 数值型数据   方差\n 统计中的方差(样本方差)是每个样本值与全体样本值的平均数之差的平方值的平均数。    标准差\n 标准差是方差的算术平方根。    极差\n 极差又称范围误差或全距(Range)，以R表示，是用来表示统计资料中的变异量数(measures of variation)。 其最大值与最小值之间的差距，即最大值减最小值后所得之数据。    平均差\n 平均差(Mean Deviation)是表示各个变量值之间差异程度的数值之一。 指各个变量值同平均数的离差绝对值的算术平均数。    顺序数据  四分位差  四分位差(quartile deviation)，它是上四分位数(Q3，即位于75%)与下四分位数(Q1，即位于25%)的差。    分类数据  异众比率  异众比率(variation ratio)是统计学名词，是统计学当中研究现象离中趋势的指标之一。 异众比率指的是总体中非众数次数与总体全部次数之比。 换句话说，异众比率指非众数组的频数占总频数的比例。    相对离散程度 离散系数 在概率论和统计学中，离散系数(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为标准差 $\\sigma$ 与平均值 $\\mu$ 之比。\n分布的形状 偏态系数 偏态系数以平均值与中位数之差对标准差之比率来衡量偏斜的程度，用SK表示偏斜系数。\n 偏态系数小于0，因为平均数在众数之左，是一种左偏的分布，又称为负偏。 偏态系数大于0，因为均值在众数之右，是一种右偏的分布，又称为正偏。  峰态系数 峰度系数是用来反映频数分布曲线顶端尖峭或扁平程度的指标。\n有时两组数据的算术平均数、标准差和偏态系数都相同，但他们分布曲线顶端的高耸程度却不同。\n"
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/about/",
+	"uri": "https://xiaohao890809.github.io/zh/about/",
 	"title": "About",
 	"tags": [],
 	"categories": [],
@@ -189,7 +522,7 @@
 	"content": "Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.\nHugo makes use of a variety of open source projects including:\n https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.\nHugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.\nWebsites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.\nLearn more and contribute on GitHub.\n"
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/categories/%E6%95%B0%E5%AD%A6/",
+	"uri": "https://xiaohao890809.github.io/zh/categories/%E6%95%B0%E5%AD%A6/",
 	"title": "数学",
 	"tags": [],
 	"categories": [],
@@ -198,7 +531,7 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/posts/2018-03-07-the-note-of-probability-theory/",
+	"uri": "https://xiaohao890809.github.io/zh/posts/2018-03-07-the-note-of-probability-theory/",
 	"title": "机器学习基础之概率论",
 	"tags": [""],
 	"categories": [],
@@ -207,7 +540,7 @@
 	"content": "机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。\n三箱零件，其中第一箱 10 个零件，第二箱 20 个零件，第三箱 15 个。检验结果表明第一箱有 1 个不合格，第二箱有 3 个不合格，第三箱有 2 个不合格，从中抽取一个零件，合格的概率有多少？\n 记 $A_i$ 为从第 $i$ 个箱子拿的零件，拿到正品的事件记为B。\n $$\n\\begin{align}\nP(B)\u0026amp;=P(A_1)\\cdot P(B|A_1)+P(A_2)\\cdot P(B|A_2)+P(A_3)\\cdot P(B|A_3)\\\\\\\n\u0026amp;=P(A_1)+P(A_2)\\cdot P(B|A_2)+P(A_3)\\cdot P(B|A_3)\\\\\\\n\u0026amp;=\\frac{1}{3}\\cdot \\frac{9}{10}+\\frac{1}{3}\\cdot \\frac{17}{20}+\\frac{1}{3}\\cdot \\frac{13}{15}\\\\\\\n\u0026amp;=0.872\n\\end{align}\n$$\n问题：求逆向概率$P(A_{1}|B)$，抽到的这个合格品来自箱子 $A_{1}$ 的概率。\n$$\n\\begin{align}\nP(A_{1}|B)\u0026amp;=\\frac{P(A_1\\cdot B)}{P(B)}\\\\\\\n\u0026amp;=\\frac{P(A_1)\\cdot P(B|A_1)}{P(B)}\\\\\\\n\u0026amp;=\\frac{\\frac{1}{3}\\cdot \\frac{9}{10}}{P(B)}\\\\\\\n\u0026amp;=\\frac{0.3}{0.872}=0.344\n\\end{align}\n$$\n注意条件概率 $P(B|A_1)$ 和联合概率 $P(A_1\\cdot B)$ 的使用。\n分类问题概述：\n通过对已知类别信息的数据进行学习后获得分类模型(classifier)，利用分类模型对未知类别信息的数据进行分类(classification)。\n朴素贝叶斯 分类算法举例——朴素贝叶斯(Naive Bayesian Model, NBM)\n$$\n\\begin{cases}\nP(C_i|X)=\\frac{P(X|C_i)\\cdot P(C_i)}{P(X)}\\\\\nP(X|C_i)=\\prod_{K=1}^{n}P(X_k|C_i)\\\\\nP(AB)=P(A)\\cdot P(B)\\\n\\end{cases}\n$$\n $P(C_i|X)$: 后验概率 $P(X|C_i)$: 条件概率 $P(C_i)$: 最大似然估计  通过数据元组的各个属性表示(值)，计算出该数据元素属于$C_i$的概率。\n根据贝叶斯定理，将已知各属性表示求所属后验概率的问题转为已知所属类各属性表示组合的条件概率的问题。\n需要对已标记类别的训练样本进行统计分析。\n对样本库数据计算各类的最大似然用以估计各类的先验概率。\n计算各属性值的条件概率。\n假设各属性间相互独立。\n   ID age income student credit class:buy     1 youth high no fair no   2 youth high no excellent no   3 middle high no fair yes   4 senior medium no fair yes   5 senior low yes fair yes   6 senior low yes excelent no   7 middle low yes excelent yes   8 youth medium no fair no   9 youth low yes fair yes   10 senior medium yes fair yes   11 youth medium yes excelent yes   12 middle medium no excelent yes   13 middle high yes fair yes   14 senior medium no excelent no    样本库中各类数据的先验概率：\n$$\n\\begin{align}\n\u0026amp;P(buy=yes)=\\frac{9}{14}=0.643\\\\\\\n\u0026amp;P(buy=no)=\\frac{5}{14}=0.357\n\\end{align}\n$$\n每一项属性值的条件概率：\n$$\n\\begin{align}\n\u0026amp;P(age=youth|buy=yes)=\\frac{2}{9}=0.222\\\\\\\n\u0026amp;P(age=youth|buy=no)=\\frac{3}{5}=0.600\\\\\\\n\u0026amp;P(income=medium|buy=yes)=\\frac{4}{9}=0.444\\\\\\\n\u0026amp;P(income=medium|buy=no)=\\frac{2}{5}=0.400\\\\\\\n\u0026amp;P(student=yes|buy=yes)=\\frac{6}{9}=0.667\\\\\\\n\u0026amp;P(student=yes|buy=no)=\\frac{1}{5}=0.200\\\\\\\n\u0026amp;P(credict=fair|buy=yes)=\\frac{6}{9}=0.667\\\\\\\n\u0026amp;P(credict=fair|buy=no)=\\frac{2}{5}=0.400\n\\end{align}\n$$\n求 $x=(youth,medium,yes,fair)$ 属于哪个类？\n假设各属性之间相互独立，求得测试数据属性向量的条件该概率：\n$$\n\\begin{align}\nP(x|buy=yes)\u0026amp;=P(age=youth|buy=yes)\\\\\\\n\u0026amp;\\cdot P(income=medium|buy=yes)\\\\\\\n\u0026amp;\\cdot P(student=yes|buy=yes)\\\\\\\n\u0026amp;\\cdot P(credit=fair|buy=yes)\\\\\\\n\u0026amp;=0.222\\cdot 0.444\\cdot 0.667\\cdot 0.667\\\\\\\n\u0026amp;=0.044\n\\end{align}\n$$\n同理：\n$$\nP(x|buy=no)=0.019\n$$\n选取能使以下公式取值最大的分类：\n$$\nP(C_i|x)=\\frac{P(x|C_i)\\cdot P(C_i)}{P(x)}\n$$\n其中 $P(x)$ 为该特征向量取值的先验概率，始终为常量。\n$$\n\\begin{align}\n\u0026amp;P(x|buy=yes)\\cdot P(buy=yes)=0.044\\cdot 0.643=0.082\\\\\\\n\u0026amp;P(x|buy=no)\\cdot P(buy=no)=0.019\\cdot 0.357=0.007\n\\end{align}\n$$\n所以判定测试数据属于 $buy=yes$类。\n信息增益  摘自：数据挖掘中决策树的探讨(马秀红)\n 某装备维修项目如下：\n   役龄 价格 是否关键部件 可靠性 是否更换     \u0026lt;=10 高 否 一般 否   \u0026lt;=10 高 否 好 否   11-20 高 否 一般 是   \u0026gt;20 中 否 一般 是   \u0026gt;20 低 是 一般 是   \u0026gt;20 高 是 好 是   11-20 低 是 一般 是   \u0026lt;=10 中 是 一般 是   \u0026lt;=10 低 是 一般 是   \u0026gt;20 中 是 好 是   \u0026lt;=10 中 否 一般 否   11-20 中 否 好 否   11-20 高 是 一般 是   11-20 中 否 好 否    使用信息增益进行属性选择，更新的备件数为$p$，不更新的备件数为$n$，则样本分类的期望信息：\n$$\n\\begin{align}\nI(p,n)\u0026amp;=I(9,5)\\\\\\\n\u0026amp;=-\\frac{9}{14}\\cdot log_{2}\\frac{9}{14}-\\frac{5}{14}\\cdot log_{2}\\frac{5}{14}\\\\\\\n\u0026amp;=0.940\n\\end{align}\n$$\n计算各属性的熵：\n   役龄 $P_i$ $N_i$ $I(P_i,N_i)$     \u0026lt;=10 2 3 0.971   11-20 3 2 0.971   \u0026gt;20 4 0 0    有役龄划分为子集的熵：\n$$\n\\begin{align}\nE(役龄)\u0026amp;=\\frac{5}{14}I(2,3)+\\frac{5}{14}I(3,2)+\\frac{4}{14}I(4,0)\\\\\\\n\u0026amp;=0.6936\n\\end{align}\n$$\n役龄为属性，具有3个不同取值的信息增益为：\n$$\nGain(役龄)=I(p,n)-E(役龄)=0.2464\n$$\n同理：\n$$\n\\begin{align}\n\u0026amp;Gain(价格)=0.2098 \\\\\\\n\u0026amp;Gain(关键部件)=0.151 \\\\\\\n\u0026amp;Gain(可靠性)=0.10194\n\\end{align}\n$$\n因此：\n$$\nGain(可靠性)\u0026lt;Gain(关键部件)\u0026lt;Gain(价格)\u0026lt;Gain(役龄)\n$$\n分类结果如图所示：\n"
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/posts/2018-03-01-the-note-of-vba/",
+	"uri": "https://xiaohao890809.github.io/zh/posts/2018-03-01-the-note-of-vba/",
 	"title": "VBA知识点总结",
 	"tags": [""],
 	"categories": [],
@@ -216,7 +549,7 @@
 	"content": "VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法。\n常见错误 问题1  此文件正由应用程序或另一用户使用。\n 解决方案：打开后记得做退出关闭操作。\n1 2 3 4 5 6 7 8  Set wdApp = GetObject(,\u0026#34;word.application\u0026#34;) If wdApp is Nothing Then Sef wdApp = CreatObject(\u0026#34;word.application\u0026#34;) wdApp.Visible = True End If wdApp.NormalTemplate.Saved = True wdApp.Quit Set wdApp = Nothing   常用函数 获取最大有效行数 1 2 3 4 5 6 7 8 9 10 11 12  Public Function GetLastRow(theSheet As Worksheet, ByVal col As Integer) As Integer Dim findreg As Range, ret As Range Set findreg = theSheet.Columns(col) Set ret = findreg.Find(what:=\u0026#34;*\u0026#34;, searchDirection:=xlPrevious) If Not ret Is Nothing Then GetLastRow = ret.Row Else GetLastRow = 0 End If End Function   获取最大有效列数 1 2 3 4 5 6 7 8 9 10 11 12  Public Function GetLastCol(theSheet As Worksheet, ByVal row As Integer) As Integer Dim findreg As Range, ret As Range Set findreg = theSheet.Rows(row) Set ret = findreg.Find(what:=\u0026#34;*\u0026#34;, searchDirection:=xlPrevious) If Not ret Is Nothing Then GetLastCol = ret.Column Else GetLastCol = 0 End If End Function   常用操作 分割字符串 1 2 3 4 5 6 7  Dim a as Variant Dim b as Variant a = Split(\u0026#34;Red$Blue$Yellow\u0026#34;,\u0026#34;$\u0026#34;) b = ubound(a) For i = 0 to b MsgBox a(i) Next   写入txt 1 2 3 4 5 6  Sub test() Open ThisWorkbook.Path \u0026amp; \u0026#34;1.txt\u0026#34; For Output(覆盖)/Append(追加) As #1 Print #1, \u0026#34;test2\u0026#34; Print #1, \u0026#34;test3\u0026#34; Close #1 End Sub   查看下拉框所有内容 1  Range(\u0026#34;D4\u0026#34;).Validation.Formula1   下拉框进行赋值  第一种方法  1  ComboBox1.List = Split(\u0026#34;张三,李四\u0026#34;,\u0026#34;,\u0026#34;)    第二种方法  1 2 3  With ComboBox1 .AddItem(\u0026#34;str1\u0026#34;) End With   获取选定单元格所在的行和列 1 2  ActiveCell.Row ActiveCell.Column   "
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/categories/%E6%8A%80%E6%9C%AF/",
+	"uri": "https://xiaohao890809.github.io/zh/categories/%E6%8A%80%E6%9C%AF/",
 	"title": "技术",
 	"tags": [],
 	"categories": [],
@@ -225,7 +558,7 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/tags/%E6%AD%A3%E5%88%99/",
+	"uri": "https://xiaohao890809.github.io/zh/tags/%E6%AD%A3%E5%88%99/",
 	"title": "正则",
 	"tags": [],
 	"categories": [],
@@ -234,7 +567,7 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/posts/2018-02-27-the-study-of-reg-expression/",
+	"uri": "https://xiaohao890809.github.io/zh/posts/2018-02-27-the-study-of-reg-expression/",
 	"title": "正则表达式知识积累",
 	"tags": ["正则"],
 	"categories": [],
@@ -243,7 +576,7 @@
 	"content": "众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻开始。\n正则表达式概念  使用单个字符串来描述匹配一系列符合某个句法规则的字符串 是对字符串操作的一种逻辑公式 应用场景：处理文本和数据  举例分析 大括号 匹配中括号中有任何一个字符，匹配里面的或者情况\n1 2 3  ma = re.match(r\u0026#39;\\[[\\w]\\]\u0026#39;,\u0026#39;[a]\u0026#39;) ret = re.findall(r\u0026#39;[abc]f\u0026#39;,\u0026#39;afufobfidlfodcfr\u0026#39;) # [\u0026#39;af\u0026#39;, \u0026#39;bf\u0026#39;, \u0026#39;cf\u0026#39;]   含有换行 正则修饰符re.S可以匹配包括换行在内的所有字符\n1 2 3 4 5 6  import re content = \u0026#39;\u0026#39;\u0026#39;Hello 1234567Word-Thisis a Regex Demo\u0026#39;\u0026#39;\u0026#39; # 非贪婪匹配 result = re.match(\u0026#39;^He.*?(\\d+).*?Demo$\u0026#39;, content, re.S) print(result.group(1)) # 1234567   贪婪模式和非贪婪模式 1 2 3 4 5 6 7  import re # 贪婪模式，最大范围的匹配标准 ret = re.findall(r\u0026#39;\u0026lt;div\u0026gt;(.*)\u0026lt;/div\u0026gt;\u0026#39;,\u0026#39;\u0026lt;div\u0026gt;hello\u0026lt;/div\u0026gt;\u0026lt;div\u0026gt;hello\u0026lt;/div\u0026gt;\u0026#39;) print(ret) # [\u0026#39;hello\u0026lt;/div\u0026gt;\u0026lt;div\u0026gt;hello\u0026#39;] # 非贪婪模式 ret = re.findall(r\u0026#39;\u0026lt;div\u0026gt;(.*?)\u0026lt;/div\u0026gt;\u0026#39;,\u0026#39;\u0026lt;div\u0026gt;hello\u0026lt;/div\u0026gt;\u0026lt;div\u0026gt;hello\u0026lt;/div\u0026gt;\u0026#39;) print(ret) # [\u0026#39;hello\u0026#39;, \u0026#39;hello\u0026#39;]   1 2 3 4 5 6  ma = re.match(r\u0026#39;[0-9][a-z]*\u0026#39;,\u0026#39;1bc\u0026#39;) #全部匹配 print(ma.group()) #1bc ma = re.match(r\u0026#39;[0-9][a-z]*?\u0026#39;,\u0026#39;1bc\u0026#39;) #最小匹配，0个 print(ma.group()) #1 ma = re.match(r\u0026#39;[0-9][a-z]+?\u0026#39;,\u0026#39;1bc\u0026#39;) #最小匹配，一个 print(ma.group()) #1b   忽略大小写 1 2 3 4  ret = re.findall(r\u0026#39;\u0026lt;div\u0026gt;(hello)\u0026lt;/div\u0026gt;\u0026#39;,\u0026#39;\u0026lt;div\u0026gt;hello\u0026lt;/DIV\u0026gt;\u0026#39;) print(ret) # [] ret = re.findall(r\u0026#39;\u0026lt;div\u0026gt;(hello)\u0026lt;/div\u0026gt;\u0026#39;,\u0026#39;\u0026lt;div\u0026gt;hello\u0026lt;/DIV\u0026gt;\u0026#39;,re.I) print(ret) # [\u0026#39;hello\u0026#39;]   匹配邮箱 1  mail = re.finall(r\u0026#39;\\w+@\\w+\\.com|\\w+@\\w+\\.cn|\\w+@\\w+\\.net\u0026#39;,\u0026#39;...\u0026#39;)   匹配多个 1 2 3 4 5  ma = re.match(r\u0026#39;[a-zA-Z0-9]{6}\u0026#39;,\u0026#39;abc123\u0026#39;) print(ma.group()) #abc123 # 匹配6-10个字符 ma = re.match(r\u0026#39;[a-zA-Z0-9]{6,10}\u0026#39;,\u0026#39;abc123456\u0026#39;) print(ma.group()) #abc123456   | 的用法 1 2  ma = re.match(r\u0026#39;[\\w]{4,6}@(126|163).com\u0026#39;,\u0026#39;immoc@126.com\u0026#39;) print(ma.group()) #immoc@126.com   findall的用法 1 2 3 4  str2 = \u0026#39;c++=100, java=90, python=80\u0026#39; info = re.findall(r\u0026#39;\\d+\u0026#39;,str2) print(info) #[\u0026#39;100\u0026#39;, \u0026#39;90\u0026#39;, \u0026#39;80\u0026#39;] print(sum([int(x) for x in info])) #270   sub的用法 1 2 3 4 5 6 7 8 9  def add1(match): val = match.group() num = int(val) + 1 return str(num) str1 = \u0026#39;immodc vedio = 1001\u0026#39; # 将数字整体加1 ret = re.sub(r\u0026#39;\\d+\u0026#39;,add1,str1) print(ret) #immodc vedio = 1002   split的用法 1 2 3  str1 = \u0026#39;immoc:C C++ Java Python,C#\u0026#39; list1 = re.split(r\u0026#39;:| |,\u0026#39;, str1) print(list1) #[\u0026#39;immoc\u0026#39;, \u0026#39;C\u0026#39;, \u0026#39;C++\u0026#39;, \u0026#39;Java\u0026#39;, \u0026#39;Python\u0026#39;, \u0026#39;C#\u0026#39;]   参考文献  python正则表达式  "
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/posts/2018-01-12-the-decare-by-excel/",
+	"uri": "https://xiaohao890809.github.io/zh/posts/2018-01-12-the-decare-by-excel/",
 	"title": "VBA实现Excel的笛卡尔积",
 	"tags": [""],
 	"categories": [],
@@ -252,7 +585,7 @@
 	"content": "最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后来想了下，VBA作为 Office 工具的原生态语言，何不用 VBA 实现呢，于是整理了下便写出来了，下面介绍下过程，为方便起见，弄了一些简易的数据，针对不同的数据需要做一些相应的调整。\nExcel的原始数据如下：\n整个VBA的代码框架如下：\n类模块 原始数据对应的首行信息，每一列对应一个元素，将其列出，作为一个新的数组。\n1 2 3 4  Public a As String Public b As String Public c As String Public d As String   常量 1 2 3  Public Const maxNum = 100000 Public MyArr(maxNum) As New MyAttr Public MyNum As Integer   主函数 思路是分别拆分每一行的那两列元素，然后将得到的元素做两个循环，遍历写入新的数组中，然后将新的数组传到工作簿中。\n获取最大行数 1 2 3 4 5 6 7 8 9 10 11 12  Public Function GetLastRow(theSheet As Worksheet, ByVal col As Integer) As Integer Dim findreg As Range, ret As Range Set findreg = theSheet.Columns(col) Set ret = findreg.Find(what:=\u0026#34;*\u0026#34;, searchDirection:=xlPrevious) If Not ret Is Nothing Then GetLastRow = ret.Row Else GetLastRow = 0 End If End Function   写入数组元素 1 2 3 4 5 6 7 8 9  Public Function WriteMsg(a As String, b As String, c As String, d As String) MyArr(MyNum).a = a MyArr(MyNum).b = b MyArr(MyNum).c = c MyArr(MyNum).d = d MyNum = MyNum + 1 End Function   主程序 假设新的工作簿的名字叫Sheet2，并且首行元素已经事先写好。\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45  Sub calc() Dim thisSheet As Worksheet Set thisSheet = ActiveSheet Dim lastRow As Integer lastRow = GetLastRow(thisSheet, 1) MyNum = 0 Dim a As Variant Dim b As Variant Dim c As Variant Dim d As Variant Dim tmp1 As String Dim tmp2 As String For i = 2 To lastRow a = Split(Range(\u0026#34;B\u0026#34; \u0026amp; i), \u0026#34;;\u0026#34;) b = UBound(a) c = Split(Range(\u0026#34;C\u0026#34; \u0026amp; i), \u0026#34;;\u0026#34;) d = UBound(c) For j = 0 To b tmp1 = a(j) For k = 0 To d tmp2 = c(k) WriteMsg Range(\u0026#34;A\u0026#34; \u0026amp; i), tmp1, tmp2, Range(\u0026#34;D\u0026#34; \u0026amp; i) Next Next Next MsgBox MyNum For i = 0 To MyNum - 1 Sheets(\u0026#34;Sheet2\u0026#34;).Range(\u0026#34;A\u0026#34; \u0026amp; i + 2) = MyArr(i).a Sheets(\u0026#34;Sheet2\u0026#34;).Range(\u0026#34;B\u0026#34; \u0026amp; i + 2) = MyArr(i).b Sheets(\u0026#34;Sheet2\u0026#34;).Range(\u0026#34;C\u0026#34; \u0026amp; i + 2) = MyArr(i).c Sheets(\u0026#34;Sheet2\u0026#34;).Range(\u0026#34;D\u0026#34; \u0026amp; i + 2) = MyArr(i).d Next End Sub   效果预览 文件链接 笛卡尔积.xlsm\n"
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/tags/%E6%8E%92%E5%BA%8F/",
+	"uri": "https://xiaohao890809.github.io/zh/tags/%E6%8E%92%E5%BA%8F/",
 	"title": "排序",
 	"tags": [],
 	"categories": [],
@@ -261,7 +594,7 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/posts/2018-01-11-the-classic-sorts/",
+	"uri": "https://xiaohao890809.github.io/zh/posts/2018-01-11-the-classic-sorts/",
 	"title": "经典排序法之Python版",
 	"tags": ["排序"],
 	"categories": [],
@@ -270,7 +603,7 @@
 	"content": "大学的时候学习的经典算法忘记差不多了，现在赶紧拾起来，基本算法往往是复杂算法的基础，牢记掌握才是王道。\n冒泡排序 1 2 3 4 5 6 7  def BubbleSorted(nums): length = len(nums) for i in range(length-1): for j in range(length-i-1): if nums[j]\u0026gt;nums[j+1]: nums[j],nums[j+1] = nums[j+1],nums[j] return nums   如果原来的列表是有序列表呢，能否优化一下呢？  1 2 3 4 5 6 7 8 9 10 11 12  def bubble_sort(input_list): \u0026#34;\u0026#34;\u0026#34;冒泡排序\u0026#34;\u0026#34;\u0026#34; length = len(input_list) for j in range(length - 1): # 当列表已经是有序列表的，节省空间 count = 0 for i in range(length - j - 1): if input_list[i] \u0026gt; input_list[i+1]: input_list[i], input_list[i+1] = input_list[i+1], input_list[i] count += 1 if count == 0: return   属性：\n 最优时间复杂度：$O(n)$ (表示遍历一次没有发现任何可以交换的元素，排序结束) 最坏时间复杂度：$O(n^2)$ 稳定性：稳定  插入排序 1 2 3 4 5 6 7 8 9 10 11  def InsertSorted(nums): # 从第二元素开始直到最后一个元素 for i in range(1,len(nums)): tmp = nums[i] print(nums) j = i-1 while j \u0026gt;= 0 and nums[j] \u0026gt; tmp: nums[j+1] = nums[j] j = j - 1 nums[j+1] = tmp return nums   选择排序 1 2 3 4 5 6 7 8  def SelectSorted(nums): for i in range(len(nums)-1): minIndex = i for j in range(i+1,len(nums)): if nums[j] \u0026lt; nums[minIndex]: minIndex = j nums[i],nums[minIndex] = nums[minIndex],nums[i] return nums   图片来源：常用算法js版\n"
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/tags/%E4%B9%A0%E6%83%AF/",
+	"uri": "https://xiaohao890809.github.io/zh/tags/%E4%B9%A0%E6%83%AF/",
 	"title": "习惯",
 	"tags": [],
 	"categories": [],
@@ -279,7 +612,7 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/posts/2017-09-27-some-good-habits-need-to-insist/",
+	"uri": "https://xiaohao890809.github.io/zh/posts/2017-09-27-some-good-habits-need-to-insist/",
 	"title": "保持某些好的习惯",
 	"tags": ["习惯"],
 	"categories": [],
@@ -288,7 +621,7 @@
 	"content": "优秀是一种习惯，保持一个良好的习惯往往能引导一种健康的生活姿态，现在记录一些自己认为是比较好的一些习惯，自己经常去看看，用于监督和督促自己。\n生活  一周至少运动两次（跑步，爬山，打球等） 晚上11点半准备看书，然后睡觉 一天至少三大杯水 平时多吃点水果 一个月清理一次房间 晚上睡前刷牙  技术  代码写完后多检查下注释有没有写全，没写的补上，以免以后都不知道自己当初写的啥 LeetCode过三遍 js和go语言了解下 正则表达式多熟悉  反思  每天问一遍自己，想进BAT吗，以你现在的能力能进BAT吗，不能的话哪些地方需要加强呢？  工作  平时多看下面试相关的信息，刷刷题 把跟自己业务相关的数据库表多检查下  英语  熟读新概念英语第三册前30篇  "
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/categories/%E7%94%9F%E6%B4%BB/",
+	"uri": "https://xiaohao890809.github.io/zh/categories/%E7%94%9F%E6%B4%BB/",
 	"title": "生活",
 	"tags": [],
 	"categories": [],
@@ -297,7 +630,7 @@
 	"content": ""
 },
 {
-	"uri": "http://xiaohao890809.github.io/zh/posts/2015-08-14-first-day/",
+	"uri": "https://xiaohao890809.github.io/zh/posts/2015-08-14-first-day/",
 	"title": "记录博客的第一天",
 	"tags": [""],
 	"categories": [],

@@ -2,53 +2,98 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 耗子的博客</title>
-    <link>http://xiaohao890809.github.io/zh/categories/</link>
+    <link>https://xiaohao890809.github.io/zh/categories/</link>
     <description>Recent content in Categories on 耗子的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <managingEditor>xiaohao890809@126.com (追寻原风景)</managingEditor>
     <webMaster>xiaohao890809@126.com (追寻原风景)</webMaster>
     <copyright>&amp;copy;2015-{year}, All Rights Reserved</copyright>
-    <lastBuildDate>Wed, 30 Oct 2019 19:45:20 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2020 06:40:51 +0900</lastBuildDate>
     
-        <atom:link href="http://xiaohao890809.github.io/zh/categories/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://xiaohao890809.github.io/zh/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     
       
       <item>
+        <title>syntax</title>
+        <link>https://xiaohao890809.github.io/zh/categories/syntax/</link>
+        <pubDate>Fri, 20 Dec 2019 12:00:06 +0900</pubDate>
+        <author>xiaohao890809@126.com (追寻原风景)</author>
+        <guid>https://xiaohao890809.github.io/zh/categories/syntax/</guid>
+        <description></description>
+      </item>
+      
+      <item>
+        <title>themes</title>
+        <link>https://xiaohao890809.github.io/zh/categories/themes/</link>
+        <pubDate>Fri, 20 Dec 2019 12:00:06 +0900</pubDate>
+        <author>xiaohao890809@126.com (追寻原风景)</author>
+        <guid>https://xiaohao890809.github.io/zh/categories/themes/</guid>
+        <description></description>
+      </item>
+      
+      <item>
+        <title>hugo</title>
+        <link>https://xiaohao890809.github.io/zh/categories/hugo/</link>
+        <pubDate>Wed, 18 Dec 2019 10:33:41 +0900</pubDate>
+        <author>xiaohao890809@126.com (追寻原风景)</author>
+        <guid>https://xiaohao890809.github.io/zh/categories/hugo/</guid>
+        <description></description>
+      </item>
+      
+      <item>
+        <title>diagram</title>
+        <link>https://xiaohao890809.github.io/zh/categories/diagram/</link>
+        <pubDate>Mon, 18 Nov 2019 21:00:06 +0900</pubDate>
+        <author>xiaohao890809@126.com (追寻原风景)</author>
+        <guid>https://xiaohao890809.github.io/zh/categories/diagram/</guid>
+        <description></description>
+      </item>
+      
+      <item>
+        <title>math</title>
+        <link>https://xiaohao890809.github.io/zh/categories/math/</link>
+        <pubDate>Sat, 16 Nov 2019 12:00:06 +0900</pubDate>
+        <author>xiaohao890809@126.com (追寻原风景)</author>
+        <guid>https://xiaohao890809.github.io/zh/categories/math/</guid>
+        <description></description>
+      </item>
+      
+      <item>
         <title>居士</title>
-        <link>http://xiaohao890809.github.io/zh/categories/%E5%B1%85%E5%A3%AB/</link>
+        <link>https://xiaohao890809.github.io/zh/categories/%E5%B1%85%E5%A3%AB/</link>
         <pubDate>Sun, 18 Aug 2019 12:51:41 +0900</pubDate>
         <author>xiaohao890809@126.com (追寻原风景)</author>
-        <guid>http://xiaohao890809.github.io/zh/categories/%E5%B1%85%E5%A3%AB/</guid>
+        <guid>https://xiaohao890809.github.io/zh/categories/%E5%B1%85%E5%A3%AB/</guid>
         <description></description>
       </item>
       
       <item>
         <title>数学</title>
-        <link>http://xiaohao890809.github.io/zh/categories/%E6%95%B0%E5%AD%A6/</link>
+        <link>https://xiaohao890809.github.io/zh/categories/%E6%95%B0%E5%AD%A6/</link>
         <pubDate>Wed, 07 Mar 2018 23:54:23 +0900</pubDate>
         <author>xiaohao890809@126.com (追寻原风景)</author>
-        <guid>http://xiaohao890809.github.io/zh/categories/%E6%95%B0%E5%AD%A6/</guid>
+        <guid>https://xiaohao890809.github.io/zh/categories/%E6%95%B0%E5%AD%A6/</guid>
         <description></description>
       </item>
       
       <item>
         <title>技术</title>
-        <link>http://xiaohao890809.github.io/zh/categories/%E6%8A%80%E6%9C%AF/</link>
+        <link>https://xiaohao890809.github.io/zh/categories/%E6%8A%80%E6%9C%AF/</link>
         <pubDate>Thu, 01 Mar 2018 22:53:23 +0900</pubDate>
         <author>xiaohao890809@126.com (追寻原风景)</author>
-        <guid>http://xiaohao890809.github.io/zh/categories/%E6%8A%80%E6%9C%AF/</guid>
+        <guid>https://xiaohao890809.github.io/zh/categories/%E6%8A%80%E6%9C%AF/</guid>
         <description></description>
       </item>
       
       <item>
         <title>生活</title>
-        <link>http://xiaohao890809.github.io/zh/categories/%E7%94%9F%E6%B4%BB/</link>
+        <link>https://xiaohao890809.github.io/zh/categories/%E7%94%9F%E6%B4%BB/</link>
         <pubDate>Tue, 26 Sep 2017 10:45:23 +0900</pubDate>
         <author>xiaohao890809@126.com (追寻原风景)</author>
-        <guid>http://xiaohao890809.github.io/zh/categories/%E7%94%9F%E6%B4%BB/</guid>
+        <guid>https://xiaohao890809.github.io/zh/categories/%E7%94%9F%E6%B4%BB/</guid>
         <description></description>
       </item>
       
