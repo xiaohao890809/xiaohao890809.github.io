@@ -14,7 +14,7 @@
   
   <url>
     <loc>https://xiaohao890809.github.io/zh/</loc>
-    <lastmod>2020-01-25T06:40:51+09:00</lastmod>
+    <lastmod>2020-01-29T16:59:16+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,8 +28,48 @@
   </url>
   
   <url>
+    <loc>https://xiaohao890809.github.io/zh/gallery/tech/</loc>
+    <lastmod>2020-01-29T16:59:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaohao890809.github.io/zh/gallery/literature/</loc>
+    <lastmod>2020-01-29T16:34:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaohao890809.github.io/zh/showcase/hugo/</loc>
+    <lastmod>2020-01-19T21:04:11+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaohao890809.github.io/zh/showcase/</loc>
+    <lastmod>2020-01-19T15:43:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaohao890809.github.io/zh/archive/</loc>
+    <lastmod>2019-10-19T11:44:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaohao890809.github.io/zh/gallery/</loc>
+    <lastmod>2019-10-19T11:44:14+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xiaohao890809.github.io/en/gallery/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://xiaohao890809.github.io/zh/gallery/"
+                />
+  </url>
+  
+  <url>
     <loc>https://xiaohao890809.github.io/zh/categories/</loc>
-    <lastmod>2020-01-25T06:40:51+09:00</lastmod>
+    <lastmod>2019-08-18T12:51:41+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -44,7 +84,7 @@
   
   <url>
     <loc>https://xiaohao890809.github.io/zh/series/</loc>
-    <lastmod>2020-01-25T06:40:51+09:00</lastmod>
+    <lastmod>2019-08-18T12:51:41+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -58,18 +98,8 @@
   </url>
   
   <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/shortcode/</loc>
-    <lastmod>2020-01-25T06:40:51+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/shortcodes/</loc>
-    <lastmod>2020-01-25T06:40:51+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://xiaohao890809.github.io/zh/tags/</loc>
-    <lastmod>2020-01-25T06:40:51+09:00</lastmod>
+    <lastmod>2019-08-18T12:51:41+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -83,226 +113,6 @@
   </url>
   
   <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/</loc>
-    <lastmod>2020-01-25T06:40:51+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/showcase/hugo/</loc>
-    <lastmod>2020-01-19T21:04:11+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/showcase/</loc>
-    <lastmod>2020-01-19T15:43:38+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/css/</loc>
-    <lastmod>2019-12-20T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/html/</loc>
-    <lastmod>2019-12-20T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/markdown/</loc>
-    <lastmod>2019-12-20T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/markdown-syntax/</loc>
-    <lastmod>2019-12-20T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/categories/syntax/</loc>
-    <lastmod>2019-12-20T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/categories/themes/</loc>
-    <lastmod>2019-12-20T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/themes/</loc>
-    <lastmod>2019-12-20T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/series/themes-guide/</loc>
-    <lastmod>2019-12-20T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/privacy/</loc>
-    <lastmod>2019-12-19T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/rich-content/</loc>
-    <lastmod>2019-12-19T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/shortcodes/</loc>
-    <lastmod>2019-12-19T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/hugo/</loc>
-    <lastmod>2019-12-18T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/categories/hugo/</loc>
-    <lastmod>2019-12-18T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/syntax-highlight/</loc>
-    <lastmod>2019-12-18T10:33:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/math-typesetting/</loc>
-    <lastmod>2019-12-17T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/amoji/</loc>
-    <lastmod>2019-12-16T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/bamoji/</loc>
-    <lastmod>2019-12-16T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/emoji/</loc>
-    <lastmod>2019-12-16T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/emoji-support/</loc>
-    <lastmod>2019-12-16T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/gamoji/</loc>
-    <lastmod>2019-12-16T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/namoji/</loc>
-    <lastmod>2019-12-16T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/categories/diagram/</loc>
-    <lastmod>2019-11-18T21:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/test-viz/</loc>
-    <lastmod>2019-11-18T21:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/test-wavedrom/</loc>
-    <lastmod>2019-11-18T18:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/test-chartjs/</loc>
-    <lastmod>2019-11-18T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/test-js-sequence-diagrams/</loc>
-    <lastmod>2019-11-18T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/tags/diagram/</loc>
-    <lastmod>2019-11-17T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/test-mermaid/</loc>
-    <lastmod>2019-11-17T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/categories/math/</loc>
-    <lastmod>2019-11-16T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/test-mathjax/</loc>
-    <lastmod>2019-11-16T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/test-katex/</loc>
-    <lastmod>2019-11-15T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/posts/test-flowchart/</loc>
-    <lastmod>2019-11-14T12:00:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/gallery/cartoon/</loc>
-    <lastmod>2019-10-31T10:20:16+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/gallery/photo/</loc>
-    <lastmod>2019-10-31T10:20:16+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/pt/dir/fourth/</loc>
-    <lastmod>2019-10-30T20:48:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/pt/</loc>
-    <lastmod>2019-10-30T20:48:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/pt/third/</loc>
-    <lastmod>2019-10-30T20:46:30+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/pt/second/</loc>
-    <lastmod>2019-10-30T20:45:24+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/pt/first/</loc>
-    <lastmod>2019-10-30T19:45:20+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/archive/</loc>
-    <lastmod>2019-10-19T11:44:14+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://xiaohao890809.github.io/zh/gallery/</loc>
-    <lastmod>2019-10-19T11:44:14+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://xiaohao890809.github.io/zh/categories/%E5%B1%85%E5%A3%AB/</loc>
     <lastmod>2019-08-18T12:51:41+09:00</lastmod>
   </url>
@@ -310,6 +120,21 @@
   <url>
     <loc>https://xiaohao890809.github.io/zh/posts/2019-08-18-the-data-science-learning_5/</loc>
     <lastmod>2019-08-18T12:51:41+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaohao890809.github.io/zh/posts/</loc>
+    <lastmod>2019-08-18T12:51:41+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xiaohao890809.github.io/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://xiaohao890809.github.io/zh/posts/"
+                />
   </url>
   
   <url>
@@ -395,6 +220,20 @@
   <url>
     <loc>https://xiaohao890809.github.io/zh/posts/2015-08-14-first-day/</loc>
     <lastmod>2015-08-14T22:47:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://xiaohao890809.github.io/zh/pt/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://xiaohao890809.github.io/en/pt/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://xiaohao890809.github.io/zh/pt/"
+                />
   </url>
   
 </urlset>

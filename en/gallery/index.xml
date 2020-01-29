@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Galleries on Hugo Zzo Theme</title>
+    <link>https://xiaohao890809.github.io/en/gallery/</link>
+    <description>Recent content in Galleries on Hugo Zzo Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>xiaohao890809@126.com (追寻原风景)</managingEditor>
+    <webMaster>xiaohao890809@126.com (追寻原风景)</webMaster>
+    <copyright>&amp;copy;2015-{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Thu, 31 Oct 2019 10:20:16 +0900</lastBuildDate>
+    
+        <atom:link href="https://xiaohao890809.github.io/en/gallery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Cartoon</title>
+        <link>https://xiaohao890809.github.io/en/gallery/cartoon/</link>
+        <pubDate>Thu, 31 Oct 2019 10:20:16 +0900</pubDate>
+        <author>xiaohao890809@126.com (追寻原风景)</author>
+        <guid>https://xiaohao890809.github.io/en/gallery/cartoon/</guid>
+        <description>Sample images from Pixabay</description>
+      </item>
+      
+      <item>
+        <title>Photo</title>
+        <link>https://xiaohao890809.github.io/en/gallery/photo/</link>
+        <pubDate>Thu, 31 Oct 2019 10:20:16 +0900</pubDate>
+        <author>xiaohao890809@126.com (追寻原风景)</author>
+        <guid>https://xiaohao890809.github.io/en/gallery/photo/</guid>
+        <description>Sample images from Pixabay</description>
+      </item>
+      
+    
+  </channel>
+</rss>

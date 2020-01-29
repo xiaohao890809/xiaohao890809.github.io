@@ -892,6 +892,14 @@
 <link rel="stylesheet" href="/css/main.min.css">
 
 
+
+  
+  
+    
+    <link rel="stylesheet" href="/css/font.min.css">
+  
+
+
     
 <meta name="description" content="Make a documentation with hugo zdoc theme!" />
 <meta name="keywords" content="">
@@ -959,7 +967,7 @@
     
 </head>
 
-<body id="root" class="theme__dark">
+<body id="root" class="theme__solarized">
     <script>
         var localTheme = localStorage.getItem('theme');
         if (localTheme) {
@@ -979,7 +987,7 @@
     
     
       <a href="/zh/" title="主页" rel="home" class="navbar__title-link">
-        <h6 class="navbar__title">Zzo</h6>
+        <h6 class="navbar__title">Etiquette</h6>
       </a>
     
   </div>
@@ -994,6 +1002,10 @@
       
         
         <a href="#" class="dropdown-item select-theme__item is-active">
+          solarized
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
           dark
         </a>
         
@@ -1003,10 +1015,6 @@
         
         <a href="#" class="dropdown-item select-theme__item ">
           hacker
-        </a>
-        
-        <a href="#" class="dropdown-item select-theme__item ">
-          solarized
         </a>
         
         <a href="#" class="dropdown-item select-theme__item ">
@@ -1053,6 +1061,10 @@
       
         
         <a href="#" class="dropdown-item select-theme__item is-active">
+          solarized
+        </a>
+        
+        <a href="#" class="dropdown-item select-theme__item ">
           dark
         </a>
         
@@ -1062,10 +1074,6 @@
         
         <a href="#" class="dropdown-item select-theme__item ">
           hacker
-        </a>
-        
-        <a href="#" class="dropdown-item select-theme__item ">
-          solarized
         </a>
         
         <a href="#" class="dropdown-item select-theme__item ">
@@ -1117,9 +1125,9 @@
           </a>        
           <div class="navbar__dropdown--content">
             
-            <a href="/zh/gallery/cartoon" class="navbar__dropdown--item" dir="ltr">卡通</a>        
+            <a href="/zh/gallery/tech" class="navbar__dropdown--item" dir="ltr">技术书籍</a>        
             
-            <a href="/zh/gallery/photo" class="navbar__dropdown--item" dir="ltr">照片</a>        
+            <a href="/zh/gallery/literature" class="navbar__dropdown--item" dir="ltr">文学书籍</a>        
             
           </div>
         </div>
@@ -1333,8 +1341,8 @@
     
     <div class="grow"></div>
     
-    <a href="https://xiaohao890809.github.io/zh/posts/shortcodes/" class="pagination-single__left">
-      <div class="pagination-single__left-title">Shortcodes</div>
+    <a href="https://xiaohao890809.github.io/zh/gallery/tech/" class="pagination-single__left">
+      <div class="pagination-single__left-title">技术书籍</div>
       <div class="pagination-single__icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentColor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
       </div>
@@ -2115,7 +2123,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (lib && lib.includes('mermaid')) {
       
-      var themeVariant = localStorage.getItem('theme') || JSON.parse("\"dark\"");
+      var themeVariant = localStorage.getItem('theme') || JSON.parse("\"solarized\"");
 
       if (themeVariant === "dark" || themeVariant === "hacker") {
         mermaid.initialize({ theme: 'dark' });
