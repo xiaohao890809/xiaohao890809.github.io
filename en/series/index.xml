@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on Hugo Zzo Theme</title>
+    <link>http://xiaohao890809.github.io/en/series/</link>
+    <description>Recent content in Series on Hugo Zzo Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>xiaohao890809@126.com (追寻原风景)</managingEditor>
+    <webMaster>xiaohao890809@126.com (追寻原风景)</webMaster>
+    <copyright>&amp;copy;2015-{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 25 Jan 2020 06:40:51 +0900</lastBuildDate>
+    
+        <atom:link href="http://xiaohao890809.github.io/en/series/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>Themes Guide</title>
+        <link>http://xiaohao890809.github.io/en/series/themes-guide/</link>
+        <pubDate>Fri, 20 Dec 2019 12:00:06 +0900</pubDate>
+        <author>xiaohao890809@126.com (追寻原风景)</author>
+        <guid>http://xiaohao890809.github.io/en/series/themes-guide/</guid>
+        <description></description>
+      </item>
+      
+    
+  </channel>
+</rss>

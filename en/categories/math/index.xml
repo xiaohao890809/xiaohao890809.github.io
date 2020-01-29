@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>math on Hugo Zzo Theme</title>
+    <link>http://xiaohao890809.github.io/en/categories/math/</link>
+    <description>Recent content in math on Hugo Zzo Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>xiaohao890809@126.com (追寻原风景)</managingEditor>
+    <webMaster>xiaohao890809@126.com (追寻原风景)</webMaster>
+    <copyright>&amp;copy;2015-{year}, All Rights Reserved</copyright>
+    <lastBuildDate>Sat, 16 Nov 2019 12:00:06 +0900</lastBuildDate>
+    
+        <atom:link href="http://xiaohao890809.github.io/en/categories/math/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+      
+      <item>
+        <title>MathJax support</title>
+        <link>http://xiaohao890809.github.io/en/posts/test-mathjax/</link>
+        <pubDate>Sat, 16 Nov 2019 12:00:06 +0900</pubDate>
+        <author>xiaohao890809@126.com (追寻原风景)</author>
+        <guid>http://xiaohao890809.github.io/en/posts/test-mathjax/</guid>
+        <description>When \(a \ne 0\), there are two solutions to \((ax^2 + bx + c = 0)\) and they are
+\[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]</description>
+      </item>
+      
+      <item>
+        <title>Katex support</title>
+        <link>http://xiaohao890809.github.io/en/posts/test-katex/</link>
+        <pubDate>Fri, 15 Nov 2019 12:00:06 +0900</pubDate>
+        <author>xiaohao890809@126.com (追寻原风景)</author>
+        <guid>http://xiaohao890809.github.io/en/posts/test-katex/</guid>
+        <description>We need goldmark katex entension which is not yet we have: [https://github.com/gohugoio/hugo/issues/6544](https://github.com/gohugoio/hugo/issues/6544)  The following
+$$ \int_{a}^{b} x^2 dx $$
+Is an integral
+$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+$$
+Enable Katex in the config file by setting the katex param to true. This will import the necessary Katex CSS/JS.
+See the online reference of supported TeX functions.
+Note: For inline math to render correctly, your content file extension must be .</description>
+      </item>
+      
+    
+  </channel>
+</rss>
