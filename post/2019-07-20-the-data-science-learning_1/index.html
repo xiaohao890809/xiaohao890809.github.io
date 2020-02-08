@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>居士自习室作业第一周 - 追寻原风景|耗子的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="枕霞惜友" /><meta name="description" content="数据的集中趋势 众数 一组数据中出现次数最多的数值，叫众数。 注意：有时众数在一组数中有1个或多个，也可能不存在。 中位数 中位数，又称中点数，中值。" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+<meta name="baidu-site-verification" content="2Q34xM2jBhOoTGb7" />
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with theme even" />
+
+
+<link rel="canonical" href="https://xiaohao890809.github.io/post/2019-07-20-the-data-science-learning_1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.28b9a77a.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="居士自习室作业第一周" />
+<meta property="og:description" content="数据的集中趋势 众数 一组数据中出现次数最多的数值，叫众数。 注意：有时众数在一组数中有1个或多个，也可能不存在。 中位数 中位数，又称中点数，中值。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xiaohao890809.github.io/post/2019-07-20-the-data-science-learning_1/" />
+<meta property="article:published_time" content="2019-07-20T22:42:23&#43;00:00"/>
+<meta property="article:modified_time" content="2019-07-20T22:42:23&#43;00:00"/>
+
+<meta itemprop="name" content="居士自习室作业第一周">
+<meta itemprop="description" content="数据的集中趋势 众数 一组数据中出现次数最多的数值，叫众数。 注意：有时众数在一组数中有1个或多个，也可能不存在。 中位数 中位数，又称中点数，中值。">
+
+
+<meta itemprop="datePublished" content="2019-07-20T22:42:23&#43;00:00" />
+<meta itemprop="dateModified" content="2019-07-20T22:42:23&#43;00:00" />
+<meta itemprop="wordCount" content="1004">
+
+
+
+<meta itemprop="keywords" content="居士," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="居士自习室作业第一周"/>
+<meta name="twitter:description" content="数据的集中趋势 众数 一组数据中出现次数最多的数值，叫众数。 注意：有时众数在一组数中有1个或多个，也可能不存在。 中位数 中位数，又称中点数，中值。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">🤹追寻原风景</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">🤹追寻原风景</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">居士自习室作业第一周</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-07-20 </span>
+        
+          <span class="more-meta"> 约 1004 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#数据的集中趋势">数据的集中趋势</a>
+<ul>
+<li><a href="#众数">众数</a></li>
+<li><a href="#中位数">中位数</a></li>
+<li><a href="#平均数">平均数</a></li>
+<li><a href="#分位数">分位数</a></li>
+</ul></li>
+<li><a href="#数据的离中趋势">数据的离中趋势</a>
+<ul>
+<li><a href="#数值型数据">数值型数据</a></li>
+<li><a href="#顺序数据">顺序数据</a></li>
+<li><a href="#分类数据">分类数据</a></li>
+</ul></li>
+<li><a href="#相对离散程度">相对离散程度</a>
+<ul>
+<li><a href="#离散系数">离散系数</a></li>
+</ul></li>
+<li><a href="#分布的形状">分布的形状</a>
+<ul>
+<li><a href="#偏态系数">偏态系数</a></li>
+<li><a href="#峰态系数">峰态系数</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="数据的集中趋势">数据的集中趋势</h2>
+
+<h3 id="众数">众数</h3>
+
+<p>一组数据中出现次数最多的数值，叫<strong>众数</strong>。</p>
+
+<!-- more --> 
+
+<blockquote>
+<p>注意：有时众数在一组数中有1个或多个，也可能不存在。</p>
+</blockquote>
+
+<h3 id="中位数">中位数</h3>
+
+<p>中位数，又称<strong>中点数</strong>，<strong>中值</strong>。</p>
+
+<p>中位数是按顺序排列的一组数据中居于中间位置的数，即在这组数据中，有一半的数据比他大，有一半的数据比他小。</p>
+
+<h3 id="平均数">平均数</h3>
+
+<ul>
+<li><p>算数平均数</p>
+
+<ul>
+<li>算术平均数是指在一组数据中所有数据之和再除以数据的个数。</li>
+<li>它是反映数据集中趋势的一项指标。</li>
+</ul></li>
+
+<li><p>加权平均数</p>
+
+<ul>
+<li><strong>加权平均数</strong>即将各数值乘以相应的权数，然后加总求和得到总体值，再除以总的单位数。</li>
+<li>加权平均数也称<strong>加权平均值</strong>。</li>
+</ul></li>
+
+<li><p>几何平均数</p>
+
+<ul>
+<li>几何平均数是n个变量值连乘积的n次方根。</li>
+</ul></li>
+</ul>
+
+<h3 id="分位数">分位数</h3>
+
+<p>分位数(Quantile)，亦称分位点，是指将一个随机变量的概率分布范围分为几个等份的数值点。</p>
+
+<p>常用的有中位数(即二分位数)、四分位数、百分位数等。</p>
+
+<h2 id="数据的离中趋势">数据的离中趋势</h2>
+
+<h3 id="数值型数据">数值型数据</h3>
+
+<ul>
+<li><p>方差</p>
+
+<ul>
+<li>统计中的方差(样本方差)是每个样本值与全体样本值的平均数之差的<strong>平方值</strong>的平均数。</li>
+</ul></li>
+
+<li><p>标准差</p>
+
+<ul>
+<li>标准差是方差的算术平方根。</li>
+</ul></li>
+
+<li><p>极差</p>
+
+<ul>
+<li>极差又称范围误差或全距(Range)，以R表示，是用来表示统计资料中的变异量数(measures of variation)。</li>
+<li>其最大值与最小值之间的差距，即最大值减最小值后所得之数据。</li>
+</ul></li>
+
+<li><p>平均差</p>
+
+<ul>
+<li>平均差(Mean Deviation)是表示各个变量值之间差异程度的数值之一。</li>
+<li>指各个变量值同平均数的离差绝对值的算术平均数。</li>
+</ul></li>
+</ul>
+
+<h3 id="顺序数据">顺序数据</h3>
+
+<ul>
+<li>四分位差
+
+<ul>
+<li>四分位差(quartile deviation)，它是上四分位数(Q3，即位于75%)与下四分位数(Q1，即位于25%)的差。</li>
+</ul></li>
+</ul>
+
+<h3 id="分类数据">分类数据</h3>
+
+<ul>
+<li>异众比率
+
+<ul>
+<li>异众比率(variation ratio)是统计学名词，是统计学当中研究现象离中趋势的指标之一。</li>
+<li>异众比率指的是总体中非众数次数与总体全部次数之比。</li>
+<li>换句话说，异众比率指非众数组的频数占总频数的比例。</li>
+</ul></li>
+</ul>
+
+<h2 id="相对离散程度">相对离散程度</h2>
+
+<h3 id="离散系数">离散系数</h3>
+
+<p>在概率论和统计学中，离散系数(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为标准差 $\sigma$ 与平均值 $\mu$ 之比。</p>
+
+<h2 id="分布的形状">分布的形状</h2>
+
+<h3 id="偏态系数">偏态系数</h3>
+
+<p>偏态系数以平均值与中位数之差对标准差之比率来衡量偏斜的程度，用SK表示偏斜系数。</p>
+
+<ul>
+<li>偏态系数小于0，因为平均数在众数之左，是一种左偏的分布，又称为负偏。</li>
+<li>偏态系数大于0，因为均值在众数之右，是一种右偏的分布，又称为正偏。</li>
+</ul>
+
+<h3 id="峰态系数">峰态系数</h3>
+
+<p>峰度系数是用来反映频数分布曲线顶端尖峭或扁平程度的指标。</p>
+
+<p>有时两组数据的算术平均数、标准差和偏态系数都相同，但他们分布曲线顶端的高耸程度却不同。</p>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E5%B1%85%E5%A3%AB/">居士</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2019-07-28-the-data-science-learning_2/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">居士自习室作业第二周</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2018-03-07-the-note-of-probability-theory/">
+            <span class="next-text nav-default">机器学习基础之概率论</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:xiaohao890809@126.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/xiaohao890809" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/xiaohao89" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://space.bilibili.com/259316011" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://xiaohao890809.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">枕霞惜友</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.de161082.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?a5db5bc9a86719379988e71b38e6dd81";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>
