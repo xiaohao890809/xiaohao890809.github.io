@@ -49,7 +49,7 @@
 <meta itemprop="description" content="最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后">
 <meta itemprop="datePublished" content="2018-01-12T23:40:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-01-12T23:40:23&#43;00:00" />
-<meta itemprop="wordCount" content="658">
+<meta itemprop="wordCount" content="670">
 
 
 
@@ -125,7 +125,7 @@
         <div class="post-category">
             <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 658 字 </span>
+          <span class="more-meta"> 约 670 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
@@ -155,13 +155,21 @@
       <p>最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后来想了下，VBA作为 Office 工具的原生态语言，何不用 VBA 实现呢，于是整理了下便写出来了，下面介绍下过程，为方便起见，弄了一些简易的数据，针对不同的数据需要做一些相应的调整。</p>
 <!-- raw HTML omitted -->
 <p>Excel的原始数据如下：</p>
-<!-- raw HTML omitted -->
-<p><img src="/images/beforeDiCar.jpeg" alt="img" title="原始数据"></p>
-<!-- raw HTML omitted -->
+<figure class="center">
+    <img src="/images/beforeDiCar.jpeg"
+         alt="img"/> <figcaption>
+            <h4>原始数据</h4>
+        </figcaption>
+</figure>
+
 <p>整个 <code>VBA</code> 的代码框架如下：</p>
-<!-- raw HTML omitted -->
-<p><img src="/images/mould.jpeg" alt="img" title="代码框架"></p>
-<!-- raw HTML omitted -->
+<figure class="center">
+    <img src="/images/mould.jpeg"
+         alt="img"/> <figcaption>
+            <h4>代码框架</h4>
+        </figcaption>
+</figure>
+
 <h2 id="类模块">类模块</h2>
 <p>原始数据对应的首行信息，每一列对应一个元素，将其列出，作为一个新的数组。</p>
 <div class="highlight"><div class="chroma">
@@ -348,9 +356,13 @@
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="效果预览">效果预览</h2>
-<!-- raw HTML omitted -->
-<p><img src="/images/afterDiCar.jpeg" alt="img" title="效果预览"></p>
-<!-- raw HTML omitted -->
+<figure class="center">
+    <img src="/images/afterDiCar.jpeg"
+         alt="img"/> <figcaption>
+            <h4>效果预览</h4>
+        </figcaption>
+</figure>
+
 <h2 id="文件链接">文件链接</h2>
 <p><a href="/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.xlsm">笛卡尔积.xlsm</a></p>
 
