@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
 
 
 <link rel="canonical" href="https://xiaohao890809.github.io/post/2019-08-18-the-data-science-learning_5/" />
@@ -34,7 +34,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.28b9a77a.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.6eb09ed45a88bd339269c14515d2a11f2e0afdadbdd763d83f9b5c797166b081.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -42,21 +43,17 @@
 <meta property="og:description" content="最常用的统计量与抽样分布 统计量 样本均值：样本均值(sample mean)又叫样本均数，即为样本的均值。均值是表示一组数据集中趋势的量数，是指" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xiaohao890809.github.io/post/2019-08-18-the-data-science-learning_5/" />
-<meta property="article:published_time" content="2019-08-18T12:51:41&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-18T12:51:41&#43;08:00"/>
-
+<meta property="article:published_time" content="2019-08-18T12:51:41+08:00" />
+<meta property="article:modified_time" content="2019-08-18T12:51:41+08:00" />
 <meta itemprop="name" content="居士自习室作业第五周">
 <meta itemprop="description" content="最常用的统计量与抽样分布 统计量 样本均值：样本均值(sample mean)又叫样本均数，即为样本的均值。均值是表示一组数据集中趋势的量数，是指">
-
-
 <meta itemprop="datePublished" content="2019-08-18T12:51:41&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-18T12:51:41&#43;08:00" />
 <meta itemprop="wordCount" content="1438">
 
 
 
-<meta itemprop="keywords" content="居士," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="居士," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="居士自习室作业第五周"/>
 <meta name="twitter:description" content="最常用的统计量与抽样分布 统计量 样本均值：样本均值(sample mean)又叫样本均数，即为样本的均值。均值是表示一组数据集中趋势的量数，是指"/>
 
@@ -135,52 +132,60 @@
     
     <div class="post-content">
       <p><strong>最常用的统计量与抽样分布</strong></p>
-
 <p><strong>统计量</strong></p>
-
 <ul>
-<li><p>样本均值：样本均值(sample mean)又叫<strong>样本均数</strong>，即为样本的均值。均值是表示一组数据集中趋势的量数，是指在一组数据中所有数据之和再除以这组数据的个数。它是反映数据集中趋势的一项指标。</p></li>
-
-<li><p>样本方差：先求出总体各单位变量值与其算术平均数的<strong>离差的平方</strong>，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的<strong>变异程度</strong>。</p></li>
-
-<li><p>变异系数：在概率论和统计学中，变异系数，又称“离散系数”(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为<strong>标准差</strong>与<strong>平均值</strong>之比。变异系数也被称为标准离差率或单位风险。</p></li>
-
-<li><p>样本矩：有一类常用的统计量是样本的数字特征，他们是模拟总体数字特征构造的，称为样本矩，看看以下两种：</p>
-
+<li>
+<p>样本均值：样本均值(sample mean)又叫<strong>样本均数</strong>，即为样本的均值。均值是表示一组数据集中趋势的量数，是指在一组数据中所有数据之和再除以这组数据的个数。它是反映数据集中趋势的一项指标。</p>
+</li>
+<li>
+<p>样本方差：先求出总体各单位变量值与其算术平均数的<strong>离差的平方</strong>，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的<strong>变异程度</strong>。</p>
+</li>
+<li>
+<p>变异系数：在概率论和统计学中，变异系数，又称“离散系数”(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为<strong>标准差</strong>与<strong>平均值</strong>之比。变异系数也被称为标准离差率或单位风险。</p>
+</li>
+<li>
+<p>样本矩：有一类常用的统计量是样本的数字特征，他们是模拟总体数字特征构造的，称为样本矩，看看以下两种：</p>
 <ul>
 <li>样本 $k$ 阶原点矩：$\bar{\alpha}_{k}=\frac{1}{n}\sum_{i=1}^{n}x_{i}^{k}$</li>
 <li>样本 $k$ 阶中心矩：$\bar{\beta}_{k}=\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\bar{x})^{k}$</li>
-</ul></li>
-
-<li><p>样本偏度：样本偏度(sample skewness)一种基本统计量，是样本三阶中心矩除以样本二阶中心矩的3/2次幂的商。</p></li>
-
-<li><p>样本峰度：样本峰度(sample kurtosis)一种基本统计量，样本的峰度和偏度都是作为检验总体分布正态性的统计量。是样本四阶中心矩除以样本二阶中心矩平方的商再减去3。</p></li>
 </ul>
-
+</li>
+<li>
+<p>样本偏度：样本偏度(sample skewness)一种基本统计量，是样本三阶中心矩除以样本二阶中心矩的3/2次幂的商。</p>
+</li>
+<li>
+<p>样本峰度：样本峰度(sample kurtosis)一种基本统计量，样本的峰度和偏度都是作为检验总体分布正态性的统计量。是样本四阶中心矩除以样本二阶中心矩平方的商再减去3。</p>
+</li>
+</ul>
 <p><strong>抽样分布</strong></p>
-
 <ul>
-<li><p>卡方分布：若 $n$ 个相互独立的随机变量 $\xi_{1},\xi_{2},&hellip;,\xi_{n}$ 均服从标准正态分布(也称独立同分布于标准正态分布)，则这 $n$ 个服从标准正态分布的随机变量的<strong>平方和</strong>构成一新的随机变量，其分布规律称为卡方($\chi^{2}$)分布(chi-square distribution)。</p></li>
-
-<li><p>T分布：假设 $X$ 服从标准正态分布$N(0,1)$，Y服从 $\chi^{2}(n)$ 分布，那么 $Z=\frac{X}{\sqrt{Y/n}}$ 的分布称为自由度为 $n$ 的 T分布,记为$Z\sim t(n)$。</p></li>
-
-<li><p>F分布：若总体$X\sim N(0,1)$，$(X_{1},X_{2},&hellip;,X_{n_{1}})$与$(Y_{1},Y_{2},&hellip;,Y_{n_{2}})$来自 $X$ 的两个独立样本，设统计量$F=\cfrac{\sum_{i=1}^{n_{1}}X_{i}^{2}}{N_{1}}/\cfrac{\sum_{i=1}^{n_{2}}Y_{i}^{2}}{N_{2}}$，则称统计量 $F$ 服从自由度 $n_{1}$ 和 $n_{2}$ 的 F分布，记为$F\sim F(n_{1},n_{2})$。</p></li>
-
-<li><p>样本方差的分布：设 $X_{1},X_{2},&hellip;,X_{n}$ 为来自正态分布 $N(\mu ,\sigma ^{2})$ 的样本，则可以推出以下结果：</p>
-
+<li>
+<p>卡方分布：若 $n$ 个相互独立的随机变量 $\xi_{1},\xi_{2},&hellip;,\xi_{n}$ 均服从标准正态分布(也称独立同分布于标准正态分布)，则这 $n$ 个服从标准正态分布的随机变量的<strong>平方和</strong>构成一新的随机变量，其分布规律称为卡方($\chi^{2}$)分布(chi-square distribution)。</p>
+</li>
+<li>
+<p>T分布：假设 $X$ 服从标准正态分布$N(0,1)$，Y服从 $\chi^{2}(n)$ 分布，那么 $Z=\frac{X}{\sqrt{Y/n}}$ 的分布称为自由度为 $n$ 的 T分布,记为$Z\sim t(n)$。</p>
+</li>
+<li>
+<p>F分布：若总体$X\sim N(0,1)$，$(X_{1},X_{2},&hellip;,X_{n_{1}})$与$(Y_{1},Y_{2},&hellip;,Y_{n_{2}})$来自 $X$ 的两个独立样本，设统计量$F=\cfrac{\sum_{i=1}^{n_{1}}X_{i}^{2}}{N_{1}}/\cfrac{\sum_{i=1}^{n_{2}}Y_{i}^{2}}{N_{2}}$，则称统计量 $F$ 服从自由度 $n_{1}$ 和 $n_{2}$ 的 F分布，记为$F\sim F(n_{1},n_{2})$。</p>
+</li>
+<li>
+<p>样本方差的分布：设 $X_{1},X_{2},&hellip;,X_{n}$ 为来自正态分布 $N(\mu ,\sigma ^{2})$ 的样本，则可以推出以下结果：</p>
 <ul>
 <li>设总体样本分布为 $(n-1)\cfrac{S^{2}}{\sigma ^{2}}\sim \chi ^{2}(N-1)$ 的正态分布，则样本方差 $S^{2}$ 的分布为，其中，将 $\chi ^{2}(n-1)$ 称为自由度为 $n-1$ 的卡方分布。</li>
-</ul></li>
-
-<li><p>两个样本平均值之差的分布：设 $X_{1},X_{2},&hellip;,X_{n_{1}}$ 是来自正态分布 $N(\mu_{1} ,\sigma_{1} ^{2})$ 的一个样本，$Y_{1},Y_{2},&hellip;,Y_{n_{2}}$ 是来自正态分布 $N(\mu_{2} ,\sigma_{2} ^{2})$ 的一个样本，且 $X_{i}(i=1,2,&hellip;,n_{1})$ 与 $Y_{i}(i=1,2,&hellip;,n_{2})$ 相互独立，则：</p>
-
+</ul>
+</li>
+<li>
+<p>两个样本平均值之差的分布：设 $X_{1},X_{2},&hellip;,X_{n_{1}}$ 是来自正态分布 $N(\mu_{1} ,\sigma_{1} ^{2})$ 的一个样本，$Y_{1},Y_{2},&hellip;,Y_{n_{2}}$ 是来自正态分布 $N(\mu_{2} ,\sigma_{2} ^{2})$ 的一个样本，且 $X_{i}(i=1,2,&hellip;,n_{1})$ 与 $Y_{i}(i=1,2,&hellip;,n_{2})$ 相互独立，则：</p>
 <ul>
 <li>$\cfrac{S_{x}^{2}/S_{y}^{2}}{\sigma _{1}^{2}/\sigma _{2}^{2}}=\cfrac{S_{x}^{2}/\sigma _{1}^{2}}{S_{y}^{2}/\sigma _{2}^{2}} \sim F(n_{1}-1,n_{2}-1)$，其中 $F(n_{1}-1,n_{2}-1)$ 是第一自由度(分子自由度)为 $n_{1}-1$，第二自由度(分母自由度)为 $n_{2}-1$ 的 F分布。</li>
-</ul></li>
-
-<li><p>样本比例的抽样分布：我们常假定总体中对具有某一特征产品的喜好比例为$\pi$，如果在样本大小为 $n$ 的样本中具有某一特征的个体数为$X$，则样本比例用 $\widehat{p}$ 表示，其分布函数为$\widehat{p}=\frac{X}{n}$。</p></li>
-
-<li><p>中心极限定理：中心极限定理是概率论中最著名的结果之一，它提出，大量的<strong>独立随机变量之和</strong>具有近似于正态的分布。</p></li>
+</ul>
+</li>
+<li>
+<p>样本比例的抽样分布：我们常假定总体中对具有某一特征产品的喜好比例为$\pi$，如果在样本大小为 $n$ 的样本中具有某一特征的个体数为$X$，则样本比例用 $\widehat{p}$ 表示，其分布函数为$\widehat{p}=\frac{X}{n}$。</p>
+</li>
+<li>
+<p>中心极限定理：中心极限定理是概率论中最著名的结果之一，它提出，大量的<strong>独立随机变量之和</strong>具有近似于正态的分布。</p>
+</li>
 </ul>
 
     </div>
@@ -251,7 +256,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.de161082.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},

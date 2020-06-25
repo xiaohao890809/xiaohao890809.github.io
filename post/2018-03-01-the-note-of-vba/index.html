@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
 
 
 <link rel="canonical" href="https://xiaohao890809.github.io/post/2018-03-01-the-note-of-vba/" />
@@ -34,7 +34,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.28b9a77a.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.6eb09ed45a88bd339269c14515d2a11f2e0afdadbdd763d83f9b5c797166b081.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -42,21 +43,17 @@
 <meta property="og:description" content="VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xiaohao890809.github.io/post/2018-03-01-the-note-of-vba/" />
-<meta property="article:published_time" content="2018-03-01T22:53:23&#43;00:00"/>
-<meta property="article:modified_time" content="2018-03-01T22:53:23&#43;00:00"/>
-
+<meta property="article:published_time" content="2018-03-01T22:53:23+00:00" />
+<meta property="article:modified_time" content="2018-03-01T22:53:23+00:00" />
 <meta itemprop="name" content="VBA知识点总结">
 <meta itemprop="description" content="VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法">
-
-
 <meta itemprop="datePublished" content="2018-03-01T22:53:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-03-01T22:53:23&#43;00:00" />
 <meta itemprop="wordCount" content="459">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VBA知识点总结"/>
 <meta name="twitter:description" content="VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法"/>
 
@@ -138,49 +135,43 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#常见错误">常见错误</a>
-<ul>
-<li><a href="#问题1">问题1</a></li>
-</ul></li>
-<li><a href="#常用函数">常用函数</a>
-<ul>
-<li><a href="#获取最大有效行数">获取最大有效行数</a></li>
-<li><a href="#获取最大有效列数">获取最大有效列数</a></li>
-</ul></li>
-<li><a href="#常用操作">常用操作</a>
-<ul>
-<li><a href="#分割字符串">分割字符串</a></li>
-<li><a href="#写入txt">写入txt</a></li>
-<li><a href="#查看下拉框所有内容">查看下拉框所有内容</a></li>
-<li><a href="#下拉框进行赋值">下拉框进行赋值</a></li>
-<li><a href="#获取选定单元格所在的行和列">获取选定单元格所在的行和列</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#常见错误">常见错误</a>
+      <ul>
+        <li><a href="#问题1">问题1</a></li>
+      </ul>
+    </li>
+    <li><a href="#常用函数">常用函数</a>
+      <ul>
+        <li><a href="#获取最大有效行数">获取最大有效行数</a></li>
+        <li><a href="#获取最大有效列数">获取最大有效列数</a></li>
+      </ul>
+    </li>
+    <li><a href="#常用操作">常用操作</a>
+      <ul>
+        <li><a href="#分割字符串">分割字符串</a></li>
+        <li><a href="#写入txt">写入txt</a></li>
+        <li><a href="#查看下拉框所有内容">查看下拉框所有内容</a></li>
+        <li><a href="#下拉框进行赋值">下拉框进行赋值</a></li>
+        <li><a href="#获取选定单元格所在的行和列">获取选定单元格所在的行和列</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法。
-<!-- more --> </p>
-
+      <p>VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法。</p>
+<!-- raw HTML omitted -->
 <h2 id="常见错误">常见错误</h2>
-
 <h3 id="问题1">问题1</h3>
-
 <blockquote>
 <p>此文件正由应用程序或另一用户使用。</p>
 </blockquote>
-
 <p>解决方案：打开后记得做退出关闭操作。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -197,15 +188,14 @@
 <span class="k">End</span> <span class="k">If</span>
 <span class="n">wdApp</span><span class="p">.</span><span class="n">NormalTemplate</span><span class="p">.</span><span class="n">Saved</span> <span class="o">=</span> <span class="k">True</span>
 <span class="n">wdApp</span><span class="p">.</span><span class="n">Quit</span>
-<span class="k">Set</span> <span class="n">wdApp</span> <span class="o">=</span> <span class="k">Nothing</span></code></pre></td></tr></table>
+<span class="k">Set</span> <span class="n">wdApp</span> <span class="o">=</span> <span class="k">Nothing</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="常用函数">常用函数</h2>
-
+</div><h2 id="常用函数">常用函数</h2>
 <h3 id="获取最大有效行数">获取最大有效行数</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -230,13 +220,13 @@
       <span class="n">GetLastRow</span> <span class="o">=</span> <span class="n">0</span>
    <span class="k">End</span> <span class="k">If</span>
 
-<span class="k">End</span> <span class="k">Function</span></code></pre></td></tr></table>
+<span class="k">End</span> <span class="k">Function</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="获取最大有效列数">获取最大有效列数</h3>
+</div><h3 id="获取最大有效列数">获取最大有效列数</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -261,15 +251,14 @@
       <span class="n">GetLastCol</span> <span class="o">=</span> <span class="n">0</span>
    <span class="k">End</span> <span class="k">If</span>
 
-<span class="k">End</span> <span class="k">Function</span></code></pre></td></tr></table>
+<span class="k">End</span> <span class="k">Function</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="常用操作">常用操作</h2>
-
+</div><h2 id="常用操作">常用操作</h2>
 <h3 id="分割字符串">分割字符串</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -284,13 +273,13 @@
 <span class="n">b</span> <span class="o">=</span> <span class="n">ubound</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span> <span class="k">to</span> <span class="n">b</span>
    <span class="n">MsgBox</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="k">Next</span></code></pre></td></tr></table>
+<span class="k">Next</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="写入txt">写入txt</h3>
+</div><h3 id="写入txt">写入txt</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -303,55 +292,55 @@
    <span class="n">Print</span> <span class="p">#</span><span class="n">1</span><span class="p">,</span> <span class="s">&#34;test2&#34;</span>
    <span class="n">Print</span> <span class="p">#</span><span class="n">1</span><span class="p">,</span> <span class="s">&#34;test3&#34;</span>
    <span class="n">Close</span> <span class="p">#</span><span class="n">1</span>
-<span class="k">End</span> <span class="k">Sub</span></code></pre></td></tr></table>
+<span class="k">End</span> <span class="k">Sub</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="查看下拉框所有内容">查看下拉框所有内容</h3>
+</div><h3 id="查看下拉框所有内容">查看下拉框所有内容</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="n">Range</span><span class="p">(</span><span class="s">&#34;D4&#34;</span><span class="p">).</span><span class="n">Validation</span><span class="p">.</span><span class="n">Formula1</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="n">Range</span><span class="p">(</span><span class="s">&#34;D4&#34;</span><span class="p">).</span><span class="n">Validation</span><span class="p">.</span><span class="n">Formula1</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="下拉框进行赋值">下拉框进行赋值</h3>
-
+</div><h3 id="下拉框进行赋值">下拉框进行赋值</h3>
 <ol>
-<li><p>第一种方法</p>
+<li>第一种方法</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="n">ComboBox1</span><span class="p">.</span><span class="n">List</span> <span class="o">=</span> <span class="n">Split</span><span class="p">(</span><span class="s">&#34;张三,李四&#34;</span><span class="p">,</span><span class="s">&#34;,&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="n">ComboBox1</span><span class="p">.</span><span class="n">List</span> <span class="o">=</span> <span class="n">Split</span><span class="p">(</span><span class="s">&#34;张三,李四&#34;</span><span class="p">,</span><span class="s">&#34;,&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>第二种方法</p>
+</div><ol>
+<li>第二种方法</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-vb" data-lang="vb"><span class="k">With</span> <span class="n">ComboBox1</span>
-<span class="p">.</span><span class="n">AddItem</span><span class="p">(</span><span class="s">&#34;str1&#34;</span><span class="p">)</span>
-<span class="k">End</span> <span class="k">With</span></code></pre></td></tr></table>
+   <span class="p">.</span><span class="n">AddItem</span><span class="p">(</span><span class="s">&#34;str1&#34;</span><span class="p">)</span>
+<span class="k">End</span> <span class="k">With</span>
+</code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-
-<h3 id="获取选定单元格所在的行和列">获取选定单元格所在的行和列</h3>
+</div><h3 id="获取选定单元格所在的行和列">获取选定单元格所在的行和列</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-vb" data-lang="vb"><span class="n">ActiveCell</span><span class="p">.</span><span class="n">Row</span>
-<span class="n">ActiveCell</span><span class="p">.</span><span class="n">Column</span></code></pre></td></tr></table>
+<span class="n">ActiveCell</span><span class="p">.</span><span class="n">Column</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -424,7 +413,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.de161082.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},

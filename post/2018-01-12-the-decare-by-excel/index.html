@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
 
 
 <link rel="canonical" href="https://xiaohao890809.github.io/post/2018-01-12-the-decare-by-excel/" />
@@ -34,7 +34,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.28b9a77a.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.6eb09ed45a88bd339269c14515d2a11f2e0afdadbdd763d83f9b5c797166b081.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -42,21 +43,17 @@
 <meta property="og:description" content="最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xiaohao890809.github.io/post/2018-01-12-the-decare-by-excel/" />
-<meta property="article:published_time" content="2018-01-12T23:40:23&#43;00:00"/>
-<meta property="article:modified_time" content="2018-01-12T23:40:23&#43;00:00"/>
-
+<meta property="article:published_time" content="2018-01-12T23:40:23+00:00" />
+<meta property="article:modified_time" content="2018-01-12T23:40:23+00:00" />
 <meta itemprop="name" content="VBA实现Excel的笛卡尔积">
 <meta itemprop="description" content="最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后">
-
-
 <meta itemprop="datePublished" content="2018-01-12T23:40:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-01-12T23:40:23&#43;00:00" />
 <meta itemprop="wordCount" content="658">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VBA实现Excel的笛卡尔积"/>
 <meta name="twitter:description" content="最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后"/>
 
@@ -138,50 +135,38 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#类模块">类模块</a></li>
-<li><a href="#常量">常量</a></li>
-<li><a href="#主函数">主函数</a>
-<ul>
-<li><a href="#获取最大行数">获取最大行数</a></li>
-<li><a href="#写入数组元素">写入数组元素</a></li>
-<li><a href="#主程序">主程序</a></li>
-</ul></li>
-<li><a href="#效果预览">效果预览</a></li>
-<li><a href="#文件链接">文件链接</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#类模块">类模块</a></li>
+    <li><a href="#常量">常量</a></li>
+    <li><a href="#主函数">主函数</a>
+      <ul>
+        <li><a href="#获取最大行数">获取最大行数</a></li>
+        <li><a href="#写入数组元素">写入数组元素</a></li>
+        <li><a href="#主程序">主程序</a></li>
+      </ul>
+    </li>
+    <li><a href="#效果预览">效果预览</a></li>
+    <li><a href="#文件链接">文件链接</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后来想了下，VBA作为 Office 工具的原生态语言，何不用 VBA 实现呢，于是整理了下便写出来了，下面介绍下过程，为方便起见，弄了一些简易的数据，针对不同的数据需要做一些相应的调整。
-<!-- more --> </p>
-
+      <p>最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后来想了下，VBA作为 Office 工具的原生态语言，何不用 VBA 实现呢，于是整理了下便写出来了，下面介绍下过程，为方便起见，弄了一些简易的数据，针对不同的数据需要做一些相应的调整。</p>
+<!-- raw HTML omitted -->
 <p>Excel的原始数据如下：</p>
-
-<div class='align-center'>
-  <p><img src="/images/beforeDiCar.jpeg" alt="img" title="原始数据" /></p>
-
-</div>
-
+<!-- raw HTML omitted -->
+<p><img src="/images/beforeDiCar.jpeg" alt="img" title="原始数据"></p>
+<!-- raw HTML omitted -->
 <p>整个 <code>VBA</code> 的代码框架如下：</p>
-
-<div class='align-center'>
-  <p><img src="/images/mould.jpeg" alt="img" title="代码框架" /></p>
-
-</div>
-
+<!-- raw HTML omitted -->
+<p><img src="/images/mould.jpeg" alt="img" title="代码框架"></p>
+<!-- raw HTML omitted -->
 <h2 id="类模块">类模块</h2>
-
 <p>原始数据对应的首行信息，每一列对应一个元素，将其列出，作为一个新的数组。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -190,30 +175,28 @@
 <pre class="chroma"><code class="language-vb" data-lang="vb"><span class="k">Public</span> <span class="n">a</span> <span class="ow">As</span> <span class="kt">String</span>
 <span class="k">Public</span> <span class="n">b</span> <span class="ow">As</span> <span class="kt">String</span>
 <span class="k">Public</span> <span class="n">c</span> <span class="ow">As</span> <span class="kt">String</span>
-<span class="k">Public</span> <span class="n">d</span> <span class="ow">As</span> <span class="kt">String</span></code></pre></td></tr></table>
+<span class="k">Public</span> <span class="n">d</span> <span class="ow">As</span> <span class="kt">String</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="常量">常量</h2>
+</div><h2 id="常量">常量</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-vb" data-lang="vb"><span class="k">Public</span> <span class="k">Const</span> <span class="n">maxNum</span> <span class="o">=</span> <span class="n">100000</span>
 <span class="k">Public</span> <span class="n">MyArr</span><span class="p">(</span><span class="n">maxNum</span><span class="p">)</span> <span class="ow">As</span> <span class="k">New</span> <span class="n">MyAttr</span>
-<span class="k">Public</span> <span class="n">MyNum</span> <span class="ow">As</span> <span class="kt">Integer</span></code></pre></td></tr></table>
+<span class="k">Public</span> <span class="n">MyNum</span> <span class="ow">As</span> <span class="kt">Integer</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="主函数">主函数</h2>
-
+</div><h2 id="主函数">主函数</h2>
 <p>思路是分别拆分每一行的那两列元素，然后将得到的元素做两个循环，遍历写入新的数组中，然后将新的数组传到工作簿中。</p>
-
 <h3 id="获取最大行数">获取最大行数</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -238,13 +221,13 @@
     <span class="n">GetLastRow</span> <span class="o">=</span> <span class="n">0</span>
   <span class="k">End</span> <span class="k">If</span>
 
-<span class="k">End</span> <span class="k">Function</span></code></pre></td></tr></table>
+<span class="k">End</span> <span class="k">Function</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="写入数组元素">写入数组元素</h3>
+</div><h3 id="写入数组元素">写入数组元素</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -263,15 +246,14 @@
   <span class="n">MyArr</span><span class="p">(</span><span class="n">MyNum</span><span class="p">).</span><span class="n">d</span> <span class="o">=</span> <span class="n">d</span>
   <span class="n">MyNum</span> <span class="o">=</span> <span class="n">MyNum</span> <span class="o">+</span> <span class="n">1</span>
 
-<span class="k">End</span> <span class="k">Function</span></code></pre></td></tr></table>
+<span class="k">End</span> <span class="k">Function</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="主程序">主程序</h3>
-
+</div><h3 id="主程序">主程序</h3>
 <p>假设新的工作簿的名字叫<code>Sheet2</code>，并且首行元素已经事先写好。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-vb" data-lang="vb"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -362,19 +344,15 @@
     <span class="n">Sheets</span><span class="p">(</span><span class="s">&#34;Sheet2&#34;</span><span class="p">).</span><span class="n">Range</span><span class="p">(</span><span class="s">&#34;D&#34;</span> <span class="o">&amp;</span> <span class="n">i</span> <span class="o">+</span> <span class="n">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">MyArr</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">d</span>
   <span class="k">Next</span>
 
-<span class="k">End</span> <span class="k">Sub</span></code></pre></td></tr></table>
+<span class="k">End</span> <span class="k">Sub</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="效果预览">效果预览</h2>
-
-<div class='align-center'>
-  <p><img src="/images/afterDiCar.jpeg" alt="img" title="效果预览" /></p>
-
-</div>
-
+</div><h2 id="效果预览">效果预览</h2>
+<!-- raw HTML omitted -->
+<p><img src="/images/afterDiCar.jpeg" alt="img" title="效果预览"></p>
+<!-- raw HTML omitted -->
 <h2 id="文件链接">文件链接</h2>
-
-<p><a href="/images/笛卡尔积.xlsm">笛卡尔积.xlsm</a></p>
+<p><a href="/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.xlsm">笛卡尔积.xlsm</a></p>
 
     </div>
 
@@ -446,7 +424,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.de161082.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},

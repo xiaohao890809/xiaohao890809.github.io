@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
 
 
 <link rel="canonical" href="https://xiaohao890809.github.io/post/2018-02-27-the-study-of-reg-expression/" />
@@ -34,7 +34,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.28b9a77a.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.6eb09ed45a88bd339269c14515d2a11f2e0afdadbdd763d83f9b5c797166b081.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -42,21 +43,17 @@
 <meta property="og:description" content="众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xiaohao890809.github.io/post/2018-02-27-the-study-of-reg-expression/" />
-<meta property="article:published_time" content="2018-02-27T23:07:23&#43;00:00"/>
-<meta property="article:modified_time" content="2018-02-27T23:07:23&#43;00:00"/>
-
+<meta property="article:published_time" content="2018-02-27T23:07:23+00:00" />
+<meta property="article:modified_time" content="2018-02-27T23:07:23+00:00" />
 <meta itemprop="name" content="正则表达式知识积累">
 <meta itemprop="description" content="众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻">
-
-
 <meta itemprop="datePublished" content="2018-02-27T23:07:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-02-27T23:07:23&#43;00:00" />
 <meta itemprop="wordCount" content="523">
 
 
 
-<meta itemprop="keywords" content="正则," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="正则," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="正则表达式知识积累"/>
 <meta name="twitter:description" content="众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻"/>
 
@@ -138,66 +135,56 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#正则表达式概念">正则表达式概念</a></li>
-<li><a href="#举例分析">举例分析</a>
-<ul>
-<li><a href="#大括号">大括号</a></li>
-<li><a href="#含有换行">含有换行</a></li>
-<li><a href="#贪婪模式和非贪婪模式">贪婪模式和非贪婪模式</a></li>
-<li><a href="#忽略大小写">忽略大小写</a></li>
-<li><a href="#匹配邮箱">匹配邮箱</a></li>
-<li><a href="#匹配多个">匹配多个</a></li>
-<li><a href="#的用法">| 的用法</a></li>
-</ul></li>
-<li><a href="#findall的用法">findall的用法</a></li>
-<li><a href="#sub的用法">sub的用法</a></li>
-<li><a href="#split的用法">split的用法</a></li>
-<li><a href="#参考文献">参考文献</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#正则表达式概念">正则表达式概念</a></li>
+    <li><a href="#举例分析">举例分析</a>
+      <ul>
+        <li><a href="#大括号">大括号</a></li>
+        <li><a href="#含有换行">含有换行</a></li>
+        <li><a href="#贪婪模式和非贪婪模式">贪婪模式和非贪婪模式</a></li>
+        <li><a href="#忽略大小写">忽略大小写</a></li>
+        <li><a href="#匹配邮箱">匹配邮箱</a></li>
+        <li><a href="#匹配多个">匹配多个</a></li>
+        <li><a href="#-的用法">| 的用法</a></li>
+      </ul>
+    </li>
+    <li><a href="#findall的用法">findall的用法</a></li>
+    <li><a href="#sub的用法">sub的用法</a></li>
+    <li><a href="#split的用法">split的用法</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻开始。
-<!-- more --> </p>
-
+      <p>众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻开始。</p>
+<!-- raw HTML omitted -->
 <h2 id="正则表达式概念">正则表达式概念</h2>
-
 <ol>
 <li>使用单个字符串来描述匹配一系列符合某个句法规则的字符串</li>
 <li>是对字符串操作的一种逻辑公式</li>
 <li>应用场景：处理文本和数据</li>
 </ol>
-
 <h2 id="举例分析">举例分析</h2>
-
 <h3 id="大括号">大括号</h3>
-
 <p>匹配中括号中有任何一个字符，匹配里面的或者情况</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">ma</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\[[\w]\]&#39;</span><span class="p">,</span><span class="s1">&#39;[a]&#39;</span><span class="p">)</span>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[abc]f&#39;</span><span class="p">,</span><span class="s1">&#39;afufobfidlfodcfr&#39;</span><span class="p">)</span>
-<span class="c1"># [&#39;af&#39;, &#39;bf&#39;, &#39;cf&#39;]</span></code></pre></td></tr></table>
+<span class="c1"># [&#39;af&#39;, &#39;bf&#39;, &#39;cf&#39;]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="含有换行">含有换行</h3>
-
+</div><h3 id="含有换行">含有换行</h3>
 <p>正则修饰符re.S可以匹配包括换行在内的所有字符</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -210,13 +197,13 @@
 </span><span class="s1">    is a Regex Demo&#39;&#39;&#39;</span>
 <span class="c1"># 非贪婪匹配</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^He.*?(\d+).*?Demo$&#39;</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># 1234567</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># 1234567</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="贪婪模式和非贪婪模式">贪婪模式和非贪婪模式</h3>
+</div><h3 id="贪婪模式和非贪婪模式">贪婪模式和非贪婪模式</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -231,11 +218,12 @@
 <span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="c1"># [&#39;hello&lt;/div&gt;&lt;div&gt;hello&#39;]</span>
 <span class="c1"># 非贪婪模式</span>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;div&gt;(.*?)&lt;/div&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;div&gt;hello&lt;/div&gt;&lt;div&gt;hello&lt;/div&gt;&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="c1"># [&#39;hello&#39;, &#39;hello&#39;]</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="c1"># [&#39;hello&#39;, &#39;hello&#39;]</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -248,13 +236,13 @@
 <span class="n">ma</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[0-9][a-z]*?&#39;</span><span class="p">,</span><span class="s1">&#39;1bc&#39;</span><span class="p">)</span> <span class="c1">#最小匹配，0个</span>
 <span class="k">print</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">group</span><span class="p">())</span> <span class="c1">#1</span>
 <span class="n">ma</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[0-9][a-z]+?&#39;</span><span class="p">,</span><span class="s1">&#39;1bc&#39;</span><span class="p">)</span> <span class="c1">#最小匹配，一个</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">group</span><span class="p">())</span> <span class="c1">#1b</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">group</span><span class="p">())</span> <span class="c1">#1b</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="忽略大小写">忽略大小写</h3>
+</div><h3 id="忽略大小写">忽略大小写</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -263,22 +251,22 @@
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">ret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;div&gt;(hello)&lt;/div&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;div&gt;hello&lt;/DIV&gt;&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="c1"># []</span>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;div&gt;(hello)&lt;/div&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;div&gt;hello&lt;/DIV&gt;&#39;</span><span class="p">,</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="c1"># [&#39;hello&#39;]</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="c1"># [&#39;hello&#39;]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="匹配邮箱">匹配邮箱</h3>
+</div><h3 id="匹配邮箱">匹配邮箱</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">mail</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">finall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+@\w+\.com|\w+@\w+\.cn|\w+@\w+\.net&#39;</span><span class="p">,</span><span class="s1">&#39;...&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">mail</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">finall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+@\w+\.com|\w+@\w+\.cn|\w+@\w+\.net&#39;</span><span class="p">,</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="匹配多个">匹配多个</h3>
+</div><h3 id="匹配多个">匹配多个</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -289,24 +277,24 @@
 <span class="k">print</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">group</span><span class="p">())</span> <span class="c1">#abc123</span>
 <span class="c1"># 匹配6-10个字符</span>
 <span class="n">ma</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[a-zA-Z0-9]{6,10}&#39;</span><span class="p">,</span><span class="s1">&#39;abc123456&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">group</span><span class="p">())</span> <span class="c1">#abc123456</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">group</span><span class="p">())</span> <span class="c1">#abc123456</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="的用法">| 的用法</h3>
+</div><h3 id="-的用法">| 的用法</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">ma</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[\w]{4,6}@(126|163).com&#39;</span><span class="p">,</span><span class="s1">&#39;immoc@126.com&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">group</span><span class="p">())</span> <span class="c1">#immoc@126.com</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="n">ma</span><span class="o">.</span><span class="n">group</span><span class="p">())</span> <span class="c1">#immoc@126.com</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="findall的用法">findall的用法</h2>
+</div><h2 id="findall的用法">findall的用法</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -315,13 +303,13 @@
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">str2</span> <span class="o">=</span> <span class="s1">&#39;c++=100, java=90, python=80&#39;</span>
 <span class="n">info</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span><span class="n">str2</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="c1">#[&#39;100&#39;, &#39;90&#39;, &#39;80&#39;]</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">info</span><span class="p">]))</span> <span class="c1">#270</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">info</span><span class="p">]))</span> <span class="c1">#270</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="sub的用法">sub的用法</h2>
+</div><h2 id="sub的用法">sub的用法</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -340,24 +328,23 @@
 <span class="n">str1</span> <span class="o">=</span> <span class="s1">&#39;immodc vedio = 1001&#39;</span>
 <span class="c1"># 将数字整体加1</span>
 <span class="n">ret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span><span class="n">add1</span><span class="p">,</span><span class="n">str1</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="c1">#immodc vedio = 1002</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span> <span class="c1">#immodc vedio = 1002</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="split的用法">split的用法</h2>
+</div><h2 id="split的用法">split的用法</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">str1</span> <span class="o">=</span> <span class="s1">&#39;immoc:C C++ Java Python,C#&#39;</span>
 <span class="n">list1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;:| |,&#39;</span><span class="p">,</span> <span class="n">str1</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="c1">#[&#39;immoc&#39;, &#39;C&#39;, &#39;C++&#39;, &#39;Java&#39;, &#39;Python&#39;, &#39;C#&#39;]</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="c1">#[&#39;immoc&#39;, &#39;C&#39;, &#39;C++&#39;, &#39;Java&#39;, &#39;Python&#39;, &#39;C#&#39;]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="参考文献">参考文献</h2>
-
+</div><h2 id="参考文献">参考文献</h2>
 <ul>
 <li><a href="https://www.imooc.com/learn/550">python正则表达式</a></li>
 </ul>
@@ -434,7 +421,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.de161082.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},

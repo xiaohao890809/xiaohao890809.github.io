@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with theme even" />
+<meta name="generator" content="Hugo 0.69.2 with theme even" />
 
 
 <link rel="canonical" href="https://xiaohao890809.github.io/post/2018-03-07-the-note-of-probability-theory/" />
@@ -34,7 +34,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.28b9a77a.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.6eb09ed45a88bd339269c14515d2a11f2e0afdadbdd763d83f9b5c797166b081.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -42,21 +43,17 @@
 <meta property="og:description" content="机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xiaohao890809.github.io/post/2018-03-07-the-note-of-probability-theory/" />
-<meta property="article:published_time" content="2018-03-07T23:54:23&#43;00:00"/>
-<meta property="article:modified_time" content="2018-03-07T23:54:23&#43;00:00"/>
-
+<meta property="article:published_time" content="2018-03-07T23:54:23+00:00" />
+<meta property="article:modified_time" content="2018-03-07T23:54:23+00:00" />
 <meta itemprop="name" content="机器学习基础之概率论">
 <meta itemprop="description" content="机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。">
-
-
 <meta itemprop="datePublished" content="2018-03-07T23:54:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-03-07T23:54:23&#43;00:00" />
-<meta itemprop="wordCount" content="1294">
+<meta itemprop="wordCount" content="1295">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="机器学习基础之概率论"/>
 <meta name="twitter:description" content="机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。"/>
 
@@ -128,7 +125,7 @@
         <div class="post-category">
             <a href="/categories/%E6%95%B0%E5%AD%A6/"> 数学 </a>
             </div>
-          <span class="more-meta"> 约 1294 字 </span>
+          <span class="more-meta"> 约 1295 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         
       </div>
@@ -138,78 +135,59 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#朴素贝叶斯">朴素贝叶斯</a></li>
-<li><a href="#信息增益">信息增益</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#朴素贝叶斯">朴素贝叶斯</a></li>
+    <li><a href="#信息增益">信息增益</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。
-<!-- more --> </p>
-
+      <p>机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。</p>
+<!-- raw HTML omitted -->
 <p>三箱零件，其中第一箱 10 个零件，第二箱 20 个零件，第三箱 15 个。检验结果表明第一箱有 1 个不合格，第二箱有 3 个不合格，第三箱有 2 个不合格，从中抽取一个零件，合格的概率有多少？</p>
-
 <blockquote>
 <p>记 $A_i$ 为从第 $i$ 个箱子拿的零件，拿到正品的事件记为B。</p>
 </blockquote>
-
 <p>$$
 \begin{align}
-P(B)&amp;=P(A_1)\cdot P(B|A_1)+P(A_2)\cdot P(B|A_2)+P(A_3)\cdot P(B|A_3)\\<br />
-&amp;=P(A_1)+P(A_2)\cdot P(B|A_2)+P(A_3)\cdot P(B|A_3)\\<br />
-&amp;=\frac{1}{3}\cdot \frac{9}{10}+\frac{1}{3}\cdot \frac{17}{20}+\frac{1}{3}\cdot \frac{13}{15}\\<br />
+P(B)&amp;=P(A_1)\cdot P(B|A_1)+P(A_2)\cdot P(B|A_2)+P(A_3)\cdot P(B|A_3)\\\<br>
+&amp;=P(A_1)+P(A_2)\cdot P(B|A_2)+P(A_3)\cdot P(B|A_3)\\\<br>
+&amp;=\frac{1}{3}\cdot \frac{9}{10}+\frac{1}{3}\cdot \frac{17}{20}+\frac{1}{3}\cdot \frac{13}{15}\\\<br>
 &amp;=0.872
 \end{align}
 $$</p>
-
 <p>问题：求逆向概率$P(A_{1}|B)$，抽到的这个合格品来自箱子 $A_{1}$ 的概率。</p>
-
 <p>$$
 \begin{align}
-P(A_{1}|B)&amp;=\frac{P(A_1\cdot B)}{P(B)}\\<br />
-&amp;=\frac{P(A_1)\cdot P(B|A_1)}{P(B)}\\<br />
-&amp;=\frac{\frac{1}{3}\cdot \frac{9}{10}}{P(B)}\\<br />
+P(A_{1}|B)&amp;=\frac{P(A_1\cdot B)}{P(B)}\\\<br>
+&amp;=\frac{P(A_1)\cdot P(B|A_1)}{P(B)}\\\<br>
+&amp;=\frac{\frac{1}{3}\cdot \frac{9}{10}}{P(B)}\\\<br>
 &amp;=\frac{0.3}{0.872}=0.344
 \end{align}
 $$</p>
-
 <p>注意条件概率 $P(B|A_1)$ 和联合概率 $P(A_1\cdot B)$ 的使用。</p>
-
 <p><strong>分类问题概述：</strong>
 通过对已知类别信息的数据进行学习后获得分类模型(classifier)，利用分类模型对未知类别信息的数据进行分类(classification)。</p>
-
 <h2 id="朴素贝叶斯">朴素贝叶斯</h2>
-
 <p>分类算法举例——朴素贝叶斯(Naive Bayesian Model, NBM)</p>
-
 <p>$$\begin{cases}
-P(C_i|X)=\frac{P(X|C_i)\cdot P(C_i)}{P(X)}\\<br />
-P(X|C_i)=\prod_{K=1}^{n}P(X_k|C_i)\\<br />
-P(AB)=P(A)\cdot P(B)\\<br />
+P(C_i|X)=\frac{P(X|C_i)\cdot P(C_i)}{P(X)}\\\<br>
+P(X|C_i)=\prod_{K=1}^{n}P(X_k|C_i)\\\<br>
+P(AB)=P(A)\cdot P(B)\\\<br>
 \end{cases}
 $$</p>
-
 <ul>
 <li>$P(C_i|X)$: 后验概率</li>
 <li>$P(X|C_i)$: 条件概率</li>
 <li>$P(C_i)$: 最大似然估计</li>
 </ul>
-
 <p>通过数据元组的各个属性表示(值)，计算出该数据元素属于$C_i$的概率。
 根据贝叶斯定理，将已知各属性表示求所属后验概率的问题转为已知所属类各属性表示组合的条件概率的问题。</p>
-
 <p>需要对已标记类别的训练样本进行统计分析。
 对样本库数据计算各类的最大似然用以估计各类的先验概率。
 计算各属性值的条件概率。
 假设各属性间相互独立。</p>
-
 <table>
 <thead>
 <tr>
@@ -221,7 +199,6 @@ $$</p>
 <th align="center">class:buy</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="center">1</td>
@@ -231,7 +208,6 @@ $$</p>
 <td align="center">fair</td>
 <td align="center">no</td>
 </tr>
-
 <tr>
 <td align="center">2</td>
 <td align="center">youth</td>
@@ -240,7 +216,6 @@ $$</p>
 <td align="center">excellent</td>
 <td align="center">no</td>
 </tr>
-
 <tr>
 <td align="center">3</td>
 <td align="center">middle</td>
@@ -249,7 +224,6 @@ $$</p>
 <td align="center">fair</td>
 <td align="center">yes</td>
 </tr>
-
 <tr>
 <td align="center">4</td>
 <td align="center">senior</td>
@@ -258,7 +232,6 @@ $$</p>
 <td align="center">fair</td>
 <td align="center">yes</td>
 </tr>
-
 <tr>
 <td align="center">5</td>
 <td align="center">senior</td>
@@ -267,7 +240,6 @@ $$</p>
 <td align="center">fair</td>
 <td align="center">yes</td>
 </tr>
-
 <tr>
 <td align="center">6</td>
 <td align="center">senior</td>
@@ -276,7 +248,6 @@ $$</p>
 <td align="center">excelent</td>
 <td align="center">no</td>
 </tr>
-
 <tr>
 <td align="center">7</td>
 <td align="center">middle</td>
@@ -285,7 +256,6 @@ $$</p>
 <td align="center">excelent</td>
 <td align="center">yes</td>
 </tr>
-
 <tr>
 <td align="center">8</td>
 <td align="center">youth</td>
@@ -294,7 +264,6 @@ $$</p>
 <td align="center">fair</td>
 <td align="center">no</td>
 </tr>
-
 <tr>
 <td align="center">9</td>
 <td align="center">youth</td>
@@ -303,7 +272,6 @@ $$</p>
 <td align="center">fair</td>
 <td align="center">yes</td>
 </tr>
-
 <tr>
 <td align="center">10</td>
 <td align="center">senior</td>
@@ -312,7 +280,6 @@ $$</p>
 <td align="center">fair</td>
 <td align="center">yes</td>
 </tr>
-
 <tr>
 <td align="center">11</td>
 <td align="center">youth</td>
@@ -321,7 +288,6 @@ $$</p>
 <td align="center">excelent</td>
 <td align="center">yes</td>
 </tr>
-
 <tr>
 <td align="center">12</td>
 <td align="center">middle</td>
@@ -330,7 +296,6 @@ $$</p>
 <td align="center">excelent</td>
 <td align="center">yes</td>
 </tr>
-
 <tr>
 <td align="center">13</td>
 <td align="center">middle</td>
@@ -339,7 +304,6 @@ $$</p>
 <td align="center">fair</td>
 <td align="center">yes</td>
 </tr>
-
 <tr>
 <td align="center">14</td>
 <td align="center">senior</td>
@@ -350,72 +314,59 @@ $$</p>
 </tr>
 </tbody>
 </table>
-
 <p>样本库中各类数据的先验概率：
 $$
 \begin{align}
-&amp;P(buy=yes)=\frac{9}{14}=0.643\\<br />
+&amp;P(buy=yes)=\frac{9}{14}=0.643\\\<br>
 &amp;P(buy=no)=\frac{5}{14}=0.357
 \end{align}
 $$</p>
-
 <p>每一项属性值的条件概率：
 $$
 \begin{align}
-&amp;P(age=youth|buy=yes)=\frac{2}{9}=0.222\\<br />
-&amp;P(age=youth|buy=no)=\frac{3}{5}=0.600\\<br />
-&amp;P(income=medium|buy=yes)=\frac{4}{9}=0.444\\<br />
-&amp;P(income=medium|buy=no)=\frac{2}{5}=0.400\\<br />
-&amp;P(student=yes|buy=yes)=\frac{6}{9}=0.667\\<br />
-&amp;P(student=yes|buy=no)=\frac{1}{5}=0.200\\<br />
-&amp;P(credict=fair|buy=yes)=\frac{6}{9}=0.667\\<br />
+&amp;P(age=youth|buy=yes)=\frac{2}{9}=0.222\\\<br>
+&amp;P(age=youth|buy=no)=\frac{3}{5}=0.600\\\<br>
+&amp;P(income=medium|buy=yes)=\frac{4}{9}=0.444\\\<br>
+&amp;P(income=medium|buy=no)=\frac{2}{5}=0.400\\\<br>
+&amp;P(student=yes|buy=yes)=\frac{6}{9}=0.667\\\<br>
+&amp;P(student=yes|buy=no)=\frac{1}{5}=0.200\\\<br>
+&amp;P(credict=fair|buy=yes)=\frac{6}{9}=0.667\\\<br>
 &amp;P(credict=fair|buy=no)=\frac{2}{5}=0.400
 \end{align}
 $$</p>
-
 <p>求 $x=(youth,medium,yes,fair)$ 属于哪个类？
 假设各属性之间相互独立，求得测试数据属性向量的条件该概率：</p>
-
 <p>$$
 \begin{align}
-P(x|buy=yes)&amp;=P(age=youth|buy=yes)\\<br />
-&amp;\cdot P(income=medium|buy=yes)\\<br />
-&amp;\cdot P(student=yes|buy=yes)\\<br />
-&amp;\cdot P(credit=fair|buy=yes)\\<br />
-&amp;=0.222\cdot 0.444\cdot 0.667\cdot 0.667\\<br />
+P(x|buy=yes)&amp;=P(age=youth|buy=yes)\\\<br>
+&amp;\cdot P(income=medium|buy=yes)\\\<br>
+&amp;\cdot P(student=yes|buy=yes)\\\<br>
+&amp;\cdot P(credit=fair|buy=yes)\\\<br>
+&amp;=0.222\cdot 0.444\cdot 0.667\cdot 0.667\\\<br>
 &amp;=0.044
 \end{align}
 $$</p>
-
 <p>同理：
 $$
 P(x|buy=no)=0.019
 $$</p>
-
 <p>选取能使以下公式取值最大的分类：
 $$
 P(C_i|x)=\frac{P(x|C_i)\cdot P(C_i)}{P(x)}
 $$</p>
-
 <p>其中 $P(x)$ 为该特征向量取值的先验概率，始终为常量。</p>
-
 <p>$$
 \begin{align}
-&amp;P(x|buy=yes)\cdot P(buy=yes)=0.044\cdot 0.643=0.082\\<br />
+&amp;P(x|buy=yes)\cdot P(buy=yes)=0.044\cdot 0.643=0.082\\\<br>
 &amp;P(x|buy=no)\cdot P(buy=no)=0.019\cdot 0.357=0.007
 \end{align}
 $$</p>
-
 <p>所以判定测试数据属于 $buy=yes$类。</p>
-
 <h2 id="信息增益">信息增益</h2>
-
 <blockquote>
 <p>摘自：数据挖掘中决策树的探讨(马秀红)</p>
 </blockquote>
-
 <p>某装备维修项目如下：</p>
-
 <table>
 <thead>
 <tr>
@@ -426,7 +377,6 @@ $$</p>
 <th align="center">是否更换</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="center">&lt;=10</td>
@@ -435,7 +385,6 @@ $$</p>
 <td align="center">一般</td>
 <td align="center">否</td>
 </tr>
-
 <tr>
 <td align="center">&lt;=10</td>
 <td align="center">高</td>
@@ -443,7 +392,6 @@ $$</p>
 <td align="center">好</td>
 <td align="center">否</td>
 </tr>
-
 <tr>
 <td align="center">11-20</td>
 <td align="center">高</td>
@@ -451,7 +399,6 @@ $$</p>
 <td align="center">一般</td>
 <td align="center">是</td>
 </tr>
-
 <tr>
 <td align="center">&gt;20</td>
 <td align="center">中</td>
@@ -459,7 +406,6 @@ $$</p>
 <td align="center">一般</td>
 <td align="center">是</td>
 </tr>
-
 <tr>
 <td align="center">&gt;20</td>
 <td align="center">低</td>
@@ -467,7 +413,6 @@ $$</p>
 <td align="center">一般</td>
 <td align="center">是</td>
 </tr>
-
 <tr>
 <td align="center">&gt;20</td>
 <td align="center">高</td>
@@ -475,7 +420,6 @@ $$</p>
 <td align="center">好</td>
 <td align="center">是</td>
 </tr>
-
 <tr>
 <td align="center">11-20</td>
 <td align="center">低</td>
@@ -483,7 +427,6 @@ $$</p>
 <td align="center">一般</td>
 <td align="center">是</td>
 </tr>
-
 <tr>
 <td align="center">&lt;=10</td>
 <td align="center">中</td>
@@ -491,7 +434,6 @@ $$</p>
 <td align="center">一般</td>
 <td align="center">是</td>
 </tr>
-
 <tr>
 <td align="center">&lt;=10</td>
 <td align="center">低</td>
@@ -499,7 +441,6 @@ $$</p>
 <td align="center">一般</td>
 <td align="center">是</td>
 </tr>
-
 <tr>
 <td align="center">&gt;20</td>
 <td align="center">中</td>
@@ -507,7 +448,6 @@ $$</p>
 <td align="center">好</td>
 <td align="center">是</td>
 </tr>
-
 <tr>
 <td align="center">&lt;=10</td>
 <td align="center">中</td>
@@ -515,7 +455,6 @@ $$</p>
 <td align="center">一般</td>
 <td align="center">否</td>
 </tr>
-
 <tr>
 <td align="center">11-20</td>
 <td align="center">中</td>
@@ -523,7 +462,6 @@ $$</p>
 <td align="center">好</td>
 <td align="center">否</td>
 </tr>
-
 <tr>
 <td align="center">11-20</td>
 <td align="center">高</td>
@@ -531,7 +469,6 @@ $$</p>
 <td align="center">一般</td>
 <td align="center">是</td>
 </tr>
-
 <tr>
 <td align="center">11-20</td>
 <td align="center">中</td>
@@ -541,19 +478,15 @@ $$</p>
 </tr>
 </tbody>
 </table>
-
 <p>使用信息增益进行属性选择，更新的备件数为$p$，不更新的备件数为$n$，则样本分类的期望信息：</p>
-
 <p>$$
 \begin{align}
-I(p,n)&amp;=I(9,5)\\<br />
-&amp;=-\frac{9}{14}\cdot log_{2}\frac{9}{14}-\frac{5}{14}\cdot log_{2}\frac{5}{14}\\<br />
+I(p,n)&amp;=I(9,5)\\\<br>
+&amp;=-\frac{9}{14}\cdot log_{2}\frac{9}{14}-\frac{5}{14}\cdot log_{2}\frac{5}{14}\\\<br>
 &amp;=0.940
 \end{align}
 $$</p>
-
 <p>计算各属性的熵：</p>
-
 <table>
 <thead>
 <tr>
@@ -563,7 +496,6 @@ $$</p>
 <th align="center">$I(P_i,N_i)$</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="center">&lt;=10</td>
@@ -571,14 +503,12 @@ $$</p>
 <td align="center">3</td>
 <td align="center">0.971</td>
 </tr>
-
 <tr>
 <td align="center">11-20</td>
 <td align="center">3</td>
 <td align="center">2</td>
 <td align="center">0.971</td>
 </tr>
-
 <tr>
 <td align="center">&gt;20</td>
 <td align="center">4</td>
@@ -587,42 +517,33 @@ $$</p>
 </tr>
 </tbody>
 </table>
-
 <p>有役龄划分为子集的熵：</p>
-
 <p>$$
 \begin{align}
-E(役龄)&amp;=\frac{5}{14}I(2,3)+\frac{5}{14}I(3,2)+\frac{4}{14}I(4,0)\\<br />
+E(役龄)&amp;=\frac{5}{14}I(2,3)+\frac{5}{14}I(3,2)+\frac{4}{14}I(4,0)\\\<br>
 &amp;=0.6936
 \end{align}
 $$</p>
-
 <p>役龄为属性，具有3个不同取值的信息增益为：</p>
-
 <p>$$
 Gain(役龄)=I(p,n)-E(役龄)=0.2464
 $$</p>
-
 <p>同理：</p>
-
 <p>$$
 \begin{align}
-&amp;Gain(价格)=0.2098 \\<br />
-&amp;Gain(关键部件)=0.151 \\<br />
+&amp;Gain(价格)=0.2098 \\\<br>
+&amp;Gain(关键部件)=0.151 \\\<br>
 &amp;Gain(可靠性)=0.10194
 \end{align}
 $$</p>
-
 <p>因此：
 $$
 Gain(可靠性)&lt;Gain(关键部件)&lt;Gain(价格)&lt;Gain(役龄)
 $$</p>
-
-<p>分类结果如图所示：
-<div class='align-center'>
-  <p><img src="/images/info.jpg" alt="img" title="信息增益" /></p>
-
-</div></p>
+<p>分类结果如图所示：</p>
+<!-- raw HTML omitted -->
+<p><img src="/images/info.jpg" alt="img" title="信息增益"></p>
+<!-- raw HTML omitted -->
 
     </div>
 
@@ -694,7 +615,10 @@ $$</p>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.de161082.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
