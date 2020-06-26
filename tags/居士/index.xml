@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>居士 on 追寻原风景|耗子的博客</title>
+    <title>居士 on 枕霞惜友</title>
     <link>https://xiaohao890809.github.io/tags/%E5%B1%85%E5%A3%AB/</link>
-    <description>Recent content in 居士 on 追寻原风景|耗子的博客</description>
+    <description>Recent content in 居士 on 枕霞惜友</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en-us</language>
     <lastBuildDate>Sun, 18 Aug 2019 12:51:41 +0800</lastBuildDate>
     
 	<atom:link href="https://xiaohao890809.github.io/tags/%E5%B1%85%E5%A3%AB/index.xml" rel="self" type="application/rss+xml" />
@@ -13,29 +13,57 @@
     
     <item>
       <title>居士自习室作业第五周</title>
-      <link>https://xiaohao890809.github.io/post/2019-08-18-the-data-science-learning_5/</link>
+      <link>https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/</link>
       <pubDate>Sun, 18 Aug 2019 12:51:41 +0800</pubDate>
       
-      <guid>https://xiaohao890809.github.io/post/2019-08-18-the-data-science-learning_5/</guid>
-      <description>最常用的统计量与抽样分布 统计量 样本均值：样本均值(sample mean)又叫样本均数，即为样本的均值。均值是表示一组数据集中趋势的量数，是指</description>
+      <guid>https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/</guid>
+      <description>最常用的统计量与抽样分布
+统计量
+  样本均值：样本均值(sample mean)又叫样本均数，即为样本的均值。均值是表示一组数据集中趋势的量数，是指在一组数据中所有数据之和再除以这组数据的个数。它是反映数据集中趋势的一项指标。
+  样本方差：先求出总体各单位变量值与其算术平均数的离差的平方，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的变异程度。
+  变异系数：在概率论和统计学中，变异系数，又称“离散系数”(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为标准差与平均值之比。变异系数也被称为标准离差率或单位风险。
+  样本矩：有一类常用的统计量是样本的数字特征，他们是模拟总体数字特征构造的，称为样本矩，看看以下两种：
+ 样本 $k$ 阶原点矩：$\bar{\alpha}_{k}=\frac{1}{n}\sum_{i=1}^{n}x_{i}^{k}$ 样本 $k$ 阶中心矩：$\bar{\beta}_{k}=\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\bar{x})^{k}$    样本偏度：样本偏度(sample skewness)一种基本统计量，是样本三阶中心矩除以样本二阶中心矩的3/2次幂的商。
+  样本峰度：样本峰度(sample kurtosis)一种基本统计量，样本的峰度和偏度都是作为检验总体分布正态性的统计量。是样本四阶中心矩除以样本二阶中心矩平方的商再减去3。
+  抽样分布
+  卡方分布：若 $n$ 个相互独立的随机变量 $\xi_{1},\xi_{2},&amp;hellip;,\xi_{n}$ 均服从标准正态分布(也称独立同分布于标准正态分布)，则这 $n$ 个服从标准正态分布的随机变量的平方和构成一新的随机变量，其分布规律称为卡方($\chi^{2}$)分布(chi-square distribution)。
+  T分布：假设 $X$ 服从标准正态分布$N(0,1)$，Y服从 $\chi^{2}(n)$ 分布，那么 $Z=\frac{X}{\sqrt{Y/n}}$ 的分布称为自由度为 $n$ 的 T分布,记为$Z\sim t(n)$。
+  F分布：若总体$X\sim N(0,1)$，$(X_{1},X_{2},&amp;hellip;,X_{n_{1}})$与$(Y_{1},Y_{2},&amp;hellip;,Y_{n_{2}})$来自 $X$ 的两个独立样本，设统计量$F=\cfrac{\sum_{i=1}^{n_{1}}X_{i}^{2}}{N_{1}}/\cfrac{\sum_{i=1}^{n_{2}}Y_{i}^{2}}{N_{2}}$，则称统计量 $F$ 服从自由度 $n_{1}$ 和 $n_{2}$ 的 F分布，记为$F\sim F(n_{1},n_{2})$。</description>
     </item>
     
     <item>
       <title>居士自习室作业第二周</title>
-      <link>https://xiaohao890809.github.io/post/2019-07-28-the-data-science-learning_2/</link>
+      <link>https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/</link>
       <pubDate>Sun, 28 Jul 2019 17:42:23 +0000</pubDate>
       
-      <guid>https://xiaohao890809.github.io/post/2019-07-28-the-data-science-learning_2/</guid>
-      <description>在用 pandas 处理报表邮件的时候，有时会遇到处理二级表头，并进行合并的例子。例如： 日报 研究了一下 pandas 的多级表头功能，发现它有一个 columns 的设置参数，可以新增</description>
+      <guid>https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/</guid>
+      <description>在用 pandas 处理报表邮件的时候，有时会遇到处理二级表头，并进行合并的例子。例如：
+ 日报   研究了一下 pandas 的多级表头功能，发现它有一个 columns 的设置参数，可以新增两列参数，作为二级表头。
+data = [[&amp;#39;2016-07-23&amp;#39;,&amp;#39;整体&amp;#39;,4540,557.34,1235,469,69.23,334], [&amp;#39;2016-07-22&amp;#39;,&amp;#39;整体&amp;#39;,4410,567.34,1135,459,68.23,324], [&amp;#39;2016-07-21&amp;#39;,&amp;#39;整体&amp;#39;,4380,564.34,1115,439,67.23,314]] data_pd = pd.DataFrame(data) data_pd.columns = [[&amp;#39;日期&amp;#39;, &amp;#39;品类&amp;#39;, &amp;#39;下单&amp;#39;, &amp;#39;下单&amp;#39;, &amp;#39;下单&amp;#39;, &amp;#39;支付&amp;#39;, &amp;#39;支付&amp;#39;, &amp;#39;支付&amp;#39;], [&amp;#39;日期&amp;#39;, &amp;#39;品类&amp;#39;, &amp;#39;下单笔数&amp;#39;, &amp;#39;下单金额&amp;#39;, &amp;#39;下单人数&amp;#39;, &amp;#39;成功笔数&amp;#39;, &amp;#39;成功金额&amp;#39;, &amp;#39;成功人数&amp;#39;]]  表格   二级表头处理
+发现第一列和第二列并没有合并，下单和支付的大类也没有居中显示。那么怎么样才能实现这样的功能呢？其实 html 里的表格有一个 colspan 参数，我们可以对这个参数进行修改即可，比如，我们可以手动给第二行表头的日期和品类改为删除标识，然后对其进行删除，最后把第一行表头的 colspan 扩展为2，就可以进行合并了，也不影响整体表格的功能，至于居中样式可以设置表格的 style 样式。
+# 重新自定义html的格式 def get_type_html(df_html): html = str(df_html).replace(&amp;#39;&amp;lt;table border=&amp;#34;1&amp;#34; class=&amp;#34;dataframe&amp;#34;&amp;gt;&amp;#39;, &amp;#39;&amp;lt;table border=&amp;#34;1&amp;#34; style=&amp;#34;font-family: verdana,arial,sans-serif;font-size:11px;\ color:#333333;border-width: 1px;border-color: #666666;border-collapse: collapse;&amp;#34;&amp;gt;&amp;#39;) html = html.</description>
     </item>
     
     <item>
       <title>居士自习室作业第一周</title>
-      <link>https://xiaohao890809.github.io/post/2019-07-20-the-data-science-learning_1/</link>
+      <link>https://xiaohao890809.github.io/2019/2019-07-20-the-data-science-learning_1/</link>
       <pubDate>Sat, 20 Jul 2019 22:42:23 +0000</pubDate>
       
-      <guid>https://xiaohao890809.github.io/post/2019-07-20-the-data-science-learning_1/</guid>
-      <description>数据的集中趋势 众数 一组数据中出现次数最多的数值，叫众数。 注意：有时众数在一组数中有1个或多个，也可能不存在。 中位数 中位数，又称中点数，中值。</description>
+      <guid>https://xiaohao890809.github.io/2019/2019-07-20-the-data-science-learning_1/</guid>
+      <description>数据的集中趋势 众数 一组数据中出现次数最多的数值，叫众数。
+ 注意：有时众数在一组数中有1个或多个，也可能不存在。
+ 中位数 中位数，又称中点数，中值。
+中位数是按顺序排列的一组数据中居于中间位置的数，即在这组数据中，有一半的数据比他大，有一半的数据比他小。
+平均数   算数平均数
+ 算术平均数是指在一组数据中所有数据之和再除以数据的个数。 它是反映数据集中趋势的一项指标。    加权平均数
+ 加权平均数即将各数值乘以相应的权数，然后加总求和得到总体值，再除以总的单位数。 加权平均数也称加权平均值。    几何平均数
+ 几何平均数是n个变量值连乘积的n次方根。    分位数 分位数(Quantile)，亦称分位点，是指将一个随机变量的概率分布范围分为几个等份的数值点。
+常用的有中位数(即二分位数)、四分位数、百分位数等。
+数据的离中趋势 数值型数据   方差
+ 统计中的方差(样本方差)是每个样本值与全体样本值的平均数之差的平方值的平均数。    标准差
+ 标准差是方差的算术平方根。    极差
+ 极差又称范围误差或全距(Range)，以R表示，是用来表示统计资料中的变异量数(measures of variation)。 其最大值与最小值之间的差距，即最大值减最小值后所得之数据。    平均差
+ 平均差(Mean Deviation)是表示各个变量值之间差异程度的数值之一。 指各个变量值同平均数的离差绝对值的算术平均数。    顺序数据  四分位差  四分位差(quartile deviation)，它是上四分位数(Q3，即位于75%)与下四分位数(Q1，即位于25%)的差。    分类数据  异众比率  异众比率(variation ratio)是统计学名词，是统计学当中研究现象离中趋势的指标之一。 异众比率指的是总体中非众数次数与总体全部次数之比。 换句话说，异众比率指非众数组的频数占总频数的比例。    相对离散程度 离散系数 在概率论和统计学中，离散系数(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为标准差 $\sigma$ 与平均值 $\mu$ 之比。</description>
     </item>
     
   </channel>

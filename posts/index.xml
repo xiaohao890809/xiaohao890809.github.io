@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 枕霞惜友</title>
+    <link>https://xiaohao890809.github.io/posts/</link>
+    <description>Recent content in Posts on 枕霞惜友</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Aug 2019 12:51:41 +0800</lastBuildDate>
+    
+	<atom:link href="https://xiaohao890809.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>居士自习室作业第五周</title>
+      <link>https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/</link>
+      <pubDate>Sun, 18 Aug 2019 12:51:41 +0800</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/</guid>
+      <description>最常用的统计量与抽样分布
+统计量
+  样本均值：样本均值(sample mean)又叫样本均数，即为样本的均值。均值是表示一组数据集中趋势的量数，是指在一组数据中所有数据之和再除以这组数据的个数。它是反映数据集中趋势的一项指标。
+  样本方差：先求出总体各单位变量值与其算术平均数的离差的平方，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的变异程度。
+  变异系数：在概率论和统计学中，变异系数，又称“离散系数”(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为标准差与平均值之比。变异系数也被称为标准离差率或单位风险。
+  样本矩：有一类常用的统计量是样本的数字特征，他们是模拟总体数字特征构造的，称为样本矩，看看以下两种：
+ 样本 $k$ 阶原点矩：$\bar{\alpha}_{k}=\frac{1}{n}\sum_{i=1}^{n}x_{i}^{k}$ 样本 $k$ 阶中心矩：$\bar{\beta}_{k}=\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\bar{x})^{k}$    样本偏度：样本偏度(sample skewness)一种基本统计量，是样本三阶中心矩除以样本二阶中心矩的3/2次幂的商。
+  样本峰度：样本峰度(sample kurtosis)一种基本统计量，样本的峰度和偏度都是作为检验总体分布正态性的统计量。是样本四阶中心矩除以样本二阶中心矩平方的商再减去3。
+  抽样分布
+  卡方分布：若 $n$ 个相互独立的随机变量 $\xi_{1},\xi_{2},&amp;hellip;,\xi_{n}$ 均服从标准正态分布(也称独立同分布于标准正态分布)，则这 $n$ 个服从标准正态分布的随机变量的平方和构成一新的随机变量，其分布规律称为卡方($\chi^{2}$)分布(chi-square distribution)。
+  T分布：假设 $X$ 服从标准正态分布$N(0,1)$，Y服从 $\chi^{2}(n)$ 分布，那么 $Z=\frac{X}{\sqrt{Y/n}}$ 的分布称为自由度为 $n$ 的 T分布,记为$Z\sim t(n)$。
+  F分布：若总体$X\sim N(0,1)$，$(X_{1},X_{2},&amp;hellip;,X_{n_{1}})$与$(Y_{1},Y_{2},&amp;hellip;,Y_{n_{2}})$来自 $X$ 的两个独立样本，设统计量$F=\cfrac{\sum_{i=1}^{n_{1}}X_{i}^{2}}{N_{1}}/\cfrac{\sum_{i=1}^{n_{2}}Y_{i}^{2}}{N_{2}}$，则称统计量 $F$ 服从自由度 $n_{1}$ 和 $n_{2}$ 的 F分布，记为$F\sim F(n_{1},n_{2})$。</description>
+    </item>
+    
+    <item>
+      <title>居士自习室作业第二周</title>
+      <link>https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/</link>
+      <pubDate>Sun, 28 Jul 2019 17:42:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/</guid>
+      <description>在用 pandas 处理报表邮件的时候，有时会遇到处理二级表头，并进行合并的例子。例如：
+ 日报   研究了一下 pandas 的多级表头功能，发现它有一个 columns 的设置参数，可以新增两列参数，作为二级表头。
+data = [[&amp;#39;2016-07-23&amp;#39;,&amp;#39;整体&amp;#39;,4540,557.34,1235,469,69.23,334], [&amp;#39;2016-07-22&amp;#39;,&amp;#39;整体&amp;#39;,4410,567.34,1135,459,68.23,324], [&amp;#39;2016-07-21&amp;#39;,&amp;#39;整体&amp;#39;,4380,564.34,1115,439,67.23,314]] data_pd = pd.DataFrame(data) data_pd.columns = [[&amp;#39;日期&amp;#39;, &amp;#39;品类&amp;#39;, &amp;#39;下单&amp;#39;, &amp;#39;下单&amp;#39;, &amp;#39;下单&amp;#39;, &amp;#39;支付&amp;#39;, &amp;#39;支付&amp;#39;, &amp;#39;支付&amp;#39;], [&amp;#39;日期&amp;#39;, &amp;#39;品类&amp;#39;, &amp;#39;下单笔数&amp;#39;, &amp;#39;下单金额&amp;#39;, &amp;#39;下单人数&amp;#39;, &amp;#39;成功笔数&amp;#39;, &amp;#39;成功金额&amp;#39;, &amp;#39;成功人数&amp;#39;]]  表格   二级表头处理
+发现第一列和第二列并没有合并，下单和支付的大类也没有居中显示。那么怎么样才能实现这样的功能呢？其实 html 里的表格有一个 colspan 参数，我们可以对这个参数进行修改即可，比如，我们可以手动给第二行表头的日期和品类改为删除标识，然后对其进行删除，最后把第一行表头的 colspan 扩展为2，就可以进行合并了，也不影响整体表格的功能，至于居中样式可以设置表格的 style 样式。
+# 重新自定义html的格式 def get_type_html(df_html): html = str(df_html).replace(&amp;#39;&amp;lt;table border=&amp;#34;1&amp;#34; class=&amp;#34;dataframe&amp;#34;&amp;gt;&amp;#39;, &amp;#39;&amp;lt;table border=&amp;#34;1&amp;#34; style=&amp;#34;font-family: verdana,arial,sans-serif;font-size:11px;\ color:#333333;border-width: 1px;border-color: #666666;border-collapse: collapse;&amp;#34;&amp;gt;&amp;#39;) html = html.</description>
+    </item>
+    
+    <item>
+      <title>居士自习室作业第一周</title>
+      <link>https://xiaohao890809.github.io/2019/2019-07-20-the-data-science-learning_1/</link>
+      <pubDate>Sat, 20 Jul 2019 22:42:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2019/2019-07-20-the-data-science-learning_1/</guid>
+      <description>数据的集中趋势 众数 一组数据中出现次数最多的数值，叫众数。
+ 注意：有时众数在一组数中有1个或多个，也可能不存在。
+ 中位数 中位数，又称中点数，中值。
+中位数是按顺序排列的一组数据中居于中间位置的数，即在这组数据中，有一半的数据比他大，有一半的数据比他小。
+平均数   算数平均数
+ 算术平均数是指在一组数据中所有数据之和再除以数据的个数。 它是反映数据集中趋势的一项指标。    加权平均数
+ 加权平均数即将各数值乘以相应的权数，然后加总求和得到总体值，再除以总的单位数。 加权平均数也称加权平均值。    几何平均数
+ 几何平均数是n个变量值连乘积的n次方根。    分位数 分位数(Quantile)，亦称分位点，是指将一个随机变量的概率分布范围分为几个等份的数值点。
+常用的有中位数(即二分位数)、四分位数、百分位数等。
+数据的离中趋势 数值型数据   方差
+ 统计中的方差(样本方差)是每个样本值与全体样本值的平均数之差的平方值的平均数。    标准差
+ 标准差是方差的算术平方根。    极差
+ 极差又称范围误差或全距(Range)，以R表示，是用来表示统计资料中的变异量数(measures of variation)。 其最大值与最小值之间的差距，即最大值减最小值后所得之数据。    平均差
+ 平均差(Mean Deviation)是表示各个变量值之间差异程度的数值之一。 指各个变量值同平均数的离差绝对值的算术平均数。    顺序数据  四分位差  四分位差(quartile deviation)，它是上四分位数(Q3，即位于75%)与下四分位数(Q1，即位于25%)的差。    分类数据  异众比率  异众比率(variation ratio)是统计学名词，是统计学当中研究现象离中趋势的指标之一。 异众比率指的是总体中非众数次数与总体全部次数之比。 换句话说，异众比率指非众数组的频数占总频数的比例。    相对离散程度 离散系数 在概率论和统计学中，离散系数(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为标准差 $\sigma$ 与平均值 $\mu$ 之比。</description>
+    </item>
+    
+    <item>
+      <title>机器学习基础之概率论</title>
+      <link>https://xiaohao890809.github.io/2018/2018-03-07-the-note-of-probability-theory/</link>
+      <pubDate>Wed, 07 Mar 2018 23:54:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2018/2018-03-07-the-note-of-probability-theory/</guid>
+      <description>机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。
+三箱零件，其中第一箱 10 个零件，第二箱 20 个零件，第三箱 15 个。检验结果表明第一箱有 1 个不合格，第二箱有 3 个不合格，第三箱有 2 个不合格，从中抽取一个零件，合格的概率有多少？
+ 记 $A_i$ 为从第 $i$ 个箱子拿的零件，拿到正品的事件记为B。
+ $$ \begin{align} P(B)&amp;amp;=P(A_1)\cdot P(B|A_1)+P(A_2)\cdot P(B|A_2)+P(A_3)\cdot P(B|A_3)\\\
+&amp;amp;=P(A_1)+P(A_2)\cdot P(B|A_2)+P(A_3)\cdot P(B|A_3)\\\
+&amp;amp;=\frac{1}{3}\cdot \frac{9}{10}+\frac{1}{3}\cdot \frac{17}{20}+\frac{1}{3}\cdot \frac{13}{15}\\\
+&amp;amp;=0.872 \end{align} $$
+问题：求逆向概率$P(A_{1}|B)$，抽到的这个合格品来自箱子 $A_{1}$ 的概率。
+$$ \begin{align} P(A_{1}|B)&amp;amp;=\frac{P(A_1\cdot B)}{P(B)}\\\
+&amp;amp;=\frac{P(A_1)\cdot P(B|A_1)}{P(B)}\\\
+&amp;amp;=\frac{\frac{1}{3}\cdot \frac{9}{10}}{P(B)}\\\
+&amp;amp;=\frac{0.3}{0.872}=0.344 \end{align} $$
+注意条件概率 $P(B|A_1)$ 和联合概率 $P(A_1\cdot B)$ 的使用。
+分类问题概述： 通过对已知类别信息的数据进行学习后获得分类模型(classifier)，利用分类模型对未知类别信息的数据进行分类(classification)。
+朴素贝叶斯 分类算法举例——朴素贝叶斯(Naive Bayesian Model, NBM)
+$$ \begin{cases} P(C_i|X)=\frac{P(X|C_i)\cdot P(C_i)}{P(X)}\\
+P(X|C_i)=\prod_{K=1}^{n}P(X_k|C_i)\\
+P(AB)=P(A)\cdot P(B)\\</description>
+    </item>
+    
+    <item>
+      <title>VBA知识点总结</title>
+      <link>https://xiaohao890809.github.io/2018/2018-03-01-the-note-of-vba/</link>
+      <pubDate>Thu, 01 Mar 2018 22:53:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2018/2018-03-01-the-note-of-vba/</guid>
+      <description>VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法。
+常见错误 问题1  此文件正由应用程序或另一用户使用。
+ 解决方案：打开后记得做退出关闭操作。
+Set wdApp = GetObject(,&amp;#34;word.application&amp;#34;) If wdApp is Nothing Then Sef wdApp = CreatObject(&amp;#34;word.application&amp;#34;) wdApp.Visible = True End If wdApp.NormalTemplate.Saved = True wdApp.Quit Set wdApp = Nothing 常用函数 获取最大有效行数 Public Function GetLastRow(theSheet As Worksheet, ByVal col As Integer) As Integer Dim findreg As Range, ret As Range Set findreg = theSheet.Columns(col) Set ret = findreg.Find(what:=&amp;#34;*&amp;#34;, searchDirection:=xlPrevious) If Not ret Is Nothing Then GetLastRow = ret.</description>
+    </item>
+    
+    <item>
+      <title>正则表达式知识积累</title>
+      <link>https://xiaohao890809.github.io/2018/2018-02-27-the-study-of-reg-expression/</link>
+      <pubDate>Tue, 27 Feb 2018 23:07:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2018/2018-02-27-the-study-of-reg-expression/</guid>
+      <description>众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻开始。
+正则表达式概念  使用单个字符串来描述匹配一系列符合某个句法规则的字符串 是对字符串操作的一种逻辑公式 应用场景：处理文本和数据  举例分析 大括号 匹配中括号中有任何一个字符，匹配里面的或者情况
+ma = re.match(r&amp;#39;\[[\w]\]&amp;#39;,&amp;#39;[a]&amp;#39;) ret = re.findall(r&amp;#39;[abc]f&amp;#39;,&amp;#39;afufobfidlfodcfr&amp;#39;) # [&amp;#39;af&amp;#39;, &amp;#39;bf&amp;#39;, &amp;#39;cf&amp;#39;] 含有换行 正则修饰符re.S可以匹配包括换行在内的所有字符
+import re content = &amp;#39;&amp;#39;&amp;#39;Hello 1234567Word-This is a Regex Demo&amp;#39;&amp;#39;&amp;#39; # 非贪婪匹配 result = re.match(&amp;#39;^He.*?(\d+).*?Demo$&amp;#39;, content, re.S) print(result.group(1)) # 1234567 贪婪模式和非贪婪模式 import re # 贪婪模式，最大范围的匹配标准 ret = re.findall(r&amp;#39;&amp;lt;div&amp;gt;(.*)&amp;lt;/div&amp;gt;&amp;#39;,&amp;#39;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;#39;) print(ret) # [&amp;#39;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;#39;] # 非贪婪模式 ret = re.findall(r&amp;#39;&amp;lt;div&amp;gt;(.*?)&amp;lt;/div&amp;gt;&amp;#39;,&amp;#39;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;#39;) print(ret) # [&amp;#39;hello&amp;#39;, &amp;#39;hello&amp;#39;] ma = re.match(r&amp;#39;[0-9][a-z]*&amp;#39;,&amp;#39;1bc&amp;#39;) #全部匹配 print(ma.group()) #1bc ma = re.</description>
+    </item>
+    
+    <item>
+      <title>VBA实现Excel的笛卡尔积</title>
+      <link>https://xiaohao890809.github.io/2018/2018-01-12-the-decare-by-excel/</link>
+      <pubDate>Fri, 12 Jan 2018 23:40:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2018/2018-01-12-the-decare-by-excel/</guid>
+      <description>最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后来想了下，VBA作为 Office 工具的原生态语言，何不用 VBA 实现呢，于是整理了下便写出来了，下面介绍下过程，为方便起见，弄了一些简易的数据，针对不同的数据需要做一些相应的调整。
+Excel的原始数据如下：
+ 原始数据   整个 VBA 的代码框架如下：
+ 代码框架   类模块 原始数据对应的首行信息，每一列对应一个元素，将其列出，作为一个新的数组。
+Public a As String Public b As String Public c As String Public d As String 常量 Public Const maxNum = 100000 Public MyArr(maxNum) As New MyAttr Public MyNum As Integer 主函数 思路是分别拆分每一行的那两列元素，然后将得到的元素做两个循环，遍历写入新的数组中，然后将新的数组传到工作簿中。
+获取最大行数 Public Function GetLastRow(theSheet As Worksheet, ByVal col As Integer) As Integer Dim findreg As Range, ret As Range Set findreg = theSheet.</description>
+    </item>
+    
+    <item>
+      <title>经典排序法之Python版</title>
+      <link>https://xiaohao890809.github.io/2018/2018-01-11-the-classic-sorts/</link>
+      <pubDate>Thu, 11 Jan 2018 23:11:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2018/2018-01-11-the-classic-sorts/</guid>
+      <description>大学的时候学习的经典算法忘记差不多了，现在赶紧拾起来，基本算法往往是复杂算法的基础，牢记掌握才是王道。
+冒泡排序 def BubbleSorted(nums): length = len(nums) for i in range(length-1): for j in range(length-i-1): if nums[j]&amp;gt;nums[j+1]: nums[j],nums[j+1] = nums[j+1],nums[j] return nums 思考
+如果原来的列表是有序列表呢，能否优化一下呢？
+def bubble_sort(input_list): &amp;#34;&amp;#34;&amp;#34;冒泡排序&amp;#34;&amp;#34;&amp;#34; length = len(input_list) for j in range(length - 1): # 当列表已经是有序列表的，节省空间 count = 0 for i in range(length - j - 1): if input_list[i] &amp;gt; input_list[i+1]: input_list[i], input_list[i+1] = input_list[i+1], input_list[i] count += 1 if count == 0: return 属性：
+ 最优时间复杂度：$O(n)$ (表示遍历一次没有发现任何可以交换的元素，排序结束) 最坏时间复杂度：$O(n^2)$ 稳定性：稳定  插入排序 def InsertSorted(nums): # 从第二元素开始直到最后一个元素 for i in range(1,len(nums)): tmp = nums[i] print(nums) j = i-1 while j &amp;gt;= 0 and nums[j] &amp;gt; tmp: nums[j+1] = nums[j] j = j - 1 nums[j+1] = tmp return nums 选择排序 def SelectSorted(nums): for i in range(len(nums)-1): minIndex = i for j in range(i+1,len(nums)): if nums[j] &amp;lt; nums[minIndex]: minIndex = j nums[i],nums[minIndex] = nums[minIndex],nums[i] return nums 图片来源：常用算法js版</description>
+    </item>
+    
+    <item>
+      <title>保持某些好的习惯</title>
+      <link>https://xiaohao890809.github.io/2017/2017-09-27-some-good-habits-need-to-insist/</link>
+      <pubDate>Tue, 26 Sep 2017 10:45:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2017/2017-09-27-some-good-habits-need-to-insist/</guid>
+      <description>优秀是一种习惯，保持一个良好的习惯往往能引导一种健康的生活姿态，现在记录一些自己认为是比较好的一些习惯，自己经常去看看，用于监督和督促自己。
+生活  一周至少运动两次（跑步，爬山，打球等） 晚上11点半准备看书，然后睡觉 一天至少三大杯水 平时多吃点水果 一个月清理一次房间 晚上睡前刷牙  技术  代码写完后多检查下注释有没有写全，没写的补上，以免以后都不知道自己当初写的啥 LeetCode过三遍 js和go语言了解下 正则表达式多熟悉  反思  每天问一遍自己，想进BAT吗，以你现在的能力能进BAT吗，不能的话哪些地方需要加强呢？  工作  平时多看下面试相关的信息，刷刷题 把跟自己业务相关的数据库表多检查下  英语  熟读新概念英语第三册前30篇  </description>
+    </item>
+    
+    <item>
+      <title>记录博客的第一天</title>
+      <link>https://xiaohao890809.github.io/2015/2015-08-14-first-day/</link>
+      <pubDate>Fri, 14 Aug 2015 22:47:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2015/2015-08-14-first-day/</guid>
+      <description>好久不见，大家好！很高兴，今天终于开通了这个博客，这期间也得到了不少网友的帮助。之前在网上找了很多模板，但是选来选去，最终还是定了这个模板，因为这个模板比较简洁，而且也符合我预期的效果。
+ 首先要感谢 enml，我是引用了他的模板。
+ 先把他的模板下载到本地，然后传到自己建立的仓库下就可以进行修改模板了。将一些基本的信息，比如名字，多说的 id 以及一些图标都加以修改即可。刚开始的模板的导航栏上没有留言板和关于我这一栏，我后来自己补上的。之前模板的一个出口的 page 被我删掉了，因为感觉那个功能不太实用。还有原来的评论系统貌似用的是国外的一个系统，我将其改为了多说的评论系统，非常好用！
+ 其次是感谢 liberize 的帮助
+ 在他的帮助下，我在评论框的头像加上了炫酷的旋转效果，看起来非常漂亮。只是原作者是圆形的图标，而我这个背景如果用了圆形的头像，会有一个阴影在下面，看起来非常不舒服，于是我改为了方形的效果，默认下的头像旋转是没有阴影的，这一点我至今还是很疑惑。
+ 再者感谢 tk 域名
+ 博客搭建好了，但是域名太长，不太方便随时输入。所以也百度了很多资料，看到网上都是说加一个 CNAME 文件，然后把域名加上去，在去域名管理页面加一个 A 地址。折腾了半天也没有成功。最后发现前提应该是自己得有一个 .com 或者 .me 域名，但是我木有。于是乎这条路便走不通了。后来无意间看到 tk 域名的网址，听说进去可以免费注册域名，于是抱着试一试的态度进去了，后来发现其实根本不用那么麻烦，只有把自己的博客地址指向到你要注册的 .tk 域名就 ok 了。省去了很多步骤。而且最后的网页比之前的网页更加完整了，之前没显示出来额头像图标和 github 图标都显示出来了，太惊喜了。只是某些字体不知道怎么回事，还是显示不完美。不过这样已经很满足了。
+ 最后感谢 liberize 和百度文库的帮助
+ 模板本来已经弄得差不多了，后来想来想去看了别人的很多模板，都在首页有分页的功能（PS：分类和标签是没有这个功能的），于是自己也想加上，所以结合了好几个人的模板，最后把每一个标签换了个颜色，显得不是那么单调。最后文章也要截取部分显示在首页中，这部分调式了好久，最后用了下面这个代码搞定了。
+post.content | truncate:300 其实就是把中间一部分舍掉了，因为加上中间那一部分的话，是按照文本进行分割的，而我想保留自己原来的格式，于是只取后面一部分就搞定了。当理想的界面出现在 html 上的时候，那个感觉非常好。也许博客到现在格式方面已经差不多了。不过到后面估计还得修改一些小细节，不断地进步才有动力前进！
+总结
+github 真是个不错的平台，幸好天朝没有进行封杀，里面的资源和牛人特别多。他们秉着开源的精神，无私地分享了自己得许多经验和代码。所以，学无止境，多学习，多总结肯定是没有错的。
+但无论如何，万事开头难，希望自己能够坚持下去，记录生活点滴，同时也写一些技术类的博客，虽然比较菜，但是进步空间比较大，加油，耗子！
+另外本博客已经使用 hexo 主题，之前的 jekyll 已经不用了。因为这个框架的主题配置起来比较容易，不用修改很多地方。</description>
+    </item>
+    
+  </channel>
+</rss>
