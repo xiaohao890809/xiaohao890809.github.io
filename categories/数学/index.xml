@@ -1,26 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>数学 on 枕霞惜友</title>
-    <link>https://xiaohao890809.github.io/categories/%E6%95%B0%E5%AD%A6/</link>
-    <description>Recent content in 数学 on 枕霞惜友</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 07 Mar 2018 23:54:23 +0000</lastBuildDate>
-    
-	<atom:link href="https://xiaohao890809.github.io/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>机器学习基础之概率论</title>
-      <link>https://xiaohao890809.github.io/2018/2018-03-07-the-note-of-probability-theory/</link>
-      <pubDate>Wed, 07 Mar 2018 23:54:23 +0000</pubDate>
-      
-      <guid>https://xiaohao890809.github.io/2018/2018-03-07-the-note-of-probability-theory/</guid>
-      <description>机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数学 on 枕霞惜友</title><link>https://xiaohao890809.github.io/categories/%E6%95%B0%E5%AD%A6/</link><description>Recent content in 数学 on 枕霞惜友</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 07 Mar 2018 23:54:23 +0000</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss+xml"/><item><title>机器学习基础之概率论</title><link>https://xiaohao890809.github.io/2018/2018-03-07-the-note-of-probability-theory/</link><pubDate>Wed, 07 Mar 2018 23:54:23 +0000</pubDate><guid>https://xiaohao890809.github.io/2018/2018-03-07-the-note-of-probability-theory/</guid><description>机器学习算法中有很多用到概率论知识的地方，比如贝叶斯定理，频繁挖掘，条件概率等，掌握好概率论的基础知识有利于更好的理解机器学习中的相关算法。
 三箱零件，其中第一箱 10 个零件，第二箱 20 个零件，第三箱 15 个。检验结果表明第一箱有 1 个不合格，第二箱有 3 个不合格，第三箱有 2 个不合格，从中抽取一个零件，合格的概率有多少？
- 记 $A_i$ 为从第 $i$ 个箱子拿的零件，拿到正品的事件记为B。
- $$ \begin{align} P(B)&amp;amp;=P(A_1)\cdot P(B|A_1)+P(A_2)\cdot P(B|A_2)+P(A_3)\cdot P(B|A_3)\\\
+记 $A_i$ 为从第 $i$ 个箱子拿的零件，拿到正品的事件记为B。
+$$ \begin{align} P(B)&amp;amp;=P(A_1)\cdot P(B|A_1)+P(A_2)\cdot P(B|A_2)+P(A_3)\cdot P(B|A_3)\\\
 &amp;amp;=P(A_1)+P(A_2)\cdot P(B|A_2)+P(A_3)\cdot P(B|A_3)\\\
 &amp;amp;=\frac{1}{3}\cdot \frac{9}{10}+\frac{1}{3}\cdot \frac{17}{20}+\frac{1}{3}\cdot \frac{13}{15}\\\
 &amp;amp;=0.872 \end{align} $$
@@ -34,8 +15,4 @@ $$ \begin{align} P(A_{1}|B)&amp;amp;=\frac{P(A_1\cdot B)}{P(B)}\\\
 朴素贝叶斯 分类算法举例——朴素贝叶斯(Naive Bayesian Model, NBM)
 $$ \begin{cases} P(C_i|X)=\frac{P(X|C_i)\cdot P(C_i)}{P(X)}\\
 P(X|C_i)=\prod_{K=1}^{n}P(X_k|C_i)\\
-P(AB)=P(A)\cdot P(B)\\</description>
-    </item>
-    
-  </channel>
-</rss>
+P(AB)=P(A)\cdot P(B)\\</description></item></channel></rss>

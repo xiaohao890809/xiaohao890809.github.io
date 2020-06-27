@@ -1,27 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>正则 on 枕霞惜友</title>
-    <link>https://xiaohao890809.github.io/tags/%E6%AD%A3%E5%88%99/</link>
-    <description>Recent content in 正则 on 枕霞惜友</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 27 Feb 2018 23:07:23 +0000</lastBuildDate>
-    
-	<atom:link href="https://xiaohao890809.github.io/tags/%E6%AD%A3%E5%88%99/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>正则表达式知识积累</title>
-      <link>https://xiaohao890809.github.io/2018/2018-02-27-the-study-of-reg-expression/</link>
-      <pubDate>Tue, 27 Feb 2018 23:07:23 +0000</pubDate>
-      
-      <guid>https://xiaohao890809.github.io/2018/2018-02-27-the-study-of-reg-expression/</guid>
-      <description>众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻开始。
-正则表达式概念  使用单个字符串来描述匹配一系列符合某个句法规则的字符串 是对字符串操作的一种逻辑公式 应用场景：处理文本和数据  举例分析 大括号 匹配中括号中有任何一个字符，匹配里面的或者情况
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>正则 on 枕霞惜友</title><link>https://xiaohao890809.github.io/tags/%E6%AD%A3%E5%88%99/</link><description>Recent content in 正则 on 枕霞惜友</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 27 Feb 2018 23:07:23 +0000</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%AD%A3%E5%88%99/index.xml" rel="self" type="application/rss+xml"/><item><title>正则表达式知识积累</title><link>https://xiaohao890809.github.io/2018/2018-02-27-the-study-of-reg-expression/</link><pubDate>Tue, 27 Feb 2018 23:07:23 +0000</pubDate><guid>https://xiaohao890809.github.io/2018/2018-02-27-the-study-of-reg-expression/</guid><description>众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻开始。
+正则表达式概念 使用单个字符串来描述匹配一系列符合某个句法规则的字符串 是对字符串操作的一种逻辑公式 应用场景：处理文本和数据 举例分析 大括号 匹配中括号中有任何一个字符，匹配里面的或者情况
 ma = re.match(r&amp;#39;\[[\w]\]&amp;#39;,&amp;#39;[a]&amp;#39;) ret = re.findall(r&amp;#39;[abc]f&amp;#39;,&amp;#39;afufobfidlfodcfr&amp;#39;) # [&amp;#39;af&amp;#39;, &amp;#39;bf&amp;#39;, &amp;#39;cf&amp;#39;] 含有换行 正则修饰符re.S可以匹配包括换行在内的所有字符
-import re content = &amp;#39;&amp;#39;&amp;#39;Hello 1234567Word-This is a Regex Demo&amp;#39;&amp;#39;&amp;#39; # 非贪婪匹配 result = re.match(&amp;#39;^He.*?(\d+).*?Demo$&amp;#39;, content, re.S) print(result.group(1)) # 1234567 贪婪模式和非贪婪模式 import re # 贪婪模式，最大范围的匹配标准 ret = re.findall(r&amp;#39;&amp;lt;div&amp;gt;(.*)&amp;lt;/div&amp;gt;&amp;#39;,&amp;#39;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;#39;) print(ret) # [&amp;#39;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;#39;] # 非贪婪模式 ret = re.findall(r&amp;#39;&amp;lt;div&amp;gt;(.*?)&amp;lt;/div&amp;gt;&amp;#39;,&amp;#39;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;#39;) print(ret) # [&amp;#39;hello&amp;#39;, &amp;#39;hello&amp;#39;] ma = re.match(r&amp;#39;[0-9][a-z]*&amp;#39;,&amp;#39;1bc&amp;#39;) #全部匹配 print(ma.group()) #1bc ma = re.</description>
-    </item>
-    
-  </channel>
-</rss>
+import re content = &amp;#39;&amp;#39;&amp;#39;Hello 1234567Word-This is a Regex Demo&amp;#39;&amp;#39;&amp;#39; # 非贪婪匹配 result = re.match(&amp;#39;^He.*?(\d+).*?Demo$&amp;#39;, content, re.S) print(result.group(1)) # 1234567 贪婪模式和非贪婪模式 import re # 贪婪模式，最大范围的匹配标准 ret = re.findall(r&amp;#39;&amp;lt;div&amp;gt;(.*)&amp;lt;/div&amp;gt;&amp;#39;,&amp;#39;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;#39;) print(ret) # [&amp;#39;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;#39;] # 非贪婪模式 ret = re.findall(r&amp;#39;&amp;lt;div&amp;gt;(.*?)&amp;lt;/div&amp;gt;&amp;#39;,&amp;#39;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;#39;) print(ret) # [&amp;#39;hello&amp;#39;, &amp;#39;hello&amp;#39;] ma = re.match(r&amp;#39;[0-9][a-z]*&amp;#39;,&amp;#39;1bc&amp;#39;) #全部匹配 print(ma.group()) #1bc ma = re.</description></item></channel></rss>
