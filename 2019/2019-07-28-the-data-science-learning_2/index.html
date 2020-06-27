@@ -1,74 +1,367 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=author content="追寻原风景"><link rel=prev href=https://xiaohao890809.github.io/2019/2019-07-20-the-data-science-learning_1/><link rel=next href=https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/><link rel=canonical href=https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><title>居士自习室作业第二周 | 枕霞惜友</title><meta name=title content="居士自习室作业第二周 | 枕霞惜友"><link rel=stylesheet href=/font/iconfont.css><link rel=stylesheet href=/css/main.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/xiaohao890809.github.io"},"articleSection":"posts","name":"居士自习室作业第二周","headline":"居士自习室作业第二周","description":"在用 pandas 处理报表邮件的时候，有时会遇到处理二级表头，并进行合并的例子。例如：\n研究了一下 pandas 的多级表头功能，发现它有一个 columns 的设置参数，可以新增两列参数，作为二级表头。\ndata = [[\u0026#39;2016-07-23\u0026#39;,\u0026#39;整体\u0026#39;,4540,557.34,1235,469,69.23,334], [\u0026#39;2016-07-22\u0026#39;,\u0026#39;整体\u0026#39;,4410,567.34,1135,459,68.23,324], [\u0026#39;2016-07-21\u0026#39;,\u0026#39;整体\u0026#39;,4380,564.34,1115,439,67.23,314]] data_pd = pd.DataFrame(data) data_pd.columns = [[\u0026#39;日期\u0026#39;, \u0026#39;品类\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;支付\u0026#39;, \u0026#39;支付\u0026#39;, \u0026#39;支付\u0026#39;], [\u0026#39;日期\u0026#39;, \u0026#39;品类\u0026#39;, \u0026#39;下单笔数\u0026#39;, \u0026#39;下单金额\u0026#39;, \u0026#39;下单人数\u0026#39;, \u0026#39;成功笔数\u0026#39;, \u0026#39;成功金额\u0026#39;, \u0026#39;成功人数\u0026#39;]] 二级表头处理\n发现第一列和第二列并没有合并，下单和支付的大类也没有居中显示。那么怎么样才能实现这样的功能呢？其实 html 里的表格有一个 colspan 参数，我们可以对这个参数进行修改即可，比如，我们可以手动给第二行表头的日期和品类改为删除标识，然后对其进行删除，最后把第一行表头的 colspan 扩展为2，就可以进行合并了，也不影响整体表格的功能，至于居中样式可以设置表格的 style 样式。\n# 重新自定义html的格式 def get_type_html(df_html): html = str(df_html).replace(\u0026#39;\u0026lt;table border=\u0026#34;1\u0026#34; class=\u0026#34;dataframe\u0026#34;\u0026gt;\u0026#39;, \u0026#39;\u0026lt;table border=\u0026#34;1\u0026#34; style=\u0026#34;font-family: verdana,arial,sans-serif;font-size:11px;\\ color:#333333;border-width: 1px;border-color: #666666;border-collapse: collapse;\u0026#34;\u0026gt;\u0026#39;) html = html.replace(\u0026#39;\u0026lt;td\u0026gt;\u0026#39;, \u0026#39;\u0026lt;td colspan=\u0026#34;1\u0026#34; rowspan=\u0026#34;1\u0026#34; style=\u0026#34;background-color:#FFFFFF;color:#000000;font-weight:normal;\\ padding:10px;text-align:center;white-space:pre\u0026#34;\u0026gt;\u0026#39;) \u0026#34;\u0026#34;\u0026#34; html = html.","inLanguage":"en-us","author":"追寻原风景","creator":"追寻原风景","publisher":"追寻原风景","accountablePerson":"追寻原风景","copyrightHolder":"追寻原风景","copyrightYear":"2019","datePublished":"2019-07-28 17:42:23 \u002b0000 UTC","dateModified":"2019-07-28 17:42:23 \u002b0000 UTC","url":"https:\/\/xiaohao890809.github.io\/2019\/2019-07-28-the-data-science-learning_2\/","wordCount":"216","keywords":["居士","枕霞惜友"]}</script></head><body><div class=wrapper><nav class=navbar><div class=container><div class="navbar-header header-logo"><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://xiaohao890809.github.io>枕霞惜友</a></div><div class="menu navbar-right"><a class=menu-item href=/posts/>Blog</a>
-<a class=menu-item href=/categories/>Categories</a>
-<a class=menu-item href=/tags/>Tags</a></div></div></nav><nav class=navbar-mobile id=nav-mobile style=display:none><div class=container><div class=navbar-header><div><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://xiaohao890809.github.io>枕霞惜友</a></div><div class=menu-toggle><span></span><span></span><span></span></div></div><div class=menu id=mobile-menu><a class=menu-item href=/posts/>Blog</a>
-<a class=menu-item href=/categories/>Categories</a>
-<a class=menu-item href=/tags/>Tags</a></div></div></nav><main class=main><div class=container><article class=post-warp itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline">居士自习室作业第二周</h1><div class=post-meta>Written by <a itemprop=name href=https://xiaohao890809.github.io rel=author>追寻原风景</a> with ♥
-<span class=post-time>on <time datetime=2019-07-28 itemprop=datePublished>July 28, 2019</time></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title></h2><div class="post-toc-content always-active"><nav id=TableOfContents></nav></div></div><script type=text/javascript>window.onload=function(){var fix=$('.post-toc');var end=$('.post-comment');var fixTop=fix.offset().top,fixHeight=fix.height();var endTop,miss;var offsetTop=fix[0].offsetTop;$(window).scroll(function(){var docTop=Math.max(document.body.scrollTop,document.documentElement.scrollTop);if(end.length>0){endTop=end.offset().top;miss=endTop-docTop-fixHeight;}
-if(fixTop<docTop){fix.css({'position':'fixed'});if((end.length>0)&&(endTop<(docTop+fixHeight))){fix.css({top:miss});}else{fix.css({top:0});}}else{fix.css({'position':'absolute'});fix.css({top:offsetTop});}})}</script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script type=text/javascript async src="/lib/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><div class=post-content><p>在用 pandas 处理报表邮件的时候，有时会遇到处理二级表头，并进行合并的例子。例如：</p><p><figure><img src=/images/ring.svg data-src=/images/test.png data-sizes=auto alt=日报 title=日报 class=lazyload><figcaption class=image-caption>日报</figcaption></figure></p><p>研究了一下 pandas 的多级表头功能，发现它有一个 <code>columns</code> 的设置参数，可以新增两列参数，作为二级表头。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>data <span style=color:#f92672>=</span> [[<span style=color:#e6db74>&#39;2016-07-23&#39;</span>,<span style=color:#e6db74>&#39;整体&#39;</span>,<span style=color:#ae81ff>4540</span>,<span style=color:#ae81ff>557.34</span>,<span style=color:#ae81ff>1235</span>,<span style=color:#ae81ff>469</span>,<span style=color:#ae81ff>69.23</span>,<span style=color:#ae81ff>334</span>],
-        [<span style=color:#e6db74>&#39;2016-07-22&#39;</span>,<span style=color:#e6db74>&#39;整体&#39;</span>,<span style=color:#ae81ff>4410</span>,<span style=color:#ae81ff>567.34</span>,<span style=color:#ae81ff>1135</span>,<span style=color:#ae81ff>459</span>,<span style=color:#ae81ff>68.23</span>,<span style=color:#ae81ff>324</span>],
-        [<span style=color:#e6db74>&#39;2016-07-21&#39;</span>,<span style=color:#e6db74>&#39;整体&#39;</span>,<span style=color:#ae81ff>4380</span>,<span style=color:#ae81ff>564.34</span>,<span style=color:#ae81ff>1115</span>,<span style=color:#ae81ff>439</span>,<span style=color:#ae81ff>67.23</span>,<span style=color:#ae81ff>314</span>]]
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="追寻原风景">
+  
+  
+  
+  <link rel="prev" href="https://xiaohao890809.github.io/2019/2019-07-20-the-data-science-learning_1/" />
+  <link rel="next" href="https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/" />
+  <link rel="canonical" href="https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           居士自习室作业第二周 | 枕霞惜友
+       
+  </title>
+  <meta name="title" content="居士自习室作业第二周 | 枕霞惜友">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
 
-data_pd <span style=color:#f92672>=</span> pd<span style=color:#f92672>.</span>DataFrame(data)
 
-data_pd<span style=color:#f92672>.</span>columns <span style=color:#f92672>=</span> [[<span style=color:#e6db74>&#39;日期&#39;</span>, <span style=color:#e6db74>&#39;品类&#39;</span>, <span style=color:#e6db74>&#39;下单&#39;</span>, <span style=color:#e6db74>&#39;下单&#39;</span>, <span style=color:#e6db74>&#39;下单&#39;</span>, <span style=color:#e6db74>&#39;支付&#39;</span>, <span style=color:#e6db74>&#39;支付&#39;</span>, <span style=color:#e6db74>&#39;支付&#39;</span>],
-                   [<span style=color:#e6db74>&#39;日期&#39;</span>, <span style=color:#e6db74>&#39;品类&#39;</span>, <span style=color:#e6db74>&#39;下单笔数&#39;</span>, <span style=color:#e6db74>&#39;下单金额&#39;</span>, <span style=color:#e6db74>&#39;下单人数&#39;</span>, <span style=color:#e6db74>&#39;成功笔数&#39;</span>, <span style=color:#e6db74>&#39;成功金额&#39;</span>, <span style=color:#e6db74>&#39;成功人数&#39;</span>]]
-</code></pre></div><p><figure><img src=/images/ring.svg data-src=/images/table1.png data-sizes=auto alt=表格 title=表格 class=lazyload><figcaption class=image-caption>表格</figcaption></figure></p><p><strong>二级表头处理</strong></p><p>发现第一列和第二列并没有合并，下单和支付的大类也没有居中显示。那么怎么样才能实现这样的功能呢？其实 html 里的表格有一个 <code>colspan</code> 参数，我们可以对这个参数进行修改即可，比如，我们可以手动给第二行表头的日期和品类改为删除标识，然后对其进行删除，最后把第一行表头的 <code>colspan</code> 扩展为2，就可以进行合并了，也不影响整体表格的功能，至于居中样式可以设置表格的 style 样式。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># 重新自定义html的格式</span>
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_type_html</span>(df_html):
-    html <span style=color:#f92672>=</span> str(df_html)<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;&#39;</span>,
-                                <span style=color:#e6db74>&#39;&lt;table border=&#34;1&#34; style=&#34;font-family: verdana,arial,sans-serif;font-size:11px;</span><span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span><span style=color:#e6db74>                                color:#333333;border-width: 1px;border-color: #666666;border-collapse: collapse;&#34;&gt;&#39;</span>)
-    html <span style=color:#f92672>=</span> html<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;&lt;td&gt;&#39;</span>,
-                        <span style=color:#e6db74>&#39;&lt;td colspan=&#34;1&#34; rowspan=&#34;1&#34; style=&#34;background-color:#FFFFFF;color:#000000;font-weight:normal;</span><span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span><span style=color:#e6db74>                        padding:10px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
-    <span style=color:#e6db74>&#34;&#34;&#34;
-</span><span style=color:#e6db74>    html = html.replace(&#39;&lt;th&gt;&#39;,
-</span><span style=color:#e6db74>                        &#39;&lt;th colspan=&#34;1&#34; rowspan=&#34;1&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span><span style=color:#e6db74>                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;)
-</span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
-    html <span style=color:#f92672>=</span> html<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;&lt;th&gt;删除&lt;/th&gt;&#39;</span>,
-                        <span style=color:#e6db74>&#39;&#39;</span>)
-    html <span style=color:#f92672>=</span> html<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;&lt;th&gt;&#39;</span>,
-                        <span style=color:#e6db74>&#39;&lt;th colspan=&#34;1&#34; rowspan=&#34;2&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span><span style=color:#e6db74>                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
-    html <span style=color:#f92672>=</span> html<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;&lt;th colspan=&#34;2&#34; halign=&#34;left&#34;&gt;&#39;</span>,
-                        <span style=color:#e6db74>&#39;&lt;th colspan=&#34;2&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span><span style=color:#e6db74>                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
-    html <span style=color:#f92672>=</span> html<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;&lt;th colspan=&#34;3&#34; halign=&#34;left&#34;&gt;&#39;</span>,
-                        <span style=color:#e6db74>&#39;&lt;th colspan=&#34;3&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span><span style=color:#e6db74>                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
-    html <span style=color:#f92672>=</span> html<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;&lt;th colspan=&#34;4&#34; halign=&#34;left&#34;&gt;&#39;</span>,
-                        <span style=color:#e6db74>&#39;&lt;th colspan=&#34;4&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span><span style=color:#e6db74>                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
-    html <span style=color:#f92672>=</span> html<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;&lt;th colspan=&#34;5&#34; halign=&#34;left&#34;&gt;&#39;</span>,
-                        <span style=color:#e6db74>&#39;&lt;th colspan=&#34;5&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span><span style=color:#e6db74>                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
-    <span style=color:#66d9ef>return</span> html
-</code></pre></div><p><strong>千分位分隔符</strong></p><p>对于大额数字，我们一般使用千位分隔符进行分割，这样看起来更清晰。</p><p>python里进行千位分割很简单：</p><ul><li>对于整数，'{:,}'.format(item)</li><li>对于保留两位小数的，'{:,.2f}'.format(item)</li></ul><p>现在我们构建数据集，进行测试</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> pandas <span style=color:#f92672>as</span> pd
-<span style=color:#f92672>from</span> IPython.display <span style=color:#f92672>import</span> HTML
+  
+  
+ 
 
-data <span style=color:#f92672>=</span> [[<span style=color:#e6db74>&#39;2016-07-23&#39;</span>,<span style=color:#e6db74>&#39;整体&#39;</span>,<span style=color:#ae81ff>4540</span>,<span style=color:#ae81ff>557.34</span>,<span style=color:#ae81ff>1235</span>,<span style=color:#ae81ff>469</span>,<span style=color:#ae81ff>69.23</span>,<span style=color:#ae81ff>334</span>],
-        [<span style=color:#e6db74>&#39;2016-07-22&#39;</span>,<span style=color:#e6db74>&#39;整体&#39;</span>,<span style=color:#ae81ff>4410</span>,<span style=color:#ae81ff>567.34</span>,<span style=color:#ae81ff>1135</span>,<span style=color:#ae81ff>459</span>,<span style=color:#ae81ff>68.23</span>,<span style=color:#ae81ff>324</span>],
-        [<span style=color:#e6db74>&#39;2016-07-21&#39;</span>,<span style=color:#e6db74>&#39;整体&#39;</span>,<span style=color:#ae81ff>4380</span>,<span style=color:#ae81ff>564.34</span>,<span style=color:#ae81ff>1115</span>,<span style=color:#ae81ff>439</span>,<span style=color:#ae81ff>67.23</span>,<span style=color:#ae81ff>314</span>]]
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/xiaohao890809.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "居士自习室作业第二周",
+    "headline" : "居士自习室作业第二周",
+    "description" : "在用 pandas 处理报表邮件的时候，有时会遇到处理二级表头，并进行合并的例子。例如：\n研究了一下 pandas 的多级表头功能，发现它有一个 columns 的设置参数，可以新增两列参数，作为二级表头。\ndata = [[\u0026#39;2016-07-23\u0026#39;,\u0026#39;整体\u0026#39;,4540,557.34,1235,469,69.23,334], [\u0026#39;2016-07-22\u0026#39;,\u0026#39;整体\u0026#39;,4410,567.34,1135,459,68.23,324], [\u0026#39;2016-07-21\u0026#39;,\u0026#39;整体\u0026#39;,4380,564.34,1115,439,67.23,314]] data_pd = pd.DataFrame(data) data_pd.columns = [[\u0026#39;日期\u0026#39;, \u0026#39;品类\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;下单\u0026#39;, \u0026#39;支付\u0026#39;, \u0026#39;支付\u0026#39;, \u0026#39;支付\u0026#39;], [\u0026#39;日期\u0026#39;, \u0026#39;品类\u0026#39;, \u0026#39;下单笔数\u0026#39;, \u0026#39;下单金额\u0026#39;, \u0026#39;下单人数\u0026#39;, \u0026#39;成功笔数\u0026#39;, \u0026#39;成功金额\u0026#39;, \u0026#39;成功人数\u0026#39;]] 二级表头处理\n发现第一列和第二列并没有合并，下单和支付的大类也没有居中显示。那么怎么样才能实现这样的功能呢？其实 html 里的表格有一个 colspan 参数，我们可以对这个参数进行修改即可，比如，我们可以手动给第二行表头的日期和品类改为删除标识，然后对其进行删除，最后把第一行表头的 colspan 扩展为2，就可以进行合并了，也不影响整体表格的功能，至于居中样式可以设置表格的 style 样式。\n# 重新自定义html的格式 def get_type_html(df_html): html = str(df_html).replace(\u0026#39;\u0026lt;table border=\u0026#34;1\u0026#34; class=\u0026#34;dataframe\u0026#34;\u0026gt;\u0026#39;, \u0026#39;\u0026lt;table border=\u0026#34;1\u0026#34; style=\u0026#34;font-family: verdana,arial,sans-serif;font-size:11px;\\ color:#333333;border-width: 1px;border-color: #666666;border-collapse: collapse;\u0026#34;\u0026gt;\u0026#39;) html = html.replace(\u0026#39;\u0026lt;td\u0026gt;\u0026#39;, \u0026#39;\u0026lt;td colspan=\u0026#34;1\u0026#34; rowspan=\u0026#34;1\u0026#34; style=\u0026#34;background-color:#FFFFFF;color:#000000;font-weight:normal;\\ padding:10px;text-align:center;white-space:pre\u0026#34;\u0026gt;\u0026#39;) \u0026#34;\u0026#34;\u0026#34; html = html.",
+    "inLanguage" : "en-us",
+    "author" : "追寻原风景",
+    "creator" : "追寻原风景",
+    "publisher": "追寻原风景",
+    "accountablePerson" : "追寻原风景",
+    "copyrightHolder" : "追寻原风景",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-07-28 17:42:23 \u002b0000 UTC",
+    "dateModified" : "2019-07-28 17:42:23 \u002b0000 UTC",
+    "url" : "https:\/\/xiaohao890809.github.io\/2019\/2019-07-28-the-data-science-learning_2\/",
+    "wordCount" : "216",
+    "keywords" : [ "居士", "枕霞惜友"]
+}
+</script>
 
-data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>2</span>] <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;{:,}&#39;</span><span style=color:#f92672>.</span>format(item) <span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>2</span>]]
-data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>3</span>] <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;{:,.2f}&#39;</span><span style=color:#f92672>.</span>format(item) <span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>3</span>]]
-data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>4</span>] <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;{:,}&#39;</span><span style=color:#f92672>.</span>format(item) <span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>4</span>]]
-data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>5</span>] <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;{:,}&#39;</span><span style=color:#f92672>.</span>format(item) <span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>6</span>]]
-data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>6</span>] <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;{:,.2f}&#39;</span><span style=color:#f92672>.</span>format(item) <span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>6</span>]]
-data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>7</span>] <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;{:,}&#39;</span><span style=color:#f92672>.</span>format(item) <span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> data_pd<span style=color:#f92672>.</span>iloc[:,<span style=color:#ae81ff>7</span>]]
+</head>
 
-data_pd<span style=color:#f92672>.</span>columns <span style=color:#f92672>=</span> [[<span style=color:#e6db74>&#39;日期&#39;</span>, <span style=color:#e6db74>&#39;品类&#39;</span>, <span style=color:#e6db74>&#39;下单&#39;</span>, <span style=color:#e6db74>&#39;下单&#39;</span>, <span style=color:#e6db74>&#39;下单&#39;</span>, <span style=color:#e6db74>&#39;支付&#39;</span>, <span style=color:#e6db74>&#39;支付&#39;</span>, <span style=color:#e6db74>&#39;支付&#39;</span>],
-                   [<span style=color:#e6db74>&#39;删除&#39;</span>, <span style=color:#e6db74>&#39;删除&#39;</span>, <span style=color:#e6db74>&#39;下单笔数&#39;</span>, <span style=color:#e6db74>&#39;下单金额&#39;</span>, <span style=color:#e6db74>&#39;下单人数&#39;</span>, <span style=color:#e6db74>&#39;成功笔数&#39;</span>, <span style=color:#e6db74>&#39;成功金额&#39;</span>, <span style=color:#e6db74>&#39;成功人数&#39;</span>]]
+  
 
-html <span style=color:#f92672>=</span> data_pd<span style=color:#f92672>.</span>to_html(index<span style=color:#f92672>=</span>False)
-html <span style=color:#f92672>=</span> get_type_html(html)
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">居士自习室作业第二周</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://xiaohao890809.github.io" rel="author">追寻原风景</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-07-28 itemprop="datePublished">July 28, 2019</time>
+                </span>
+                
+        </div>
+    </header>
+
+    
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+    
+
+    <script type="text/javascript">
+            window.MathJax = {
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            TeX: {equationNumbers: {autoNumber: "AMS"}},
+            showProcessingMessages: false,
+            messageStyle: 'none'
+        };
+   </script>
+
+    <script type="text/javascript" async src="/lib/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>在用 pandas 处理报表邮件的时候，有时会遇到处理二级表头，并进行合并的例子。例如：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/test.png" data-sizes="auto" alt="日报" title="日报" class="lazyload"><figcaption class="image-caption">日报</figcaption></figure></p>
+<p>研究了一下 pandas 的多级表头功能，发现它有一个 <code>columns</code> 的设置参数，可以新增两列参数，作为二级表头。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data <span style="color:#f92672">=</span> [[<span style="color:#e6db74">&#39;2016-07-23&#39;</span>,<span style="color:#e6db74">&#39;整体&#39;</span>,<span style="color:#ae81ff">4540</span>,<span style="color:#ae81ff">557.34</span>,<span style="color:#ae81ff">1235</span>,<span style="color:#ae81ff">469</span>,<span style="color:#ae81ff">69.23</span>,<span style="color:#ae81ff">334</span>],
+        [<span style="color:#e6db74">&#39;2016-07-22&#39;</span>,<span style="color:#e6db74">&#39;整体&#39;</span>,<span style="color:#ae81ff">4410</span>,<span style="color:#ae81ff">567.34</span>,<span style="color:#ae81ff">1135</span>,<span style="color:#ae81ff">459</span>,<span style="color:#ae81ff">68.23</span>,<span style="color:#ae81ff">324</span>],
+        [<span style="color:#e6db74">&#39;2016-07-21&#39;</span>,<span style="color:#e6db74">&#39;整体&#39;</span>,<span style="color:#ae81ff">4380</span>,<span style="color:#ae81ff">564.34</span>,<span style="color:#ae81ff">1115</span>,<span style="color:#ae81ff">439</span>,<span style="color:#ae81ff">67.23</span>,<span style="color:#ae81ff">314</span>]]
+
+data_pd <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(data)
+
+data_pd<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> [[<span style="color:#e6db74">&#39;日期&#39;</span>, <span style="color:#e6db74">&#39;品类&#39;</span>, <span style="color:#e6db74">&#39;下单&#39;</span>, <span style="color:#e6db74">&#39;下单&#39;</span>, <span style="color:#e6db74">&#39;下单&#39;</span>, <span style="color:#e6db74">&#39;支付&#39;</span>, <span style="color:#e6db74">&#39;支付&#39;</span>, <span style="color:#e6db74">&#39;支付&#39;</span>],
+                   [<span style="color:#e6db74">&#39;日期&#39;</span>, <span style="color:#e6db74">&#39;品类&#39;</span>, <span style="color:#e6db74">&#39;下单笔数&#39;</span>, <span style="color:#e6db74">&#39;下单金额&#39;</span>, <span style="color:#e6db74">&#39;下单人数&#39;</span>, <span style="color:#e6db74">&#39;成功笔数&#39;</span>, <span style="color:#e6db74">&#39;成功金额&#39;</span>, <span style="color:#e6db74">&#39;成功人数&#39;</span>]]
+</code></pre></div><p><figure><img src="/images/ring.svg" data-src="/images/table1.png" data-sizes="auto" alt="表格" title="表格" class="lazyload"><figcaption class="image-caption">表格</figcaption></figure></p>
+<p><strong>二级表头处理</strong></p>
+<p>发现第一列和第二列并没有合并，下单和支付的大类也没有居中显示。那么怎么样才能实现这样的功能呢？其实 html 里的表格有一个 <code>colspan</code> 参数，我们可以对这个参数进行修改即可，比如，我们可以手动给第二行表头的日期和品类改为删除标识，然后对其进行删除，最后把第一行表头的 <code>colspan</code> 扩展为2，就可以进行合并了，也不影响整体表格的功能，至于居中样式可以设置表格的 style 样式。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 重新自定义html的格式</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_type_html</span>(df_html):
+    html <span style="color:#f92672">=</span> str(df_html)<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&lt;table border=&#34;1&#34; class=&#34;dataframe&#34;&gt;&#39;</span>,
+                                <span style="color:#e6db74">&#39;&lt;table border=&#34;1&#34; style=&#34;font-family: verdana,arial,sans-serif;font-size:11px;</span><span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#e6db74">                                color:#333333;border-width: 1px;border-color: #666666;border-collapse: collapse;&#34;&gt;&#39;</span>)
+    html <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&lt;td&gt;&#39;</span>,
+                        <span style="color:#e6db74">&#39;&lt;td colspan=&#34;1&#34; rowspan=&#34;1&#34; style=&#34;background-color:#FFFFFF;color:#000000;font-weight:normal;</span><span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#e6db74">                        padding:10px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
+    <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">    html = html.replace(&#39;&lt;th&gt;&#39;,
+</span><span style="color:#e6db74">                        &#39;&lt;th colspan=&#34;1&#34; rowspan=&#34;1&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#e6db74">                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;)
+</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+    html <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&lt;th&gt;删除&lt;/th&gt;&#39;</span>,
+                        <span style="color:#e6db74">&#39;&#39;</span>)
+    html <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&lt;th&gt;&#39;</span>,
+                        <span style="color:#e6db74">&#39;&lt;th colspan=&#34;1&#34; rowspan=&#34;2&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#e6db74">                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
+    html <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&lt;th colspan=&#34;2&#34; halign=&#34;left&#34;&gt;&#39;</span>,
+                        <span style="color:#e6db74">&#39;&lt;th colspan=&#34;2&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#e6db74">                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
+    html <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&lt;th colspan=&#34;3&#34; halign=&#34;left&#34;&gt;&#39;</span>,
+                        <span style="color:#e6db74">&#39;&lt;th colspan=&#34;3&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#e6db74">                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
+    html <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&lt;th colspan=&#34;4&#34; halign=&#34;left&#34;&gt;&#39;</span>,
+                        <span style="color:#e6db74">&#39;&lt;th colspan=&#34;4&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#e6db74">                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
+    html <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;&lt;th colspan=&#34;5&#34; halign=&#34;left&#34;&gt;&#39;</span>,
+                        <span style="color:#e6db74">&#39;&lt;th colspan=&#34;5&#34; style=&#34;background-color:#dedede;border:1;color:black;font-weight:</span><span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span><span style="color:#e6db74">                        bold;padding:8px;text-align:center;white-space:pre&#34;&gt;&#39;</span>)
+    <span style="color:#66d9ef">return</span> html
+</code></pre></div><p><strong>千分位分隔符</strong></p>
+<p>对于大额数字，我们一般使用千位分隔符进行分割，这样看起来更清晰。</p>
+<p>python里进行千位分割很简单：</p>
+<ul>
+<li>对于整数，'{:,}'.format(item)</li>
+<li>对于保留两位小数的，'{:,.2f}'.format(item)</li>
+</ul>
+<p>现在我们构建数据集，进行测试</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">from</span> IPython.display <span style="color:#f92672">import</span> HTML
+
+data <span style="color:#f92672">=</span> [[<span style="color:#e6db74">&#39;2016-07-23&#39;</span>,<span style="color:#e6db74">&#39;整体&#39;</span>,<span style="color:#ae81ff">4540</span>,<span style="color:#ae81ff">557.34</span>,<span style="color:#ae81ff">1235</span>,<span style="color:#ae81ff">469</span>,<span style="color:#ae81ff">69.23</span>,<span style="color:#ae81ff">334</span>],
+        [<span style="color:#e6db74">&#39;2016-07-22&#39;</span>,<span style="color:#e6db74">&#39;整体&#39;</span>,<span style="color:#ae81ff">4410</span>,<span style="color:#ae81ff">567.34</span>,<span style="color:#ae81ff">1135</span>,<span style="color:#ae81ff">459</span>,<span style="color:#ae81ff">68.23</span>,<span style="color:#ae81ff">324</span>],
+        [<span style="color:#e6db74">&#39;2016-07-21&#39;</span>,<span style="color:#e6db74">&#39;整体&#39;</span>,<span style="color:#ae81ff">4380</span>,<span style="color:#ae81ff">564.34</span>,<span style="color:#ae81ff">1115</span>,<span style="color:#ae81ff">439</span>,<span style="color:#ae81ff">67.23</span>,<span style="color:#ae81ff">314</span>]]
+
+data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;{:,}&#39;</span><span style="color:#f92672">.</span>format(item) <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">2</span>]]
+data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;{:,.2f}&#39;</span><span style="color:#f92672">.</span>format(item) <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">3</span>]]
+data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">4</span>] <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;{:,}&#39;</span><span style="color:#f92672">.</span>format(item) <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">4</span>]]
+data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">5</span>] <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;{:,}&#39;</span><span style="color:#f92672">.</span>format(item) <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">6</span>]]
+data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">6</span>] <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;{:,.2f}&#39;</span><span style="color:#f92672">.</span>format(item) <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">6</span>]]
+data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">7</span>] <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;{:,}&#39;</span><span style="color:#f92672">.</span>format(item) <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> data_pd<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">7</span>]]
+
+data_pd<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> [[<span style="color:#e6db74">&#39;日期&#39;</span>, <span style="color:#e6db74">&#39;品类&#39;</span>, <span style="color:#e6db74">&#39;下单&#39;</span>, <span style="color:#e6db74">&#39;下单&#39;</span>, <span style="color:#e6db74">&#39;下单&#39;</span>, <span style="color:#e6db74">&#39;支付&#39;</span>, <span style="color:#e6db74">&#39;支付&#39;</span>, <span style="color:#e6db74">&#39;支付&#39;</span>],
+                   [<span style="color:#e6db74">&#39;删除&#39;</span>, <span style="color:#e6db74">&#39;删除&#39;</span>, <span style="color:#e6db74">&#39;下单笔数&#39;</span>, <span style="color:#e6db74">&#39;下单金额&#39;</span>, <span style="color:#e6db74">&#39;下单人数&#39;</span>, <span style="color:#e6db74">&#39;成功笔数&#39;</span>, <span style="color:#e6db74">&#39;成功金额&#39;</span>, <span style="color:#e6db74">&#39;成功人数&#39;</span>]]
+
+html <span style="color:#f92672">=</span> data_pd<span style="color:#f92672">.</span>to_html(index<span style="color:#f92672">=</span>False)
+html <span style="color:#f92672">=</span> get_type_html(html)
 HTML(html)
-</code></pre></div><p>效果如下：</p><p><figure><img src=/images/ring.svg data-src=/images/table2.png data-sizes=auto alt=表格2 title=表格2 class=lazyload><figcaption class=image-caption>表格2</figcaption></figure></p></div><div class=post-copyright><p class=copyright-item><span>Author:</span>
-<span>追寻原风景</span></p><p class=copyright-item><span>Link:</span>
-<a href=https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/>https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/</span></p><p class="copyright-item lincese">本文采用<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/ target=_blank>知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p></div><div class=post-tags><section><i class="iconfont icon-tag"></i>Tag(s):
-<span class=tag><a href=https://xiaohao890809.github.io/tags/%E5%B1%85%E5%A3%AB/>#居士</a></span></section><section><a href=javascript:window.history.back();>back</a></span> ·
-<span><a href=https://xiaohao890809.github.io>home</a></span></section></div><div class=post-nav><a href=https://xiaohao890809.github.io/2019/2019-07-20-the-data-science-learning_1/ class=prev rel=prev title=居士自习室作业第一周><i class="iconfont icon-left"></i>&nbsp;居士自习室作业第一周</a>
-<a href=https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/ class=next rel=next title=居士自习室作业第五周>居士自习室作业第五周&nbsp;<i class="iconfont icon-right"></i></a></div><div class=post-comment></div></article></div></main><footer class=footer><div class=copyright>&copy;
-<span itemprop=copyrightYear>2015 - 2020</span>
-<span class=with-love><i class="iconfont icon-love"></i></span><span class=author itemprop=copyrightHolder><a href=https://xiaohao890809.github.io>追寻原风景</a> |</span>
-<span>Powered by <a href=https://gohugo.io/ target=_blank rel="external nofollow">Hugo</a> & <a href=https://github.com/liuzc/leaveit target=_blank rel="external nofollow">LeaveIt</a></span></div></footer><link href=//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css rel=stylesheet><script src=/js/vendor_gallery.min.js async></script></div></body></html>
+</code></pre></div><p>效果如下：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/table2.png" data-sizes="auto" alt="表格2" title="表格2" class="lazyload"><figcaption class="image-caption">表格2</figcaption></figure></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>追寻原风景 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/>https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://xiaohao890809.github.io/tags/%E5%B1%85%E5%A3%AB/">
+                    #居士</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://xiaohao890809.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://xiaohao890809.github.io/2019/2019-07-20-the-data-science-learning_1/" class="prev" rel="prev" title="居士自习室作业第一周"><i class="iconfont icon-left"></i>&nbsp;居士自习室作业第一周</a>
+         
+        
+        <a href="https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/" class="next" rel="next" title="居士自习室作业第五周">居士自习室作业第五周&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2015 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://xiaohao890809.github.io">追寻原风景</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
