@@ -1,14 +1,343 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta name=author content="追寻原风景"><link rel=prev href=https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/><link rel=canonical href=https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#da532c"><meta name=theme-color content="#ffffff"><title>居士自习室作业第五周 | 枕霞惜友</title><meta name=title content="居士自习室作业第五周 | 枕霞惜友"><link rel=stylesheet href=/font/iconfont.css><link rel=stylesheet href=/css/main.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/xiaohao890809.github.io"},"articleSection":"posts","name":"居士自习室作业第五周","headline":"居士自习室作业第五周","description":"最常用的统计量与抽样分布\n统计量\n  样本均值：样本均值(sample mean)又叫样本均数，即为样本的均值。均值是表示一组数据集中趋势的量数，是指在一组数据中所有数据之和再除以这组数据的个数。它是反映数据集中趋势的一项指标。\n  样本方差：先求出总体各单位变量值与其算术平均数的离差的平方，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的变异程度。\n  变异系数：在概率论和统计学中，变异系数，又称“离散系数”(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为标准差与平均值之比。变异系数也被称为标准离差率或单位风险。\n  样本矩：有一类常用的统计量是样本的数字特征，他们是模拟总体数字特征构造的，称为样本矩，看看以下两种：\n 样本 $k$ 阶原点矩：$\\bar{\\alpha}_{k}=\\frac{1}{n}\\sum_{i=1}^{n}x_{i}^{k}$ 样本 $k$ 阶中心矩：$\\bar{\\beta}_{k}=\\frac{1}{n}\\sum_{i=1}^{n}(x_{i}-\\bar{x})^{k}$    样本偏度：样本偏度(sample skewness)一种基本统计量，是样本三阶中心矩除以样本二阶中心矩的3\/2次幂的商。\n  样本峰度：样本峰度(sample kurtosis)一种基本统计量，样本的峰度和偏度都是作为检验总体分布正态性的统计量。是样本四阶中心矩除以样本二阶中心矩平方的商再减去3。\n  抽样分布\n  卡方分布：若 $n$ 个相互独立的随机变量 $\\xi_{1},\\xi_{2},\u0026hellip;,\\xi_{n}$ 均服从标准正态分布(也称独立同分布于标准正态分布)，则这 $n$ 个服从标准正态分布的随机变量的平方和构成一新的随机变量，其分布规律称为卡方($\\chi^{2}$)分布(chi-square distribution)。\n  T分布：假设 $X$ 服从标准正态分布$N(0,1)$，Y服从 $\\chi^{2}(n)$ 分布，那么 $Z=\\frac{X}{\\sqrt{Y\/n}}$ 的分布称为自由度为 $n$ 的 T分布,记为$Z\\sim t(n)$。\n  F分布：若总体$X\\sim N(0,1)$，$(X_{1},X_{2},\u0026hellip;,X_{n_{1}})$与$(Y_{1},Y_{2},\u0026hellip;,Y_{n_{2}})$来自 $X$ 的两个独立样本，设统计量$F=\\cfrac{\\sum_{i=1}^{n_{1}}X_{i}^{2}}{N_{1}}\/\\cfrac{\\sum_{i=1}^{n_{2}}Y_{i}^{2}}{N_{2}}$，则称统计量 $F$ 服从自由度 $n_{1}$ 和 $n_{2}$ 的 F分布，记为$F\\sim F(n_{1},n_{2})$。","inLanguage":"en-us","author":"追寻原风景","creator":"追寻原风景","publisher":"追寻原风景","accountablePerson":"追寻原风景","copyrightHolder":"追寻原风景","copyrightYear":"2019","datePublished":"2019-08-18 12:51:41 \u002b0800 CST","dateModified":"2019-08-18 12:51:41 \u002b0800 CST","url":"https:\/\/xiaohao890809.github.io\/2019\/2019-08-18-the-data-science-learning_5\/","wordCount":"106","keywords":["居士","枕霞惜友"]}</script></head><body><div class=wrapper><nav class=navbar><div class=container><div class="navbar-header header-logo"><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://xiaohao890809.github.io>枕霞惜友</a></div><div class="menu navbar-right"><a class=menu-item href=/posts/>Blog</a>
-<a class=menu-item href=/categories/>Categories</a>
-<a class=menu-item href=/tags/>Tags</a></div></div></nav><nav class=navbar-mobile id=nav-mobile style=display:none><div class=container><div class=navbar-header><div><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://xiaohao890809.github.io>枕霞惜友</a></div><div class=menu-toggle><span></span><span></span><span></span></div></div><div class=menu id=mobile-menu><a class=menu-item href=/posts/>Blog</a>
-<a class=menu-item href=/categories/>Categories</a>
-<a class=menu-item href=/tags/>Tags</a></div></div></nav><main class=main><div class=container><article class=post-warp itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline">居士自习室作业第五周</h1><div class=post-meta>Written by <a itemprop=name href=https://xiaohao890809.github.io rel=author>追寻原风景</a> with ♥
-<span class=post-time>on <time datetime=2019-08-18 itemprop=datePublished>August 18, 2019</time></span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title></h2><div class="post-toc-content always-active"><nav id=TableOfContents></nav></div></div><script type=text/javascript>window.onload=function(){var fix=$('.post-toc');var end=$('.post-comment');var fixTop=fix.offset().top,fixHeight=fix.height();var endTop,miss;var offsetTop=fix[0].offsetTop;$(window).scroll(function(){var docTop=Math.max(document.body.scrollTop,document.documentElement.scrollTop);if(end.length>0){endTop=end.offset().top;miss=endTop-docTop-fixHeight;}
-if(fixTop<docTop){fix.css({'position':'fixed'});if((end.length>0)&&(endTop<(docTop+fixHeight))){fix.css({top:miss});}else{fix.css({top:0});}}else{fix.css({'position':'absolute'});fix.css({top:offsetTop});}})}</script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script type=text/javascript async src="/lib/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><div class=post-content><p><strong>最常用的统计量与抽样分布</strong></p><p><strong>统计量</strong></p><ul><li><p>样本均值：样本均值(sample mean)又叫<strong>样本均数</strong>，即为样本的均值。均值是表示一组数据集中趋势的量数，是指在一组数据中所有数据之和再除以这组数据的个数。它是反映数据集中趋势的一项指标。</p></li><li><p>样本方差：先求出总体各单位变量值与其算术平均数的<strong>离差的平方</strong>，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的<strong>变异程度</strong>。</p></li><li><p>变异系数：在概率论和统计学中，变异系数，又称“离散系数”(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为<strong>标准差</strong>与<strong>平均值</strong>之比。变异系数也被称为标准离差率或单位风险。</p></li><li><p>样本矩：有一类常用的统计量是样本的数字特征，他们是模拟总体数字特征构造的，称为样本矩，看看以下两种：</p><ul><li>样本 $k$ 阶原点矩：$\bar{\alpha}_{k}=\frac{1}{n}\sum_{i=1}^{n}x_{i}^{k}$</li><li>样本 $k$ 阶中心矩：$\bar{\beta}_{k}=\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\bar{x})^{k}$</li></ul></li><li><p>样本偏度：样本偏度(sample skewness)一种基本统计量，是样本三阶中心矩除以样本二阶中心矩的3/2次幂的商。</p></li><li><p>样本峰度：样本峰度(sample kurtosis)一种基本统计量，样本的峰度和偏度都是作为检验总体分布正态性的统计量。是样本四阶中心矩除以样本二阶中心矩平方的商再减去3。</p></li></ul><p><strong>抽样分布</strong></p><ul><li><p>卡方分布：若 $n$ 个相互独立的随机变量 $\xi_{1},\xi_{2},&mldr;,\xi_{n}$ 均服从标准正态分布(也称独立同分布于标准正态分布)，则这 $n$ 个服从标准正态分布的随机变量的<strong>平方和</strong>构成一新的随机变量，其分布规律称为卡方($\chi^{2}$)分布(chi-square distribution)。</p></li><li><p>T分布：假设 $X$ 服从标准正态分布$N(0,1)$，Y服从 $\chi^{2}(n)$ 分布，那么 $Z=\frac{X}{\sqrt{Y/n}}$ 的分布称为自由度为 $n$ 的 T分布,记为$Z\sim t(n)$。</p></li><li><p>F分布：若总体$X\sim N(0,1)$，$(X_{1},X_{2},&mldr;,X_{n_{1}})$与$(Y_{1},Y_{2},&mldr;,Y_{n_{2}})$来自 $X$ 的两个独立样本，设统计量$F=\cfrac{\sum_{i=1}^{n_{1}}X_{i}^{2}}{N_{1}}/\cfrac{\sum_{i=1}^{n_{2}}Y_{i}^{2}}{N_{2}}$，则称统计量 $F$ 服从自由度 $n_{1}$ 和 $n_{2}$ 的 F分布，记为$F\sim F(n_{1},n_{2})$。</p></li><li><p>样本方差的分布：设 $X_{1},X_{2},&mldr;,X_{n}$ 为来自正态分布 $N(\mu ,\sigma ^{2})$ 的样本，则可以推出以下结果：</p><ul><li>设总体样本分布为 $(n-1)\cfrac{S^{2}}{\sigma ^{2}}\sim \chi ^{2}(N-1)$ 的正态分布，则样本方差 $S^{2}$ 的分布为，其中，将 $\chi ^{2}(n-1)$ 称为自由度为 $n-1$ 的卡方分布。</li></ul></li><li><p>两个样本平均值之差的分布：设 $X_{1},X_{2},&mldr;,X_{n_{1}}$ 是来自正态分布 $N(\mu_{1} ,\sigma_{1} ^{2})$ 的一个样本，$Y_{1},Y_{2},&mldr;,Y_{n_{2}}$ 是来自正态分布 $N(\mu_{2} ,\sigma_{2} ^{2})$ 的一个样本，且 $X_{i}(i=1,2,&mldr;,n_{1})$ 与 $Y_{i}(i=1,2,&mldr;,n_{2})$ 相互独立，则：</p><ul><li>$\cfrac{S_{x}^{2}/S_{y}^{2}}{\sigma _{1}^{2}/\sigma _{2}^{2}}=\cfrac{S_{x}^{2}/\sigma _{1}^{2}}{S_{y}^{2}/\sigma _{2}^{2}} \sim F(n_{1}-1,n_{2}-1)$，其中 $F(n_{1}-1,n_{2}-1)$ 是第一自由度(分子自由度)为 $n_{1}-1$，第二自由度(分母自由度)为 $n_{2}-1$ 的 F分布。</li></ul></li><li><p>样本比例的抽样分布：我们常假定总体中对具有某一特征产品的喜好比例为$\pi$，如果在样本大小为 $n$ 的样本中具有某一特征的个体数为$X$，则样本比例用 $\widehat{p}$ 表示，其分布函数为$\widehat{p}=\frac{X}{n}$。</p></li><li><p>中心极限定理：中心极限定理是概率论中最著名的结果之一，它提出，大量的<strong>独立随机变量之和</strong>具有近似于正态的分布。</p></li></ul></div><div class=post-copyright><p class=copyright-item><span>Author:</span>
-<span>追寻原风景</span></p><p class=copyright-item><span>Link:</span>
-<a href=https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/>https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/</span></p><p class="copyright-item lincese">本文采用<a rel=license href=http://creativecommons.org/licenses/by-nc/4.0/ target=_blank>知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p></div><div class=post-tags><section><i class="iconfont icon-tag"></i>Tag(s):
-<span class=tag><a href=https://xiaohao890809.github.io/tags/%E5%B1%85%E5%A3%AB/>#居士</a></span></section><section><a href=javascript:window.history.back();>back</a></span> ·
-<span><a href=https://xiaohao890809.github.io>home</a></span></section></div><div class=post-nav><a href=https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/ class=prev rel=prev title=居士自习室作业第二周><i class="iconfont icon-left"></i>&nbsp;居士自习室作业第二周</a></div><div class=post-comment></div></article></div></main><footer class=footer><div class=copyright>&copy;
-<span itemprop=copyrightYear>2015 - 2020</span>
-<span class=with-love><i class="iconfont icon-love"></i></span><span class=author itemprop=copyrightHolder><a href=https://xiaohao890809.github.io>追寻原风景</a> |</span>
-<span>Powered by <a href=https://gohugo.io/ target=_blank rel="external nofollow">Hugo</a> & <a href=https://github.com/liuzc/leaveit target=_blank rel="external nofollow">LeaveIt</a></span></div></footer><script src=/js/vendor_no_gallery.min.js async></script></div></body></html>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="追寻原风景">
+  
+  
+  
+  <link rel="prev" href="https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/" />
+  
+  <link rel="canonical" href="https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           居士自习室作业第五周 | 枕霞惜友
+       
+  </title>
+  <meta name="title" content="居士自习室作业第五周 | 枕霞惜友">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/xiaohao890809.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "居士自习室作业第五周",
+    "headline" : "居士自习室作业第五周",
+    "description" : "最常用的统计量与抽样分布\n统计量\n  样本均值：样本均值(sample mean)又叫样本均数，即为样本的均值。均值是表示一组数据集中趋势的量数，是指在一组数据中所有数据之和再除以这组数据的个数。它是反映数据集中趋势的一项指标。\n  样本方差：先求出总体各单位变量值与其算术平均数的离差的平方，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的变异程度。\n  变异系数：在概率论和统计学中，变异系数，又称“离散系数”(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为标准差与平均值之比。变异系数也被称为标准离差率或单位风险。\n  样本矩：有一类常用的统计量是样本的数字特征，他们是模拟总体数字特征构造的，称为样本矩，看看以下两种：\n 样本 $k$ 阶原点矩：$\\bar{\\alpha}_{k}=\\frac{1}{n}\\sum_{i=1}^{n}x_{i}^{k}$ 样本 $k$ 阶中心矩：$\\bar{\\beta}_{k}=\\frac{1}{n}\\sum_{i=1}^{n}(x_{i}-\\bar{x})^{k}$    样本偏度：样本偏度(sample skewness)一种基本统计量，是样本三阶中心矩除以样本二阶中心矩的3\/2次幂的商。\n  样本峰度：样本峰度(sample kurtosis)一种基本统计量，样本的峰度和偏度都是作为检验总体分布正态性的统计量。是样本四阶中心矩除以样本二阶中心矩平方的商再减去3。\n  抽样分布\n  卡方分布：若 $n$ 个相互独立的随机变量 $\\xi_{1},\\xi_{2},\u0026hellip;,\\xi_{n}$ 均服从标准正态分布(也称独立同分布于标准正态分布)，则这 $n$ 个服从标准正态分布的随机变量的平方和构成一新的随机变量，其分布规律称为卡方($\\chi^{2}$)分布(chi-square distribution)。\n  T分布：假设 $X$ 服从标准正态分布$N(0,1)$，Y服从 $\\chi^{2}(n)$ 分布，那么 $Z=\\frac{X}{\\sqrt{Y\/n}}$ 的分布称为自由度为 $n$ 的 T分布,记为$Z\\sim t(n)$。\n  F分布：若总体$X\\sim N(0,1)$，$(X_{1},X_{2},\u0026hellip;,X_{n_{1}})$与$(Y_{1},Y_{2},\u0026hellip;,Y_{n_{2}})$来自 $X$ 的两个独立样本，设统计量$F=\\cfrac{\\sum_{i=1}^{n_{1}}X_{i}^{2}}{N_{1}}\/\\cfrac{\\sum_{i=1}^{n_{2}}Y_{i}^{2}}{N_{2}}$，则称统计量 $F$ 服从自由度 $n_{1}$ 和 $n_{2}$ 的 F分布，记为$F\\sim F(n_{1},n_{2})$。",
+    "inLanguage" : "en-us",
+    "author" : "追寻原风景",
+    "creator" : "追寻原风景",
+    "publisher": "追寻原风景",
+    "accountablePerson" : "追寻原风景",
+    "copyrightHolder" : "追寻原风景",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-08-18 12:51:41 \u002b0800 CST",
+    "dateModified" : "2019-08-18 12:51:41 \u002b0800 CST",
+    "url" : "https:\/\/xiaohao890809.github.io\/2019\/2019-08-18-the-data-science-learning_5\/",
+    "wordCount" : "106",
+    "keywords" : [ "居士", "枕霞惜友"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">居士自习室作业第五周</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://xiaohao890809.github.io" rel="author">追寻原风景</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-08-18 itemprop="datePublished">August 18, 2019</time>
+                </span>
+                
+        </div>
+    </header>
+
+    
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+    
+
+    <script type="text/javascript">
+            window.MathJax = {
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            TeX: {equationNumbers: {autoNumber: "AMS"}},
+            showProcessingMessages: false,
+            messageStyle: 'none'
+        };
+   </script>
+
+    <script type="text/javascript" async src="/lib/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p><strong>最常用的统计量与抽样分布</strong></p>
+<p><strong>统计量</strong></p>
+<ul>
+<li>
+<p>样本均值：样本均值(sample mean)又叫<strong>样本均数</strong>，即为样本的均值。均值是表示一组数据集中趋势的量数，是指在一组数据中所有数据之和再除以这组数据的个数。它是反映数据集中趋势的一项指标。</p>
+</li>
+<li>
+<p>样本方差：先求出总体各单位变量值与其算术平均数的<strong>离差的平方</strong>，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的<strong>变异程度</strong>。</p>
+</li>
+<li>
+<p>变异系数：在概率论和统计学中，变异系数，又称“离散系数”(coefficient of variation)，是概率分布离散程度的一个归一化量度，其定义为<strong>标准差</strong>与<strong>平均值</strong>之比。变异系数也被称为标准离差率或单位风险。</p>
+</li>
+<li>
+<p>样本矩：有一类常用的统计量是样本的数字特征，他们是模拟总体数字特征构造的，称为样本矩，看看以下两种：</p>
+<ul>
+<li>样本 $k$ 阶原点矩：$\bar{\alpha}_{k}=\frac{1}{n}\sum_{i=1}^{n}x_{i}^{k}$</li>
+<li>样本 $k$ 阶中心矩：$\bar{\beta}_{k}=\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\bar{x})^{k}$</li>
+</ul>
+</li>
+<li>
+<p>样本偏度：样本偏度(sample skewness)一种基本统计量，是样本三阶中心矩除以样本二阶中心矩的3/2次幂的商。</p>
+</li>
+<li>
+<p>样本峰度：样本峰度(sample kurtosis)一种基本统计量，样本的峰度和偏度都是作为检验总体分布正态性的统计量。是样本四阶中心矩除以样本二阶中心矩平方的商再减去3。</p>
+</li>
+</ul>
+<p><strong>抽样分布</strong></p>
+<ul>
+<li>
+<p>卡方分布：若 $n$ 个相互独立的随机变量 $\xi_{1},\xi_{2},&hellip;,\xi_{n}$ 均服从标准正态分布(也称独立同分布于标准正态分布)，则这 $n$ 个服从标准正态分布的随机变量的<strong>平方和</strong>构成一新的随机变量，其分布规律称为卡方($\chi^{2}$)分布(chi-square distribution)。</p>
+</li>
+<li>
+<p>T分布：假设 $X$ 服从标准正态分布$N(0,1)$，Y服从 $\chi^{2}(n)$ 分布，那么 $Z=\frac{X}{\sqrt{Y/n}}$ 的分布称为自由度为 $n$ 的 T分布,记为$Z\sim t(n)$。</p>
+</li>
+<li>
+<p>F分布：若总体$X\sim N(0,1)$，$(X_{1},X_{2},&hellip;,X_{n_{1}})$与$(Y_{1},Y_{2},&hellip;,Y_{n_{2}})$来自 $X$ 的两个独立样本，设统计量$F=\cfrac{\sum_{i=1}^{n_{1}}X_{i}^{2}}{N_{1}}/\cfrac{\sum_{i=1}^{n_{2}}Y_{i}^{2}}{N_{2}}$，则称统计量 $F$ 服从自由度 $n_{1}$ 和 $n_{2}$ 的 F分布，记为$F\sim F(n_{1},n_{2})$。</p>
+</li>
+<li>
+<p>样本方差的分布：设 $X_{1},X_{2},&hellip;,X_{n}$ 为来自正态分布 $N(\mu ,\sigma ^{2})$ 的样本，则可以推出以下结果：</p>
+<ul>
+<li>设总体样本分布为 $(n-1)\cfrac{S^{2}}{\sigma ^{2}}\sim \chi ^{2}(N-1)$ 的正态分布，则样本方差 $S^{2}$ 的分布为，其中，将 $\chi ^{2}(n-1)$ 称为自由度为 $n-1$ 的卡方分布。</li>
+</ul>
+</li>
+<li>
+<p>两个样本平均值之差的分布：设 $X_{1},X_{2},&hellip;,X_{n_{1}}$ 是来自正态分布 $N(\mu_{1} ,\sigma_{1} ^{2})$ 的一个样本，$Y_{1},Y_{2},&hellip;,Y_{n_{2}}$ 是来自正态分布 $N(\mu_{2} ,\sigma_{2} ^{2})$ 的一个样本，且 $X_{i}(i=1,2,&hellip;,n_{1})$ 与 $Y_{i}(i=1,2,&hellip;,n_{2})$ 相互独立，则：</p>
+<ul>
+<li>$\cfrac{S_{x}^{2}/S_{y}^{2}}{\sigma _{1}^{2}/\sigma _{2}^{2}}=\cfrac{S_{x}^{2}/\sigma _{1}^{2}}{S_{y}^{2}/\sigma _{2}^{2}} \sim F(n_{1}-1,n_{2}-1)$，其中 $F(n_{1}-1,n_{2}-1)$ 是第一自由度(分子自由度)为 $n_{1}-1$，第二自由度(分母自由度)为 $n_{2}-1$ 的 F分布。</li>
+</ul>
+</li>
+<li>
+<p>样本比例的抽样分布：我们常假定总体中对具有某一特征产品的喜好比例为$\pi$，如果在样本大小为 $n$ 的样本中具有某一特征的个体数为$X$，则样本比例用 $\widehat{p}$ 表示，其分布函数为$\widehat{p}=\frac{X}{n}$。</p>
+</li>
+<li>
+<p>中心极限定理：中心极限定理是概率论中最著名的结果之一，它提出，大量的<strong>独立随机变量之和</strong>具有近似于正态的分布。</p>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>追寻原风景 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/>https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://xiaohao890809.github.io/tags/%E5%B1%85%E5%A3%AB/">
+                    #居士</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://xiaohao890809.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://xiaohao890809.github.io/2019/2019-07-28-the-data-science-learning_2/" class="prev" rel="prev" title="居士自习室作业第二周"><i class="iconfont icon-left"></i>&nbsp;居士自习室作业第二周</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2015 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://xiaohao890809.github.io">追寻原风景</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -1,16 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术 on 枕霞惜友</title><link>https://xiaohao890809.github.io/categories/%E6%8A%80%E6%9C%AF/</link><description>Recent content in 技术 on 枕霞惜友</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 01 Mar 2018 22:53:23 +0000</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>VBA知识点总结</title><link>https://xiaohao890809.github.io/2018/2018-03-01-the-note-of-vba/</link><pubDate>Thu, 01 Mar 2018 22:53:23 +0000</pubDate><guid>https://xiaohao890809.github.io/2018/2018-03-01-the-note-of-vba/</guid><description>VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法。
-常见错误 问题1 此文件正由应用程序或另一用户使用。
-解决方案：打开后记得做退出关闭操作。
-Set wdApp = GetObject(,&amp;#34;word.application&amp;#34;) If wdApp is Nothing Then Sef wdApp = CreatObject(&amp;#34;word.application&amp;#34;) wdApp.Visible = True End If wdApp.NormalTemplate.Saved = True wdApp.Quit Set wdApp = Nothing 常用函数 获取最大有效行数 Public Function GetLastRow(theSheet As Worksheet, ByVal col As Integer) As Integer Dim findreg As Range, ret As Range Set findreg = theSheet.Columns(col) Set ret = findreg.Find(what:=&amp;#34;*&amp;#34;, searchDirection:=xlPrevious) If Not ret Is Nothing Then GetLastRow = ret.</description></item><item><title>正则表达式知识积累</title><link>https://xiaohao890809.github.io/2018/2018-02-27-the-study-of-reg-expression/</link><pubDate>Tue, 27 Feb 2018 23:07:23 +0000</pubDate><guid>https://xiaohao890809.github.io/2018/2018-02-27-the-study-of-reg-expression/</guid><description>众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻开始。
-正则表达式概念 使用单个字符串来描述匹配一系列符合某个句法规则的字符串 是对字符串操作的一种逻辑公式 应用场景：处理文本和数据 举例分析 大括号 匹配中括号中有任何一个字符，匹配里面的或者情况
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术 on 枕霞惜友</title>
+    <link>https://xiaohao890809.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on 枕霞惜友</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Mar 2018 22:53:23 +0000</lastBuildDate>
+    
+	<atom:link href="https://xiaohao890809.github.io/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VBA知识点总结</title>
+      <link>https://xiaohao890809.github.io/2018/2018-03-01-the-note-of-vba/</link>
+      <pubDate>Thu, 01 Mar 2018 22:53:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2018/2018-03-01-the-note-of-vba/</guid>
+      <description>VBA是一门比较早的语言了，用于处理 Office 办公软件的数据，不过最近听说以后会被 Python 代替（笑脸），现在总结一些使用 VBA 的过程遇到的一些问题以及解决办法。
+常见错误 问题1  此文件正由应用程序或另一用户使用。
+ 解决方案：打开后记得做退出关闭操作。
+Set wdApp = GetObject(,&amp;#34;word.application&amp;#34;) If wdApp is Nothing Then Sef wdApp = CreatObject(&amp;#34;word.application&amp;#34;) wdApp.Visible = True End If wdApp.NormalTemplate.Saved = True wdApp.Quit Set wdApp = Nothing 常用函数 获取最大有效行数 Public Function GetLastRow(theSheet As Worksheet, ByVal col As Integer) As Integer Dim findreg As Range, ret As Range Set findreg = theSheet.Columns(col) Set ret = findreg.Find(what:=&amp;#34;*&amp;#34;, searchDirection:=xlPrevious) If Not ret Is Nothing Then GetLastRow = ret.</description>
+    </item>
+    
+    <item>
+      <title>正则表达式知识积累</title>
+      <link>https://xiaohao890809.github.io/2018/2018-02-27-the-study-of-reg-expression/</link>
+      <pubDate>Tue, 27 Feb 2018 23:07:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2018/2018-02-27-the-study-of-reg-expression/</guid>
+      <description>众所周知，正则表达式是非常重要的一个模块，在爬虫中用的好的话可以事半功倍，从复杂文本中根据规则去筛选数据等，掌握常用的一些正则通配符，从此刻开始。
+正则表达式概念  使用单个字符串来描述匹配一系列符合某个句法规则的字符串 是对字符串操作的一种逻辑公式 应用场景：处理文本和数据  举例分析 大括号 匹配中括号中有任何一个字符，匹配里面的或者情况
 ma = re.match(r&amp;#39;\[[\w]\]&amp;#39;,&amp;#39;[a]&amp;#39;) ret = re.findall(r&amp;#39;[abc]f&amp;#39;,&amp;#39;afufobfidlfodcfr&amp;#39;) # [&amp;#39;af&amp;#39;, &amp;#39;bf&amp;#39;, &amp;#39;cf&amp;#39;] 含有换行 正则修饰符re.S可以匹配包括换行在内的所有字符
-import re content = &amp;#39;&amp;#39;&amp;#39;Hello 1234567Word-This is a Regex Demo&amp;#39;&amp;#39;&amp;#39; # 非贪婪匹配 result = re.match(&amp;#39;^He.*?(\d+).*?Demo$&amp;#39;, content, re.S) print(result.group(1)) # 1234567 贪婪模式和非贪婪模式 import re # 贪婪模式，最大范围的匹配标准 ret = re.findall(r&amp;#39;&amp;lt;div&amp;gt;(.*)&amp;lt;/div&amp;gt;&amp;#39;,&amp;#39;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;#39;) print(ret) # [&amp;#39;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;#39;] # 非贪婪模式 ret = re.findall(r&amp;#39;&amp;lt;div&amp;gt;(.*?)&amp;lt;/div&amp;gt;&amp;#39;,&amp;#39;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;#39;) print(ret) # [&amp;#39;hello&amp;#39;, &amp;#39;hello&amp;#39;] ma = re.match(r&amp;#39;[0-9][a-z]*&amp;#39;,&amp;#39;1bc&amp;#39;) #全部匹配 print(ma.group()) #1bc ma = re.</description></item><item><title>VBA实现Excel的笛卡尔积</title><link>https://xiaohao890809.github.io/2018/2018-01-12-the-decare-by-excel/</link><pubDate>Fri, 12 Jan 2018 23:40:23 +0000</pubDate><guid>https://xiaohao890809.github.io/2018/2018-01-12-the-decare-by-excel/</guid><description>最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后来想了下，VBA作为 Office 工具的原生态语言，何不用 VBA 实现呢，于是整理了下便写出来了，下面介绍下过程，为方便起见，弄了一些简易的数据，针对不同的数据需要做一些相应的调整。
+import re content = &amp;#39;&amp;#39;&amp;#39;Hello 1234567Word-This is a Regex Demo&amp;#39;&amp;#39;&amp;#39; # 非贪婪匹配 result = re.match(&amp;#39;^He.*?(\d+).*?Demo$&amp;#39;, content, re.S) print(result.group(1)) # 1234567 贪婪模式和非贪婪模式 import re # 贪婪模式，最大范围的匹配标准 ret = re.findall(r&amp;#39;&amp;lt;div&amp;gt;(.*)&amp;lt;/div&amp;gt;&amp;#39;,&amp;#39;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;#39;) print(ret) # [&amp;#39;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;#39;] # 非贪婪模式 ret = re.findall(r&amp;#39;&amp;lt;div&amp;gt;(.*?)&amp;lt;/div&amp;gt;&amp;#39;,&amp;#39;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;hello&amp;lt;/div&amp;gt;&amp;#39;) print(ret) # [&amp;#39;hello&amp;#39;, &amp;#39;hello&amp;#39;] ma = re.match(r&amp;#39;[0-9][a-z]*&amp;#39;,&amp;#39;1bc&amp;#39;) #全部匹配 print(ma.group()) #1bc ma = re.</description>
+    </item>
+    
+    <item>
+      <title>VBA实现Excel的笛卡尔积</title>
+      <link>https://xiaohao890809.github.io/2018/2018-01-12-the-decare-by-excel/</link>
+      <pubDate>Fri, 12 Jan 2018 23:40:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2018/2018-01-12-the-decare-by-excel/</guid>
+      <description>最近有一个任务需求，就是把 Excel 里的两列元素，里面的元素有多个信息，将其分别拆分，然后取笛卡尔积，写到一个新的工作簿中。刚开始准备用 Python 实现的，后来想了下，VBA作为 Office 工具的原生态语言，何不用 VBA 实现呢，于是整理了下便写出来了，下面介绍下过程，为方便起见，弄了一些简易的数据，针对不同的数据需要做一些相应的调整。
 Excel的原始数据如下：
 整个 VBA 的代码框架如下：
 类模块 原始数据对应的首行信息，每一列对应一个元素，将其列出，作为一个新的数组。
 Public a As String Public b As String Public c As String Public d As String 常量 Public Const maxNum = 100000 Public MyArr(maxNum) As New MyAttr Public MyNum As Integer 主函数 思路是分别拆分每一行的那两列元素，然后将得到的元素做两个循环，遍历写入新的数组中，然后将新的数组传到工作簿中。
-获取最大行数 Public Function GetLastRow(theSheet As Worksheet, ByVal col As Integer) As Integer Dim findreg As Range, ret As Range Set findreg = theSheet.</description></item><item><title>经典排序法之Python版</title><link>https://xiaohao890809.github.io/2018/2018-01-11-the-classic-sorts/</link><pubDate>Thu, 11 Jan 2018 23:11:23 +0000</pubDate><guid>https://xiaohao890809.github.io/2018/2018-01-11-the-classic-sorts/</guid><description>大学的时候学习的经典算法忘记差不多了，现在赶紧拾起来，基本算法往往是复杂算法的基础，牢记掌握才是王道。
+获取最大行数 Public Function GetLastRow(theSheet As Worksheet, ByVal col As Integer) As Integer Dim findreg As Range, ret As Range Set findreg = theSheet.</description>
+    </item>
+    
+    <item>
+      <title>经典排序法之Python版</title>
+      <link>https://xiaohao890809.github.io/2018/2018-01-11-the-classic-sorts/</link>
+      <pubDate>Thu, 11 Jan 2018 23:11:23 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2018/2018-01-11-the-classic-sorts/</guid>
+      <description>大学的时候学习的经典算法忘记差不多了，现在赶紧拾起来，基本算法往往是复杂算法的基础，牢记掌握才是王道。
 冒泡排序 def BubbleSorted(nums): length = len(nums) for i in range(length-1): for j in range(length-i-1): if nums[j]&amp;gt;nums[j+1]: nums[j],nums[j+1] = nums[j+1],nums[j] return nums 思考
 如果原来的列表是有序列表呢，能否优化一下呢？
 def bubble_sort(input_list): &amp;#34;&amp;#34;&amp;#34;冒泡排序&amp;#34;&amp;#34;&amp;#34; length = len(input_list) for j in range(length - 1): # 当列表已经是有序列表的，节省空间 count = 0 for i in range(length - j - 1): if input_list[i] &amp;gt; input_list[i+1]: input_list[i], input_list[i+1] = input_list[i+1], input_list[i] count += 1 if count == 0: return 属性：
-最优时间复杂度：$O(n)$ (表示遍历一次没有发现任何可以交换的元素，排序结束) 最坏时间复杂度：$O(n^2)$ 稳定性：稳定 插入排序 def InsertSorted(nums): # 从第二元素开始直到最后一个元素 for i in range(1,len(nums)): tmp = nums[i] print(nums) j = i-1 while j &amp;gt;= 0 and nums[j] &amp;gt; tmp: nums[j+1] = nums[j] j = j - 1 nums[j+1] = tmp return nums 选择排序 def SelectSorted(nums): for i in range(len(nums)-1): minIndex = i for j in range(i+1,len(nums)): if nums[j] &amp;lt; nums[minIndex]: minIndex = j nums[i],nums[minIndex] = nums[minIndex],nums[i] return nums 图片来源：常用算法js版</description></item></channel></rss>
+ 最优时间复杂度：$O(n)$ (表示遍历一次没有发现任何可以交换的元素，排序结束) 最坏时间复杂度：$O(n^2)$ 稳定性：稳定  插入排序 def InsertSorted(nums): # 从第二元素开始直到最后一个元素 for i in range(1,len(nums)): tmp = nums[i] print(nums) j = i-1 while j &amp;gt;= 0 and nums[j] &amp;gt; tmp: nums[j+1] = nums[j] j = j - 1 nums[j+1] = tmp return nums 选择排序 def SelectSorted(nums): for i in range(len(nums)-1): minIndex = i for j in range(i+1,len(nums)): if nums[j] &amp;lt; nums[minIndex]: minIndex = j nums[i],nums[minIndex] = nums[minIndex],nums[i] return nums 图片来源：常用算法js版</description>
+    </item>
+    
+  </channel>
+</rss>
