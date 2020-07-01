@@ -6,15 +6,45 @@
     <description>Recent content in Posts on 枕霞惜友</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Aug 2019 12:51:41 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2020 21:43:41 +0000</lastBuildDate>
     
 	<atom:link href="https://xiaohao890809.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>牛客网错题集</title>
+      <link>https://xiaohao890809.github.io/2020/2020-07-01-the-wrong-problems-of-nowcoder/</link>
+      <pubDate>Tue, 30 Jun 2020 21:43:41 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2020/2020-07-01-the-wrong-problems-of-nowcoder/</guid>
+      <description>知识类 夏天，打开冰箱冷冻室的门，常常看到冷冻室中冒出一股白雾，这是
+A. 冰箱里原有水蒸气凝结成小水滴
+B. 冰箱里的冰升华后凝结成小水滴
+C. 冰箱里的水变成水蒸气
+D. 冰箱外部空气中的水变成小水滴
+正确答案：D 
+打开冰箱冷冻室的门时，冰箱内的低温气体飘散到冰箱外。使周围空气中平时看不见的水蒸气迅速冷却液化，成为很多微小水珠形成了&amp;quot;白雾&amp;rdquo;。
+ 关于宇航员在太空中的生活，下列说法中不正确的是：
+A. 宇航员可以使用特定的加热器对食品加热
+B. 宇航员从太空返回地面之后，由于失重，质量会有所增加
+C. 宇航员应该睡在固定的睡袋中，以免被气流推动误碰仪器设备开关
+D. 在同一航空器中的宇航员可以直接交谈，无需借助无线电通信设备
+正确答案：B 
+质量是物体的本质属性，在哪都不会改变 
+技术类 请问下面哪个赋值语句不是合法的()
+A. float a = 3.0
+B. int c = 3
+C. long d = 3
+D. double b = 3.0
+正确答案：A  `float a = 3.0f` 
+ 请阅读下面代码
+public class HelloWorld { public static void main(String[] args) { Integer f1 = 100, f2 = 100, f3 = 150, f4 = 150; } } 请问以下哪些判断会返回false()</description>
+    </item>
+    
+    <item>
       <title>居士自习室作业第五周</title>
       <link>https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/</link>
-      <pubDate>Sun, 18 Aug 2019 12:51:41 +0800</pubDate>
+      <pubDate>Sun, 18 Aug 2019 12:51:41 +0000</pubDate>
       
       <guid>https://xiaohao890809.github.io/2019/2019-08-18-the-data-science-learning_5/</guid>
       <description>最常用的统计量与抽样分布
