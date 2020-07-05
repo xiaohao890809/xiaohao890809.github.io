@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据开发 on 枕霞惜友</title>
+    <link>https://xiaohao890809.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/</link>
+    <description>Recent content in 数据开发 on 枕霞惜友</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Jul 2020 21:01:41 +0000</lastBuildDate>
+    
+	<atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>数据开发岗位面试准备</title>
+      <link>https://xiaohao890809.github.io/2020/2020-07-04-the-jd-of-data-analysis/</link>
+      <pubDate>Sat, 04 Jul 2020 21:01:41 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2020/2020-07-04-the-jd-of-data-analysis/</guid>
+      <description>存储过程 什么是存储过程？  存储过程是一个预编译的 SQL 语句 优点是允许模块化的设计，就是说只需创建一次，以后在该程序中就可以调用多次 如果某次操作需要执行多次 SQL，使用存储过程比单纯 SQL 语句执行要快  用什么来调用？  可以用一个命令对象来调用存储过程 可以供外部程序调用，比如：java 程序  存储过程的优缺点？ 优点：
+ 存储过程是预编译过的，执行效率高 存储过程的代码直接存放于数据库中，通过存储过程名直接调用，减少网络通讯 安全性高，执行存储过程需要有一定权限的用户 存储过程可以重复使用，可减少数据库开发人员的工作量  缺点：
+ 移植性差 过程化编程，复杂业务处理的维护成本高 调试不便  hive 分区和分桶的区别 分区 partition
+ 划分数据集，通过分区减少每次扫描的总数据量 分区使用 hdfs 的子目录功能实现，每个子目录都包含了分区对应的列名和每一列的值，但是 hdfs 并不支持大量的子目录，所以分区的数量是有限制的，要先对表中分区数量进行预估，从而避免分区数量过大带来的问题 分区的划分是非随机的  分桶 bucket
+ 在分区数量过于庞大以至于可能导致文件系统崩溃时使用分桶来解决问题 分桶是通过对指定列进行哈希计算来实现，使用列的哈希值对数据打散，然后分发到不同的桶中从而完成数据的分桶 在数据量够大的情况下，分桶比分区更有查询效率 分桶的划分是随机的  </description>
+    </item>
+    
+  </channel>
+</rss>
