@@ -6,10 +6,117 @@
     <description>Recent content in 42讲轻松通关Flink on 枕霞惜友</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2020 10:10:48 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2020 10:17:48 +0000</lastBuildDate>
     
 	<atom:link href="https://xiaohao890809.github.io/tags/42%E8%AE%B2%E8%BD%BB%E6%9D%BE%E9%80%9A%E5%85%B3flink/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第08讲：Flink 窗口、时间和水印</title>
+      <link>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-09/</link>
+      <pubDate>Mon, 20 Jul 2020 10:17:48 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-09/</guid>
+      <description>本课时主要介绍 Flink 中的时间和水印。
+我们在之前的课时中反复提到过窗口和时间的概念，Flink 框架中支持事件时间、摄入时间和处理时间三种。而当我们在流式计算环境中数据从 Source 产生，再到转换和输出，这个过程由于网络和反压的原因会导致消息乱序。因此，需要有一个机制来解决这个问题，这个特别的机制就是“水印”。
+Flink 的窗口和时间 我们在第 05 课时中讲解过 Flink 窗口的实现，根据窗口数据划分的不同，目前 Flink 支持如下 3 种：
+ 滚动窗口，窗口数据有固定的大小，窗口中的数据不会叠加； 滑动窗口，窗口数据有固定的大小，并且有生成间隔； 会话窗口，窗口数据没有固定的大小，根据用户传入的参数进行划分，窗口数据无叠加。  Flink 中的时间分为三种：
+ 事件时间（Event Time），即事件实际发生的时间； 摄入时间（Ingestion Time），事件进入流处理框架的时间； 处理时间（Processing Time），事件被处理的时间。  下面的图详细说明了这三种时间的区别和联系：
+事件时间（Event Time） 事件时间（Event Time）指的是数据产生的时间，这个时间一般由数据生产方自身携带，比如 Kafka 消息，每个生成的消息中自带一个时间戳代表每条数据的产生时间。Event Time 从消息的产生就诞生了，不会改变，也是我们使用最频繁的时间。
+利用 Event Time 需要指定如何生成事件时间的“水印”，并且一般和窗口配合使用，具体会在下面的“水印”内容中详细讲解。
+我们可以在代码中指定 Flink 系统使用的时间类型为 EventTime：
+final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment(); //设置时间属性为 EventTime env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime); DataStream&amp;lt;MyEvent&amp;gt; stream = env.addSource(new FlinkKafkaConsumer09&amp;lt;MyEvent&amp;gt;(topic, schema, props)); stream .keyBy( (event) -&amp;gt; event.getUser() ) .</description>
+    </item>
+    
+    <item>
+      <title>第07讲：Flink 常见核心概念分析</title>
+      <link>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-08/</link>
+      <pubDate>Mon, 20 Jul 2020 10:16:48 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-08/</guid>
+      <description>在 Flink 这个框架中，有很多独有的概念，比如分布式缓存、重启策略、并行度等，这些概念是我们在进行任务开发和调优时必须了解的，这一课时我将会从原理和应用场景分别介绍这些概念。
+分布式缓存 熟悉 Hadoop 的你应该知道，分布式缓存最初的思想诞生于 Hadoop 框架，Hadoop 会将一些数据或者文件缓存在 HDFS 上，在分布式环境中让所有的计算节点调用同一个配置文件。在 Flink 中，Flink 框架开发者们同样将这个特性进行了实现。
+Flink 提供的分布式缓存类型 Hadoop，目的是为了在分布式环境中让每一个 TaskManager 节点保存一份相同的数据或者文件，当前计算节点的 task 就像读取本地文件一样拉取这些配置。
+分布式缓存在我们实际生产环境中最广泛的一个应用，就是在进行表与表 Join 操作时，如果一个表很大，另一个表很小，那么我们就可以把较小的表进行缓存，在每个 TaskManager 都保存一份，然后进行 Join 操作。
+那么我们应该怎样使用 Flink 的分布式缓存呢？举例如下：
+public static void main(String[] args) throws Exception { final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment(); env.registerCachedFile(&amp;#34;/Users/wangzhiwu/WorkSpace/quickstart/distributedcache.txt&amp;#34;, &amp;#34;distributedCache&amp;#34;); //1：注册一个文件,可以使用hdfs上的文件 也可以是本地文件进行测试  DataSource&amp;lt;String&amp;gt; data = env.fromElements(&amp;#34;Linea&amp;#34;, &amp;#34;Lineb&amp;#34;, &amp;#34;Linec&amp;#34;, &amp;#34;Lined&amp;#34;); DataSet&amp;lt;String&amp;gt; result = data.map(new RichMapFunction&amp;lt;String, String&amp;gt;() { private ArrayList&amp;lt;String&amp;gt; dataList = new ArrayList&amp;lt;String&amp;gt;(); @Override public void open(Configuration parameters) throws Exception { super.</description>
+    </item>
+    
+    <item>
+      <title>第06讲：Flink 集群安装部署和 HA 配置</title>
+      <link>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-07/</link>
+      <pubDate>Mon, 20 Jul 2020 10:15:48 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-07/</guid>
+      <description>我们在这一课时将讲解 Flink 常见的部署模式：本地模式、Standalone 模式和 Flink On Yarn 模式，然后分别讲解三种模式的使用场景和部署中常见的问题，最后将讲解在生产环境中 Flink 集群的高可用配置。
+Flink 常见的部署模式 环境准备 在绝大多数情况下，我们的 Flink 都是运行在 Unix 环境中的，推荐在 Mac OS 或者 Linux 环境下运行 Flink。如果是集群模式，那么可以在自己电脑上安装虚拟机，保证有一个 master 节点和两个 slave 节点。
+同时，要注意在所有的机器上都应该安装 JDK 和 SSH。JDK 是我们运行 JVM 语言程序必须的，而 SSH 是为了在服务器之间进行跳转和执行命令所必须的。关于服务器之间通过 SSH 配置公钥登录，你可以直接搜索安装和配置方法，我们不做过度展开。
+Flink 的安装包可以在这里下载。需要注意的是，如果你要和 Hadoop 进行集成，那么我们需要使用到对应的 Hadoop 依赖，下面将会详细讲解。
+Local 模式 Local 模式是 Flink 提供的最简单部署模式，一般用来本地测试和演示使用。
+我们在这里下载 Apache Flink 1.10.0 for Scala 2.11 版本进行演示，该版本对应 Scala 2.11 版本。
+将压缩包下载到本地，并且直接进行解压，使用 Flink 默认的端口配置，直接运行脚本启动：
+➜ [SoftWare]# tar -zxvf flink-1.10.0-bin-scala_2.11.tgz 上图则为解压完成后的目录情况。</description>
+    </item>
+    
+    <item>
+      <title>第05讲：Flink SQL &amp; Table 编程和案例</title>
+      <link>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-06/</link>
+      <pubDate>Mon, 20 Jul 2020 10:14:48 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-06/</guid>
+      <description>我们在第 02 课时中使用 Flink Table &amp;amp; SQL 的 API 实现了最简单的 WordCount 程序。在这一课时中，将分别从 Flink Table &amp;amp; SQL 的背景和编程模型、常见的 API、算子和内置函数等对 Flink Table &amp;amp; SQL 做一个详细的讲解和概括，最后模拟了一个实际业务场景使用 Flink Table &amp;amp; SQL 开发。
+Flink Table &amp;amp; SQL 概述 背景 我们在前面的课时中讲过 Flink 的分层模型，Flink 自身提供了不同级别的抽象来支持我们开发流式或者批量处理程序，下图描述了 Flink 支持的 4 种不同级别的抽象。
+Table API 和 SQL 处于最顶端，是 Flink 提供的高级 API 操作。Flink SQL 是 Flink 实时计算为简化计算模型，降低用户使用实时计算门槛而设计的一套符合标准 SQL 语义的开发语言。
+我们在第 04 课时中提到过，Flink 在编程模型上提供了 DataStream 和 DataSet 两套 API，并没有做到事实上的批流统一，因为用户和开发者还是开发了两套代码。正是因为 Flink Table &amp;amp; SQL 的加入，可以说 Flink 在某种程度上做到了事实上的批流一体。</description>
+    </item>
+    
+    <item>
+      <title>第04讲：Flink 常用的 DataSet 和 DataStream API</title>
+      <link>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-05/</link>
+      <pubDate>Mon, 20 Jul 2020 10:13:48 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-05/</guid>
+      <description>本课时我们主要介绍 Flink 的 DataSet 和 DataStream 的 API，并模拟了实时计算的场景，详细讲解了 DataStream 常用的 API 的使用。
+说好的流批一体呢
+现状 在前面的课程中，曾经提到过，Flink 很重要的一个特点是“流批一体”，然而事实上 Flink 并没有完全做到所谓的“流批一体”，即编写一套代码，可以同时支持流式计算场景和批量计算的场景。目前截止 1.10 版本依然采用了 DataSet 和 DataStream 两套 API 来适配不同的应用场景。
+DateSet 和 DataStream 的区别和联系 在官网或者其他网站上，都可以找到目前 Flink 支持两套 API 和一些应用场景，但大都缺少了“为什么”这样的思考。
+Apache Flink 在诞生之初的设计哲学是：用同一个引擎支持多种形式的计算，包括批处理、流处理和机器学习等。尤其是在流式计算方面，Flink 实现了计算引擎级别的流批一体。那么对于普通开发者而言，如果使用原生的 Flink ，直接的感受还是要编写两套代码。
+整体架构如下图所示：
+在 Flink 的源代码中，我们可以在 flink-java 这个模块中找到所有关于 DataSet 的核心类，DataStream 的核心实现类则在 flink-streaming-java 这个模块。
+在上述两张图中，我们分别打开 DataSet 和 DataStream 这两个类，可以发现，二者支持的 API 都非常丰富且十分类似，比如常用的 map、filter、join 等常见的 transformation 函数。
+我们在前面的课时中讲过 Flink 的编程模型，对于 DataSet 而言，Source 部分来源于文件、表或者 Java 集合；而 DataStream 的 Source 部分则一般是消息中间件比如 Kafka 等。</description>
+    </item>
+    
+    <item>
+      <title>第03讲：Flink 的编程模型与其他框架比较</title>
+      <link>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-04/</link>
+      <pubDate>Mon, 20 Jul 2020 10:12:48 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-04/</guid>
+      <description>本课时我们主要介绍 Flink 的编程模型与其他框架比较。
+本课时的内容主要介绍基于 Flink 的编程模型，包括 Flink 程序的基础处理语义和基本构成模块，并且和 Spark、Storm 进行比较，Flink 作为最新的分布式大数据处理引擎具有哪些独特的优势呢？
+Flink 的核心语义和架构模型 我们在讲解 Flink 程序的编程模型之前，先来了解一下 Flink 中的 Streams、State、Time 等核心概念和基础语义，以及 Flink 提供的不同层级的 API。
+Flink 核心概念  Streams（流），流分为有界流和无界流。有界流指的是有固定大小，不随时间增加而增长的数据，比如我们保存在 Hive 中的一个表；而无界流指的是数据随着时间增加而增长，计算状态持续进行，比如我们消费 Kafka 中的消息，消息持续不断，那么计算也会持续进行不会结束。 State（状态），所谓的状态指的是在进行流式计算过程中的信息。一般用作容错恢复和持久化，流式计算在本质上是增量计算，也就是说需要不断地查询过去的状态。状态在 Flink 中有十分重要的作用，例如为了确保 Exactly-once 语义需要将数据写到状态中；此外，状态的持久化存储也是集群出现 Fail-over 的情况下自动重启的前提条件。 Time（时间），Flink 支持了 Event time、Ingestion time、Processing time 等多种时间语义，时间是我们在进行 Flink 程序开发时判断业务状态是否滞后和延迟的重要依据。 API：Flink 自身提供了不同级别的抽象来支持我们开发流式或者批量处理程序，由上而下可分为 SQL / Table API、DataStream API、ProcessFunction 三层，开发者可以根据需要选择不同层级的 API 进行开发。  Flink 编程模型和流式处理 我们在第 01 课中提到过，Flink 程序的基础构建模块是流（Streams）和转换（Transformations），每一个数据流起始于一个或多个 Source，并终止于一个或多个 Sink。数据流类似于有向无环图（DAG）。
+在分布式运行环境中，Flink 提出了算子链的概念，Flink 将多个算子放在一个任务中，由同一个线程执行，减少线程之间的切换、消息的序列化/反序列化、数据在缓冲区的交换，减少延迟的同时提高整体的吞吐量。
+官网中给出的例子如下，在并行环境下，Flink 将多个 operator 的子任务链接在一起形成了一个task，每个 task 都有一个独立的线程执行。</description>
+    </item>
+    
+    <item>
+      <title>第02讲：Flink 入门程序 WordCount 和 SQL 实现</title>
+      <link>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-03/</link>
+      <pubDate>Mon, 20 Jul 2020 10:11:48 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-03/</guid>
+      <description>本课时我们主要介绍 Flink 的入门程序以及 SQL 形式的实现。
+上一课时已经讲解了 Flink 的常用应用场景和架构模型设计，这一课时我们将会从一个最简单的 WordCount 案例作为切入点，并且同时使用 SQL 方式进行实现，为后面的实战课程打好基础。
+我们首先会从环境搭建入手，介绍如何搭建本地调试环境的脚手架；然后分别从DataSet（批处理）和 DataStream（流处理）两种方式如何进行单词计数开发；最后介绍 Flink Table 和 SQL 的使用。
+Flink 开发环境 通常来讲，任何一门大数据框架在实际生产环境中都是以集群的形式运行，而我们调试代码大多数会在本地搭建一个模板工程，Flink 也不例外。
+Flink 一个以 Java 及 Scala 作为开发语言的开源大数据项目，通常我们推荐使用 Java 来作为开发语言，Maven 作为编译和包管理工具进行项目构建和编译。对于大多数开发者而言，JDK、Maven 和 Git 这三个开发工具是必不可少的。
+关于 JDK、Maven 和 Git 的安装建议如下表所示：
+工程创建 一般来说，我们在通过 IDE 创建工程，可以自己新建工程，添加 Maven 依赖，或者直接用 mvn 命令创建应用：
+mvn archetype:generate \ -DarchetypeGroupId=org.apache.flink \ -DarchetypeArtifactId=flink-quickstart-java \ -DarchetypeVersion=1.10.0 通过指定 Maven 工程的三要素，即 GroupId、ArtifactId、Version 来创建一个新的工程。同时 Flink 给我提供了更为方便的创建 Flink 工程的方法：
+curl https://flink.apache.org/q/quickstart.sh | bash -s 1.</description>
+    </item>
     
     <item>
       <title>开篇词：实时计算领域最锋利的武器 Flink</title>
@@ -26,6 +133,28 @@
 想进大厂，必须掌握 Flink 技术 随着大数据时代的发展、海量数据的实时处理和多样业务的数据计算需求激增，传统的批处理方式和早期的流式处理框架也有自身的局限性，难以在延迟性、吞吐量、容错能力，以及使用便捷性等方面满足业务日益苛刻的要求。在这种形势下，Flink 以其独特的天然流式计算特性和更为先进的架构设计，极大地改善了以前的流式处理框架所存在的问题。
 越来越多的国内公司开始用 Flink 来做实时数据处理，其中阿里巴巴率先将 Flink 技术在全集团推广使用，比如 Flink SQL 与 Hive 生态的集成、拥抱 AI 等；腾讯、百度、字节跳动、滴滴、华为等众多互联网公司也已经将 Flink 作为未来技术重要的发力点。在未来 3 ~ 5 年，Flink 必将发展成为企业内部主流的数据处理框架，成为开发者进入大厂的“敲门砖”。
 反观国外，在 2019 年 Flink 已经成为 Apache 基金会和 GitHub 社区最为活跃的项目之一。在全球范围内，越来越多的企业都在迫切地进行技术迭代和更新，无论是更新传统的实时计算业务，还是实时数据仓库的搭建，Flink 都是最佳之选。</description>
+    </item>
+    
+    <item>
+      <title>第01讲：Flink 的应用场景和架构模型</title>
+      <link>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-02/</link>
+      <pubDate>Mon, 20 Jul 2020 10:10:48 +0000</pubDate>
+      
+      <guid>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-02/</guid>
+      <description>你好，欢迎来到第 01 课时，本课时我们主要介绍 Flink 的应用场景和架构模型。
+实时计算最好的时代 在过去的十年里，面向数据时代的实时计算技术接踵而至。从我们最初认识的 Storm，再到 Spark 的异军突起，迅速占领了整个实时计算领域。直到 2019 年 1 月底，阿里巴巴内部版本 Flink 正式开源！一石激起千层浪，Flink 开源的消息立刻刷爆朋友圈，整个大数据计算领域一直以来由 Spark 独领风骚，瞬间成为两强争霸的时代。
+Apache Flink（以下简称 Flink）以其先进的设计理念、强大的计算能力备受关注，如何将 Flink 快速应用在生产环境中，更好的与现有的大数据生态技术完美结合，充分挖掘数据的潜力，成为了众多开发者面临的难题。
+Flink 实际应用场景 Flink 自从 2019 年初开源以来，迅速成为大数据实时计算领域炙手可热的技术框架。作为 Flink 的主要贡献者阿里巴巴率先将其在全集团进行推广使用，另外由于 Flink 天然的流式特性，更为领先的架构设计，使得 Flink 一出现便在各大公司掀起了应用的热潮。
+阿里巴巴、腾讯、百度、字节跳动、滴滴、华为等众多互联网公司已经将 Flink 作为未来技术重要的发力点，迫切地在各自公司内部进行技术升级和推广使用。同时，Flink 已经成为 Apache 基金会和 GitHub 社区最为活跃的项目之一。
+我们来看看 Flink 支持的众多应用场景。
+实时数据计算 如果你对大数据技术有所接触，那么下面的这些需求场景你应该并不陌生：
+ 阿里巴巴每年双十一都会直播，实时监控大屏是如何做到的？
+  公司想看一下大促中销量最好的商品 TOP5？
+  我是公司的运维，希望能实时接收到服务器的负载情况？
+  &amp;hellip;&amp;hellip;
+ 我们可以看到，数据计算场景需要从原始数据中提取有价值的信息和指标，比如上面提到的实时销售额、销量的 TOP5，以及服务器的负载情况等。
+传统的分析方式通常是利用批查询，或将事件（生产上一般是消息）记录下来并基于此形成有限数据集（表）构建应用来完成。为了得到最新数据的计算结果，必须先将它们写入表中并重新执行 SQL 查询，然后将结果写入存储系统比如 MySQL 中，再生成报告。
+Apache Flink 同时支持流式及批量分析应用，这就是我们所说的批流一体。Flink 在上述的需求场景中承担了数据的实时采集、实时计算和下游发送。</description>
     </item>
     
   </channel>

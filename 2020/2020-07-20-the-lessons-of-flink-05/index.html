@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="追寻原风景">
+  
+  
+  
+  <link rel="prev" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-04/" />
+  <link rel="next" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-06/" />
+  <link rel="canonical" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-05/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           第04讲：Flink 常用的 DataSet 和 DataStream API | 枕霞惜友
+       
+  </title>
+  <meta name="title" content="第04讲：Flink 常用的 DataSet 和 DataStream API | 枕霞惜友">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/xiaohao890809.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "第04讲：Flink 常用的 DataSet 和 DataStream API",
+    "headline" : "第04讲：Flink 常用的 DataSet 和 DataStream API",
+    "description" : "本课时我们主要介绍 Flink 的 DataSet 和 DataStream 的 API，并模拟了实时计算的场景，详细讲解了 DataStream 常用的 API 的使用。\n说好的流批一体呢\n现状 在前面的课程中，曾经提到过，Flink 很重要的一个特点是“流批一体”，然而事实上 Flink 并没有完全做到所谓的“流批一体”，即编写一套代码，可以同时支持流式计算场景和批量计算的场景。目前截止 1.10 版本依然采用了 DataSet 和 DataStream 两套 API 来适配不同的应用场景。\nDateSet 和 DataStream 的区别和联系 在官网或者其他网站上，都可以找到目前 Flink 支持两套 API 和一些应用场景，但大都缺少了“为什么”这样的思考。\nApache Flink 在诞生之初的设计哲学是：用同一个引擎支持多种形式的计算，包括批处理、流处理和机器学习等。尤其是在流式计算方面，Flink 实现了计算引擎级别的流批一体。那么对于普通开发者而言，如果使用原生的 Flink ，直接的感受还是要编写两套代码。\n整体架构如下图所示：\n在 Flink 的源代码中，我们可以在 flink-java 这个模块中找到所有关于 DataSet 的核心类，DataStream 的核心实现类则在 flink-streaming-java 这个模块。\n在上述两张图中，我们分别打开 DataSet 和 DataStream 这两个类，可以发现，二者支持的 API 都非常丰富且十分类似，比如常用的 map、filter、join 等常见的 transformation 函数。\n我们在前面的课时中讲过 Flink 的编程模型，对于 DataSet 而言，Source 部分来源于文件、表或者 Java 集合；而 DataStream 的 Source 部分则一般是消息中间件比如 Kafka 等。",
+    "inLanguage" : "en-us",
+    "author" : "王知无",
+    "creator" : "王知无",
+    "publisher": "王知无",
+    "accountablePerson" : "王知无",
+    "copyrightHolder" : "王知无",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-20 10:13:48 \u002b0000 UTC",
+    "dateModified" : "2020-07-20 10:13:48 \u002b0000 UTC",
+    "url" : "https:\/\/xiaohao890809.github.io\/2020\/2020-07-20-the-lessons-of-flink-05\/",
+    "wordCount" : "854",
+    "keywords" : [ "42讲轻松通关Flink", "枕霞惜友"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">第04讲：Flink 常用的 DataSet 和 DataStream API</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://xiaohao890809.github.io" rel="author">王知无</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-07-20 itemprop="datePublished">July 20, 2020</time>
+                </span>
+                
+        </div>
+    </header>
+
+    
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#现状">现状</a></li>
+    <li><a href="#dateset-和-datastream-的区别和联系">DateSet 和 DataStream 的区别和联系</a></li>
+    <li><a href="#datastream">DataStream</a></li>
+    <li><a href="#自定义实时数据源">自定义实时数据源</a>
+      <ul>
+        <li><a href="#map">Map</a></li>
+        <li><a href="#flatmap">FlatMap</a></li>
+        <li><a href="#filter">Filter</a></li>
+        <li><a href="#keyby">KeyBy</a></li>
+        <li><a href="#aggregations">Aggregations</a></li>
+        <li><a href="#reduce">Reduce</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+    
+
+    <script type="text/javascript">
+            window.MathJax = {
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            TeX: {equationNumbers: {autoNumber: "AMS"}},
+            showProcessingMessages: false,
+            messageStyle: 'none'
+        };
+   </script>
+
+    <script type="text/javascript" async src="/lib/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>本课时我们主要介绍 Flink 的 DataSet 和 DataStream 的 API，并模拟了实时计算的场景，详细讲解了 DataStream 常用的 API 的使用。</p>
+<p><strong>说好的流批一体呢</strong></p>
+<h2 id="现状">现状</h2>
+<p>在前面的课程中，曾经提到过，Flink 很重要的一个特点是“流批一体”，然而事实上 Flink 并没有完全做到所谓的“流批一体”，即编写一套代码，可以同时支持流式计算场景和批量计算的场景。目前截止 1.10 版本依然采用了 DataSet 和 DataStream 两套 API 来适配不同的应用场景。</p>
+<h2 id="dateset-和-datastream-的区别和联系">DateSet 和 DataStream 的区别和联系</h2>
+<p>在官网或者其他网站上，都可以找到目前 Flink 支持两套 API 和一些应用场景，但大都缺少了“为什么”这样的思考。</p>
+<p>Apache Flink 在诞生之初的设计哲学是：<strong>用同一个引擎支持多种形式的计算，包括批处理、流处理和机器学习等</strong>。尤其是在流式计算方面，<strong>Flink 实现了计算引擎级别的流批一体</strong>。那么对于普通开发者而言，如果使用原生的 Flink ，直接的感受还是要编写两套代码。</p>
+<p>整体架构如下图所示：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84.png" data-sizes="auto" alt="整体架构" title="整体架构" class="lazyload"><figcaption class="image-caption">整体架构</figcaption></figure></p>
+<p>在 Flink 的源代码中，我们可以在 flink-java 这个模块中找到所有关于 DataSet 的核心类，DataStream 的核心实现类则在 flink-streaming-java 这个模块。</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E6%A0%B8%E5%BF%83%E5%AE%9E%E7%8E%B0%E7%B1%BB1.png" data-sizes="auto" alt="核心实现类1" title="核心实现类1" class="lazyload"><figcaption class="image-caption">核心实现类1</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E6%A0%B8%E5%BF%83%E5%AE%9E%E7%8E%B0%E7%B1%BB2.png" data-sizes="auto" alt="核心实现类2" title="核心实现类2" class="lazyload"><figcaption class="image-caption">核心实现类2</figcaption></figure></p>
+<p>在上述两张图中，我们分别打开 DataSet 和 DataStream 这两个类，可以发现，二者支持的 API 都非常丰富且十分类似，比如常用的 map、filter、join 等常见的 transformation 函数。</p>
+<p>我们在前面的课时中讲过 Flink 的编程模型，对于 DataSet 而言，Source 部分来源于文件、表或者 Java 集合；而 DataStream 的 Source 部分则一般是消息中间件比如 Kafka 等。</p>
+<p>由于 Flink DataSet 和 DataStream API 的高度相似，并且 Flink 在实时计算领域中应用的更为广泛。所以下面我们详细讲解 DataStream API 的使用。</p>
+<h2 id="datastream">DataStream</h2>
+<p>我们先来回顾一下 Flink 的编程模型，在之前的课时中提到过，Flink 程序的基础构建模块是<strong>流</strong>（Streams）和<strong>转换</strong>（Transformations），每一个数据流起始于一个或多个 <strong>Source</strong>，并终止于一个或多个 <strong>Sink</strong>。数据流类似于<strong>有向无环图</strong>（DAG）。</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/DataStream.png" data-sizes="auto" alt="DataStream" title="DataStream" class="lazyload"><figcaption class="image-caption">DataStream</figcaption></figure></p>
+<p>在第 02 课时中模仿了一个流式计算环境，我们选择监听一个本地的 Socket 端口，并且使用 Flink 中的滚动窗口，每 5 秒打印一次计算结果。</p>
+<h2 id="自定义实时数据源">自定义实时数据源</h2>
+<p>在本课时中，我们利用 Flink 提供的自定义 Source 功能来实现一个自定义的实时数据源，具体实现如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyStreamingSource</span> <span style="color:#66d9ef">implements</span> SourceFunction<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> isRunning <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 重写run方法产生一个源源不断的数据发送源
+</span><span style="color:#75715e">     * @param ctx
+</span><span style="color:#75715e">     * @throws Exception
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>SourceContext<span style="color:#f92672">&lt;</span>Item<span style="color:#f92672">&gt;</span> ctx<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>isRunning<span style="color:#f92672">){</span>
+            Item item <span style="color:#f92672">=</span> generateItem<span style="color:#f92672">();</span>
+            ctx<span style="color:#f92672">.</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>item<span style="color:#f92672">);</span>
+
+            <span style="color:#75715e">//每秒产生一条数据
+</span><span style="color:#75715e"></span>            Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1000<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">cancel</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        isRunning <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">//随机产生一条商品数据
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> Item <span style="color:#a6e22e">generateItem</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Random<span style="color:#f92672">().</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>100<span style="color:#f92672">);</span>
+
+        Item item <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Item<span style="color:#f92672">();</span>
+        item<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
+        item<span style="color:#f92672">.</span><span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> item<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Item</span><span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">private</span> Integer id<span style="color:#f92672">;</span>
+
+        Item<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> name<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">private</span> Integer <span style="color:#a6e22e">getId</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> id<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span>Integer id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Item{&#34;</span> <span style="color:#f92672">+</span>
+                    <span style="color:#e6db74">&#34;name=&#39;&#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;\&#39;&#39;</span> <span style="color:#f92672">+</span>
+                    <span style="color:#e6db74">&#34;, id=&#34;</span> <span style="color:#f92672">+</span> id <span style="color:#f92672">+</span>
+                    <span style="color:#e6db74">&#39;}&#39;</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamingDemo</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+        StreamExecutionEnvironment env <span style="color:#f92672">=</span> StreamExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+        <span style="color:#75715e">//获取数据源
+</span><span style="color:#75715e"></span>        DataStreamSource<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">&gt;</span> text <span style="color:#f92672">=</span> 
+        <span style="color:#75715e">//注意：并行度设置为1,我们会在后面的课程中详细讲解并行度
+</span><span style="color:#75715e"></span>        env<span style="color:#f92672">.</span><span style="color:#a6e22e">addSource</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MyStreamingSource<span style="color:#f92672">()).</span><span style="color:#a6e22e">setParallelism</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span> 
+        DataStream<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">&gt;</span> item <span style="color:#f92672">=</span> text<span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>
+                <span style="color:#f92672">(</span>MapFunction<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">,</span> MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">&gt;)</span> value <span style="color:#f92672">-&gt;</span> value<span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">//打印结果
+</span><span style="color:#75715e"></span>        item<span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">().</span><span style="color:#a6e22e">setParallelism</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+        String jobName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;user defined streaming source&#34;</span><span style="color:#f92672">;</span>
+        env<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>jobName<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>在自定义的数据源中，实现了 Flink 中的 SourceFunction 接口，同时实现了其中的 run 方法，在 run 方法中每隔一秒钟随机发送一个自定义的 Item。</p>
+<p>可以直接运行 main 方法来进行测试：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95.png" data-sizes="auto" alt="进行测试" title="进行测试" class="lazyload"><figcaption class="image-caption">进行测试</figcaption></figure></p>
+<p>可以在控制台中看到，已经有源源不断地数据开始输出。下面我们就用自定义的实时数据源来演示 DataStream API 的使用。</p>
+<h3 id="map">Map</h3>
+<p>Map 接受一个元素作为输入，并且根据开发者自定义的逻辑处理后输出。</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E9%80%BB%E8%BE%91%E5%A4%84%E7%90%86.png" data-sizes="auto" alt="逻辑处理" title="逻辑处理" class="lazyload"><figcaption class="image-caption">逻辑处理</figcaption></figure></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamingDemo</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+        StreamExecutionEnvironment env <span style="color:#f92672">=</span> StreamExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+        <span style="color:#75715e">//获取数据源
+</span><span style="color:#75715e"></span>        DataStreamSource<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">&gt;</span> items <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span><span style="color:#a6e22e">addSource</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MyStreamingSource<span style="color:#f92672">()).</span><span style="color:#a6e22e">setParallelism</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span> 
+        <span style="color:#75715e">//Map
+</span><span style="color:#75715e"></span>        SingleOutputStreamOperator<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> mapItems <span style="color:#f92672">=</span> items<span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MapFunction<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span> item<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">return</span> item<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">});</span>
+        <span style="color:#75715e">//打印结果
+</span><span style="color:#75715e"></span>        mapItems<span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">().</span><span style="color:#a6e22e">setParallelism</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+        String jobName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;user defined streaming source&#34;</span><span style="color:#f92672">;</span>
+        env<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>jobName<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>我们只取出每个 Item 的 name 字段进行打印。</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/Item.png" data-sizes="auto" alt="Item" title="Item" class="lazyload"><figcaption class="image-caption">Item</figcaption></figure></p>
+<p>注意，<strong>Map 算子是最常用的算子之一</strong>，官网中的表述是对一个 DataStream 进行映射，每次进行转换都会调用 MapFunction 函数。从源 DataStream 到目标 DataStream 的转换过程中，返回的是 SingleOutputStreamOperator。当然了，我们也可以在重写的 map 函数中使用 lambda 表达式。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SingleOutputStreamOperator<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> mapItems <span style="color:#f92672">=</span> items<span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>
+      item <span style="color:#f92672">-&gt;</span> item<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span>
+<span style="color:#f92672">);</span>
+</code></pre></div><p>甚至，还可以自定义自己的 Map 函数。通过重写 MapFunction 或 RichMapFunction 来自定义自己的 map 函数。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamingDemo</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+        StreamExecutionEnvironment env <span style="color:#f92672">=</span> StreamExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+        <span style="color:#75715e">//获取数据源
+</span><span style="color:#75715e"></span>        DataStreamSource<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">&gt;</span> items <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span><span style="color:#a6e22e">addSource</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MyStreamingSource<span style="color:#f92672">()).</span><span style="color:#a6e22e">setParallelism</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+        SingleOutputStreamOperator<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> mapItems <span style="color:#f92672">=</span> items<span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MyMapFunction<span style="color:#f92672">());</span>
+        <span style="color:#75715e">//打印结果
+</span><span style="color:#75715e"></span>        mapItems<span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">().</span><span style="color:#a6e22e">setParallelism</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+        String jobName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;user defined streaming source&#34;</span><span style="color:#f92672">;</span>
+        env<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>jobName<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyMapFunction</span> <span style="color:#66d9ef">extends</span> RichMapFunction<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">,</span>String<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span> item<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> item<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>此外，在 RichMapFunction 中还提供了 open、close 等函数方法，重写这些方法还能实现更为复杂的功能，比如获取累加器、计数器等。</p>
+<h3 id="flatmap">FlatMap</h3>
+<p>FlatMap 接受一个元素，返回零到多个元素。FlatMap 和 Map 有些类似，但是当返回值是列表的时候，FlatMap 会将列表“平铺”，也就是以单个元素的形式进行输出。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SingleOutputStreamOperator<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> flatMapItems <span style="color:#f92672">=</span> items<span style="color:#f92672">.</span><span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FlatMapFunction<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span> item<span style="color:#f92672">,</span> Collector<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> collector<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        String name <span style="color:#f92672">=</span> item<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">();</span>
+        collector<span style="color:#f92672">.</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>name<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">});</span>
+</code></pre></div><p>上面的程序会把名字逐个输出。我们也可以在 FlatMap 中实现更为复杂的逻辑，比如过滤掉一些我们不需要的数据等。</p>
+<h3 id="filter">Filter</h3>
+<p>顾名思义，Fliter 的意思就是过滤掉不需要的数据，每个元素都会被 filter 函数处理，如果 filter 函数返回 true 则保留，否则丢弃。</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/Filter.png" data-sizes="auto" alt="Filter" title="Filter" class="lazyload"><figcaption class="image-caption">Filter</figcaption></figure></p>
+<p>例如，我们只保留 id 为偶数的那些 item。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SingleOutputStreamOperator<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">&gt;</span> filterItems <span style="color:#f92672">=</span> items<span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FilterFunction<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span> item<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+        <span style="color:#66d9ef">return</span> item<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">()</span> <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">});</span>
+</code></pre></div><p><figure><img src="/images/ring.svg" data-src="/images/%E5%81%B6%E6%95%B0%E7%9A%84%E9%82%A3%E4%BA%9B.png" data-sizes="auto" alt="偶数的那些" title="偶数的那些" class="lazyload"><figcaption class="image-caption">偶数的那些</figcaption></figure></p>
+<p>当然，我们也可以在 filter 中使用 lambda 表达式：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">SingleOutputStreamOperator<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">&gt;</span> filterItems <span style="color:#f92672">=</span> items<span style="color:#f92672">.</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span> 
+    item <span style="color:#f92672">-&gt;</span> item<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">()</span> <span style="color:#f92672">%</span> 2 <span style="color:#f92672">==</span> 0
+<span style="color:#f92672">);</span>
+</code></pre></div><h3 id="keyby">KeyBy</h3>
+<p>在介绍 KeyBy 函数之前，需要你理解一个概念：<strong>KeyedStream</strong>。 在实际业务中，我们经常会需要根据数据的某种属性或者单纯某个字段进行分组，然后对不同的组进行不同的处理。举个例子，当我们需要描述一个用户画像时，则需要根据用户的不同行为事件进行加权；再比如，我们在监控双十一的交易大盘时，则需要按照商品的品类进行分组，分别计算销售额。</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E8%AE%A1%E7%AE%97%E9%94%80%E5%94%AE%E9%A2%9D.png" data-sizes="auto" alt="计算销售额" title="计算销售额" class="lazyload"><figcaption class="image-caption">计算销售额</figcaption></figure></p>
+<p>我们在使用 KeyBy 函数时会把 DataStream 转换成为 KeyedStream，事实上 KeyedStream 继承了 DataStream，KeyedStream 中的元素会根据用户传入的参数进行分组。</p>
+<p>我们在第 02 课时中讲解的 WordCount 程序，曾经使用过 KeyBy：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#75715e">// 将接收的数据进行拆分，分组，窗口计算并且进行聚合输出
+</span><span style="color:#75715e"></span>        DataStream<span style="color:#f92672">&lt;</span>WordWithCount<span style="color:#f92672">&gt;</span> windowCounts <span style="color:#f92672">=</span> text
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FlatMapFunction<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> WordWithCount<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+                    <span style="color:#a6e22e">@Override</span>
+                    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span>String value<span style="color:#f92672">,</span> Collector<span style="color:#f92672">&lt;</span>WordWithCount<span style="color:#f92672">&gt;</span> out<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String word <span style="color:#f92672">:</span> value<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\\s&#34;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+                            out<span style="color:#f92672">.</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> WordWithCount<span style="color:#f92672">(</span>word<span style="color:#f92672">,</span> 1L<span style="color:#f92672">));</span>
+                        <span style="color:#f92672">}</span>
+                    <span style="color:#f92672">}</span>
+                <span style="color:#f92672">})</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">keyBy</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;word&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">timeWindow</span><span style="color:#f92672">(</span>Time<span style="color:#f92672">.</span><span style="color:#a6e22e">seconds</span><span style="color:#f92672">(</span>5<span style="color:#f92672">),</span> Time<span style="color:#f92672">.</span><span style="color:#a6e22e">seconds</span>
+                <span style="color:#f92672">....</span>
+</code></pre></div><p>在生产环境中使用 KeyBy 函数时要十分注意！该函数会把数据按照用户指定的 key 进行分组，那么相同分组的数据会被分发到一个 subtask 上进行处理，在大数据量和 key 分布不均匀的时非常容易出现数据倾斜和反压，导致任务失败。</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E4%BB%BB%E5%8A%A1%E5%A4%B1%E8%B4%A5.png" data-sizes="auto" alt="任务失败" title="任务失败" class="lazyload"><figcaption class="image-caption">任务失败</figcaption></figure></p>
+<p>常见的解决方式是把所有<strong>数据加上随机前后缀</strong>，这些我们会在后面的课时中进行深入讲解。</p>
+<h3 id="aggregations">Aggregations</h3>
+<p>Aggregations 为聚合函数的总称，常见的聚合函数包括但不限于 sum、max、min 等。Aggregations 也需要指定一个 key 进行聚合，官网给出了几个常见的例子：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">keyedStream<span style="color:#f92672">.</span><span style="color:#a6e22e">sum</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+keyedStream<span style="color:#f92672">.</span><span style="color:#a6e22e">sum</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key&#34;</span><span style="color:#f92672">);</span>
+keyedStream<span style="color:#f92672">.</span><span style="color:#a6e22e">min</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+keyedStream<span style="color:#f92672">.</span><span style="color:#a6e22e">min</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key&#34;</span><span style="color:#f92672">);</span>
+keyedStream<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+keyedStream<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key&#34;</span><span style="color:#f92672">);</span>
+keyedStream<span style="color:#f92672">.</span><span style="color:#a6e22e">minBy</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+keyedStream<span style="color:#f92672">.</span><span style="color:#a6e22e">minBy</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key&#34;</span><span style="color:#f92672">);</span>
+keyedStream<span style="color:#f92672">.</span><span style="color:#a6e22e">maxBy</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+keyedStream<span style="color:#f92672">.</span><span style="color:#a6e22e">maxBy</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key&#34;</span><span style="color:#f92672">);</span>
+</code></pre></div><p>在上面的这几个函数中，max、min、sum 会分别返回最大值、最小值和汇总值；而 minBy 和 maxBy 则会把最小或者最大的元素全部返回。</p>
+<p>我们拿 max 和 maxBy 举例说明：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">StreamExecutionEnvironment env <span style="color:#f92672">=</span> StreamExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+<span style="color:#75715e">//获取数据源
+</span><span style="color:#75715e"></span>List data <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>Tuple3<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">&gt;&gt;();</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>0<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>1<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>2<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>3<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>5<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>9<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>11<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>13<span style="color:#f92672">));</span>
+
+DataStreamSource<span style="color:#f92672">&lt;</span>MyStreamingSource<span style="color:#f92672">.</span><span style="color:#a6e22e">Item</span><span style="color:#f92672">&gt;</span> items <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span><span style="color:#a6e22e">fromCollection</span><span style="color:#f92672">(</span>data<span style="color:#f92672">);</span>
+items<span style="color:#f92672">.</span><span style="color:#a6e22e">keyBy</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>2<span style="color:#f92672">).</span><span style="color:#a6e22e">printToErr</span><span style="color:#f92672">();</span>
+
+<span style="color:#75715e">//打印结果
+</span><span style="color:#75715e"></span>String jobName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;user defined streaming source&#34;</span><span style="color:#f92672">;</span>
+env<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>jobName<span style="color:#f92672">);</span>
+</code></pre></div><p>我们直接运行程序，会发现奇怪的一幕：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E5%A5%87%E6%80%AA%E7%9A%84%E4%B8%80%E5%B9%95.png" data-sizes="auto" alt="奇怪的一幕" title="奇怪的一幕" class="lazyload"><figcaption class="image-caption">奇怪的一幕</figcaption></figure></p>
+<p>从上图中可以看到，我们希望按照 Tuple3 的第一个元素进行聚合，并且按照第三个元素取最大值。结果如我们所料，的确是按照第三个元素大小依次进行的打印，但是结果却出现了一个这样的元素 (0,1,2)，这在我们的源数据中并不存在。</p>
+<p>我们在 Flink 官网中的文档可以发现：</p>
+<blockquote>
+<p>The difference between min and minBy is that min returns the minimum value, whereas minBy returns the element that has the minimum value in this field (same for max and maxBy).</p>
+</blockquote>
+<p>文档中说：<strong>min 和 minBy 的区别在于，min 会返回我们制定字段的最大值，minBy 会返回对应的元素（max 和 maxBy 同理）</strong>。</p>
+<p>网上很多资料也这么写：min 和 minBy 的区别在于 min 返回最小的值，而 minBy 返回最小值的key，严格来说这是不正确的。</p>
+<p>min 和 minBy 都会返回整个元素，只是 min 会根据用户指定的字段取最小值，并且把这个值保存在对应的位置，而对于其他的字段，并不能保证其数值正确。max 和 maxBy 同理。</p>
+<p>事实上，对于 Aggregations 函数，Flink 帮助我们封装了状态数据，这些状态数据不会被清理，所以在实际生产环境中应该<strong>尽量避免在一个无限流上使用 Aggregations</strong>。而且，对于同一个 keyedStream ，只能调用一次 Aggregation 函数。</p>
+<h3 id="reduce">Reduce</h3>
+<p>Reduce 函数的原理是，会在每一个分组的 keyedStream 上生效，它会按照用户自定义的聚合逻辑进行分组聚合。</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/Reduce.png" data-sizes="auto" alt="Reduce" title="Reduce" class="lazyload"><figcaption class="image-caption">Reduce</figcaption></figure></p>
+<p>例如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List data <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>Tuple3<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">&gt;&gt;();</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>0<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>1<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>2<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>3<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>5<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>9<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>11<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>13<span style="color:#f92672">));</span>
+
+DataStreamSource<span style="color:#f92672">&lt;</span>Tuple3<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">&gt;&gt;</span> items <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span><span style="color:#a6e22e">fromCollection</span><span style="color:#f92672">(</span>data<span style="color:#f92672">);</span>
+<span style="color:#75715e">//items.keyBy(0).max(2).printToErr();
+</span><span style="color:#75715e"></span>
+SingleOutputStreamOperator<span style="color:#f92672">&lt;</span>Tuple3<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;&gt;</span> reduce <span style="color:#f92672">=</span> items<span style="color:#f92672">.</span><span style="color:#a6e22e">keyBy</span><span style="color:#f92672">(</span>0<span style="color:#f92672">).</span><span style="color:#a6e22e">reduce</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ReduceFunction<span style="color:#f92672">&lt;</span>Tuple3<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;&gt;()</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Tuple3<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">reduce</span><span style="color:#f92672">(</span>Tuple3<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> t1<span style="color:#f92672">,</span> Tuple3<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> t2<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        Tuple3<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">&gt;</span> newTuple <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;();</span>
+
+        newTuple<span style="color:#f92672">.</span><span style="color:#a6e22e">setFields</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span>0<span style="color:#f92672">,(</span>Integer<span style="color:#f92672">)</span>t1<span style="color:#f92672">.</span><span style="color:#a6e22e">getField</span><span style="color:#f92672">(</span>2<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>Integer<span style="color:#f92672">)</span> t2<span style="color:#f92672">.</span><span style="color:#a6e22e">getField</span><span style="color:#f92672">(</span>2<span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">return</span> newTuple<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">});</span>
+
+reduce<span style="color:#f92672">.</span><span style="color:#a6e22e">printToErr</span><span style="color:#f92672">().</span><span style="color:#a6e22e">setParallelism</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+</code></pre></div><p>我们对下面的元素按照第一个元素进行分组，第三个元素分别求和，并且把第一个和第二个元素都置为 0：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>0<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>1<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>2<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>3<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>5<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>9<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>11<span style="color:#f92672">));</span>
+data<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple3<span style="color:#f92672">&lt;&gt;(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>13<span style="color:#f92672">));</span>
+</code></pre></div><p>那么最终会得到：(0,0,6) 和 (0,0,38)。</p>
+<h2 id="总结">总结</h2>
+<p>这一课时介绍了常用的 API 操作，事实上 DataStream 的 API 远远不止这些，我们在看官方文档的时候要动手去操作验证一下，更为高级的 API 将会在实战课中用到的时候着重进行讲解。</p>
+<p><a href="https://github.com/wangzhiwubigdata/quickstart">点击这里下载本课程源码</a>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>追寻原风景 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-05/>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-05/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://xiaohao890809.github.io/tags/42%E8%AE%B2%E8%BD%BB%E6%9D%BE%E9%80%9A%E5%85%B3flink/">
+                    #42讲轻松通关Flink</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://xiaohao890809.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-04/" class="prev" rel="prev" title="第03讲：Flink 的编程模型与其他框架比较"><i class="iconfont icon-left"></i>&nbsp;第03讲：Flink 的编程模型与其他框架比较</a>
+         
+        
+        <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-06/" class="next" rel="next" title="第05讲：Flink SQL &amp; Table 编程和案例">第05讲：Flink SQL &amp; Table 编程和案例&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'x7pm7dmsSic3jIybmioy4bXL-gzGzoHsz',
+      appKey: 'f71HjUun9ruMAsDIVluNJLgR',
+      notify: 'false', 
+      verify: 'false', 
+      avatar:'mm', 
+      placeholder: '说点什么吧...',
+      visitor: 'true'
+  });
+</script>
+    </div>
+
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2015 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://xiaohao890809.github.io">追寻原风景</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

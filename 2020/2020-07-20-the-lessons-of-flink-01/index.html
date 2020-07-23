@@ -9,8 +9,8 @@
   
   
   
-  <link rel="prev" href="https://xiaohao890809.github.io/2020/2020-07-16-the-lagou-data-analysis-16/" />
-  
+  <link rel="prev" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-02/" />
+  <link rel="next" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-03/" />
   <link rel="canonical" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-01/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -49,11 +49,11 @@
     "headline" : "开篇词：实时计算领域最锋利的武器 Flink",
     "description" : "你好，欢迎来到 Flink 专栏，我是王知无，目前在某一线互联网公司从事数据平台架构和研发工作多年，算是整个大数据开发领域的老兵了。\n我最早从 Release 版本开始关注 Flink，可以说是国内第一批钻研 Flink 的开发者，后来基于 Flink 开发过实时计算业务应用、实时数据仓库以及监控报警系统，在这个过程中积累了大量宝贵的生产实践经验。\n面试是开发者永远绕不过去的坎 由于项目需要，我在工作中面试过很多 Flink 开发工程师，并且发现了一些普遍性问题，比如：\n 对常用的 Flink 核心概念和原理掌握不牢，一旦参与到实战业务中必将寸步难行，一面直接被刷掉； 能够通过简历筛选的人基本都有实时流计算开发的经验，可以从容应对典型场景下的问题，但对于非典型但常见的业务场景问题就会支支吾吾，无从应答； 有些面试者自称参与过实时计算平台的架构设计、开发、发布和运维等全流程的工作，但稍微追问就会发现他在项目中的参与度其实很低，暴露出在上一家公司只是开发团队的一个“小透明”； 我们现在招聘其实是偏向招有相关经验并熟悉底层原理的人，曾经有面试者能熟练回答在项目中是如何应用 Flink 的，但是不知道底层源码级别的实现。  上面列举的这四个问题看似不同，但本质上都是在全方位考察你对技术原理的理解深度，以及在实际工作中解决问题的能力。\n当然还有一类人，他们具备深厚的理论基础和丰富的实战经验，却往往因为缺乏面试经验，依然屡屡与大厂擦肩而过。很多开发者在学习完一个框架后，可以熟练地开发和排查问题，但是在面试的过程中却无法逻辑清晰地表述自己的观点。想象一下，当你在面试中被问到以下三个问题：\n Flink 如何实现 Exactly-once 语义？ Flink 时间类型的分类和各自的实现原理？ Flink 如何处理数据乱序和延迟？  你将如何作答？面试官满意的答案究竟长什么样？上述问题的答案，你都可以在这个专栏中找到。\n想进大厂，必须掌握 Flink 技术 随着大数据时代的发展、海量数据的实时处理和多样业务的数据计算需求激增，传统的批处理方式和早期的流式处理框架也有自身的局限性，难以在延迟性、吞吐量、容错能力，以及使用便捷性等方面满足业务日益苛刻的要求。在这种形势下，Flink 以其独特的天然流式计算特性和更为先进的架构设计，极大地改善了以前的流式处理框架所存在的问题。\n越来越多的国内公司开始用 Flink 来做实时数据处理，其中阿里巴巴率先将 Flink 技术在全集团推广使用，比如 Flink SQL 与 Hive 生态的集成、拥抱 AI 等；腾讯、百度、字节跳动、滴滴、华为等众多互联网公司也已经将 Flink 作为未来技术重要的发力点。在未来 3 ~ 5 年，Flink 必将发展成为企业内部主流的数据处理框架，成为开发者进入大厂的“敲门砖”。\n反观国外，在 2019 年 Flink 已经成为 Apache 基金会和 GitHub 社区最为活跃的项目之一。在全球范围内，越来越多的企业都在迫切地进行技术迭代和更新，无论是更新传统的实时计算业务，还是实时数据仓库的搭建，Flink 都是最佳之选。",
     "inLanguage" : "en-us",
-    "author" : "花木",
-    "creator" : "花木",
-    "publisher": "花木",
-    "accountablePerson" : "花木",
-    "copyrightHolder" : "花木",
+    "author" : "王知无",
+    "creator" : "王知无",
+    "publisher": "王知无",
+    "accountablePerson" : "王知无",
+    "copyrightHolder" : "王知无",
     "copyrightYear" : "2020",
     "datePublished": "2020-07-20 10:10:48 \u002b0000 UTC",
     "dateModified" : "2020-07-20 10:10:48 \u002b0000 UTC",
@@ -121,7 +121,7 @@
     <header class="post-header">
         <h1 class="post-title" itemprop="name headline">开篇词：实时计算领域最锋利的武器 Flink</h1>
         <div class="post-meta">
-                Written by <a itemprop="name" href="https://xiaohao890809.github.io" rel="author">花木</a> with ♥ 
+                Written by <a itemprop="name" href="https://xiaohao890809.github.io" rel="author">王知无</a> with ♥ 
                 <span class="post-time">
                 on <time datetime=2020-07-20 itemprop="datePublished">July 20, 2020</time>
                 </span>
@@ -305,8 +305,10 @@
 
     <div class="post-nav">
         
-        <a href="https://xiaohao890809.github.io/2020/2020-07-16-the-lagou-data-analysis-16/" class="prev" rel="prev" title="15 | 用户增长：用户增长的本质是什么？"><i class="iconfont icon-left"></i>&nbsp;15 | 用户增长：用户增长的本质是什么？</a>
+        <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-02/" class="prev" rel="prev" title="第01讲：Flink 的应用场景和架构模型"><i class="iconfont icon-left"></i>&nbsp;第01讲：Flink 的应用场景和架构模型</a>
          
+        
+        <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-03/" class="next" rel="next" title="第02讲：Flink 入门程序 WordCount 和 SQL 实现">第02讲：Flink 入门程序 WordCount 和 SQL 实现&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

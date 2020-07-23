@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="追寻原风景">
+  
+  
+  
+  <link rel="prev" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-01/" />
+  <link rel="next" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-04/" />
+  <link rel="canonical" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-03/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           第02讲：Flink 入门程序 WordCount 和 SQL 实现 | 枕霞惜友
+       
+  </title>
+  <meta name="title" content="第02讲：Flink 入门程序 WordCount 和 SQL 实现 | 枕霞惜友">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/xiaohao890809.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "第02讲：Flink 入门程序 WordCount 和 SQL 实现",
+    "headline" : "第02讲：Flink 入门程序 WordCount 和 SQL 实现",
+    "description" : "本课时我们主要介绍 Flink 的入门程序以及 SQL 形式的实现。\n上一课时已经讲解了 Flink 的常用应用场景和架构模型设计，这一课时我们将会从一个最简单的 WordCount 案例作为切入点，并且同时使用 SQL 方式进行实现，为后面的实战课程打好基础。\n我们首先会从环境搭建入手，介绍如何搭建本地调试环境的脚手架；然后分别从DataSet（批处理）和 DataStream（流处理）两种方式如何进行单词计数开发；最后介绍 Flink Table 和 SQL 的使用。\nFlink 开发环境 通常来讲，任何一门大数据框架在实际生产环境中都是以集群的形式运行，而我们调试代码大多数会在本地搭建一个模板工程，Flink 也不例外。\nFlink 一个以 Java 及 Scala 作为开发语言的开源大数据项目，通常我们推荐使用 Java 来作为开发语言，Maven 作为编译和包管理工具进行项目构建和编译。对于大多数开发者而言，JDK、Maven 和 Git 这三个开发工具是必不可少的。\n关于 JDK、Maven 和 Git 的安装建议如下表所示：\n工程创建 一般来说，我们在通过 IDE 创建工程，可以自己新建工程，添加 Maven 依赖，或者直接用 mvn 命令创建应用：\nmvn archetype:generate \\ -DarchetypeGroupId=org.apache.flink \\ -DarchetypeArtifactId=flink-quickstart-java \\ -DarchetypeVersion=1.10.0 通过指定 Maven 工程的三要素，即 GroupId、ArtifactId、Version 来创建一个新的工程。同时 Flink 给我提供了更为方便的创建 Flink 工程的方法：\ncurl https:\/\/flink.apache.org\/q\/quickstart.sh | bash -s 1.",
+    "inLanguage" : "en-us",
+    "author" : "王知无",
+    "creator" : "王知无",
+    "publisher": "王知无",
+    "accountablePerson" : "王知无",
+    "copyrightHolder" : "王知无",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-20 10:11:48 \u002b0000 UTC",
+    "dateModified" : "2020-07-20 10:11:48 \u002b0000 UTC",
+    "url" : "https:\/\/xiaohao890809.github.io\/2020\/2020-07-20-the-lessons-of-flink-03\/",
+    "wordCount" : "720",
+    "keywords" : [ "42讲轻松通关Flink", "枕霞惜友"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">第02讲：Flink 入门程序 WordCount 和 SQL 实现</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://xiaohao890809.github.io" rel="author">王知无</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-07-20 itemprop="datePublished">July 20, 2020</time>
+                </span>
+                
+        </div>
+    </header>
+
+    
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#flink-开发环境">Flink 开发环境</a>
+      <ul>
+        <li><a href="#工程创建">工程创建</a></li>
+      </ul>
+    </li>
+    <li><a href="#dataset-wordcount">DataSet WordCount</a></li>
+    <li><a href="#datastream-wordcount">DataStream WordCount</a></li>
+    <li><a href="#flink-table--sql-wordcount">Flink Table &amp; SQL WordCount</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+    
+
+    <script type="text/javascript">
+            window.MathJax = {
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            TeX: {equationNumbers: {autoNumber: "AMS"}},
+            showProcessingMessages: false,
+            messageStyle: 'none'
+        };
+   </script>
+
+    <script type="text/javascript" async src="/lib/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>本课时我们主要介绍 Flink 的入门程序以及 SQL 形式的实现。</p>
+<p>上一课时已经讲解了 Flink 的常用应用场景和架构模型设计，这一课时我们将会从一个最简单的 WordCount 案例作为切入点，并且同时使用 SQL 方式进行实现，为后面的实战课程打好基础。</p>
+<p>我们首先会从环境搭建入手，介绍如何搭建本地调试环境的脚手架；然后分别从DataSet（批处理）和 DataStream（流处理）两种方式如何进行单词计数开发；最后介绍 Flink Table 和 SQL 的使用。</p>
+<h2 id="flink-开发环境">Flink 开发环境</h2>
+<p>通常来讲，任何一门大数据框架在实际生产环境中都是以集群的形式运行，而我们调试代码大多数会在本地搭建一个模板工程，Flink 也不例外。</p>
+<p>Flink 一个以 Java 及 Scala 作为开发语言的开源大数据项目，通常我们推荐使用 Java 来作为开发语言，Maven 作为编译和包管理工具进行项目构建和编译。对于大多数开发者而言，JDK、Maven 和 Git 这三个开发工具是必不可少的。</p>
+<p>关于 JDK、Maven 和 Git 的安装建议如下表所示：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E5%AE%89%E8%A3%85.png" data-sizes="auto" alt="安装" title="安装" class="lazyload"><figcaption class="image-caption">安装</figcaption></figure></p>
+<h3 id="工程创建">工程创建</h3>
+<p>一般来说，我们在通过 IDE 创建工程，可以自己新建工程，添加 Maven 依赖，或者直接用 mvn 命令创建应用：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">mvn   archetype<span style="color:#f92672">:</span>generate  <span style="color:#960050;background-color:#1e0010">\</span>
+        <span style="color:#f92672">-</span>DarchetypeGroupId<span style="color:#f92672">=</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">flink</span> <span style="color:#960050;background-color:#1e0010">\</span>
+        <span style="color:#f92672">-</span>DarchetypeArtifactId<span style="color:#f92672">=</span>flink<span style="color:#f92672">-</span>quickstart<span style="color:#f92672">-</span>java <span style="color:#960050;background-color:#1e0010">\</span>
+        <span style="color:#f92672">-</span>DarchetypeVersion<span style="color:#f92672">=</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">10</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span>
+</code></pre></div><p>通过指定 Maven 工程的三要素，即 GroupId、ArtifactId、Version 来创建一个新的工程。同时 Flink 给我提供了更为方便的创建 Flink 工程的方法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">curl https<span style="color:#f92672">:</span><span style="color:#75715e">//flink.apache.org/q/quickstart.sh | bash -s 1.10.0
+</span></code></pre></div><p>我们在终端直接执行该命令：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E5%91%BD%E4%BB%A41.png" data-sizes="auto" alt="命令1" title="命令1" class="lazyload"><figcaption class="image-caption">命令1</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E5%91%BD%E4%BB%A42.png" data-sizes="auto" alt="命令2" title="命令2" class="lazyload"><figcaption class="image-caption">命令2</figcaption></figure></p>
+<p>直接出现 Build Success 信息，我们可以在本地目录看到一个已经生成好的名为 quickstart  的工程。</p>
+<p>这里需要的主要的是，自动生成的项目 pom.xml 文件中对于 Flink 的依赖注释掉 scope：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+   <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">flink</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+   <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>flink<span style="color:#f92672">-</span>java<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+   <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>$<span style="color:#f92672">{</span>flink<span style="color:#f92672">.</span><span style="color:#a6e22e">version</span><span style="color:#f92672">}&lt;/</span>version<span style="color:#f92672">&gt;</span>
+   <span style="color:#f92672">&lt;!--&lt;</span>scope<span style="color:#f92672">&gt;</span>provided<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;--&gt;</span>
+<span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+   <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">flink</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+   <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>flink<span style="color:#f92672">-</span>streaming<span style="color:#f92672">-</span>java_$<span style="color:#f92672">{</span>scala<span style="color:#f92672">.</span><span style="color:#a6e22e">binary</span><span style="color:#f92672">.</span><span style="color:#a6e22e">version</span><span style="color:#f92672">}&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+   <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>$<span style="color:#f92672">{</span>flink<span style="color:#f92672">.</span><span style="color:#a6e22e">version</span><span style="color:#f92672">}&lt;/</span>version<span style="color:#f92672">&gt;</span>
+   <span style="color:#f92672">&lt;!--&lt;</span>scope<span style="color:#f92672">&gt;</span>provided<span style="color:#f92672">&lt;/</span>scope<span style="color:#f92672">&gt;--&gt;</span>
+<span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</code></pre></div><h2 id="dataset-wordcount">DataSet WordCount</h2>
+<p>WordCount 程序是大数据处理框架的入门程序，俗称“单词计数”。用来统计一段文字每个单词的出现次数，该程序主要分为两个部分：一部分是将文字拆分成单词；另一部分是单词进行分组计数并打印输出结果。</p>
+<p>整体代码实现如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+      <span style="color:#75715e">// 创建Flink运行的上下文环境
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">final</span> ExecutionEnvironment env <span style="color:#f92672">=</span> ExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+
+      <span style="color:#75715e">// 创建DataSet，这里我们的输入是一行一行的文本
+</span><span style="color:#75715e"></span>      DataSet<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> text <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span><span style="color:#a6e22e">fromElements</span><span style="color:#f92672">(</span>
+            <span style="color:#e6db74">&#34;Flink Spark Storm&#34;</span><span style="color:#f92672">,</span>
+            <span style="color:#e6db74">&#34;Flink Flink Flink&#34;</span><span style="color:#f92672">,</span>
+            <span style="color:#e6db74">&#34;Spark Spark Spark&#34;</span><span style="color:#f92672">,</span>
+            <span style="color:#e6db74">&#34;Storm Storm Storm&#34;</span>
+      <span style="color:#f92672">);</span>
+      <span style="color:#75715e">// 通过Flink内置的转换函数进行计算
+</span><span style="color:#75715e"></span>      DataSet<span style="color:#f92672">&lt;</span>Tuple2<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;&gt;</span> counts <span style="color:#f92672">=</span>
+            text<span style="color:#f92672">.</span><span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> LineSplitter<span style="color:#f92672">())</span>
+                  <span style="color:#f92672">.</span><span style="color:#a6e22e">groupBy</span><span style="color:#f92672">(</span>0<span style="color:#f92672">)</span>
+                  <span style="color:#f92672">.</span><span style="color:#a6e22e">sum</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+      <span style="color:#75715e">//结果打印
+</span><span style="color:#75715e"></span>      counts<span style="color:#f92672">.</span><span style="color:#a6e22e">printToErr</span><span style="color:#f92672">();</span>
+
+   <span style="color:#f92672">}</span>
+
+   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LineSplitter</span> <span style="color:#66d9ef">implements</span> FlatMapFunction<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Tuple2<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">{</span>
+
+      <span style="color:#a6e22e">@Override</span>
+      <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span>String value<span style="color:#f92672">,</span> Collector<span style="color:#f92672">&lt;</span>Tuple2<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;&gt;</span> out<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+         <span style="color:#75715e">// 将文本分割
+</span><span style="color:#75715e"></span>         String<span style="color:#f92672">[]</span> tokens <span style="color:#f92672">=</span> value<span style="color:#f92672">.</span><span style="color:#a6e22e">toLowerCase</span><span style="color:#f92672">().</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\\W+&#34;</span><span style="color:#f92672">);</span>
+
+         <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String token <span style="color:#f92672">:</span> tokens<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>token<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+               out<span style="color:#f92672">.</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Tuple2<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;(</span>token<span style="color:#f92672">,</span> 1<span style="color:#f92672">));</span>
+            <span style="color:#f92672">}</span>
+         <span style="color:#f92672">}</span>
+      <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p>实现的整个过程中分为以下几个步骤。</p>
+<p>首先，我们需要创建 Flink 的上下文运行环境：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ExecutionEnvironment env <span style="color:#f92672">=</span> ExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+</code></pre></div><p>然后，使用 fromElements 函数创建一个 DataSet 对象，该对象中包含了我们的输入，使用 FlatMap、GroupBy、SUM 函数进行转换。</p>
+<p>最后，直接在控制台打印输出。</p>
+<p>我们可以直接右键运行一下 main 方法，在控制台会出现我们打印的计算结果：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E8%AE%A1%E7%AE%97%E7%BB%93%E6%9E%9C.png" data-sizes="auto" alt="计算结果" title="计算结果" class="lazyload"><figcaption class="image-caption">计算结果</figcaption></figure></p>
+<h2 id="datastream-wordcount">DataStream WordCount</h2>
+<p>为了模仿一个流式计算环境，我们选择监听一个本地的 Socket 端口，并且使用 Flink 中的滚动窗口，每 5 秒打印一次计算结果。代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StreamingJob</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+        <span style="color:#75715e">// 创建Flink的流式计算环境
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">final</span> StreamExecutionEnvironment env <span style="color:#f92672">=</span> StreamExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+
+        <span style="color:#75715e">// 监听本地9000端口
+</span><span style="color:#75715e"></span>        DataStream<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> text <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span><span style="color:#a6e22e">socketTextStream</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;127.0.0.1&#34;</span><span style="color:#f92672">,</span> 9000<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;\n&#34;</span><span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">// 将接收的数据进行拆分，分组，窗口计算并且进行聚合输出
+</span><span style="color:#75715e"></span>        DataStream<span style="color:#f92672">&lt;</span>WordWithCount<span style="color:#f92672">&gt;</span> windowCounts <span style="color:#f92672">=</span> text
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FlatMapFunction<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> WordWithCount<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+                    <span style="color:#a6e22e">@Override</span>
+                    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span>String value<span style="color:#f92672">,</span> Collector<span style="color:#f92672">&lt;</span>WordWithCount<span style="color:#f92672">&gt;</span> out<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String word <span style="color:#f92672">:</span> value<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\\s&#34;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+                            out<span style="color:#f92672">.</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> WordWithCount<span style="color:#f92672">(</span>word<span style="color:#f92672">,</span> 1L<span style="color:#f92672">));</span>
+                        <span style="color:#f92672">}</span>
+                    <span style="color:#f92672">}</span>
+                <span style="color:#f92672">})</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">keyBy</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;word&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">timeWindow</span><span style="color:#f92672">(</span>Time<span style="color:#f92672">.</span><span style="color:#a6e22e">seconds</span><span style="color:#f92672">(</span>5<span style="color:#f92672">),</span> Time<span style="color:#f92672">.</span><span style="color:#a6e22e">seconds</span><span style="color:#f92672">(</span>1<span style="color:#f92672">))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">reduce</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ReduceFunction<span style="color:#f92672">&lt;</span>WordWithCount<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+                    <span style="color:#a6e22e">@Override</span>
+                    <span style="color:#66d9ef">public</span> WordWithCount <span style="color:#a6e22e">reduce</span><span style="color:#f92672">(</span>WordWithCount a<span style="color:#f92672">,</span> WordWithCount b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> WordWithCount<span style="color:#f92672">(</span>a<span style="color:#f92672">.</span><span style="color:#a6e22e">word</span><span style="color:#f92672">,</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> b<span style="color:#f92672">.</span><span style="color:#a6e22e">count</span><span style="color:#f92672">);</span>
+                    <span style="color:#f92672">}</span>
+                <span style="color:#f92672">});</span>
+
+        <span style="color:#75715e">// 打印结果
+</span><span style="color:#75715e"></span>        windowCounts<span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">().</span><span style="color:#a6e22e">setParallelism</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+
+        env<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Socket Window WordCount&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// Data type for words with count
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WordWithCount</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#66d9ef">public</span> String word<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> count<span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">WordWithCount</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
+
+        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">WordWithCount</span><span style="color:#f92672">(</span>String word<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> count<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">word</span> <span style="color:#f92672">=</span> word<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> count<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> word <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; : &#34;</span> <span style="color:#f92672">+</span> count<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>整个<strong>流式计算的过程</strong>分为以下几步。</p>
+<p>首先创建一个流式计算环境：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">StreamExecutionEnvironment env <span style="color:#f92672">=</span> StreamExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+</code></pre></div><p>然后进行监听本地 9000 端口，将接收的数据进行拆分、分组、窗口计算并且进行聚合输出。代码中使用了 Flink 的窗口函数，我们在后面的课程中将详细讲解。</p>
+<p>我们在本地使用 <strong>netcat</strong> 命令启动一个端口：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">nc <span style="color:#f92672">-</span>lk 9000
+</code></pre></div><p>然后直接运行我们的 main 方法：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/main.png" data-sizes="auto" alt="main" title="main" class="lazyload"><figcaption class="image-caption">main</figcaption></figure></p>
+<p>可以看到，工程启动后开始监听 127.0.0.1 的 9000 端口。</p>
+<p>在 nc 中输入：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ nc -lk <span style="color:#ae81ff">9000</span>
+Flink Flink Flink 
+Flink Spark Storm
+</code></pre></div><p>可以在控制台看到：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Flink : <span style="color:#ae81ff">4</span>
+Spark : <span style="color:#ae81ff">1</span>
+Storm : <span style="color:#ae81ff">1</span>
+</code></pre></div><h2 id="flink-table--sql-wordcount">Flink Table &amp; SQL WordCount</h2>
+<p>Flink SQL 是 Flink 实时计算为简化计算模型，降低用户使用实时计算门槛而设计的一套符合标准 SQL 语义的开发语言。</p>
+<p>一个完整的 Flink SQL 编写的程序包括如下三部分。</p>
+<ul>
+<li><strong>Source Operator</strong>：是对外部数据源的抽象, 目前 Apache Flink 内置了很多常用的数据源实现，比如 MySQL、Kafka 等。</li>
+<li><strong>Transformation Operators</strong>：算子操作主要完成比如查询、聚合操作等，目前 Flink SQL 支持了 Union、Join、Projection、Difference、Intersection 及 window 等大多数传统数据库支持的操作。</li>
+<li><strong>Sink Operator</strong>：是对外结果表的抽象，目前 Apache Flink 也内置了很多常用的结果表的抽象，比如 Kafka Sink 等。</li>
+</ul>
+<p>我们也是通过用一个最经典的 WordCount 程序作为入门，上面已经通过 DataSet/DataStream API 开发，那么实现同样的 WordCount 功能， Flink Table &amp; SQL 核心只需要一行代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">//</span><span style="color:#960050;background-color:#1e0010">省略掉初始化环境等公共代码</span>
+<span style="color:#66d9ef">SELECT</span> word, <span style="color:#66d9ef">COUNT</span>(word) <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table</span> <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> word;
+</code></pre></div><p>首先，整个工程中我们 pom 中的依赖如下图所示：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">flink</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>flink<span style="color:#f92672">-</span>java<span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">10</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
+     <span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">flink</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>flink<span style="color:#f92672">-</span>streaming<span style="color:#f92672">-</span>java_2<span style="color:#f92672">.</span><span style="color:#a6e22e">11</span>
+         <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">10</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">flink</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>flink<span style="color:#f92672">-</span>table<span style="color:#f92672">-</span>api<span style="color:#f92672">-</span>java<span style="color:#f92672">-</span>bridge_2<span style="color:#f92672">.</span><span style="color:#a6e22e">11</span><span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">10</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">flink</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>flink<span style="color:#f92672">-</span>table<span style="color:#f92672">-</span>planner<span style="color:#f92672">-</span>blink_2<span style="color:#f92672">.</span><span style="color:#a6e22e">11</span><span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">10</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">flink</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>flink<span style="color:#f92672">-</span>table<span style="color:#f92672">-</span>planner_2<span style="color:#f92672">.</span><span style="color:#a6e22e">11</span><span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">10</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+     <span style="color:#f92672">&lt;</span>dependency<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>groupId<span style="color:#f92672">&gt;</span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">flink</span><span style="color:#f92672">&lt;/</span>groupId<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>artifactId<span style="color:#f92672">&gt;</span>flink<span style="color:#f92672">-</span>table<span style="color:#f92672">-</span>api<span style="color:#f92672">-</span>scala<span style="color:#f92672">-</span>bridge_2<span style="color:#f92672">.</span><span style="color:#a6e22e">11</span><span style="color:#f92672">&lt;/</span>artifactId<span style="color:#f92672">&gt;</span>
+         <span style="color:#f92672">&lt;</span>version<span style="color:#f92672">&gt;</span>1<span style="color:#f92672">.</span><span style="color:#a6e22e">10</span><span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">&lt;/</span>version<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/</span>dependency<span style="color:#f92672">&gt;</span>
+</code></pre></div><p>第一步，创建上下文环境：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ExecutionEnvironment fbEnv <span style="color:#f92672">=</span> ExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+BatchTableEnvironment fbTableEnv <span style="color:#f92672">=</span> BatchTableEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>fbEnv<span style="color:#f92672">);</span>
+</code></pre></div><p>第二步，读取一行模拟数据作为输入：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String words <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello flink hello lagou&#34;</span><span style="color:#f92672">;</span>
+String<span style="color:#f92672">[]</span> split <span style="color:#f92672">=</span> words<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\\W+&#34;</span><span style="color:#f92672">);</span>
+ArrayList<span style="color:#f92672">&lt;</span>WC<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+
+<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>String word <span style="color:#f92672">:</span> split<span style="color:#f92672">){</span>
+    WC wc <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> WC<span style="color:#f92672">(</span>word<span style="color:#f92672">,</span>1<span style="color:#f92672">);</span>
+    list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>wc<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+DataSet<span style="color:#f92672">&lt;</span>WC<span style="color:#f92672">&gt;</span> input <span style="color:#f92672">=</span> fbEnv<span style="color:#f92672">.</span><span style="color:#a6e22e">fromCollection</span><span style="color:#f92672">(</span>list<span style="color:#f92672">);</span>
+</code></pre></div><p>第三步，注册成表，执行 SQL，然后输出：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//DataSet 转sql, 指定字段名
+</span><span style="color:#75715e"></span>Table table <span style="color:#f92672">=</span> fbTableEnv<span style="color:#f92672">.</span><span style="color:#a6e22e">fromDataSet</span><span style="color:#f92672">(</span>input<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;word,frequency&#34;</span><span style="color:#f92672">);</span>
+table<span style="color:#f92672">.</span><span style="color:#a6e22e">printSchema</span><span style="color:#f92672">();</span>
+
+<span style="color:#75715e">//注册为一个表
+</span><span style="color:#75715e"></span>fbTableEnv<span style="color:#f92672">.</span><span style="color:#a6e22e">createTemporaryView</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;WordCount&#34;</span><span style="color:#f92672">,</span> table<span style="color:#f92672">);</span>
+
+Table table02 <span style="color:#f92672">=</span> fbTableEnv<span style="color:#f92672">.</span><span style="color:#a6e22e">sqlQuery</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;select word as word, sum(frequency) as frequency from WordCount GROUP BY word&#34;</span><span style="color:#f92672">);</span>
+
+<span style="color:#75715e">//将表转换DataSet
+</span><span style="color:#75715e"></span>DataSet<span style="color:#f92672">&lt;</span>WC<span style="color:#f92672">&gt;</span> ds3  <span style="color:#f92672">=</span> fbTableEnv<span style="color:#f92672">.</span><span style="color:#a6e22e">toDataSet</span><span style="color:#f92672">(</span>table02<span style="color:#f92672">,</span> WC<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+ds3<span style="color:#f92672">.</span><span style="color:#a6e22e">printToErr</span><span style="color:#f92672">();</span>
+</code></pre></div><p>整体代码结构如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WordCountSQL</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception<span style="color:#f92672">{</span>
+
+        <span style="color:#75715e">//获取运行环境
+</span><span style="color:#75715e"></span>        ExecutionEnvironment fbEnv <span style="color:#f92672">=</span> ExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+        <span style="color:#75715e">//创建一个tableEnvironment
+</span><span style="color:#75715e"></span>        BatchTableEnvironment fbTableEnv <span style="color:#f92672">=</span> BatchTableEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>fbEnv<span style="color:#f92672">);</span>
+
+        String words <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello flink hello lagou&#34;</span><span style="color:#f92672">;</span>
+
+        String<span style="color:#f92672">[]</span> split <span style="color:#f92672">=</span> words<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\\W+&#34;</span><span style="color:#f92672">);</span>
+        ArrayList<span style="color:#f92672">&lt;</span>WC<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>String word <span style="color:#f92672">:</span> split<span style="color:#f92672">){</span>
+            WC wc <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> WC<span style="color:#f92672">(</span>word<span style="color:#f92672">,</span>1<span style="color:#f92672">);</span>
+            list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>wc<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        DataSet<span style="color:#f92672">&lt;</span>WC<span style="color:#f92672">&gt;</span> input <span style="color:#f92672">=</span> fbEnv<span style="color:#f92672">.</span><span style="color:#a6e22e">fromCollection</span><span style="color:#f92672">(</span>list<span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">//DataSet 转sql, 指定字段名
+</span><span style="color:#75715e"></span>        Table table <span style="color:#f92672">=</span> fbTableEnv<span style="color:#f92672">.</span><span style="color:#a6e22e">fromDataSet</span><span style="color:#f92672">(</span>input<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;word,frequency&#34;</span><span style="color:#f92672">);</span>
+        table<span style="color:#f92672">.</span><span style="color:#a6e22e">printSchema</span><span style="color:#f92672">();</span>
+
+        <span style="color:#75715e">//注册为一个表
+</span><span style="color:#75715e"></span>        fbTableEnv<span style="color:#f92672">.</span><span style="color:#a6e22e">createTemporaryView</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;WordCount&#34;</span><span style="color:#f92672">,</span> table<span style="color:#f92672">);</span>
+
+        Table table02 <span style="color:#f92672">=</span> fbTableEnv<span style="color:#f92672">.</span><span style="color:#a6e22e">sqlQuery</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;select word as word, sum(frequency) as frequency from WordCount GROUP BY word&#34;</span><span style="color:#f92672">);</span>
+
+        <span style="color:#75715e">//将表转换DataSet
+</span><span style="color:#75715e"></span>        DataSet<span style="color:#f92672">&lt;</span>WC<span style="color:#f92672">&gt;</span> ds3  <span style="color:#f92672">=</span> fbTableEnv<span style="color:#f92672">.</span><span style="color:#a6e22e">toDataSet</span><span style="color:#f92672">(</span>table02<span style="color:#f92672">,</span> WC<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        ds3<span style="color:#f92672">.</span><span style="color:#a6e22e">printToErr</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WC</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">public</span> String word<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> frequency<span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">WC</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
+
+        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">WC</span><span style="color:#f92672">(</span>String word<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> frequency<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">word</span> <span style="color:#f92672">=</span> word<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">frequency</span> <span style="color:#f92672">=</span> frequency<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span>  word <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, &#34;</span> <span style="color:#f92672">+</span> frequency<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>我们直接运行该程序，在控制台可以看到输出结果：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C.png" data-sizes="auto" alt="输出结果" title="输出结果" class="lazyload"><figcaption class="image-caption">输出结果</figcaption></figure></p>
+<p>总结
+本课时介绍了 Flink 的工程创建，如何搭建调试环境的脚手架，同时以 WordCount 单词计数这一最简单最经典的场景用 Flink 进行了实现。第一次体验了 Flink SQL 的强大之处，让你有一个直观的认识，为后续内容打好基础。</p>
+<p><a href="https://github.com/wangzhiwubigdata/quickstart">点击这里下载本课程源码</a>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>追寻原风景 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-03/>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-03/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://xiaohao890809.github.io/tags/42%E8%AE%B2%E8%BD%BB%E6%9D%BE%E9%80%9A%E5%85%B3flink/">
+                    #42讲轻松通关Flink</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://xiaohao890809.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-01/" class="prev" rel="prev" title="开篇词：实时计算领域最锋利的武器 Flink"><i class="iconfont icon-left"></i>&nbsp;开篇词：实时计算领域最锋利的武器 Flink</a>
+         
+        
+        <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-04/" class="next" rel="next" title="第03讲：Flink 的编程模型与其他框架比较">第03讲：Flink 的编程模型与其他框架比较&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'x7pm7dmsSic3jIybmioy4bXL-gzGzoHsz',
+      appKey: 'f71HjUun9ruMAsDIVluNJLgR',
+      notify: 'false', 
+      verify: 'false', 
+      avatar:'mm', 
+      placeholder: '说点什么吧...',
+      visitor: 'true'
+  });
+</script>
+    </div>
+
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2015 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://xiaohao890809.github.io">追寻原风景</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

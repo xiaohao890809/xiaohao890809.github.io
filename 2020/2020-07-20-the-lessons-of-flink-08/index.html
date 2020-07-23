@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="追寻原风景">
+  
+  
+  
+  <link rel="prev" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-07/" />
+  <link rel="next" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-09/" />
+  <link rel="canonical" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-08/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           第07讲：Flink 常见核心概念分析 | 枕霞惜友
+       
+  </title>
+  <meta name="title" content="第07讲：Flink 常见核心概念分析 | 枕霞惜友">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/xiaohao890809.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "第07讲：Flink 常见核心概念分析",
+    "headline" : "第07讲：Flink 常见核心概念分析",
+    "description" : "在 Flink 这个框架中，有很多独有的概念，比如分布式缓存、重启策略、并行度等，这些概念是我们在进行任务开发和调优时必须了解的，这一课时我将会从原理和应用场景分别介绍这些概念。\n分布式缓存 熟悉 Hadoop 的你应该知道，分布式缓存最初的思想诞生于 Hadoop 框架，Hadoop 会将一些数据或者文件缓存在 HDFS 上，在分布式环境中让所有的计算节点调用同一个配置文件。在 Flink 中，Flink 框架开发者们同样将这个特性进行了实现。\nFlink 提供的分布式缓存类型 Hadoop，目的是为了在分布式环境中让每一个 TaskManager 节点保存一份相同的数据或者文件，当前计算节点的 task 就像读取本地文件一样拉取这些配置。\n分布式缓存在我们实际生产环境中最广泛的一个应用，就是在进行表与表 Join 操作时，如果一个表很大，另一个表很小，那么我们就可以把较小的表进行缓存，在每个 TaskManager 都保存一份，然后进行 Join 操作。\n那么我们应该怎样使用 Flink 的分布式缓存呢？举例如下：\npublic static void main(String[] args) throws Exception { final ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment(); env.registerCachedFile(\u0026#34;\/Users\/wangzhiwu\/WorkSpace\/quickstart\/distributedcache.txt\u0026#34;, \u0026#34;distributedCache\u0026#34;); \/\/1：注册一个文件,可以使用hdfs上的文件 也可以是本地文件进行测试  DataSource\u0026lt;String\u0026gt; data = env.fromElements(\u0026#34;Linea\u0026#34;, \u0026#34;Lineb\u0026#34;, \u0026#34;Linec\u0026#34;, \u0026#34;Lined\u0026#34;); DataSet\u0026lt;String\u0026gt; result = data.map(new RichMapFunction\u0026lt;String, String\u0026gt;() { private ArrayList\u0026lt;String\u0026gt; dataList = new ArrayList\u0026lt;String\u0026gt;(); @Override public void open(Configuration parameters) throws Exception { super.",
+    "inLanguage" : "en-us",
+    "author" : "王知无",
+    "creator" : "王知无",
+    "publisher": "王知无",
+    "accountablePerson" : "王知无",
+    "copyrightHolder" : "王知无",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-20 10:16:48 \u002b0000 UTC",
+    "dateModified" : "2020-07-20 10:16:48 \u002b0000 UTC",
+    "url" : "https:\/\/xiaohao890809.github.io\/2020\/2020-07-20-the-lessons-of-flink-08\/",
+    "wordCount" : "379",
+    "keywords" : [ "42讲轻松通关Flink", "枕霞惜友"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">第07讲：Flink 常见核心概念分析</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://xiaohao890809.github.io" rel="author">王知无</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-07-20 itemprop="datePublished">July 20, 2020</time>
+                </span>
+                
+        </div>
+    </header>
+
+    
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#分布式缓存">分布式缓存</a></li>
+    <li><a href="#故障恢复和重启策略">故障恢复和重启策略</a>
+      <ul>
+        <li><a href="#故障恢复">故障恢复</a></li>
+      </ul>
+    </li>
+    <li><a href="#重启策略">重启策略</a>
+      <ul>
+        <li><a href="#无重启策略模式">无重启策略模式</a></li>
+        <li><a href="#固定延迟重启策略模式">固定延迟重启策略模式</a></li>
+        <li><a href="#失败率重启策略模式">失败率重启策略模式</a></li>
+      </ul>
+    </li>
+    <li><a href="#并行度">并行度</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+    
+
+    <script type="text/javascript">
+            window.MathJax = {
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            TeX: {equationNumbers: {autoNumber: "AMS"}},
+            showProcessingMessages: false,
+            messageStyle: 'none'
+        };
+   </script>
+
+    <script type="text/javascript" async src="/lib/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>在 Flink 这个框架中，有很多独有的概念，比如分布式缓存、重启策略、并行度等，这些概念是我们在进行任务开发和调优时必须了解的，这一课时我将会从原理和应用场景分别介绍这些概念。</p>
+<h2 id="分布式缓存">分布式缓存</h2>
+<p>熟悉 Hadoop 的你应该知道，分布式缓存最初的思想诞生于 Hadoop 框架，Hadoop 会将一些数据或者文件缓存在 HDFS 上，在分布式环境中让所有的计算节点调用同一个配置文件。在 Flink 中，Flink 框架开发者们同样将这个特性进行了实现。</p>
+<p>Flink 提供的分布式缓存类型 Hadoop，目的是为了在分布式环境中让每一个 TaskManager 节点保存一份相同的数据或者文件，当前计算节点的 task 就像读取本地文件一样拉取这些配置。</p>
+<p>分布式缓存在我们实际生产环境中最广泛的一个应用，就是在进行表与表 Join 操作时，如果一个表很大，另一个表很小，那么我们就可以把较小的表进行缓存，在每个 TaskManager 都保存一份，然后进行 Join 操作。</p>
+<p>那么我们应该怎样使用 Flink 的分布式缓存呢？举例如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+<span style="color:#66d9ef">final</span> ExecutionEnvironment env <span style="color:#f92672">=</span> ExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+   env<span style="color:#f92672">.</span><span style="color:#a6e22e">registerCachedFile</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/Users/wangzhiwu/WorkSpace/quickstart/distributedcache.txt&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;distributedCache&#34;</span><span style="color:#f92672">);</span>
+       <span style="color:#75715e">//1：注册一个文件,可以使用hdfs上的文件 也可以是本地文件进行测试
+</span><span style="color:#75715e"></span>       DataSource<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> data <span style="color:#f92672">=</span> env<span style="color:#f92672">.</span><span style="color:#a6e22e">fromElements</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Linea&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Lineb&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Linec&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Lined&#34;</span><span style="color:#f92672">);</span>
+
+       DataSet<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> result <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span><span style="color:#a6e22e">map</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> RichMapFunction<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+           <span style="color:#66d9ef">private</span> ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> dataList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;();</span>
+
+           <span style="color:#a6e22e">@Override</span>
+           <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">open</span><span style="color:#f92672">(</span>Configuration parameters<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+               <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">open</span><span style="color:#f92672">(</span>parameters<span style="color:#f92672">);</span>
+               <span style="color:#75715e">//2：使用该缓存文件
+</span><span style="color:#75715e"></span>               File myFile <span style="color:#f92672">=</span> getRuntimeContext<span style="color:#f92672">().</span><span style="color:#a6e22e">getDistributedCache</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getFile</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;distributedCache&#34;</span><span style="color:#f92672">);</span>
+               List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> lines <span style="color:#f92672">=</span> FileUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">readLines</span><span style="color:#f92672">(</span>myFile<span style="color:#f92672">);</span>
+               <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String line <span style="color:#f92672">:</span> lines<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                   <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dataList</span><span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>line<span style="color:#f92672">);</span>
+                   System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;分布式缓存为:&#34;</span> <span style="color:#f92672">+</span> line<span style="color:#f92672">);</span>
+               <span style="color:#f92672">}</span>
+           <span style="color:#f92672">}</span>
+
+           <span style="color:#a6e22e">@Override</span>
+           <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>String value<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+               <span style="color:#75715e">//在这里就可以使用dataList
+</span><span style="color:#75715e"></span>               System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;使用datalist：&#34;</span> <span style="color:#f92672">+</span> dataList <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;-------&#34;</span> <span style="color:#f92672">+</span>value<span style="color:#f92672">);</span>
+               <span style="color:#75715e">//业务逻辑
+</span><span style="color:#75715e"></span>               <span style="color:#66d9ef">return</span> dataList <span style="color:#f92672">+</span><span style="color:#e6db74">&#34;：&#34;</span> <span style="color:#f92672">+</span>  value<span style="color:#f92672">;</span>
+           <span style="color:#f92672">}</span>
+       <span style="color:#f92672">});</span>
+
+       result<span style="color:#f92672">.</span><span style="color:#a6e22e">printToErr</span><span style="color:#f92672">();</span>
+   <span style="color:#f92672">}</span>
+</code></pre></div><p>从上面的例子中可以看出，使用分布式缓存有两个步骤。</p>
+<ul>
+<li>第一步：首先需要在 env 环境中注册一个文件，该文件可以来源于本地，也可以来源于 HDFS ，并且为该文件取一个名字。</li>
+<li>第二步：在使用分布式缓存时，可根据注册的名字直接获取。</li>
+</ul>
+<p>可以看到，在上述案例中，我们把一个本地的 distributedcache.txt 文件注册为 distributedCache，在下面的 map 算子中直接通过这个名字将缓存文件进行读取并且进行了处理。</p>
+<p>我们直接运行该程序，在控制台可以看到如下输出：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E5%A6%82%E4%B8%8B%E8%BE%93%E5%87%BA.png" data-sizes="auto" alt="如下输出" title="如下输出" class="lazyload"><figcaption class="image-caption">如下输出</figcaption></figure></p>
+<p>在使用分布式缓存时也需要注意一些问题，需要我们缓存的文件在任务运行期间最好是只读状态，否则会造成数据的一致性问题。另外，缓存的文件和数据不宜过大，否则会影响 Task 的执行速度，在极端情况下会造成 OOM。</p>
+<h2 id="故障恢复和重启策略">故障恢复和重启策略</h2>
+<p>自动故障恢复是 Flink 提供的一个强大的功能，在实际运行环境中，我们会遇到各种各样的问题从而导致应用挂掉，比如我们经常遇到的非法数据、网络抖动等。</p>
+<p>Flink 提供了强大的可配置故障恢复和重启策略来进行自动恢复。</p>
+<h3 id="故障恢复">故障恢复</h3>
+<p>我们在上一课时中介绍过 Flink 的配置文件，其中有一个参数 jobmanager.execution.failover-strategy: region。</p>
+<p>Flink 支持了不同级别的故障恢复策略，jobmanager.execution.failover-strategy 的可配置项有两种：full 和 region。</p>
+<p>当我们配置的故障恢复策略为 full 时，集群中的 Task 发生故障，那么该任务的所有 Task 都会发生重启。而在实际生产环境中，我们的大作业可能有几百个 Task，出现一次异常如果进行整个任务重启，那么经常会导致长时间任务不能正常工作，导致数据延迟。</p>
+<p>但是事实上，我们可能只是集群中某一个或几个 Task 发生了故障，只需要重启有问题的一部分即可，这就是 Flink <strong>基于 Region 的局部重启策略</strong>。在这个策略下，Flink 会把我们的任务分成不同的 Region，当某一个 Task 发生故障时，Flink 会计算需要故障恢复的最小 Region。</p>
+<p>Flink 在判断需要重启的 Region 时，采用了以下的判断逻辑：</p>
+<ul>
+<li>发生错误的 Task 所在的 Region 需要重启；</li>
+<li>如果当前 Region 的依赖数据出现损坏或者部分丢失，那么生产数据的 Region 也需要重启；</li>
+<li>为了保证数据一致性，当前 Region 的下游 Region 也需要重启。</li>
+</ul>
+<h2 id="重启策略">重启策略</h2>
+<p>Flink 提供了多种类型和级别的重启策略，常用的重启策略包括：</p>
+<ul>
+<li>固定延迟重启策略模式</li>
+<li>失败率重启策略模式</li>
+<li>无重启策略模式</li>
+</ul>
+<p>Flink 在判断使用的哪种重启策略时做了默认约定，如果用户配置了 checkpoint，但没有设置重启策略，那么会按照固定延迟重启策略模式进行重启；如果用户没有配置 checkpoint，那么默认不会重启。</p>
+<p>下面我们分别对这三种模式进行详细讲解。</p>
+<h3 id="无重启策略模式">无重启策略模式</h3>
+<p>在这种情况下，如果我们的作业发生错误，任务会直接退出。
+我们可以在 flink-conf.yaml 中配置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">restart<span style="color:#f92672">-</span>strategy<span style="color:#f92672">:</span> none
+</code></pre></div><p>也可以在程序中使用代码指定：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> ExecutionEnvironment env <span style="color:#f92672">=</span> ExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+env<span style="color:#f92672">.</span><span style="color:#a6e22e">setRestartStrategy</span><span style="color:#f92672">(</span>RestartStrategies<span style="color:#f92672">.</span><span style="color:#a6e22e">noRestart</span><span style="color:#f92672">());</span>
+</code></pre></div><h3 id="固定延迟重启策略模式">固定延迟重启策略模式</h3>
+<p>固定延迟重启策略会通过在 flink-conf.yaml 中设置如下配置参数，来启用此策略：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">restart<span style="color:#f92672">-</span>strategy<span style="color:#f92672">:</span> fixed<span style="color:#f92672">-</span>delay
+</code></pre></div><p>固定延迟重启策略模式需要指定两个参数，首先 Flink 会根据用户配置的重试次数进行重试，每次重试之间根据配置的时间间隔进行重试，如下表所示：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E8%BF%9B%E8%A1%8C%E9%87%8D%E8%AF%95.png" data-sizes="auto" alt="进行重试" title="进行重试" class="lazyload"><figcaption class="image-caption">进行重试</figcaption></figure></p>
+<p>举个例子，假如我们需要任务重试 3 次，每次重试间隔 5 秒，那么需要进行一下配置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">restart<span style="color:#f92672">-</span>strategy<span style="color:#f92672">.</span><span style="color:#a6e22e">fixed</span><span style="color:#f92672">-</span>delay<span style="color:#f92672">.</span><span style="color:#a6e22e">attempts</span><span style="color:#f92672">:</span> 3
+restart<span style="color:#f92672">-</span>strategy<span style="color:#f92672">.</span><span style="color:#a6e22e">fixed</span><span style="color:#f92672">-</span>delay<span style="color:#f92672">.</span><span style="color:#a6e22e">delay</span><span style="color:#f92672">:</span> 5 s
+</code></pre></div><p>当前我们也可以在代码中进行设置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">env<span style="color:#f92672">.</span><span style="color:#a6e22e">setRestartStrategy</span><span style="color:#f92672">(</span>RestartStrategies<span style="color:#f92672">.</span><span style="color:#a6e22e">fixedDelayRestart</span><span style="color:#f92672">(</span>
+        3<span style="color:#f92672">,</span> <span style="color:#75715e">// 重启次数
+</span><span style="color:#75715e"></span>        Time<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>5<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">)</span> <span style="color:#75715e">// 时间间隔
+</span><span style="color:#75715e"></span><span style="color:#f92672">));</span>
+</code></pre></div><h3 id="失败率重启策略模式">失败率重启策略模式</h3>
+<p>首先我们在 flink-conf.yaml 中指定如下配置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">restart<span style="color:#f92672">-</span>strategy<span style="color:#f92672">:</span> failure<span style="color:#f92672">-</span>rate
+</code></pre></div><p>这种重启模式需要指定三个参数，如下表所示。失败率重启策略在 Job 失败后会重启，但是超过失败率后，Job 会最终被认定失败。在两个连续的重启尝试之间，重启策略会等待一个固定的时间。</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E5%9B%BA%E5%AE%9A%E7%9A%84%E6%97%B6%E9%97%B4.png" data-sizes="auto" alt="固定的时间" title="固定的时间" class="lazyload"><figcaption class="image-caption">固定的时间</figcaption></figure></p>
+<p>这种策略的配置理解较为困难，我们举个例子，假如 5 分钟内若失败了 3 次，则认为该任务失败，每次失败的重试间隔为 5 秒。</p>
+<p>那么我们的配置应该是：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">restart<span style="color:#f92672">-</span>strategy<span style="color:#f92672">.</span><span style="color:#a6e22e">failure</span><span style="color:#f92672">-</span>rate<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">-</span>failures<span style="color:#f92672">-</span>per<span style="color:#f92672">-</span>interval<span style="color:#f92672">:</span> 3
+restart<span style="color:#f92672">-</span>strategy<span style="color:#f92672">.</span><span style="color:#a6e22e">failure</span><span style="color:#f92672">-</span>rate<span style="color:#f92672">.</span><span style="color:#a6e22e">failure</span><span style="color:#f92672">-</span>rate<span style="color:#f92672">-</span>interval<span style="color:#f92672">:</span> 5 min
+restart<span style="color:#f92672">-</span>strategy<span style="color:#f92672">.</span><span style="color:#a6e22e">failure</span><span style="color:#f92672">-</span>rate<span style="color:#f92672">.</span><span style="color:#a6e22e">delay</span><span style="color:#f92672">:</span> 5 s
+</code></pre></div><p>当然，也可以在代码中直接指定：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">env<span style="color:#f92672">.</span><span style="color:#a6e22e">setRestartStrategy</span><span style="color:#f92672">(</span>RestartStrategies<span style="color:#f92672">.</span><span style="color:#a6e22e">failureRateRestart</span><span style="color:#f92672">(</span>
+        3<span style="color:#f92672">,</span> <span style="color:#75715e">// 每个时间间隔的最大故障次数
+</span><span style="color:#75715e"></span>        Time<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>5<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">MINUTES</span><span style="color:#f92672">),</span> <span style="color:#75715e">// 测量故障率的时间间隔
+</span><span style="color:#75715e"></span>        Time<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>5<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">)</span> <span style="color:#75715e">//  每次任务失败时间间隔
+</span><span style="color:#75715e"></span><span style="color:#f92672">));</span>
+</code></pre></div><p>最后，需要注意的是，<strong>在实际生产环境中由于每个任务的负载和资源消耗不一样，我们推荐在代码中指定每个任务的重试机制和重启策略</strong>。</p>
+<h2 id="并行度">并行度</h2>
+<p>并行度是 Flink 执行任务的核心概念之一，它被定义为在分布式运行环境中我们的一个算子任务被切分成了多少个子任务并行执行。我们提高任务的并行度（Parallelism）在很大程度上可以大大提高任务运行速度。</p>
+<p>一般情况下，我们可以通过四种级别来设置任务的并行度。</p>
+<ul>
+<li>算子级别</li>
+</ul>
+<p>在代码中可以调用 setParallelism 方法来设置每一个算子的并行度。例如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">DataSet<span style="color:#f92672">&lt;</span>Tuple2<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;&gt;</span> counts <span style="color:#f92672">=</span>
+      text<span style="color:#f92672">.</span><span style="color:#a6e22e">flatMap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> LineSplitter<span style="color:#f92672">())</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">groupBy</span><span style="color:#f92672">(</span>0<span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">sum</span><span style="color:#f92672">(</span>1<span style="color:#f92672">).</span><span style="color:#a6e22e">setParallelism</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+</code></pre></div><p>事实上，Flink 的每个算子都可以单独设置并行度。这也是我们最推荐的一种方式，可以针对每个算子进行任务的调优。</p>
+<ul>
+<li>执行环境级别</li>
+</ul>
+<p>我们在创建 Flink 的上下文时可以显示的调用 env.setParallelism() 方法，来设置当前执行环境的并行度，这个配置会对当前任务的所有算子、Source、Sink 生效。当然你还可以在算子级别设置并行度来覆盖这个设置。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> ExecutionEnvironment env <span style="color:#f92672">=</span> ExecutionEnvironment<span style="color:#f92672">.</span><span style="color:#a6e22e">getExecutionEnvironment</span><span style="color:#f92672">();</span>
+env<span style="color:#f92672">.</span><span style="color:#a6e22e">setParallelism</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span>
+</code></pre></div><ul>
+<li>提交任务级别</li>
+</ul>
+<p>用户在提交任务时，可以显示的指定 -p 参数来设置任务的并行度，例如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">./</span>bin<span style="color:#f92672">/</span>flink run <span style="color:#f92672">-</span>p 10 WordCount<span style="color:#f92672">.</span><span style="color:#a6e22e">jar</span>
+</code></pre></div><ul>
+<li>系统配置级别</li>
+</ul>
+<p>我们在上一课时中提到了 flink-conf.yaml 中的一个配置：parallelism.default，该配置即是在系统层面设置所有执行环境的并行度配置。</p>
+<p>整体上讲，这四种级别的配置生效优先级如下：<strong>算子级别 &gt; 执行环境级别 &gt; 提交任务级别 &gt; 系统配置级别</strong>。</p>
+<p>在这里，要特别提一下 Flink 中的 Slot 概念。我们知道，Flink 中的 TaskManager 是执行任务的节点，那么在每一个 TaskManager 里，还会有“槽位”，也就是 <strong>Slot</strong>。Slot 个数代表的是每一个 TaskManager 的并发执行能力。</p>
+<p>假如我们指定 taskmanager.numberOfTaskSlots:3，即每个 taskManager 有 3 个 Slot ，那么整个集群就有 3 * taskManager 的个数多的槽位。这些槽位就是我们整个集群所拥有的所有执行任务的资源。</p>
+<h2 id="总结">总结</h2>
+<p>这一课时我们讲解了 Flink 中常见的分布式缓存、重启策略、并行度几个核心的概念和实际配置，这些概念的正确理解和合理配置是后面我们进行资源调优和任务优化的基础。在下一课时中我们会对 Flink 中最难以理解的“窗口和水印”进行讲解。</p>
+<p><a href="https://github.com/wangzhiwubigdata/quickstart">点击这里下载本课程源码</a>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>追寻原风景 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-08/>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-08/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://xiaohao890809.github.io/tags/42%E8%AE%B2%E8%BD%BB%E6%9D%BE%E9%80%9A%E5%85%B3flink/">
+                    #42讲轻松通关Flink</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://xiaohao890809.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-07/" class="prev" rel="prev" title="第06讲：Flink 集群安装部署和 HA 配置"><i class="iconfont icon-left"></i>&nbsp;第06讲：Flink 集群安装部署和 HA 配置</a>
+         
+        
+        <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-09/" class="next" rel="next" title="第08讲：Flink 窗口、时间和水印">第08讲：Flink 窗口、时间和水印&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'x7pm7dmsSic3jIybmioy4bXL-gzGzoHsz',
+      appKey: 'f71HjUun9ruMAsDIVluNJLgR',
+      notify: 'false', 
+      verify: 'false', 
+      avatar:'mm', 
+      placeholder: '说点什么吧...',
+      visitor: 'true'
+  });
+</script>
+    </div>
+
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2015 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://xiaohao890809.github.io">追寻原风景</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
