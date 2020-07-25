@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="追寻原风景">
+  
+  
+  
+  <link rel="prev" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-18/" />
+  <link rel="next" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-20/" />
+  <link rel="canonical" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-19/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           第18讲：如何进行生产环境作业监控 | 枕霞惜友
+       
+  </title>
+  <meta name="title" content="第18讲：如何进行生产环境作业监控 | 枕霞惜友">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/xiaohao890809.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "第18讲：如何进行生产环境作业监控",
+    "headline" : "第18讲：如何进行生产环境作业监控",
+    "description" : "本课时主要讲解如何进行生产环境作业监控。\n在第 15 课时“如何排查生产环境中的反压问题”中提到过我们应该如何发现任务是否出现反压，Flink 的后台页面是我们发现反压问题的第一选择，其后台页面可以直观、清晰地看到当前作业的运行状态。\n在实际生产中，Flink 的后台页面可以方便我们对 Flink JobManager、TaskManager、执行计划、Slot 分配、是否反压等参数进行定位，对单个任务来讲可以方便地进行问题排查。\n但是，对于很多大中型企业来讲，我们对进群的作业进行管理时，更多的是关心作业精细化实时运行状态。例如，实时吞吐量的同比环比、整个集群的任务运行概览、集群水位，或者监控利用 Flink 实现的 ETL 框架的运行情况等，这时候就需要设计专门的监控系统来监控集群的任务作业情况。\nFlink Metrics 针对上面的情况，我们就用了 Flink 提供的另一个强大的功能：Flink Metrics。\nFlink Metrics 是 Flink 实现的一套运行信息收集库，我们不但可以收集 Flink 本身提供的系统指标，比如 CPU、内存、线程使用情况、JVM 垃圾收集情况、网络和 IO 等，还可以通过继承和实现指定的类或者接口打点收集用户自定义的指标。\n通过使用 Flink Metrics 我们可以轻松地做到：\n 实时采集 Flink 中的 Metrics 信息或者自定义用户需要的指标信息并进行展示； 通过 Flink 提供的 Rest API 收集这些信息，并且接入第三方系统进行展示。  Flink Metrics 分类 Flink 提供了四种类型的监控指标，分别是：Counter、Gauge、Histogram、Meter。\nCounter Counter 称为计数器，一般用来统计其中一个指标的总量，比如统计数据的输入、输出总量。\npublic class MyMapper extends RichMapFunction\u0026lt;String, String\u0026gt; { private transient Counter counter; @Override public void open(Configuration config) { this.",
+    "inLanguage" : "en-us",
+    "author" : "王知无",
+    "creator" : "王知无",
+    "publisher": "王知无",
+    "accountablePerson" : "王知无",
+    "copyrightHolder" : "王知无",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-20 10:30:48 \u002b0000 UTC",
+    "dateModified" : "2020-07-20 10:30:48 \u002b0000 UTC",
+    "url" : "https:\/\/xiaohao890809.github.io\/2020\/2020-07-20-the-lessons-of-flink-19\/",
+    "wordCount" : "676",
+    "keywords" : [ "42讲轻松通关Flink", "枕霞惜友"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://xiaohao890809.github.io">枕霞惜友</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">第18讲：如何进行生产环境作业监控</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://xiaohao890809.github.io" rel="author">王知无</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-07-20 itemprop="datePublished">July 20, 2020</time>
+                </span>
+                
+        </div>
+    </header>
+
+    
+          <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#flink-metrics">Flink Metrics</a></li>
+    <li><a href="#flink-metrics-分类">Flink Metrics 分类</a>
+      <ul>
+        <li><a href="#counter">Counter</a></li>
+        <li><a href="#gauge">Gauge</a></li>
+        <li><a href="#meter">Meter</a></li>
+        <li><a href="#histogram">Histogram</a></li>
+      </ul>
+    </li>
+    <li><a href="#源码分析">源码分析</a></li>
+    <li><a href="#获取-metrics">获取 Metrics</a>
+      <ul>
+        <li><a href="#flink-http-接口">Flink HTTP 接口</a></li>
+        <li><a href="#flink-reporter">Flink Reporter</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+<script type="text/javascript">
+  window.onload = function () {
+    var fix = $('.post-toc');
+    var end = $('.post-comment');
+    var fixTop = fix.offset().top, fixHeight = fix.height();
+    var endTop, miss;
+    var offsetTop = fix[0].offsetTop;
+    $(window).scroll(function () {
+      var docTop = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+      if (end.length > 0) {
+        endTop = end.offset().top;
+        miss = endTop - docTop - fixHeight;
+      }
+      if (fixTop < docTop) {
+        fix.css({ 'position': 'fixed' });
+        if ((end.length > 0) && (endTop < (docTop + fixHeight))) {
+          fix.css({ top: miss });
+        } else {
+          fix.css({ top: 0 });
+        }
+      } else {
+        fix.css({ 'position': 'absolute' });
+        fix.css({ top: offsetTop });
+      }
+    })
+  }
+</script> 
+    
+
+    <script type="text/javascript">
+            window.MathJax = {
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            TeX: {equationNumbers: {autoNumber: "AMS"}},
+            showProcessingMessages: false,
+            messageStyle: 'none'
+        };
+   </script>
+
+    <script type="text/javascript" async src="/lib/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>本课时主要讲解如何进行生产环境作业监控。</p>
+<p>在第 15 课时“如何排查生产环境中的反压问题”中提到过我们应该如何发现任务是否出现反压，Flink 的后台页面是我们发现反压问题的第一选择，其后台页面可以直观、清晰地看到当前作业的运行状态。</p>
+<p>在实际生产中，Flink 的后台页面可以方便我们对 Flink JobManager、TaskManager、执行计划、Slot 分配、是否反压等参数进行定位，对单个任务来讲可以方便地进行问题排查。</p>
+<p>但是，对于很多大中型企业来讲，我们对进群的作业进行管理时，更多的是关心作业精细化实时运行状态。例如，实时吞吐量的同比环比、整个集群的任务运行概览、集群水位，或者监控利用 Flink 实现的 ETL 框架的运行情况等，这时候就需要设计专门的监控系统来监控集群的任务作业情况。</p>
+<h2 id="flink-metrics">Flink Metrics</h2>
+<p>针对上面的情况，我们就用了 Flink 提供的另一个强大的功能：Flink Metrics。</p>
+<p>Flink Metrics 是 Flink 实现的一套运行信息收集库，我们不但可以收集 Flink 本身提供的系统指标，比如 CPU、内存、线程使用情况、JVM 垃圾收集情况、网络和 IO 等，还可以通过继承和实现指定的类或者接口打点收集用户自定义的指标。</p>
+<p>通过使用 Flink Metrics 我们可以轻松地做到：</p>
+<ul>
+<li>实时采集 Flink 中的 Metrics 信息或者自定义用户需要的指标信息并进行展示；</li>
+<li>通过 Flink 提供的 Rest API 收集这些信息，并且接入第三方系统进行展示。</li>
+</ul>
+<h2 id="flink-metrics-分类">Flink Metrics 分类</h2>
+<p>Flink 提供了四种类型的监控指标，分别是：Counter、Gauge、Histogram、Meter。</p>
+<h3 id="counter">Counter</h3>
+<p>Counter 称为计数器，一般用来统计其中一个指标的总量，比如统计数据的输入、输出总量。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyMapper</span> <span style="color:#66d9ef">extends</span> RichMapFunction<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">transient</span> Counter counter<span style="color:#f92672">;</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">open</span><span style="color:#f92672">(</span>Configuration config<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">counter</span> <span style="color:#f92672">=</span> getRuntimeContext<span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">getMetricGroup</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">counter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyCounter&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>String value<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">counter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">inc</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">return</span> value<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="gauge">Gauge</h3>
+<p>Gauge 被用来统计某一个指标的瞬时值。举个例子，我们在监控 Flink 中某一个节点的内存使用情况或者某个 map 算子的输出值数量。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyMapper</span> <span style="color:#66d9ef">extends</span> RichMapFunction<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">transient</span> <span style="color:#66d9ef">int</span> valueNumber <span style="color:#f92672">=</span> 0L<span style="color:#f92672">;</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">open</span><span style="color:#f92672">(</span>Configuration config<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    getRuntimeContext<span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">getMetricGroup</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">gauge</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyGauge&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> Gauge<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> Long <span style="color:#a6e22e">getValue</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">return</span> valueNumber<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+      <span style="color:#f92672">});</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>String value<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+    valueNumber<span style="color:#f92672">++;</span>
+    <span style="color:#66d9ef">return</span> value<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="meter">Meter</h3>
+<p>Meter 被用来计算一个指标的平均值。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyMapper</span> <span style="color:#66d9ef">extends</span> RichMapFunction<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> Meter meter<span style="color:#f92672">;</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">open</span><span style="color:#f92672">(</span>Configuration config<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">meter</span> <span style="color:#f92672">=</span> getRuntimeContext<span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">getMetricGroup</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">meter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;myMeter&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> MyMeter<span style="color:#f92672">());</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#a6e22e">@public</span> Integer <span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>Long value<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">meter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">markEvent</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="histogram">Histogram</h3>
+<p>Histogram 是直方图，Flink 中属于直方图的指标非常少，它通常被用来计算指标的最大值、最小值、中位数等。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyMapper</span> <span style="color:#66d9ef">extends</span> RichMapFunction<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> Histogram histogram<span style="color:#f92672">;</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">open</span><span style="color:#f92672">(</span>Configuration config<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">histogram</span> <span style="color:#f92672">=</span> getRuntimeContext<span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">getMetricGroup</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">histogram</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;myHistogram&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> MyHistogram<span style="color:#f92672">());</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#a6e22e">@public</span> Integer <span style="color:#a6e22e">map</span><span style="color:#f92672">(</span>Long value<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">histogram</span><span style="color:#f92672">.</span><span style="color:#a6e22e">update</span><span style="color:#f92672">(</span>value<span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>这里需要特别指出的是，Flink 中的 Metrics 是一个多层的结构，以 Group 的方式存在，我们用来定位唯一的一个 Metrics 是通过 Metric Group + Metric Name 的方式。</p>
+<h2 id="源码分析">源码分析</h2>
+<p>Flink Metrics 相关的实现都是通过 org.apache.flink.metrics.Metric 这个类实现的，整体的类图如下所示：</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E6%95%B4%E4%BD%93%E7%9A%84%E7%B1%BB%E5%9B%BE.png" data-sizes="auto" alt="整体的类图" title="整体的类图" class="lazyload"><figcaption class="image-caption">整体的类图</figcaption></figure></p>
+<p>为了方便对 Metrics 进行管理和分类，Flink 提供了对 Metrics 进行分组的功能，这个功能是通过下图中 MetricGroup 实现的，在图中可以看到 MetricGroup 相关的子类的继承关系。</p>
+<p><figure><img src="/images/ring.svg" data-src="/images/%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB.png" data-sizes="auto" alt="继承关系" title="继承关系" class="lazyload"><figcaption class="image-caption">继承关系</figcaption></figure></p>
+<p>此外，Flink 还提供了向外披露 Metric 的监测结果的接口，该接口是 org.apache.flink.metrics.reporter.MetricReporter。这个接口的实现类通过 Metrics 的类型进行注册和移除。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AbstractReporter</span> <span style="color:#66d9ef">implements</span> MetricReporter<span style="color:#f92672">,</span> CharacterFilter <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">final</span> Logger log <span style="color:#f92672">=</span> LoggerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">());</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">final</span> Map<span style="color:#f92672">&lt;</span>Gauge<span style="color:#f92672">&lt;?&gt;,</span> String<span style="color:#f92672">&gt;</span> gauges <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">final</span> Map<span style="color:#f92672">&lt;</span>Counter<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> counters <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">final</span> Map<span style="color:#f92672">&lt;</span>Histogram<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> histograms <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">final</span> Map<span style="color:#f92672">&lt;</span>Meter<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> meters <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">AbstractReporter</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notifyOfAddedMetric</span><span style="color:#f92672">(</span>Metric metric<span style="color:#f92672">,</span> String metricName<span style="color:#f92672">,</span> MetricGroup group<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        String name <span style="color:#f92672">=</span> group<span style="color:#f92672">.</span><span style="color:#a6e22e">getMetricIdentifier</span><span style="color:#f92672">(</span>metricName<span style="color:#f92672">,</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">synchronized</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>metric <span style="color:#66d9ef">instanceof</span> Counter<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">counters</span><span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">((</span>Counter<span style="color:#f92672">)</span>metric<span style="color:#f92672">,</span> name<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>metric <span style="color:#66d9ef">instanceof</span> Gauge<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">gauges</span><span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">((</span>Gauge<span style="color:#f92672">)</span>metric<span style="color:#f92672">,</span> name<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>metric <span style="color:#66d9ef">instanceof</span> Histogram<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">histograms</span><span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">((</span>Histogram<span style="color:#f92672">)</span>metric<span style="color:#f92672">,</span> name<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>metric <span style="color:#66d9ef">instanceof</span> Meter<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">meters</span><span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">((</span>Meter<span style="color:#f92672">)</span>metric<span style="color:#f92672">,</span> name<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">.</span><span style="color:#a6e22e">warn</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Cannot add unknown metric type {}. This indicates that the reporter does not support this metric type.&#34;</span><span style="color:#f92672">,</span> metric<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notifyOfRemovedMetric</span><span style="color:#f92672">(</span>Metric metric<span style="color:#f92672">,</span> String metricName<span style="color:#f92672">,</span> MetricGroup group<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">synchronized</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>metric <span style="color:#66d9ef">instanceof</span> Counter<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">counters</span><span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>metric<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>metric <span style="color:#66d9ef">instanceof</span> Gauge<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">gauges</span><span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>metric<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>metric <span style="color:#66d9ef">instanceof</span> Histogram<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">histograms</span><span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>metric<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>metric <span style="color:#66d9ef">instanceof</span> Meter<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">meters</span><span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>metric<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">.</span><span style="color:#a6e22e">warn</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Cannot remove unknown metric type {}. This indicates that the reporter does not support this metric type.&#34;</span><span style="color:#f92672">,</span> metric<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">());</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="获取-metrics">获取 Metrics</h2>
+<p>获取 Metrics 的方法有多种，首先我们可以通过 Flink 的后台管理页面看到部分指标；其次可以通过 Flink 提供的 Http 接口查询 Flink 任务的状态信息，因为 Flink Http 接口返回的都是 Json 信息，我们可以很方便地将 Json 进行解析；最后一种方法是，我们可以通过 Metric Reporter 获取。下面分别对这两者进行详细讲解。</p>
+<h3 id="flink-http-接口">Flink HTTP 接口</h3>
+<p>Flink 提供了丰富的接口来协助我们查询 Flink 中任务运行的状态，所有的请求都可以通过访问</p>
+<p>http://hostname:8081/ 加指定的 URI 方式查询，Flink 支持的所有 HTTP 接口你都可以点击<a href="https://ci.apache.org/projects/flink/flink-docs-release-1.10/monitoring/rest_api.html">这里</a>查询到。</p>
+<p>Flink 支持的接口包括：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">/</span>config
+<span style="color:#f92672">/</span>overview
+<span style="color:#f92672">/</span>jobs
+<span style="color:#f92672">/</span>joboverview<span style="color:#f92672">/</span>running
+<span style="color:#f92672">/</span>joboverview<span style="color:#f92672">/</span>completed
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>vertices
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>config
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>exceptions
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>accumulators
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>vertices<span style="color:#f92672">/&lt;</span>vertexid<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>vertices<span style="color:#f92672">/&lt;</span>vertexid<span style="color:#f92672">&gt;/</span>subtasktimes
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>vertices<span style="color:#f92672">/&lt;</span>vertexid<span style="color:#f92672">&gt;/</span>taskmanagers
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>vertices<span style="color:#f92672">/&lt;</span>vertexid<span style="color:#f92672">&gt;/</span>accumulators
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>vertices<span style="color:#f92672">/&lt;</span>vertexid<span style="color:#f92672">&gt;/</span>subtasks<span style="color:#f92672">/</span>accumulators
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>vertices<span style="color:#f92672">/&lt;</span>vertexid<span style="color:#f92672">&gt;/</span>subtasks<span style="color:#f92672">/&lt;</span>subtasknum<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>vertices<span style="color:#f92672">/&lt;</span>vertexid<span style="color:#f92672">&gt;/</span>subtasks<span style="color:#f92672">/&lt;</span>subtasknum<span style="color:#f92672">&gt;/</span>attempts<span style="color:#f92672">/&lt;</span>attempt<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>vertices<span style="color:#f92672">/&lt;</span>vertexid<span style="color:#f92672">&gt;/</span>subtasks<span style="color:#f92672">/&lt;</span>subtasknum<span style="color:#f92672">&gt;/</span>attempts<span style="color:#f92672">/&lt;</span>attempt<span style="color:#f92672">&gt;/</span>accumulators
+<span style="color:#f92672">/</span>jobs<span style="color:#f92672">/&lt;</span>jobid<span style="color:#f92672">&gt;/</span>plan
+<span style="color:#f92672">/</span>jars<span style="color:#f92672">/</span>upload
+<span style="color:#f92672">/</span>jars
+<span style="color:#f92672">/</span>jars<span style="color:#f92672">/:</span>jarid
+<span style="color:#f92672">/</span>jars<span style="color:#f92672">/:</span>jarid<span style="color:#f92672">/</span>plan
+<span style="color:#f92672">/</span>jars<span style="color:#f92672">/:</span>jarid<span style="color:#f92672">/</span>run
+</code></pre></div><p>举个例子，我们可以通过查询 /joboverview 访问集群中所有任务的概览，结果类似如下形式：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;running&#34;</span><span style="color:#f92672">:[],</span>
+  <span style="color:#e6db74">&#34;finished&#34;</span><span style="color:#f92672">:[</span>
+    <span style="color:#f92672">{</span>
+      <span style="color:#e6db74">&#34;jid&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;7684be6004e4e955c2a558a9bc463f65&#34;</span><span style="color:#f92672">,</span>
+      <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Flink Java Job at Wed Sep 16 18:08:21 CEST 2015&#34;</span><span style="color:#f92672">,</span>
+      <span style="color:#e6db74">&#34;state&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;FINISHED&#34;</span><span style="color:#f92672">,</span>
+      <span style="color:#e6db74">&#34;start-time&#34;</span><span style="color:#f92672">:</span> 1442419702857<span style="color:#f92672">,</span>
+      <span style="color:#e6db74">&#34;end-time&#34;</span><span style="color:#f92672">:</span> 1442419975312<span style="color:#f92672">,</span>
+      <span style="color:#e6db74">&#34;duration&#34;</span><span style="color:#f92672">:</span>272455<span style="color:#f92672">,</span>
+      <span style="color:#e6db74">&#34;last-modification&#34;</span><span style="color:#f92672">:</span> 1442419975312<span style="color:#f92672">,</span>
+      <span style="color:#e6db74">&#34;tasks&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">{</span>
+         <span style="color:#e6db74">&#34;total&#34;</span><span style="color:#f92672">:</span> 6<span style="color:#f92672">,</span>
+         <span style="color:#e6db74">&#34;pending&#34;</span><span style="color:#f92672">:</span> 0<span style="color:#f92672">,</span>
+         <span style="color:#e6db74">&#34;running&#34;</span><span style="color:#f92672">:</span> 0<span style="color:#f92672">,</span>
+         <span style="color:#e6db74">&#34;finished&#34;</span><span style="color:#f92672">:</span> 6<span style="color:#f92672">,</span>
+         <span style="color:#e6db74">&#34;canceling&#34;</span><span style="color:#f92672">:</span> 0<span style="color:#f92672">,</span>
+         <span style="color:#e6db74">&#34;canceled&#34;</span><span style="color:#f92672">:</span> 0<span style="color:#f92672">,</span>
+         <span style="color:#e6db74">&#34;failed&#34;</span><span style="color:#f92672">:</span> 0
+      <span style="color:#f92672">}</span>
+    <span style="color:#f92672">},</span>
+    <span style="color:#f92672">{</span>
+      <span style="color:#e6db74">&#34;jid&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;49306f94d0920216b636e8dd503a6409&#34;</span><span style="color:#f92672">,</span>
+      <span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Flink Java Job at Wed Sep 16 18:16:39 CEST 2015&#34;</span><span style="color:#f92672">,</span>
+      <span style="color:#f92672">...</span>
+    <span style="color:#f92672">}]</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="flink-reporter">Flink Reporter</h3>
+<p>Flink 还提供了很多内置的 Reporter，这些 Reporter 在 Flink 的<a href="https://ci.apache.org/projects/flink/flink-docs-release-1.10/monitoring/metrics.html#reporter">官网</a>中可以查询到。</p>
+<p>例如，Flink 提供了 Graphite、InfluxDB、Prometheus 等内置的 Reporter，我们可以方便地对这些外部系统进行集成。关于它们的详细配置也可以在 Flink 官网的详情页面中看到。</p>
+<p>这里我们举一个 Flink 和 InfluxDB、Grafana 集成进行 Flink 集群任务监控的案例。在这个监控系统中，InfluxDB 扮演了 Flink 中监控数据存储者的角色，Grafana 则扮演了数据展示者的角色。</p>
+<ul>
+<li>InfluxDB 的安装</li>
+</ul>
+<blockquote>
+<p>InfluxDB 是一个由 InfluxData 开发的开源时序型数据，由 Go 写成，着力于高性能地查询与存储时序型数据。InfluxDB 被广泛应用于存储系统的监控数据，IoT 行业的实时数据等场景。</p>
+</blockquote>
+<p>InfluxDB 的安装过程很简单，我们不在这里赘述了，需要注意的事项是修改 InfluxDB 的配置 /etc/influxdb/influxdb.conf：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">[</span>admin<span style="color:#f92672">]</span>
+   enabled <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+   bind<span style="color:#f92672">-</span>address <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;:8083&#34;</span>
+</code></pre></div><p>我们就可以通过 8083 端口打开 InfluxDB 的控制台了。</p>
+<p>Grafana 的安装</p>
+<p><a href="https://grafana.com/docs/grafana/latest/installation/rpm/">安装可以直接点击这里参考官网说明</a>，Grafana 的默认账号和密码分别是 admin、admin，可以通过 3000 端口进行访问。</p>
+<p>修改 flink-conf.yaml</p>
+<p>我们需要在 flink 的配置文件中新增以下配置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">metrics<span style="color:#f92672">.</span><span style="color:#a6e22e">reporter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">influxdb</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">:</span> org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">flink</span><span style="color:#f92672">.</span><span style="color:#a6e22e">metrics</span><span style="color:#f92672">.</span><span style="color:#a6e22e">influxdb</span><span style="color:#f92672">.</span><span style="color:#a6e22e">InfluxdbReporter</span>
+metrics<span style="color:#f92672">.</span><span style="color:#a6e22e">reporter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">influxdb</span><span style="color:#f92672">.</span><span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> xxx<span style="color:#f92672">.</span><span style="color:#a6e22e">xxx</span><span style="color:#f92672">.</span><span style="color:#a6e22e">xxx</span><span style="color:#f92672">.</span><span style="color:#a6e22e">xxx</span>
+metrics<span style="color:#f92672">.</span><span style="color:#a6e22e">reporter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">influxdb</span><span style="color:#f92672">.</span><span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> 8086
+metrics<span style="color:#f92672">.</span><span style="color:#a6e22e">reporter</span><span style="color:#f92672">.</span><span style="color:#a6e22e">influxdb</span><span style="color:#f92672">.</span><span style="color:#a6e22e">db</span><span style="color:#f92672">:</span> flink
+</code></pre></div><p>同时，将 flink-metrics-influxdb-1.10.0.jar 这个包复制到 flink 的 /lib 目录下，然后启动 Flink。
+我们就可以在 Grafana 中看到 Metrics 信息了。</p>
+<p>事实上，常用的 Flink 实时监控大盘包括但不限于：Prometheus+Grafana、Flink 日志接入 ELK等可以供用户选择。结合易用性、稳定性和接入成本，综合考虑，我们推荐实际监控中可以采用 Prometheus/InfluxDB+Grafana 相配合的方式。</p>
+<h2 id="总结">总结</h2>
+<p>这一课时我们讲解了 Flink Metrics 指标的分类，并且从源码层面介绍了 Flink Metrics 的实现原理，最后还讲解了 Flink 监控这个 Metrics 的方式。我们在实际生产中应该灵活选取合适的监控方法，搭建自己的 Flink 任务监控大盘。</p>
+<p><a href="https://github.com/wangzhiwubigdata/quickstart">点击这里下载本课程源码</a>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>追寻原风景 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-19/>https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-19/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://xiaohao890809.github.io/tags/42%E8%AE%B2%E8%BD%BB%E6%9D%BE%E9%80%9A%E5%85%B3flink/">
+                    #42讲轻松通关Flink</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://xiaohao890809.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-18/" class="prev" rel="prev" title="第17讲：生产环境中的并行度和资源设置"><i class="iconfont icon-left"></i>&nbsp;第17讲：生产环境中的并行度和资源设置</a>
+         
+        
+        <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-20/" class="next" rel="next" title="第19讲：Flink 如何做维表关联">第19讲：Flink 如何做维表关联&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+    </div>
+
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2015 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://xiaohao890809.github.io">追寻原风景</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

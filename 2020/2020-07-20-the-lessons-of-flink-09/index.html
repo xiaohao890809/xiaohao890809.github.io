@@ -10,7 +10,7 @@
   
   
   <link rel="prev" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-08/" />
-  
+  <link rel="next" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-10/" />
   <link rel="canonical" href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-09/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -151,6 +151,7 @@
     </li>
     <li><a href="#水印种类">水印种类</a>
       <ul>
+        <li><a href="#周期性水印">周期性水印</a></li>
         <li><a href="#punctuatedwatermark-水印">PunctuatedWatermark 水印</a></li>
       </ul>
     </li>
@@ -317,7 +318,7 @@ EventTime 每条数据都携带时间戳；</p>
 <p>整体的类图如下：</p>
 <p><figure><img src="/images/ring.svg" data-src="/images/%E7%B1%BB%E5%9B%BE.png" data-sizes="auto" alt="类图" title="类图" class="lazyload"><figcaption class="image-caption">类图</figcaption></figure></p>
 <h2 id="水印种类">水印种类</h2>
-<p>###周期性水印</p>
+<h3 id="周期性水印">周期性水印</h3>
 <p>我们在使用 AssignerWithPeriodicWatermarks 周期生成水印时，周期默认的时间是 200ms，这个时间的指定位置为：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@PublicEvolving</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setStreamTimeCharacteristic</span><span style="color:#f92672">(</span>TimeCharacteristic characteristic<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -539,27 +540,13 @@ flink<span style="color:#f92672">,</span>1588659195000
         <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-08/" class="prev" rel="prev" title="第07讲：Flink 常见核心概念分析"><i class="iconfont icon-left"></i>&nbsp;第07讲：Flink 常见核心概念分析</a>
          
         
+        <a href="https://xiaohao890809.github.io/2020/2020-07-20-the-lessons-of-flink-10/" class="next" rel="next" title="第09讲：Flink 状态与容错">第09讲：Flink 状态与容错&nbsp;<i class="iconfont icon-right"></i></a>
+        
     </div>
 
     <div class="post-comment">
         
         
-
-<div id="vcomments"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script type="text/javascript">
-  new Valine({
-      el: '#vcomments' ,
-      appId: 'x7pm7dmsSic3jIybmioy4bXL-gzGzoHsz',
-      appKey: 'f71HjUun9ruMAsDIVluNJLgR',
-      notify: 'false', 
-      verify: 'false', 
-      avatar:'mm', 
-      placeholder: '说点什么吧...',
-      visitor: 'true'
-  });
-</script>
     </div>
 
 </article>
