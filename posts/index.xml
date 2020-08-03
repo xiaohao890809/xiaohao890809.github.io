@@ -6,48 +6,10 @@
     <description>Recent content in Posts on 枕霞惜友</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jul 2020 17:02:41 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2020 15:20:41 +0000</lastBuildDate>
     
 	<atom:link href="https://xiaohao890809.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>数据仓库之范式理论</title>
-      <link>https://xiaohao890809.github.io/2020/2020-07-13-the-concept-of-fanshi/</link>
-      <pubDate>Mon, 13 Jul 2020 17:02:41 +0000</pubDate>
-      
-      <guid>https://xiaohao890809.github.io/2020/2020-07-13-the-concept-of-fanshi/</guid>
-      <description>范式概念 关系型数据库设计时，遵照一定的规范要求，目的在于降低数据的冗余性，目前业界范式有：第一范式(1NF)、 第二范式(2NF)、 第三范式(3NF)等。
-使用范式的根本目的是：
- 减少数据冗余，尽量让每个数据只出现一次 保证数据一致性  缺点是获取数据时，需要通过 join 拼接出最后的数据。
-函数依赖    学号 姓名 系名 系主任 课程 分数     1 小明 经济系 王强 高等数据 95   1 小明 经济系 王强 大学英语 87   1 小明 经济系 王强 普通化学 76   2 小莉 经济系 王强 高等数据 72   2 小莉 经济系 王强 大学英语 98   2 小莉 经济系 王强 计算机 88   3 小芳 法律系 刘玲 高等数学 82   3 小芳 法律系 刘玲 法学基础 82    完全函数依赖 (学号，课程)推出分数，但是单独用学号推断不出来分数，那么就可以说：分数完全依赖于(学号，课程)。</description>
-    </item>
-    
-    <item>
-      <title>B站优秀Up主记录</title>
-      <link>https://xiaohao890809.github.io/2020/2020-07-10-the-up-of-bilibili/</link>
-      <pubDate>Fri, 10 Jul 2020 23:11:41 +0000</pubDate>
-      
-      <guid>https://xiaohao890809.github.io/2020/2020-07-10-the-up-of-bilibili/</guid>
-      <description>高校类 华中科技大学  首页 2018-12-17 致敬所有在考研路上的逐梦人 2018-06-15 2018华中科技大学原创毕业主题曲MV —— 年少路远，远方再见 2018-06-10 这一次，笑着离开【2018华中科技大学毕业季大电影】《同学，帮帮忙》首映预告出炉！ 2018-03-07 2018女生节 | 看完这个采访的女生都哭了 2018-03-02 【IN HUST】——情深不自知 2018-02-28 【华中科技大学2018毕业电影】花絮|二轮试镜 2018-02-28 【2018华中科技大学毕业电影】花絮|演员大骗局 2017-11-11 一首《华科男，别哭》送给大家 | 双十一献礼 2017-09-15 「授权填词翻唱」愿得一人心HUST版 毕业献礼，祝愿你半生归来还是那个人 2017-09-15 江城几处清佳，喻山共赏「玉兰辞」 2017-09-15 妈妈，我想对你说…… 2017-09-15 「小科街采」震惊！HUSTer了解华师居然是因为…… 2017-09-15 高考加油，我们在HUST等你  </description>
-    </item>
-    
-    <item>
-      <title>中华经典唐诗之王维</title>
-      <link>https://xiaohao890809.github.io/2020/2020-07-11-the-poem-of-wangwei/</link>
-      <pubDate>Fri, 10 Jul 2020 23:11:41 +0000</pubDate>
-      
-      <guid>https://xiaohao890809.github.io/2020/2020-07-11-the-poem-of-wangwei/</guid>
-      <description>王维（701－761年，一说699－761年），字摩诘，号摩诘居士。河东蒲州（今山西运城）人，祖籍山西祁县。唐朝诗人、画家。
-送 别  下马饮君酒，问君何所之？
-君言不得意，归卧南山陲。
-但去莫复问，白云无尽时。
- 山居秋暝  空山新雨后，天气晚来秋。
-明月松间照，清泉石上流。
-竹喧归浣女，莲动下渔舟。
-随意春芳歇，王孙自可留。
- 参考文献  诗词名句网——王维  </description>
-    </item>
     
     <item>
       <title>英语单词记忆</title>
@@ -67,19 +29,6 @@ E开头的 exotic n. 外来的，奇异的，醒目的，吸引人的
 P开头的 privilege n. 特权，优惠 vt. 给予特权，特别优待 
 eg. Education is not a privilege of some people, but a right of all citizens.
 受教育不是某些人的特权，而是所有公民的权利。</description>
-    </item>
-    
-    <item>
-      <title>数据开发岗位面试准备</title>
-      <link>https://xiaohao890809.github.io/2020/2020-07-04-the-jd-of-data-analysis/</link>
-      <pubDate>Sat, 04 Jul 2020 21:01:41 +0000</pubDate>
-      
-      <guid>https://xiaohao890809.github.io/2020/2020-07-04-the-jd-of-data-analysis/</guid>
-      <description>存储过程 什么是存储过程？  存储过程是一个预编译的 SQL 语句 优点是允许模块化的设计，就是说只需创建一次，以后在该程序中就可以调用多次 如果某次操作需要执行多次 SQL，使用存储过程比单纯 SQL 语句执行要快  用什么来调用？  可以用一个命令对象来调用存储过程 可以供外部程序调用，比如：java 程序  存储过程的优缺点？ 优点：
- 存储过程是预编译过的，执行效率高 存储过程的代码直接存放于数据库中，通过存储过程名直接调用，减少网络通讯 安全性高，执行存储过程需要有一定权限的用户 存储过程可以重复使用，可减少数据库开发人员的工作量  缺点：
- 移植性差 过程化编程，复杂业务处理的维护成本高 调试不便  hive 分区和分桶的区别 分区 partition
- 划分数据集，通过分区减少每次扫描的总数据量 分区使用 hdfs 的子目录功能实现，每个子目录都包含了分区对应的列名和每一列的值，但是 hdfs 并不支持大量的子目录，所以分区的数量是有限制的，要先对表中分区数量进行预估，从而避免分区数量过大带来的问题 分区的划分是非随机的  分桶 bucket
- 在分区数量过于庞大以至于可能导致文件系统崩溃时使用分桶来解决问题 分桶是通过对指定列进行哈希计算来实现，使用列的哈希值对数据打散，然后分发到不同的桶中从而完成数据的分桶 在数据量够大的情况下，分桶比分区更有查询效率 分桶的划分是随机的  </description>
     </item>
     
     <item>
