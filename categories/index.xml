@@ -1,58 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on 枕霞惜友</title>
-    <link>https://xiaohao890809.github.io/categories/</link>
-    <description>Recent content in Categories on 枕霞惜友</description>
+    <title>Categories on 追寻原风景</title>
+    <link>http://xiaohao890809.github.io/categories/</link>
+    <description>Recent content in Categories on 追寻原风景</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jul 2020 15:20:41 +0000</lastBuildDate>
-    
-	<atom:link href="https://xiaohao890809.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Rise. 本站遵循 CC-BY-NC 4.0 协议</copyright>
+    <lastBuildDate>Thu, 14 Nov 2019 11:25:05 -0400</lastBuildDate><atom:link href="http://xiaohao890809.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>英语</title>
-      <link>https://xiaohao890809.github.io/categories/%E8%8B%B1%E8%AF%AD/</link>
-      <pubDate>Thu, 09 Jul 2020 15:20:41 +0000</pubDate>
+      <title>Chinese</title>
+      <link>http://xiaohao890809.github.io/categories/chinese/</link>
+      <pubDate>Thu, 14 Nov 2019 11:25:05 -0400</pubDate>
       
-      <guid>https://xiaohao890809.github.io/categories/%E8%8B%B1%E8%AF%AD/</guid>
+      <guid>http://xiaohao890809.github.io/categories/chinese/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>牛客</title>
-      <link>https://xiaohao890809.github.io/categories/%E7%89%9B%E5%AE%A2/</link>
-      <pubDate>Tue, 30 Jun 2020 21:43:41 +0000</pubDate>
+      <title>Todo</title>
+      <link>http://xiaohao890809.github.io/categories/todo/</link>
+      <pubDate>Sun, 18 Mar 2018 02:01:58 +0530</pubDate>
       
-      <guid>https://xiaohao890809.github.io/categories/%E7%89%9B%E5%AE%A2/</guid>
+      <guid>http://xiaohao890809.github.io/categories/todo/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>数学</title>
-      <link>https://xiaohao890809.github.io/categories/%E6%95%B0%E5%AD%A6/</link>
-      <pubDate>Wed, 07 Mar 2018 23:54:23 +0000</pubDate>
+      <title>Story</title>
+      <link>http://xiaohao890809.github.io/categories/story/</link>
+      <pubDate>Fri, 14 Apr 2017 11:25:05 -0400</pubDate>
       
-      <guid>https://xiaohao890809.github.io/categories/%E6%95%B0%E5%AD%A6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>技术</title>
-      <link>https://xiaohao890809.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
-      <pubDate>Thu, 01 Mar 2018 22:53:23 +0000</pubDate>
-      
-      <guid>https://xiaohao890809.github.io/categories/%E6%8A%80%E6%9C%AF/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>生活</title>
-      <link>https://xiaohao890809.github.io/categories/%E7%94%9F%E6%B4%BB/</link>
-      <pubDate>Tue, 26 Sep 2017 10:45:23 +0000</pubDate>
-      
-      <guid>https://xiaohao890809.github.io/categories/%E7%94%9F%E6%B4%BB/</guid>
+      <guid>http://xiaohao890809.github.io/categories/story/</guid>
       <description></description>
     </item>
     
