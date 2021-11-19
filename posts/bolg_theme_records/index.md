@@ -100,7 +100,6 @@ comment:
 #comments {
   padding: 8rem 0 2rem;
 }
-
 ```
 
 将 `8rem` 改为 `0rem`
@@ -153,19 +152,6 @@ comment:
 一个 **技巧** 横幅
 {{< /admonition >}}	
 
-## 自定义向右
-
-```markdown
-{?{}{?{}< style "text-align:right; strong{color:#00b1ff;}" >{?}}{?}}
-This is a **right-aligned** paragraph.
-{?{}{?{}< /style >{?}}{?}}
-```
-
-效果：  
-
-{{< style "text-align:right; strong{color:#00b1ff;}" >}}
-This is a **right-aligned** paragraph.
-{{< /style >}}
 
 
 
