@@ -51,6 +51,12 @@ comment:
    enable: false
 ```
 
+`文章底部显示license`
+
+```markdown
+在文章钱的配置加上license: "<a rel='license external nofollow noopener noreffer' href='https://creativecommons.org/licenses/by-nc/4.0/' target='_blank'>CC BY-NC 4.0</a>"
+```
+
 ## gitalk的bug
 
 参考 [问题来源](https://github.com/dillonzq/LoveIt/issues/623) 这里修改对应的信息
