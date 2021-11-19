@@ -1,23 +1,16 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Dillon</title>
+        <title>追寻原风景的博客</title>
         <link>https://xiaohao890809.github.io/</link>
-        <description>Dillon</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 17 Nov 2021 19:08:12 &#43;0800</lastBuildDate>
+        <description>追寻原风景的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 17 Nov 2021 16:37:32 &#43;0000</lastBuildDate>
             <atom:link href="https://xiaohao890809.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>主题文档 - 基本概念</title>
-    <link>https://xiaohao890809.github.io/posts/theme-documentation-basics/</link>
-    <pubDate>Fri, 06 Mar 2020 21:40:32 &#43;0800</pubDate>
+    <title>博客主题的相关记录</title>
+    <link>https://xiaohao890809.github.io/posts/bolg_theme_records/</link>
+    <pubDate>Wed, 17 Nov 2021 16:37:32 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://xiaohao890809.github.io/posts/theme-documentation-basics/</guid>
-    <description><![CDATA[<p>探索 Hugo - <strong>LoveIt</strong> 主题的全部内容和背后的核心概念.</p>]]></description>
-</item><item>
-    <title>First_post</title>
-    <link>https://xiaohao890809.github.io/posts/first_post/</link>
-    <pubDate>Wed, 17 Nov 2021 19:08:12 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://xiaohao890809.github.io/posts/first_post/</guid>
-    <description><![CDATA[asd 去露营啦! <i class="fas fa-campground fa-fw"></i>&nbsp;很快就回来. 真开心! <i class="far fa-grin-tears"></i>&nbsp;去露营啦! ⛺ 很快就回来. 真开心! 😂]]></description>
+    <guid>https://xiaohao890809.github.io/posts/bolg_theme_records/</guid>
+    <description><![CDATA[<p>记录博客的搭建和使用中的一些问题和修改记录。</p>]]></description>
 </item></channel>
 </rss>
