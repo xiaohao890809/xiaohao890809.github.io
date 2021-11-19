@@ -161,7 +161,7 @@ This is a **right-aligned** paragraph.
 {{?{}< /style >}}
 ```
 
-效果：
+效果：  
 
 {{< style "text-align:right; strong{color:#00b1ff;}" >}}
 This is a **right-aligned** paragraph.
