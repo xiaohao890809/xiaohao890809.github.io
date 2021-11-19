@@ -128,7 +128,7 @@ comment:
 ## 特殊标记
 
 ```markdown
-{?{}{?{}< version 0.2.0 >{?}}{?}}
+{{</*< version 0.2.0 */>}}
 ```
 效果：
 
@@ -137,13 +137,13 @@ comment:
 ## 横幅
 
 ```markdown
-{?{}{?{}< admonition type=tip title="This is a tip" open=false >{?}}{?}}
+{{</* admonition type=tip title="This is a tip" open=false */>}}
 一个 **技巧** 横幅
-{?{}{?{}< /admonition >{?}}{?}}
+{{</* /admonition */>}}
 或者
-{?{}{?{}< admonition tip "This is a tip" false >{?}}{?}}
+{{</* admonition tip "This is a tip" false */>}}
 一个 **技巧** 横幅
-{?{}{?{}< /admonition >{?}}{?}}
+{{</* /admonition */>}}
 ```
 
 效果：
@@ -152,6 +152,19 @@ comment:
 一个 **技巧** 横幅
 {{< /admonition >}}	
 
+## 自定义向右
+
+```markdown
+{{</* style "text-align:right; strong{color:#00b1ff;}" */>}}
+This is a **right-aligned** paragraph.
+{{</* /style */>}}
+```
+
+效果：  
+
+{{< style "text-align:right; strong{color:#00b1ff;}" >}}
+This is a **right-aligned** paragraph.
+{{< /style >}}
 
 
 
