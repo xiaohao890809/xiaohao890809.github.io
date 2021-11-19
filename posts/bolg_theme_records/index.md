@@ -59,7 +59,7 @@ comment:
 
 ## gitalk的bug
 
-参考 [问题来源](https://github.com/dillonzq/LoveIt/issues/623) 这里修改对应的信息
+参考 [问题来源](https://github.com/dillonzq/LoveIt/issues/623) 这里修改对应的信息。
 
 去 [下载gitalk](https://github.com/gitalk/gitalk/tags) 这里下载最新版本。
 
