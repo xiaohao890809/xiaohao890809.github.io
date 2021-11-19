@@ -33,7 +33,7 @@
                             "url": "https:\/\/xiaohao890809.github.io\/posts\/bolg_theme_records\/featured-image.jpg",
                             "width":  1280 ,
                             "height":  783 
-                        }],"genre": "posts","keywords": "博客","wordcount":  451 ,
+                        }],"genre": "posts","keywords": "博客","wordcount":  539 ,
         "url": "https:\/\/xiaohao890809.github.io\/posts\/bolg_theme_records\/","datePublished": "2021-11-17T16:37:32+00:00","dateModified": "2021-11-17T16:37:32+00:00","publisher": {
             "@type": "Organization",
             "name": "浩子"},"author": {
@@ -110,8 +110,8 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">博客主题的相关记录</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>浩子</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%B0%E5%BD%95/"><i class="far fa-folder fa-fw"></i>记录</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-17">2021-11-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 451 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-17">2021-11-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 539 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -127,6 +127,7 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#博客文章的一些配置">博客文章的一些配置</a></li>
+    <li><a href="#gitalk的bug">gitalk的bug</a></li>
     <li><a href="#搜索的索引">搜索的索引</a></li>
     <li><a href="#其他介绍">其他介绍</a></li>
     <li><a href="#页脚距离上面的距离">页脚距离上面的距离</a></li>
@@ -200,12 +201,24 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-markdown" data-lang="markdown">comment: false
+<pre class="chroma"><code class="language-markdown" data-lang="markdown">comment: 
+   enable: false
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="搜索的索引">搜索的索引</h2>
+</div><h2 id="gitalk的bug">gitalk的bug</h2>
+<p>参考 <a href="https://github.com/dillonzq/LoveIt/issues/623" target="_blank" rel="noopener noreffer">问题来源</a> 这里修改对应的信息</p>
+<p>去 <a href="https://github.com/gitalk/gitalk/tags" target="_blank" rel="noopener noreffer">下载gitalk</a> 这里下载最新版本。</p>
+<blockquote>
+<p>更换 gittalk 的版本，使用 1.7.2 可以，修改的地方如下：<br>
+/LoveIt/assets/data/cdn/jsdelivr.yml 修改版本号<br>
+/LoveIt/assets/lib/VERSION 修改版本号<br>
+/LoveIt/assets/lib/gitalk/gitalk.css 替换文件<br>
+/LoveIt/assets/lib/gitalk/gitalk.min.js 替换文件</p>
+</blockquote>
+<h2 id="搜索的索引">搜索的索引</h2>
 <p><a href="https://www.algolia.com/apps/1FB3ER8IOA/explorer/browse/hz_blog?searchMode=search" target="_blank" rel="noopener noreffer">algolia配置</a></p>
 <h2 id="其他介绍">其他介绍</h2>
 <p><a href="https://hugoloveit.com/zh-cn/about" target="_blank" rel="noopener noreffer">其他配置介绍</a></p>
