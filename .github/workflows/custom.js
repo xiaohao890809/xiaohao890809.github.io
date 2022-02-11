@@ -18,14 +18,14 @@ let mainConfig = {
     filterUsers: []
   },
 
-  title: "YiFei Zhang's Blog",
+  title: "耗子的博客",
   description: "在这里了解我的一切，对编程的热爱永不停歇。",
   customDomain: "",
   base: "/",
 
   slogan: {
-    main: "有逻辑的灵魂，",
-    sub: "造就有温度的编码。"
+    main: "永忆江湖归白发，",
+    sub: "欲回天地入扁舟。"
   },
 
   themeConfig: {
@@ -43,15 +43,15 @@ let mainConfig = {
         link: "/Issue-Blog-With-Github-Action/cv.html"
       }
     ],
-    headTitle: ["暮春早夏的月亮", "原是情人的月亮，不比秋冬是诗人的月亮"],
+    headTitle: ["越努力，越幸运", "生活不止眼前的苟且，还有诗和远方"],
     friendLinks: [
       {
         name: "watercow",
         link: "https://github.com/watercow/watercow.github.io/issues"
       },
       {
-        name: "ycjgg",
-        link: "https://ycjgg.github.io"
+        name: "yidada",
+        link: "https://blog.simplenaive.cn/"
       }
     ],
     extraFooters: [
