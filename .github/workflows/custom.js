@@ -14,7 +14,7 @@ let mainConfig = {
     owner: "xiaohao890809",
     repo: "xiaohao890809.github.io",
     pushBranch: "master",
-    email: "419969329@qq.com",
+    email: "xiaohao890809@126.com",
     filterUsers: []
   },
 
