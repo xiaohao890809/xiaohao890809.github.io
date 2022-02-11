@@ -61,7 +61,7 @@ let mainConfig = {
         link: ""
       }
     ],
-    pageCount: true
+    pageCount: false
   },
 
   head: [
