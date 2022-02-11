@@ -1,22 +1,44 @@
-name: Generate GitBlog README
+name: Blog
 
 on:
-  workflow_dispatch:
-  issues:
-    types: [opened, edited]
-  issue_comment:
-    types: [created, edited]
   push:
     branches:
-      - main
+      - master
     paths:
       - main.py
+  issues:
+    types: [opened, closed, edited, milestoned, labeled, unlabeled, reopened, demilestoned]
+
 
 env:
   GITHUB_NAME: xiaohao890809
   GITHUB_EMAIL: xiaohao890809@126.com
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: Yidadaa/Issue-Blog-With-Github-Action
+          ref: source
+      - name: Build
+        env:
+          GITHUB_TOKEN: ${{ secrets.G_T }}
+        run: |
+          wget https://raw.githubusercontent.com/xiaohao890809/xiaohao890809.github.io/master/.github/workflows/cv.md -O ./src/cv.md
+          wget https://raw.githubusercontent.com/xiaohao890809/xiaohao890809.github.io/master/.github/workflows/custom.js -O ./src/.vuepress/custom.js
+          npm install vuepress
+          npm install
+          npm run action
+          npm run build
+          npm run deploy
+
   sync:
     name: Generate README
     runs-on: ubuntu-latest
@@ -49,7 +71,7 @@ jobs:
         run: |
           source venv/bin/activate
           python main.py ${{ secrets.G_T }} ${{ github.repository }} --issue_number '${{ github.event.issue.number }}'
-          curl -H "Content-Type:application/json" -X POST -d '{"inputs": {}, "ref":"main"}' https://api.github.com/repos/yihong0618/2022/actions/workflows/17187634/dispatches -H "Authorization: token ${{ secrets.G_T }}"
+          curl -H "Content-Type:application/json" -X POST -d '{"inputs": {}, "ref":"main"}' https://api.github.com/repos/xiaohao890809/xiaohao890809.github.io/actions/workflows/17187634/dispatches -H "Authorization: token ${{ secrets.G_T }}"
 
       - name: Push README
         uses: github-actions-x/commit@v2.6
