@@ -18,14 +18,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: Yidadaa/Issue-Blog-With-Github-Action
+          repository: xiaohao890809/xiaohao890809.github.io
           ref: source
       - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          wget https://raw.githubusercontent.com/<your-github-name>/<your-github-name>.github.io/master/.github/workflows/cv.md -O ./src/cv.md
-          wget https://raw.githubusercontent.com/<your-github-name>/<your-github-name>.github.io/master/.github/workflows/custom.js -O ./src/.vuepress/custom.js
+          wget https://raw.githubusercontent.com/xiaohao890809/xiaohao890809.github.io/master/.github/workflows/cv.md -O ./src/cv.md
+          wget https://raw.githubusercontent.com/xiaohao890809/xiaohao890809.github.io/master/.github/workflows/custom.js -O ./src/.vuepress/custom.js
           npm install vuepress
           npm install
           npm run action
