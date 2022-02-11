@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: Yidadaa/Issue-Blog-With-Github-Action1
+          repository: Yidadaa/Issue-Blog-With-Github-Action
           ref: source
       - name: Build
         env:
