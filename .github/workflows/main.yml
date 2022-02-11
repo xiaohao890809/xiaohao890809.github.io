@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: xiaohao890809/xiaohao890809.github.io
+          repository: Yidadaa/Issue-Blog-With-Github-Action
           ref: source
       - name: Build
         env:
