@@ -16,30 +16,6 @@ env:
 
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x]
-
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          repository: Yidadaa/Issue-Blog-With-Github-Action
-          ref: source
-      - name: Build
-        env:
-          GITHUB_TOKEN: ${{ secrets.G_T }}
-        run: |
-          wget https://raw.githubusercontent.com/xiaohao890809/xiaohao890809.github.io/master/.github/workflows/cv.md -O ./src/cv.md
-          wget https://raw.githubusercontent.com/xiaohao890809/xiaohao890809.github.io/master/.github/workflows/custom.js -O ./src/.vuepress/custom.js
-          npm install vuepress
-          npm install
-          npm run action
-          npm run build
-          npm run deploy
-
   sync:
     name: Generate README
     runs-on: ubuntu-latest
@@ -83,3 +59,29 @@ jobs:
           rebase: "true"
           name: ${{ env.GITHUB_NAME }}
           email: ${{ env.GITHUB_EMAIL }}
+
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: Yidadaa/Issue-Blog-With-Github-Action
+          ref: source
+      - name: Build
+        env:
+          GITHUB_TOKEN: ${{ secrets.G_T }}
+        run: |
+          wget https://raw.githubusercontent.com/xiaohao890809/xiaohao890809.github.io/master/.github/workflows/cv.md -O ./src/cv.md
+          wget https://raw.githubusercontent.com/xiaohao890809/xiaohao890809.github.io/master/.github/workflows/custom.js -O ./src/.vuepress/custom.js
+          npm install vuepress
+          npm install
+          npm run action
+          npm run build
+          npm run deploy
+
+  
