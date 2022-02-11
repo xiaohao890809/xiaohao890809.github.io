@@ -3,18 +3,18 @@
  */
 
 let mainConfig = {
-  // vssueConfig: {
-  //   owner: "xiaohao890809",
-  //   repo: "xiaohao890809.github.io",
-  //   clientId: "2783a4b752f56c0ed912",
-  //   clientSecret: "c8d9116fcade901567ff34aa1fb09216731683a3"
-  // },
+  vssueConfig: {
+    owner: "xiaohao890809",
+    repo: "xiaohao890809.github.io",
+    clientId: "0d936e21f37435f24ee5",
+    clientSecret: "a5c8c89ed767fb9192989064ebf46159d4efe9f7"
+  },
 
   repoConfig: {
     owner: "xiaohao890809",
     repo: "xiaohao890809.github.io",
     pushBranch: "master",
-    email: "yidadaa@qq.com",
+    email: "419969329@qq.com",
     filterUsers: []
   },
 
