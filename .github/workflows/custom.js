@@ -70,7 +70,7 @@ let mainConfig = {
       {
         rel: "icon",
         type: "image/png",
-        href: "https://avatars2.githubusercontent.com/u/16968934?s=460&v=4"
+        href: "https://avatars.githubusercontent.com/u/9626465"
       }
     ]
   ]
