@@ -9,6 +9,12 @@ on:
   issues:
     types: [opened, closed, edited, milestoned, labeled, unlabeled, reopened, demilestoned]
 
+
+env:
+  GITHUB_NAME: xiaohao890809
+  GITHUB_EMAIL: xiaohao890809@126.com
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
