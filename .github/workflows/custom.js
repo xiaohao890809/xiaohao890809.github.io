@@ -11,8 +11,8 @@ let mainConfig = {
   },
 
   repoConfig: {
-    owner: "Yidadaa",
-    repo: "Issue-Blog-With-Github-Action",
+    owner: "xiaohao890809",
+    repo: "xiaohao890809.github.io",
     pushBranch: "master",
     email: "yidadaa@qq.com",
     filterUsers: []
