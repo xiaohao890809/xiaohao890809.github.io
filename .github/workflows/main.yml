@@ -22,7 +22,7 @@ jobs:
           ref: source
       - name: Build
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.G_T }}
         run: |
           wget https://raw.githubusercontent.com/xiaohao890809/xiaohao890809.github.io/master/.github/workflows/cv.md -O ./src/cv.md
           wget https://raw.githubusercontent.com/xiaohao890809/xiaohao890809.github.io/master/.github/workflows/custom.js -O ./src/.vuepress/custom.js
