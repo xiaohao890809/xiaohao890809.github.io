@@ -24,7 +24,7 @@ let mainConfig = {
   base: "/",
 
   slogan: {
-    main: "永忆江湖归白发1，",
+    main: "永忆江湖归白发，",
     sub: "欲回天地入扁舟。"
   },
 
