@@ -26,8 +26,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          repository: Yidadaa/Issue-Blog-With-Github-Action
-          ref: source
+          repository: xiaohao890809/Issue-Blog-With-Github-Action
+          ref: main
       - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.G_T }}
