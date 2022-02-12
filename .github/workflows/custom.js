@@ -19,12 +19,12 @@ let mainConfig = {
   },
 
   title: "耗子的博客",
-  description: "在这里了解我的一切。",
+  description: "在这里了解我的一切，对编程的热爱永不停歇。",
   customDomain: "",
   base: "/",
 
   slogan: {
-    main: "永忆江湖归白发，",
+    main: "永忆江湖归白发1，",
     sub: "欲回天地入扁舟。"
   },
 
