@@ -40,6 +40,7 @@ jobs:
           npm run build
           npm run deploy
 
+
   sync:
     name: Generate README
     runs-on: ubuntu-latest
