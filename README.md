@@ -3,7 +3,8 @@ My personal blog using issues and GitHub Actions (随意转载，无需署名)
 ## 友情链接
 | Name | Link | Desc | 
  | ---- | ---- | ---- |
-| FriendsA | https://blog.duanfei.org/ | 跑步的朋友 |
+| Yidada | https://blog.simplenaive.cn/ | 一达达 |
+| yihong0618 | https://github.com/yihong0618/gitblog | 运动达人 |
 ## 最近更新
 - [友情链接](https://github.com/xiaohao890809/xiaohao890809.github.io/issues/13)--2022-02-12
 - [声声慢·寻寻觅觅](https://github.com/xiaohao890809/xiaohao890809.github.io/issues/12)--2022-02-11
