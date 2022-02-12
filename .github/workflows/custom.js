@@ -15,11 +15,11 @@ let mainConfig = {
     repo: "xiaohao890809.github.io",
     pushBranch: "master",
     email: "xiaohao890809@126.com",
-    filterUsers: ["xiaohao89"]
+    filterUsers: ["xiaohao890809"]
   },
 
   title: "耗子的博客",
-  description: "在这里了解我的一切，对编程的热爱永不停歇。",
+  description: "在这里了解我的一切。",
   customDomain: "",
   base: "/",
 
