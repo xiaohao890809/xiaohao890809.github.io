@@ -15,7 +15,7 @@ let mainConfig = {
     repo: "xiaohao890809.github.io",
     pushBranch: "master",
     email: "xiaohao890809@126.com",
-    filterUsers: ["xiaohao890809","xiaohao89"]
+    filterUsers: ["xiaohao890809"]
   },
 
   title: "耗子的博客",
