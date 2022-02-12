@@ -40,7 +40,7 @@ let mainConfig = {
       },
       {
         name: "CV",
-        link: "/Issue-Blog-With-Github-Action/cv.html"
+        link: "/cv.html"
       }
     ],
     headTitle: ["越努力，越幸运", "生活不止眼前的苟且，还有诗和远方"],
