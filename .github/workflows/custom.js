@@ -37,11 +37,11 @@ let mainConfig = {
       {
         name: "Github",
         link: "https://github.com/xiaohao890809"
-      },
-      {
-        name: "CV",
-        link: "/cv.html"
       }
+      // {
+      //   name: "CV",
+      //   link: "/cv.html"
+      // }
     ],
     headTitle: ["越努力，越幸运", "生活不止眼前的苟且，还有诗和远方"],
     friendLinks: [
