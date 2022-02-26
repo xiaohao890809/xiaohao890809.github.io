@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/9626465">
     <meta name="description" content="在这里了解我的一切，对编程的热爱永不停歇。">
     
-    <link rel="preload" href="/assets/css/0.styles.b8de137c.css" as="style"><link rel="preload" href="/assets/js/app.a6255fc2.js" as="script"><link rel="preload" href="/assets/js/11.3ca4732b.js" as="script"><link rel="preload" href="/assets/js/6.e85e9b95.js" as="script"><link rel="preload" href="/assets/js/2.2db01773.js" as="script"><link rel="preload" href="/assets/js/23.5cf3c63b.js" as="script"><link rel="preload" href="/assets/js/5.63cd31eb.js" as="script"><link rel="prefetch" href="/assets/js/10.d74ccdb9.js"><link rel="prefetch" href="/assets/js/12.e872fa5c.js"><link rel="prefetch" href="/assets/js/13.4b8c6207.js"><link rel="prefetch" href="/assets/js/14.c01ea689.js"><link rel="prefetch" href="/assets/js/15.04e4fbee.js"><link rel="prefetch" href="/assets/js/16.73ae4366.js"><link rel="prefetch" href="/assets/js/17.50ef005f.js"><link rel="prefetch" href="/assets/js/18.a706c3da.js"><link rel="prefetch" href="/assets/js/19.b6d5c907.js"><link rel="prefetch" href="/assets/js/20.a9739483.js"><link rel="prefetch" href="/assets/js/21.1cb487ce.js"><link rel="prefetch" href="/assets/js/22.55929278.js"><link rel="prefetch" href="/assets/js/3.d6efb051.js"><link rel="prefetch" href="/assets/js/4.a07e338a.js"><link rel="prefetch" href="/assets/js/7.c15607d2.js"><link rel="prefetch" href="/assets/js/8.ef697500.js"><link rel="prefetch" href="/assets/js/9.317389b9.js">
+    <link rel="preload" href="/assets/css/0.styles.b8de137c.css" as="style"><link rel="preload" href="/assets/js/app.c7f108d0.js" as="script"><link rel="preload" href="/assets/js/11.3ca4732b.js" as="script"><link rel="preload" href="/assets/js/6.e85e9b95.js" as="script"><link rel="preload" href="/assets/js/2.2db01773.js" as="script"><link rel="preload" href="/assets/js/23.6c324eb9.js" as="script"><link rel="preload" href="/assets/js/5.63cd31eb.js" as="script"><link rel="prefetch" href="/assets/js/10.d74ccdb9.js"><link rel="prefetch" href="/assets/js/12.e872fa5c.js"><link rel="prefetch" href="/assets/js/13.4b8c6207.js"><link rel="prefetch" href="/assets/js/14.c01ea689.js"><link rel="prefetch" href="/assets/js/15.04e4fbee.js"><link rel="prefetch" href="/assets/js/16.73ae4366.js"><link rel="prefetch" href="/assets/js/17.50ef005f.js"><link rel="prefetch" href="/assets/js/18.a706c3da.js"><link rel="prefetch" href="/assets/js/19.b6d5c907.js"><link rel="prefetch" href="/assets/js/20.a9739483.js"><link rel="prefetch" href="/assets/js/21.1cb487ce.js"><link rel="prefetch" href="/assets/js/22.55929278.js"><link rel="prefetch" href="/assets/js/3.d6efb051.js"><link rel="prefetch" href="/assets/js/4.a07e338a.js"><link rel="prefetch" href="/assets/js/7.c15607d2.js"><link rel="prefetch" href="/assets/js/8.ef697500.js"><link rel="prefetch" href="/assets/js/9.317389b9.js">
     <link rel="stylesheet" href="/assets/css/0.styles.b8de137c.css">
   </head>
   <body>
@@ -37,19 +37,19 @@
     <span class="token punctuation">)</span>
 <span class="token punctuation">)</span>
 <span class="token keyword">where</span> log_date_7 <span class="token operator">is</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token operator">and</span> date_add<span class="token punctuation">(</span>log_date<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span> <span class="token operator">=</span> log_date_7<span class="token punctuation">;</span>
-</code></pre></div><p><strong>思路2</strong></p> <p>把用户每天登陆的日期进行排序，如果用当前天数减去序号，连续3天的话相同的数据就有3个</p> <div class="language- extra-class"><pre class="language-text"><code>select
-    user_id,
-    count(1) cnt
-from
-(
-    select
-        user_id,
-        login_date,
-        row_number() over(partition by user_id order by login_date) rn
-    from tab1
-)
-group by user_id,date_sub(login_date, rn)
-having count(1) &gt;= 7;
+</code></pre></div><p><strong>思路2</strong></p> <p>把用户每天登陆的日期进行排序，如果用当前天数减去序号，连续3天的话相同的数据就有3个</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span>
+    user_id<span class="token punctuation">,</span>
+    <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> cnt
+<span class="token keyword">from</span>
+<span class="token punctuation">(</span>
+    <span class="token keyword">select</span>
+        user_id<span class="token punctuation">,</span>
+        login_date<span class="token punctuation">,</span>
+        row_number<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">over</span><span class="token punctuation">(</span><span class="token keyword">partition</span> <span class="token keyword">by</span> user_id <span class="token keyword">order</span> <span class="token keyword">by</span> login_date<span class="token punctuation">)</span> rn
+    <span class="token keyword">from</span> tab1
+<span class="token punctuation">)</span>
+<span class="token keyword">group</span> <span class="token keyword">by</span> user_id<span class="token punctuation">,</span>date_sub<span class="token punctuation">(</span>login_date<span class="token punctuation">,</span> rn<span class="token punctuation">)</span>
+<span class="token keyword">having</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> <span class="token number">7</span><span class="token punctuation">;</span>
 </code></pre></div><h2 id="支付金额在前20-的用户"><a href="#支付金额在前20-的用户" class="header-anchor">#</a> 支付金额在前20%的用户</h2> <p><strong>思路：</strong></p> <p>利用<code>ntile</code></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span>
     user_name
 <span class="token keyword">from</span> 
@@ -87,6 +87,6 @@ having count(1) &gt;= 7;
     });
     gitalk.render('gitalk-container');
     </script></div> <div class="footer" data-v-3ef679b5><div class="footer-content page" data-v-3ef679b5><div class="left" data-v-3ef679b5><div class="footer-title" data-v-3ef679b5>FRIEND LINKS</div> <div class="links footer-text" data-v-3ef679b5></div> <!----> </div> <div class="right" data-v-3ef679b5><div class="footer-title power" data-v-3ef679b5>POWERED BY</div> <a href="https://github.com/Yidadaa/Issue-Blog-With-Github-Action" class="logo" data-v-3ef679b5>ISSUE BLOG</a></div></div></div></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.a6255fc2.js" defer></script><script src="/assets/js/11.3ca4732b.js" defer></script><script src="/assets/js/6.e85e9b95.js" defer></script><script src="/assets/js/2.2db01773.js" defer></script><script src="/assets/js/23.5cf3c63b.js" defer></script><script src="/assets/js/5.63cd31eb.js" defer></script>
+    <script src="/assets/js/app.c7f108d0.js" defer></script><script src="/assets/js/11.3ca4732b.js" defer></script><script src="/assets/js/6.e85e9b95.js" defer></script><script src="/assets/js/2.2db01773.js" defer></script><script src="/assets/js/23.6c324eb9.js" defer></script><script src="/assets/js/5.63cd31eb.js" defer></script>
   </body>
 </html>
