@@ -11,13 +11,11 @@
     <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/9626465">
     <meta name="description" content="在这里了解我的一切，对编程的热爱永不停歇。">
     
-    <link rel="preload" href="/assets/css/0.styles.b8de137c.css" as="style"><link rel="preload" href="/assets/js/app.681c8bbe.js" as="script"><link rel="preload" href="/assets/js/11.3ca4732b.js" as="script"><link rel="preload" href="/assets/js/6.e85e9b95.js" as="script"><link rel="preload" href="/assets/js/2.2db01773.js" as="script"><link rel="preload" href="/assets/js/23.22439dba.js" as="script"><link rel="preload" href="/assets/js/5.63cd31eb.js" as="script"><link rel="prefetch" href="/assets/js/10.d74ccdb9.js"><link rel="prefetch" href="/assets/js/12.e872fa5c.js"><link rel="prefetch" href="/assets/js/13.4b8c6207.js"><link rel="prefetch" href="/assets/js/14.c01ea689.js"><link rel="prefetch" href="/assets/js/15.04e4fbee.js"><link rel="prefetch" href="/assets/js/16.73ae4366.js"><link rel="prefetch" href="/assets/js/17.50ef005f.js"><link rel="prefetch" href="/assets/js/18.a706c3da.js"><link rel="prefetch" href="/assets/js/19.b6d5c907.js"><link rel="prefetch" href="/assets/js/20.a9739483.js"><link rel="prefetch" href="/assets/js/21.1cb487ce.js"><link rel="prefetch" href="/assets/js/22.55929278.js"><link rel="prefetch" href="/assets/js/3.d6efb051.js"><link rel="prefetch" href="/assets/js/4.a07e338a.js"><link rel="prefetch" href="/assets/js/7.c15607d2.js"><link rel="prefetch" href="/assets/js/8.ef697500.js"><link rel="prefetch" href="/assets/js/9.317389b9.js">
+    <link rel="preload" href="/assets/css/0.styles.b8de137c.css" as="style"><link rel="preload" href="/assets/js/app.a6255fc2.js" as="script"><link rel="preload" href="/assets/js/11.3ca4732b.js" as="script"><link rel="preload" href="/assets/js/6.e85e9b95.js" as="script"><link rel="preload" href="/assets/js/2.2db01773.js" as="script"><link rel="preload" href="/assets/js/23.5cf3c63b.js" as="script"><link rel="preload" href="/assets/js/5.63cd31eb.js" as="script"><link rel="prefetch" href="/assets/js/10.d74ccdb9.js"><link rel="prefetch" href="/assets/js/12.e872fa5c.js"><link rel="prefetch" href="/assets/js/13.4b8c6207.js"><link rel="prefetch" href="/assets/js/14.c01ea689.js"><link rel="prefetch" href="/assets/js/15.04e4fbee.js"><link rel="prefetch" href="/assets/js/16.73ae4366.js"><link rel="prefetch" href="/assets/js/17.50ef005f.js"><link rel="prefetch" href="/assets/js/18.a706c3da.js"><link rel="prefetch" href="/assets/js/19.b6d5c907.js"><link rel="prefetch" href="/assets/js/20.a9739483.js"><link rel="prefetch" href="/assets/js/21.1cb487ce.js"><link rel="prefetch" href="/assets/js/22.55929278.js"><link rel="prefetch" href="/assets/js/3.d6efb051.js"><link rel="prefetch" href="/assets/js/4.a07e338a.js"><link rel="prefetch" href="/assets/js/7.c15607d2.js"><link rel="prefetch" href="/assets/js/8.ef697500.js"><link rel="prefetch" href="/assets/js/9.317389b9.js">
     <link rel="stylesheet" href="/assets/css/0.styles.b8de137c.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div><div class="header-wrap" data-v-33920667><div class="header page" data-v-33920667><div class="left" data-v-33920667><div class="motto" data-v-33920667></div> <div class="nav" data-v-33920667></div></div> <div class="right" data-v-33920667><div class="search-box" data-v-33920667><input aria-label="Search" placeholder="" autocomplete="off" spellcheck="false" value=""> <!----></div></div></div></div> <div class="page post-page"><div class="title"><div class="post-title">SQL题目</div></div> <div class="info"><div class="author">xiaohao890809</div> <div class="date">2022/02/26</div> <!----></div> <div class="post-content"><div class="content__default"><h1 id="sql题目"><a href="#sql题目" class="header-anchor">#</a> SQL题目</h1> <h2 id="连续-7-天都登陆平台"><a href="#连续-7-天都登陆平台" class="header-anchor">#</a> 连续 7 天都登陆平台</h2> <p>现有用户登陆表 user_login_table 如下：</p> <ul><li>user_name 用户名</li> <li>date 用户登陆时间</li></ul> <p>现在老板想知道连续 7 天都登陆平台的重要用户。
-输出要求如下：</p> <ul><li>user_name 用户名（连续 7 天都登陆的用户数）</li></ul> <p><strong>思路1</strong>
-首先利用偏移窗口函数 lead 求得每个用户在每个登陆时间向后偏移 7 行的登陆时间，再计算每个用户在每个登陆时间滞后 7 天的登陆时间，如果每个用户向后偏移 7 行的登陆时间正好等于滞后 7 天的时间，说明该用户连续登陆了 7 天。</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> 
+    <div id="app" data-server-rendered="true"><div><div class="header-wrap" data-v-33920667><div class="header page" data-v-33920667><div class="left" data-v-33920667><div class="motto" data-v-33920667></div> <div class="nav" data-v-33920667></div></div> <div class="right" data-v-33920667><div class="search-box" data-v-33920667><input aria-label="Search" placeholder="" autocomplete="off" spellcheck="false" value=""> <!----></div></div></div></div> <div class="page post-page"><div class="title"><div class="post-title">SQL题目</div></div> <div class="info"><div class="author">xiaohao890809</div> <div class="date">2022/02/26</div> <!----></div> <div class="post-content"><div class="content__default"><h1 id="sql题目"><a href="#sql题目" class="header-anchor">#</a> SQL题目</h1> <h2 id="连续-7-天都登陆平台"><a href="#连续-7-天都登陆平台" class="header-anchor">#</a> 连续 7 天都登陆平台</h2> <p>现有用户登陆表 user_login_table 如下：</p> <ul><li>user_name 用户名</li> <li>date 用户登陆时间</li></ul> <p>现在老板想知道连续 7 天都登陆平台的重要用户。</p> <p>输出要求如下：</p> <ul><li>user_name 用户名（连续 7 天都登陆的用户数）</li></ul> <p><strong>思路1</strong></p> <p>首先利用偏移窗口函数 lead 求得每个用户在每个登陆时间向后偏移 7 行的登陆时间，再计算每个用户在每个登陆时间滞后 7 天的登陆时间，如果每个用户向后偏移 7 行的登陆时间正好等于滞后 7 天的时间，说明该用户连续登陆了 7 天。</p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span> 
     user_name
 <span class="token keyword">from</span> 
 <span class="token punctuation">(</span>
@@ -39,8 +37,7 @@
     <span class="token punctuation">)</span>
 <span class="token punctuation">)</span>
 <span class="token keyword">where</span> log_date_7 <span class="token operator">is</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token operator">and</span> date_add<span class="token punctuation">(</span>log_date<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span> <span class="token operator">=</span> log_date_7<span class="token punctuation">;</span>
-</code></pre></div><p><strong>思路2</strong>
-把用户每天登陆的日期进行排序，如果用当前天数减去序号，连续3天的话相同的数据就有3个</p> <div class="language- extra-class"><pre class="language-text"><code>select
+</code></pre></div><p><strong>思路2</strong></p> <p>把用户每天登陆的日期进行排序，如果用当前天数减去序号，连续3天的话相同的数据就有3个</p> <div class="language- extra-class"><pre class="language-text"><code>select
     user_id,
     count(1) cnt
 from
@@ -53,8 +50,7 @@ from
 )
 group by user_id,date_sub(login_date, rn)
 having count(1) &gt;= 7;
-</code></pre></div><h2 id="支付金额在前20-的用户"><a href="#支付金额在前20-的用户" class="header-anchor">#</a> 支付金额在前20%的用户</h2> <p>思路：
-利用<code>ntile</code></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span>
+</code></pre></div><h2 id="支付金额在前20-的用户"><a href="#支付金额在前20-的用户" class="header-anchor">#</a> 支付金额在前20%的用户</h2> <p><strong>思路：</strong></p> <p>利用<code>ntile</code></p> <div class="language-sql extra-class"><pre class="language-sql"><code><span class="token keyword">select</span>
     user_name
 <span class="token keyword">from</span> 
 <span class="token punctuation">(</span>
@@ -91,6 +87,6 @@ having count(1) &gt;= 7;
     });
     gitalk.render('gitalk-container');
     </script></div> <div class="footer" data-v-3ef679b5><div class="footer-content page" data-v-3ef679b5><div class="left" data-v-3ef679b5><div class="footer-title" data-v-3ef679b5>FRIEND LINKS</div> <div class="links footer-text" data-v-3ef679b5></div> <!----> </div> <div class="right" data-v-3ef679b5><div class="footer-title power" data-v-3ef679b5>POWERED BY</div> <a href="https://github.com/Yidadaa/Issue-Blog-With-Github-Action" class="logo" data-v-3ef679b5>ISSUE BLOG</a></div></div></div></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.681c8bbe.js" defer></script><script src="/assets/js/11.3ca4732b.js" defer></script><script src="/assets/js/6.e85e9b95.js" defer></script><script src="/assets/js/2.2db01773.js" defer></script><script src="/assets/js/23.22439dba.js" defer></script><script src="/assets/js/5.63cd31eb.js" defer></script>
+    <script src="/assets/js/app.a6255fc2.js" defer></script><script src="/assets/js/11.3ca4732b.js" defer></script><script src="/assets/js/6.e85e9b95.js" defer></script><script src="/assets/js/2.2db01773.js" defer></script><script src="/assets/js/23.5cf3c63b.js" defer></script><script src="/assets/js/5.63cd31eb.js" defer></script>
   </body>
 </html>
