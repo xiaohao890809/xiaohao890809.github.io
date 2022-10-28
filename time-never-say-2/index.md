@@ -13,10 +13,21 @@
 
 <!-- {% raw %} -->
 {{< style "text-align:right; strong{color:#00b1ff;}" >}}
-This is a **right-aligned** paragraph.
+大王叫**我来**巡山。
 {{< /style >}}
 <!-- {% endraw %} -->
 
+<!-- {% raw %} -->
+{{< style "text-align:right;font-family:Ma Shan Zheng; strong{color:#00b1ff;}" >}}
+大王叫**我来**巡山。
+{{< /style >}}
+<!-- {% endraw %} -->
+
+<!-- {% raw %} -->
+{{< style "text-align:right;font-family:FZSHENGSKS_ZHUNJW--GB1-0; strong{color:#00b1ff;}" >}}
+大王叫**我来**巡山。
+{{< /style >}}
+<!-- {% endraw %} -->
   
 ## 当时只道是寻常
 
