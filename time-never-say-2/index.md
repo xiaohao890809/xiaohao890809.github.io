@@ -11,9 +11,11 @@
 到了那时候，
 我们会不会说“当时只道是寻常”呢？
 
+{% raw %}
 {{< style "text-align:right; strong{color:#00b1ff;}" >}}
 This is a **right-aligned** paragraph.
 {{< /style >}}
+{% endraw %}
 
   
 ## 当时只道是寻常
