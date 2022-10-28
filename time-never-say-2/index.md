@@ -14,10 +14,6 @@
 {{< style "text-align:right;font-family:'Ma Shan Zheng'; strong{color:#00b1ff;}" >}}
 阿是大师**大师**的
 {{< /style >}}
-
-{{< style "text-align:right;font-family:'FZSHENGSKS_ZHONGJW--GB1-0'; strong{color:#00b1ff;}" >}}   
-阿是大师**大师**的  
-{{< /style >}}
   
 ## 当时只道是寻常
 
