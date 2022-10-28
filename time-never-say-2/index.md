@@ -1,4 +1,4 @@
-# 11壹：时间从来不语，却回答了所有问题
+# 壹：时间从来不语，却回答了所有问题
 
 
 {{<image src="/images/时间不言语/00009.jpeg" caption="当时只道是寻常" width="300">}}
@@ -11,11 +11,11 @@
 到了那时候，
 我们会不会说“当时只道是寻常”呢？
 
-{{< style "text-align:right;font-family:Ma Shan Zheng; strong{color:#00b1ff;}" >}}
+{{< style "text-align:right;font-family:'Ma Shan Zheng'; strong{color:#00b1ff;}" >}}
 阿是大师**大师**的
 {{< /style >}}
 
-{{< style "text-align:right;font-family:FZSHENGSKS_ZHONGJW--GB1-0; strong{color:#00b1ff;}" >}}   
+{{< style "text-align:right;font-family:'FZSHENGSKS_ZHONGJW--GB1-0'; strong{color:#00b1ff;}" >}}   
 阿是大师**大师**的  
 {{< /style >}}
   
