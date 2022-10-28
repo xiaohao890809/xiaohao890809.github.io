@@ -11,8 +11,12 @@
 到了那时候，
 我们会不会说“当时只道是寻常”呢？
 
-{{< style "text-align:right;font-family:'Ma Shan Zheng'; strong{color:#00b1ff;}" >}}
+<!-- {{< style "text-align:right;font-family:'Ma Shan Zheng'; strong{color:#00b1ff;}" >}}
 阿是大师**大师**的
+{{< /style >}} -->
+
+{{< style "text-align:right; strong{color:#00b1ff;}" >}}
+This is a **right-aligned** paragraph.
 {{< /style >}}
   
 ## 当时只道是寻常
