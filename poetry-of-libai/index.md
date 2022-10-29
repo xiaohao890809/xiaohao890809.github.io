@@ -70,7 +70,7 @@
 ## 渡荆门送别
 
 <!-- {% raw %} -->
-{{< style "text-align:center; strong{color:#E73E51;}" >}}
+{{< style "text-align:center; strong{color:#00b1ff;}" >}}
 渡远荆门外，来从楚国游。<br>
 山随平野尽，江入大荒流。<br>
 月下飞天镜，云生结海楼。<br>
