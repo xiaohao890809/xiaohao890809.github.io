@@ -1,6 +1,8 @@
 # 时间从来不语，却回答了所有问题【引言】
 
 
+<br>
+
 <div id="lightgallery" align=center>
     <a><img src="/images/时间不言语/00001.jpeg" width="200" /></a>
     <a><img src="/images/时间不言语/00002.jpeg" width="240" /></a>
