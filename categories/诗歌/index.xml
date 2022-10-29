@@ -1,12 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>追寻原风景的博客</title>
-        <link>https://xiaohao890809.github.io/</link>
-        <description>耗子的博客</description>
+        <title>诗歌 - 分类 - 追寻原风景的博客</title>
+        <link>https://xiaohao890809.github.io/categories/%E8%AF%97%E6%AD%8C/</link>
+        <description>诗歌 - 分类 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sat, 29 Oct 2022 23:13:45 &#43;0800</lastBuildDate>
-            <atom:link href="https://xiaohao890809.github.io/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sat, 29 Oct 2022 23:13:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E8%AF%97%E6%AD%8C/" rel="self" type="application/rss+xml" /><item>
     <title>诗歌之李白篇</title>
     <link>https://xiaohao890809.github.io/poetry-of-libai/</link>
     <pubDate>Sat, 29 Oct 2022 23:13:45 &#43;0800</pubDate>
