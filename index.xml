@@ -4,9 +4,17 @@
         <link>https://xiaohao890809.github.io/</link>
         <description>耗子的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sat, 29 Oct 2022 23:13:45 &#43;0800</lastBuildDate>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sun, 30 Oct 2022 20:55:57 &#43;0800</lastBuildDate>
             <atom:link href="https://xiaohao890809.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>学习刷题Part1</title>
+    <link>https://xiaohao890809.github.io/exercise-1/</link>
+    <pubDate>Sun, 30 Oct 2022 20:55:57 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/exercise-1/</guid>
+    <description><![CDATA[比特和波特 关于比特和波特，下面说法正确的是( )。 (A) 比特和波特施一个概念 (B) 比特是码元传输速率单位 (C) 波特是信息量单位 (D) 在某些情况下，“比特/秒”]]></description>
+</item>
+<item>
     <title>诗歌之李白篇</title>
     <link>https://xiaohao890809.github.io/poetry-of-libai/</link>
     <pubDate>Sat, 29 Oct 2022 23:13:45 &#43;0800</pubDate>
