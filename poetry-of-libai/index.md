@@ -7,7 +7,7 @@
 ## 黄鹤楼送孟浩然之广陵
 
 <!-- {% raw %} -->
-{{< style "text-align:center; strong{color:#20C1BD;}" >}}
+{{< style "text-align:center; strong{color:#00b1ff;}" >}}
 故人西辞黄鹤楼，烟花三月下扬州。<br>
 **孤帆远影碧空尽，唯见长江天际流。**
 {{< /style >}}
@@ -82,7 +82,7 @@
 ## 将进酒·君不见
 
 <!-- {% raw %} -->
-{{< style "text-align:center; strong{color:#B980F0;}" >}}
+{{< style "text-align:center; strong{color:#00b1ff;}" >}}
 君不见，黄河之水天上来，奔流到海不复回。<br>
 君不见，高堂明镜悲白发，朝如青丝暮成雪。<br>
 人生得意须尽欢，莫使金樽空对月。<br>
@@ -94,18 +94,8 @@
 古来圣贤皆寂寞，惟有饮者留其名。<br>
 陈王昔时宴平乐，斗酒十千恣欢谑。<br>
 主人何为言少钱，径须沽取对君酌。<br>
-五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。
-{{< /style >}}
-<!-- {% endraw %} -->
-
-## 渡荆门送别
-
-<!-- {% raw %} -->
-{{< style "text-align:center; strong{color:#00b1ff;}" >}}
-渡远荆门外，来从楚国游。<br>
-山随平野尽，江入大荒流。<br>
-月下飞天镜，云生结海楼。<br>
-仍怜故乡水，万里送行舟。
+五花马，千金裘，<br>
+呼儿将出换美酒，与尔同销万古愁。
 {{< /style >}}
 <!-- {% endraw %} -->
 
