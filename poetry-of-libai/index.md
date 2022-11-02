@@ -68,6 +68,24 @@
 {{< /style >}}
 <!-- {% endraw %} -->
 
+## 清平调·其二
+
+<!-- {% raw %} -->
+{{< style "text-align:center; strong{color:#00b1ff;}" >}}
+一枝秾艳露凝香，云雨巫山枉断肠。<br>
+借问汉宫谁得似，可怜飞燕倚新妆。
+{{< /style >}}
+<!-- {% endraw %} -->
+
+## 清平调·其三
+
+<!-- {% raw %} -->
+{{< style "text-align:center; strong{color:#00b1ff;}" >}}
+名花倾国两相欢，常得君王带笑看。<br>
+解释春风无限恨，沉香亭北倚阑干。
+{{< /style >}}
+<!-- {% endraw %} -->
+
 ## 渡荆门送别
 
 <!-- {% raw %} -->
@@ -148,6 +166,61 @@
 人生在世不称意，明朝散发弄扁舟。
 {{< /style >}}
 <!-- {% endraw %} -->
+
+## 行路难·其一
+
+<!-- {% raw %} -->
+{{< style "text-align:center; strong{color:#00b1ff;}" >}}
+金樽清酒斗十千，玉盘珍羞直万钱。<br>
+停杯投箸不能食，拔剑四顾心茫然。<br>
+欲渡黄河冰塞川，将登太行雪满山。<br>
+闲来垂钓碧溪上，忽复乘舟梦日边。<br>
+行路难，行路难，多歧路，今安在？<br>
+**长风破浪会有时，直挂云帆济沧海。**
+{{< /style >}}
+<!-- {% endraw %} -->
+
+## 夜宿山寺
+
+<!-- {% raw %} -->
+{{< style "text-align:center; strong{color:#00b1ff;}" >}}
+危楼高百尺，手可摘星辰。<br>
+不敢高声语，恐惊天上人。
+{{< /style >}}
+<!-- {% endraw %} -->
+
+## 秋风词
+
+<!-- {% raw %} -->
+{{< style "text-align:center; strong{color:#00b1ff;}" >}}
+秋风清，秋月明，<br>
+落叶聚还散，寒鸦栖复惊。<br>
+相思相见知何日？此时此夜难为情！
+{{< /style >}}
+<!-- {% endraw %} -->
+
+## 赠孟浩然
+
+<!-- {% raw %} -->
+{{< style "text-align:center; strong{color:#00b1ff;}" >}}
+吾爱孟夫子，风流天下闻。<br>
+红颜弃轩冕，白首卧松云。<br>
+醉月频中圣，迷花不事君。<br>
+高山安可仰，徒此揖清芬。
+{{< /style >}}
+<!-- {% endraw %} -->
+
+## 听蜀僧濬弹琴
+
+<!-- {% raw %} -->
+{{< style "text-align:center; strong{color:#00b1ff;}" >}}
+蜀僧抱绿绮，西下峨眉峰。<br>
+为我一挥手，如听万壑松。<br>
+客心洗流水，馀响入霜钟。<br>
+不觉碧山暮，秋云暗几重。
+{{< /style >}}
+<!-- {% endraw %} -->
+
 
 
 
