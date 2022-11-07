@@ -4,7 +4,15 @@
         <link>https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/</link>
         <description>数仓 - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 03 Nov 2022 16:11:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Mon, 07 Nov 2022 16:11:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+    <title>数仓之SQL篇</title>
+    <link>https://xiaohao890809.github.io/study-of-sql/</link>
+    <pubDate>Mon, 07 Nov 2022 16:11:45 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/study-of-sql/</guid>
+    <description><![CDATA[<p>本文主要摘抄数仓中的一些 SQL 问题，包括一些常用的语法和练习题，以便后续查阅复习。</p>]]></description>
+</item>
+<item>
     <title>数仓之学无止境</title>
     <link>https://xiaohao890809.github.io/study-of-all-life/</link>
     <pubDate>Thu, 03 Nov 2022 16:11:45 &#43;0800</pubDate>
