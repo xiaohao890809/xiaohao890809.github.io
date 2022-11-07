@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xiaohao890809.github.io/study-of-all-life/" /><meta property="og:image" content="https://xiaohao890809.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-11-03T16:11:45+08:00" />
-<meta property="article:modified_time" content="2022-11-03T19:20:51+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta property="article:modified_time" content="2022-11-07T19:20:51+08:00" /><meta property="og:site_name" content="我的网站" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xiaohao890809.github.io/logo.png"/>
@@ -30,8 +30,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xiaohao890809.github.io\/study-of-all-life\/"
-        },"genre": "posts","keywords": "数仓","wordcount":  203 ,
-        "url": "https:\/\/xiaohao890809.github.io\/study-of-all-life\/","datePublished": "2022-11-03T16:11:45+08:00","dateModified": "2022-11-03T19:20:51+08:00","publisher": {
+        },"genre": "posts","keywords": "数仓","wordcount":  489 ,
+        "url": "https:\/\/xiaohao890809.github.io\/study-of-all-life\/","datePublished": "2022-11-03T16:11:45+08:00","dateModified": "2022-11-07T19:20:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,8 +103,8 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">数仓之学无止境</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>浩子</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%BA%9B/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学些</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-03">2022-11-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 203 字&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>浩子</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-03">2022-11-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 489 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -116,6 +116,8 @@
     <li><a href="#数仓是什么">数仓是什么？</a></li>
     <li><a href="#hive-是什么">Hive 是什么？</a></li>
     <li><a href="#etl-是哪三个单词的缩写">ETL 是哪三个单词的缩写</a></li>
+    <li><a href="#知道笛卡尔积吗">知道笛卡尔积吗？</a></li>
+    <li><a href="#shuffle-用来干什么">shuffle 用来干什么？</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>本文主要摘抄数仓面试中的一些常见问题，以便后续查阅复习。</p>
@@ -135,11 +137,28 @@
 <li><code>Extraction</code> 提取</li>
 <li><code>Transformation</code> 转换</li>
 <li><code>Loading</code> 加载</li>
-</ul></div><div class="post-footer" id="post-footer">
+</ul>
+<h2 id="知道笛卡尔积吗">知道笛卡尔积吗？</h2>
+<p>根据笛卡尔积的定义，JOIN 的两表中的任意一行都会形成一组关系对，如果 A 表有 N 条记录，B 表有 M 条记录，A X B 会生产 N*M 条数据。 <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<ol>
+<li>可 以 通 过 <code>CROSS JOIN</code> 来实现笛卡尔积 <code>select * from A cross join b</code></li>
+<li>如果不支持 <code>CROSS JOIN</code> 的情况下，可以采用 <code>select * from A join B on 1 = 1</code> 的方式实现。</li>
+<li>第二种方法可能在语法检测阶段就报错不支持，可以转成如下语法 <code>select * from (select * , '1' as flag from A) t1 on (select *, '1' as flag from B) t2 where t1.flag = t2.flag</code></li>
+</ol>
+<h2 id="shuffle-用来干什么">shuffle 用来干什么？</h2>
+<p>为了让相同的 key 都到一个 reduce 中进行处理，reduce 要去每个 map 中拉取数据，all-to-all 的过程，跨分区聚集相同的 key。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>参考链接：<a href="https://blog.csdn.net/firenet1/article/details/125268142" target="_blank" rel="noopener noreffer ">大数据SQL如何实现笛卡尔积</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2022-11-03</span>
+                <span>更新于 2022-11-07</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
