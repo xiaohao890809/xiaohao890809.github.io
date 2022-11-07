@@ -78,8 +78,8 @@ from
 where log_date_7 is not null and date_add(log_date, 7) = log_date_7;
 ```
 
-{{< admonition tip "思路1" true>}}
-把用户每天登陆的日期进行排序，如果用**当前天数减去序号**，连续3天的话相同的数据就有 7 个
+{{< admonition tip "思路2" true>}}
+把用户每天登陆的日期进行排序，如果用**当前天数减去序号**，连续 3 天的话相同的数据就有 7 个
 {{< /admonition >}}
 
 ```sql
