@@ -4,9 +4,17 @@
         <link>https://xiaohao890809.github.io/</link>
         <description>耗子的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 03 Nov 2022 16:01:45 &#43;0800</lastBuildDate>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 03 Nov 2022 16:11:45 &#43;0800</lastBuildDate>
             <atom:link href="https://xiaohao890809.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>数仓之学无止境</title>
+    <link>https://xiaohao890809.github.io/study-of-all-life/</link>
+    <pubDate>Thu, 03 Nov 2022 16:11:45 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/study-of-all-life/</guid>
+    <description><![CDATA[<p>本文主要摘抄数仓面试中的一些常见问题，以便后续查阅复习。</p>]]></description>
+</item>
+<item>
     <title>诗歌之荟萃</title>
     <link>https://xiaohao890809.github.io/poetry-of-others/</link>
     <pubDate>Thu, 03 Nov 2022 16:01:45 &#43;0800</pubDate>
@@ -28,7 +36,7 @@
     <pubDate>Sun, 30 Oct 2022 21:40:00 &#43;0800</pubDate>
     <author>浩子</author>
     <guid>https://xiaohao890809.github.io/stock-of-2022q4/</guid>
-    <description><![CDATA[碳中和基金的每日总结 日期 Step1 Step2 Step3 Step4 20221101 高开 拉升 下来了一半 然后冲高 20221102 低开 拉升 冲高 震荡 20221103 低开 拉升 震荡 跳水 2022.10.14 医疗ETF 日丰转债 今天医疗赛道涨到天花板去]]></description>
+    <description><![CDATA[碳中和基金的每日总结 日期 Step1 Step2 Step3 Step4 20221101 高开 拉升 下来了一半 然后冲高 20221102 低开 拉升 冲高 震荡 20221103 低开 拉升 震荡 跳水 20221106 高开 拉升 走强 横盘 20221107 平开 拉升 跳水 震荡 2022.10.14 医疗E]]></description>
 </item>
 <item>
     <title>学习刷题Part1</title>
