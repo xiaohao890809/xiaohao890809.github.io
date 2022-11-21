@@ -125,6 +125,70 @@
 - 方法：`count`（本表） - `count`（关联表）
 - 阈值配置与“空值检测”相同。
 
+## 数仓架构与分层，这样分层的好处
+
+## 数仓维度建模思想，PK维度建模异同与利弊
+
+## 数仓有哪些主题域，如何划分
+
+## 讲一下你们公司的业务，说一下最复杂的业务场景
+
+## 你们制定了哪些数仓规范，分别说一下
+
+## HDFS的读写过程（client，namenode，datanode）
+
+## 数据倾斜的场景与解决方法
+
+## Spark宽依赖，窄依赖区别
+
+Spark 中 RDD 的高效与 DAG（有向无环图）有着莫大的关系，在 DAG 调度中我们需要对计算过程划分 stage，而划分依据就是 RDD 之间的依赖关系。
+
+1. 宽依赖：是指 1 个父 RDD 分区对应多个子 RDD 的分区
+1. 窄依赖：是指一个或多个父 RDD 分区对应一个子 RDD 分区
+
+宽依赖就是 1 对多，窄依赖就是一对一或者多对一。如图：
+
+{{<image src="/images/kuan1.png" caption="窄依赖" width="350">}}
+
+{{<image src="/images/kuan2.png" caption="窄依赖" width="350">}}
+
+{{<image src="/images/kuan3.png" caption="宽依赖" width="350">}}
+
+{{<image src="/images/kuan4.png" caption="宽窄依赖" width="450">}}
+
+窄依赖是将其聚合到一起，收拢数据，这样我们就可以考虑到我们的一些算子就做此功能比如：
+
+- map
+- filter
+- union
+- join(父RDD是hash-partitioned )
+- mapPartitions
+- mapValues
+
+宽依赖将其数据进行打散分开，走 `shuffle` 机制与 `mapreduce` 相同。他主要将一些数据进行洗牌和重新分组发牌。这里也有一些算子做此功能：
+
+- groupByKey
+- join(父RDD不是hash-partitioned )
+- partitionBy
+- sort
+
+## join的实现原理
+
+### Join 背景
+
+当前 `SparkSQL` 支持三种 `join` 算法：
+
+- Shuffle Hash Join
+- Broadcast Hash Join
+- Sort Merge Join
+
+其中前两者归根到底都属于 `Hash Join`，只不过在 `Hash Join` 之前需要先 `Shuffle` 还是先 `Broadcast`。其实，`Hash Join` 算法来自于传统数据库，而 `Shuffle` 和 `Broadcast` 是大数据在分布式情况下的概念，两者结合的产物。因此可以说，大数据的根就是**传统数据库**。`Hash Join`是**内核**。
+
+
+## 离线数仓最大的挑战是什么，如何克服的，是否沉淀方法论
+
+## 实时数仓如何保障数据质量，有哪些手段和方式
+
 [^1]: 参考链接：[大数据SQL如何实现笛卡尔积](https://blog.csdn.net/firenet1/article/details/125268142)
 
 

@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>学习之联通沃音乐 - 追寻原风景的博客</title><meta name="Description" content="学习之联通沃音乐"><meta property="og:title" content="学习之联通沃音乐" />
+<meta property="og:description" content="学习之联通沃音乐" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xiaohao890809.github.io/study-of-liantong/" /><meta property="og:image" content="https://xiaohao890809.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-16T16:21:45+08:00" />
+<meta property="article:modified_time" content="2022-11-17T19:20:51+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xiaohao890809.github.io/logo.png"/>
+
+<meta name="twitter:title" content="学习之联通沃音乐"/>
+<meta name="twitter:description" content="学习之联通沃音乐"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xiaohao890809.github.io/study-of-liantong/" /><link rel="prev" href="https://xiaohao890809.github.io/study-of-leetcode/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "学习之联通沃音乐",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xiaohao890809.github.io\/study-of-liantong\/"
+        },"genre": "posts","keywords": "面试","wordcount":  2370 ,
+        "url": "https:\/\/xiaohao890809.github.io\/study-of-liantong\/","datePublished": "2022-11-16T16:21:45+08:00","dateModified": "2022-11-17T19:20:51+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "浩子"
+            },"description": "学习之联通沃音乐"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="追寻原风景的博客"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>追寻原风景</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="追寻原风景的博客"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>追寻原风景</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">学习之联通沃音乐</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>浩子</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-16">2022-11-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2370 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#shell-题目">shell 题目</a>
+      <ul>
+        <li><a href="#第-1-题">第 1 题</a></li>
+        <li><a href="#第-2-题">第 2 题</a></li>
+        <li><a href="#第-3-题">第 3 题</a></li>
+        <li><a href="#第-4-题">第 4 题</a></li>
+        <li><a href="#第-5-题">第 5 题</a></li>
+        <li><a href="#第-6-题">第 6 题</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据库题">数据库题</a>
+      <ul>
+        <li><a href="#第-7-题">第 7 题</a></li>
+        <li><a href="#第-8-题">第 8 题</a></li>
+        <li><a href="#第-9-题">第 9 题</a></li>
+        <li><a href="#第-10-题">第 10 题</a></li>
+        <li><a href="#第-11-题">第 11 题</a></li>
+        <li><a href="#第-12-题">第 12 题</a></li>
+      </ul>
+    </li>
+    <li><a href="#java题目">JAVA题目</a>
+      <ul>
+        <li><a href="#第-13-题">第 13 题</a></li>
+        <li><a href="#第-14-题">第 14 题</a></li>
+      </ul>
+    </li>
+    <li><a href="#python题目">Python题目</a>
+      <ul>
+        <li><a href="#第-15-题">第 15 题</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>本文主要摘联通沃音乐的一些题目，以便后续查阅复习 😋。</p>
+<h2 id="shell-题目">shell 题目</h2>
+<h3 id="第-1-题">第 1 题</h3>
+<p>如何把文件 a.txt 赋权为755，另外解释 755 是什么权限？</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">chmod <span class="m">755</span> a.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>具体的权限是由数字来表示的</p>
+<ul>
+<li>读取的权限等于 4，用 r 表示；</li>
+<li>写入的权限等于 2，用 w 表示；</li>
+<li>执行的权限等于 1，用 x 表示；</li>
+</ul>
+<p>以 755 为例：</p>
+<ul>
+<li>1-3 位 7 等于 4+2+1，rwx，文件所有者具有读取、写入、执行权限；</li>
+<li>4-6 位 5 等于 4+1+0，r-x，同组用户具有读取、执行权限但没有写入权限；</li>
+<li>7-9 位 5，同上，也是 r-x，其他用户具有读取、执行权限但没有写入权限。</li>
+</ul>
+</div>
+        </div>
+    </div>
+<h3 id="第-2-题">第 2 题</h3>
+<p>如何把文件 a.txt 重命名为 b.txt</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mv a.txt b.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<h3 id="第-3-题">第 3 题</h3>
+<p>如何查询包含 a.sh 的所有进程，并进行批量杀进程？</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>使用 <code>awk</code> 批量杀进程的命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ps -ef <span class="p">|</span> grep a.sh <span class="p">|</span> grep -v grep <span class="p">|</span> awk <span class="s1">&#39;{print &#34;kill -9 &#34;$2}&#39;</span><span class="p">|</span>sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>说明：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#列出了当前主机中运行的进程中包含a.sh关键字的进程</span>
+</span></span><span class="line"><span class="cl">ps -ef <span class="p">|</span> grep a.sh <span class="p">|</span> grep -v grep    
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">#列出了要kill掉这些进程的命令，并将之打印在了屏幕上 </span>
+</span></span><span class="line"><span class="cl">ps -ef <span class="p">|</span> grep a.sh <span class="p">|</span> grep -v grep <span class="p">|</span> awk <span class="s1">&#39;{print &#34;kill -9 &#34;$2}&#39;</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1">#后面加上|sh后，则执行这些命令，进而杀掉了这些进程</span>
+</span></span><span class="line"><span class="cl">ps -ef <span class="p">|</span> grep a.sh <span class="p">|</span> grep -v grep <span class="p">|</span> awk <span class="s1">&#39;{print &#34;kill -9 &#34;$2}&#39;</span> <span class="p">|</span> sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<h3 id="第-4-题">第 4 题</h3>
+<p>请列举 vi 的 6 种命名及其用途</p>
+<ul>
+<li>i: 在光标前插内内容</li>
+<li>x: 删除光标后面的字符</li>
+<li>yy: 复制整行</li>
+<li>:w 保存</li>
+<li>:q 退出</li>
+<li>:q! 强制退出</li>
+<li>:w! 强制保存</li>
+</ul>
+<h3 id="第-5-题">第 5 题</h3>
+<p>文件 a.txt 只有一列数据，请进行排序剔重得到 b.txt？</p>
+<p>a.txt               b.txt<br>
+12                  12<br>
+45                  35<br>
+48       =&gt;      45<br>
+35                  48<br>
+85                  85<br>
+45<br>
+35</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sort -u a.txt &gt; b.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>默认是升序，降序的话加上 -r</p>
+</div>
+        </div>
+    </div>
+<h3 id="第-6-题">第 6 题</h3>
+<p>请写一个 shell 循环得到 1 到 100 的相加之和。</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vim sum1_100.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#!/bin/bash</span>
+</span></span><span class="line"><span class="cl"><span class="nv">sum</span> <span class="o">=</span> <span class="m">0</span> 
+</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="o">{</span>1..100<span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">let</span> <span class="nv">sum</span> <span class="o">=</span> sum + i
+</span></span><span class="line"><span class="cl"><span class="k">done</span> 
+</span></span><span class="line"><span class="cl"><span class="nv">$echo</span> <span class="nv">$sum</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">chmod +x sum1_100.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sh sum1_100.sh 或者 ./sum1_100.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<h2 id="数据库题">数据库题</h2>
+<h3 id="第-7-题">第 7 题</h3>
+<p>以表 a 作为主表，外连接表 b，得出表 c。</p>
+<figure><a class="lightgallery" href="/images/tab1.png" title="/images/tab1.png" data-thumbnail="/images/tab1.png" data-sub-html="<h2>数据表</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/tab1.png"
+            data-srcset="/images/tab1.png, /images/tab1.png 1.5x, /images/tab1.png 2x"
+            data-sizes="auto"
+            alt="/images/tab1.png" />
+    </a><figcaption class="image-caption">数据表</figcaption>
+    </figure>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">Score1</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">coalesce</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">Score2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Score2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tab1</span><span class="w"> </span><span class="n">a</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">tab2</span><span class="w"> </span><span class="n">b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<h3 id="第-8-题">第 8 题</h3>
+<p>参加一个活动，表 a 记录了活动的年龄及该年龄的人数，现需要求出表 b 年龄分段的人数。</p>
+<figure><a class="lightgallery" href="/images/tab2.png" title="/images/tab2.png" data-thumbnail="/images/tab2.png" data-sub-html="<h2>数据表</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/tab2.png"
+            data-srcset="/images/tab2.png, /images/tab2.png 1.5x, /images/tab2.png 2x"
+            data-sizes="auto"
+            alt="/images/tab2.png" />
+    </a><figcaption class="image-caption">数据表</figcaption>
+    </figure>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">case</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;[0,10)&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;[10,20)&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;[20,30)&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;大于30&#39;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Age</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Cnt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tab1</span><span class="w"> </span><span class="n">a</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<h3 id="第-9-题">第 9 题</h3>
+<p>表 a 有学生 id 及其成绩，现做排名得出表 b</p>
+<figure><a class="lightgallery" href="/images/tab3.png" title="/images/tab3.png" data-thumbnail="/images/tab3.png" data-sub-html="<h2>数据表</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/tab3.png"
+            data-srcset="/images/tab3.png, /images/tab3.png 1.5x, /images/tab3.png 2x"
+            data-sizes="auto"
+            alt="/images/tab3.png" />
+    </a><figcaption class="image-caption">数据表</figcaption>
+    </figure>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">Score</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">rank</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="p">(</span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">Score</span><span class="w"> </span><span class="k">desc</span><span class="p">)</span><span class="w"> </span><span class="n">pm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tab1</span><span class="w"> </span><span class="n">a</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">id</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<h3 id="第-10-题">第 10 题</h3>
+<p>每天 1000 万条的数据（有时间（具体到秒），字段2，字段3，字段4&hellip;&hellip;）从前端写入数据库，如何设置表结构，可以快速的查询到 2017年3月11日20点31分到32分的所有数据？</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>思路是把时间进行拆解，按照天+小时+分钟的格式，然后对时间字段加上索引，这样查询的速度就会提升。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">tab1</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">f_id</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;自增id&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">f_date</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;日期&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">f_hour</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;小时&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">f_min</span><span class="o">`</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;分钟&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="err">字段</span><span class="mi">2</span><span class="err">，字段</span><span class="mi">3</span><span class="p">....</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">f_update_time</span><span class="o">`</span><span class="w"> </span><span class="n">datetime</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">`</span><span class="n">f_id</span><span class="o">`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">all_index</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">f_date</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">f_hour</span><span class="o">`</span><span class="p">,</span><span class="w"> </span><span class="o">`</span><span class="n">f_min</span><span class="o">`</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InnoDB</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;注释&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<h3 id="第-11-题">第 11 题</h3>
+<p>如下图：表 a 是营业厅，所属区，地市，省销售金额，现得出表 b 区、地市和全省汇总</p>
+<figure><a class="lightgallery" href="/images/tab4.png" title="/images/tab4.png" data-thumbnail="/images/tab4.png" data-sub-html="<h2>数据表</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/tab4.png"
+            data-srcset="/images/tab4.png, /images/tab4.png 1.5x, /images/tab4.png 2x"
+            data-sizes="auto"
+            alt="/images/tab4.png" />
+    </a><figcaption class="image-caption">数据表</figcaption>
+    </figure>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">City</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Area</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">amt</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tab1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">union</span><span class="w"> </span><span class="k">all</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;全省&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">City</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Area</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">amt</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tab1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">union</span><span class="w"> </span><span class="k">all</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">City</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">City</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s1">&#39;全市&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Area</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">amt</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tab1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<h3 id="第-12-题">第 12 题</h3>
+<p>表 a 字段是以日期作为分区表，有日期、用户id、产品id，使用的时间详细时间，每天有 50 亿条数据，即 31 天总数据为 1550 亿。需要每天得到一个表 b，以 b 表的日期、产品id为联合汇总，算出 1 号到当前的日期的 pv 和 uv。但 Hadoop 集群只能计算 100 亿数据，如何通过逻辑方式计算请写出具体 sql。答案需要考虑集群的计算能力，提示每天新增的用户大概 3 千万。</p>
+<figure><a class="lightgallery" href="/images/tab5.png" title="/images/tab5.png" data-thumbnail="/images/tab5.png" data-sub-html="<h2>数据表</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/tab5.png"
+            data-srcset="/images/tab5.png, /images/tab5.png 1.5x, /images/tab5.png 2x"
+            data-sizes="auto"
+            alt="/images/tab5.png" />
+    </a><figcaption class="image-caption">数据表</figcaption>
+    </figure>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">insert</span><span class="w"> </span><span class="n">overwrite</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tab_with_pv</span><span class="w"> </span><span class="n">partition</span><span class="p">(</span><span class="n">static_dat</span><span class="o">=</span><span class="s1">&#39;计算日&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">static_dat</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">product_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="n">pv</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tab1</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">static_dat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;计算日&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>pv 的计算</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">static_dat</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">product_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">pv</span><span class="p">)</span><span class="w"> </span><span class="n">pv</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tab_with_pv</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">substr</span><span class="p">(</span><span class="n">static_dat</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;计算月&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">static_dat</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="s1">&#39;计算日&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>tab_with_user 这个表需要加上自依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">insert</span><span class="w"> </span><span class="n">overwrite</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tab_with_user</span><span class="w"> </span><span class="n">partition</span><span class="p">(</span><span class="n">static_dat</span><span class="o">=</span><span class="s1">&#39;计算日&#39;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">distinct</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">static_dat</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">product_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">user_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tab_with_user</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">static_dat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;计算日&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">union</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">distinct</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">static_dat</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">product_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">user_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tab_with_user</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">static_dat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;计算日前一日&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">substr</span><span class="p">(</span><span class="n">static_dat</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;计算月&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>uv 的计算</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">static_dat</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">product_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="k">distinct</span><span class="w"> </span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="n">uv</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">tab_with_user</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">static_dat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;计算日&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后把 pv 和 uv 的数据拼接在一起即可。</p>
+</div>
+        </div>
+    </div>
+<h2 id="java题目">JAVA题目</h2>
+<h3 id="第-13-题">第 13 题</h3>
+<p>用代码或伪代码实现一个 java 限流工具类（说明：调用关系为我方系统调用对方系统，我方系统调用频次不能大于对方系统的限制，如：阿里云限制我方每秒调用不能大于1000次）。</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RateLimiterSimpleWindow</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 阈值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="n">QPS</span> <span class="o">=</span> <span class="n">2</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 时间窗口（毫秒）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">TIME_WINDOWS</span> <span class="o">=</span> <span class="n">1000</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 计数器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="n">AtomicInteger</span> <span class="n">REQ_COUNT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AtomicInteger</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="n">START_TIME</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">tryAcquire</span><span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">((</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">START_TIME</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">TIME_WINDOWS</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">REQ_COUNT</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">START_TIME</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">REQ_COUNT</span><span class="o">.</span><span class="na">incrementAndGet</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="n">QPS</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">250</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">LocalTime</span> <span class="n">now</span> <span class="o">=</span> <span class="n">LocalTime</span><span class="o">.</span><span class="na">now</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">(!</span><span class="n">tryAcquire</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">now</span> <span class="o">+</span> <span class="s">&#34; 被限流&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">now</span> <span class="o">+</span> <span class="s">&#34; 做点什么&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">            <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<h3 id="第-14-题">第 14 题</h3>
+<p>假设在 5 台 linux 服务器上我们部署了 5 个应用实例（外部访问默认通过 ngix 负载），该应用涉及到文件的上传和下载，你会如何设计，保证用户上传文件和下载文件时不会出现异常问题，同时也需要保证存储数据访问的安全性（假设不能使用对象存储服务）。</p>
+<h2 id="python题目">Python题目</h2>
+<h3 id="第-15-题">第 15 题</h3>
+<p>现有一个 dataframe 对象 df，如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">name</th>
+<th style="text-align:center">age</th>
+<th style="text-align:center">sex</th>
+<th style="text-align:center">score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">zhangsan</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">50</td>
+</tr>
+<tr>
+<td style="text-align:center">lisi</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">女</td>
+<td style="text-align:center">60</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">90</td>
+</tr>
+<tr>
+<td style="text-align:center">chenyi</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">女</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">chenhai</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">64</td>
+</tr>
+</tbody>
+</table>
+<p>请分别写出相关代码：</p>
+<p>（1）将性别 sex 为空的使用男来替代；将 name 为空的记录删除；将 age、score 列为空的分别使用改列平均值替代。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">df</span><span class="p">[</span><span class="s2">&#34;sex&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&#34;男&#34;</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># 将性别 sex 为空的使用男来替代</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span><span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1"># 将 name 为空的记录删除</span>
+</span></span><span class="line"><span class="cl"><span class="n">age_mean</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;age&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">score_mean</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;score&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span><span class="p">[</span><span class="s2">&#34;age&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">age_mean</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span><span class="p">[</span><span class="s2">&#34;score&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">score_mean</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>（2）完成 2.1 数据后，对性别进行分组汇总，得出每个性别的 score 汇总得分。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&#34;sex&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s2">&#34;score&#34;</span><span class="p">:</span><span class="s2">&#34;sum&#34;</span><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>（3）找出分数大于平均分的记录，并输出 name 和 score</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&#34;score&#34;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;score&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()][[</span><span class="s2">&#34;name&#34;</span><span class="p">,</span><span class="s2">&#34;score&#34;</span><span class="p">]]</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-11-17</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/study-of-liantong/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xiaohao890809.github.io/study-of-liantong/" data-title="学习之联通沃音乐" data-ralateuid="1735838740"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://xiaohao890809.github.io/study-of-liantong/" data-title="学习之联通沃音乐"><i data-svg-src="/lib/simple-icons/icons/baidu.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://xiaohao890809.github.io/study-of-liantong/" data-title="学习之联通沃音乐"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E9%9D%A2%E8%AF%95/">面试</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/study-of-leetcode/" class="prev" rel="prev" title="学习之力扣刷题Part1"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>学习之力扣刷题Part1</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.104.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">浩子</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["xiaohao890809"],"clientID":"f3ac41074cdc28d2e1c9","clientSecret":"61ff9b3b17917a9629db7004d1b8ac74b649e1b9","id":"2022-11-16T16:21:45+08:00","owner":"xiaohao890809","repo":"comment_of_blog","title":"学习之联通沃音乐"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

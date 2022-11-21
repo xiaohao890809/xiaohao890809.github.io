@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xiaohao890809.github.io\/study-of-all-life\/"
-        },"genre": "posts","keywords": "数仓","wordcount":  1828 ,
+        },"genre": "posts","keywords": "数仓","wordcount":  2482 ,
         "url": "https:\/\/xiaohao890809.github.io\/study-of-all-life\/","datePublished": "2022-11-03T16:11:45+08:00","dateModified": "2022-11-14T19:20:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">数仓之学无止境</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>浩子</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-03">2022-11-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1828 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-03">2022-11-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2482 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -135,6 +135,21 @@
         </li>
       </ul>
     </li>
+    <li><a href="#数仓架构与分层这样分层的好处">数仓架构与分层，这样分层的好处</a></li>
+    <li><a href="#数仓维度建模思想pk维度建模异同与利弊">数仓维度建模思想，PK维度建模异同与利弊</a></li>
+    <li><a href="#数仓有哪些主题域如何划分">数仓有哪些主题域，如何划分</a></li>
+    <li><a href="#讲一下你们公司的业务说一下最复杂的业务场景">讲一下你们公司的业务，说一下最复杂的业务场景</a></li>
+    <li><a href="#你们制定了哪些数仓规范分别说一下">你们制定了哪些数仓规范，分别说一下</a></li>
+    <li><a href="#hdfs的读写过程clientnamenodedatanode">HDFS的读写过程（client，namenode，datanode）</a></li>
+    <li><a href="#数据倾斜的场景与解决方法">数据倾斜的场景与解决方法</a></li>
+    <li><a href="#spark宽依赖窄依赖区别">Spark宽依赖，窄依赖区别</a></li>
+    <li><a href="#join的实现原理">join的实现原理</a>
+      <ul>
+        <li><a href="#join-背景">Join 背景</a></li>
+      </ul>
+    </li>
+    <li><a href="#离线数仓最大的挑战是什么如何克服的是否沉淀方法论">离线数仓最大的挑战是什么，如何克服的，是否沉淀方法论</a></li>
+    <li><a href="#实时数仓如何保障数据质量有哪些手段和方式">实时数仓如何保障数据质量，有哪些手段和方式</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>本文主要摘抄数仓面试中的一些常见问题，以便后续查阅复习。</p>
@@ -243,6 +258,87 @@
 <li>方法：<code>count</code>（本表） - <code>count</code>（关联表）</li>
 <li>阈值配置与“空值检测”相同。</li>
 </ul>
+<h2 id="数仓架构与分层这样分层的好处">数仓架构与分层，这样分层的好处</h2>
+<h2 id="数仓维度建模思想pk维度建模异同与利弊">数仓维度建模思想，PK维度建模异同与利弊</h2>
+<h2 id="数仓有哪些主题域如何划分">数仓有哪些主题域，如何划分</h2>
+<h2 id="讲一下你们公司的业务说一下最复杂的业务场景">讲一下你们公司的业务，说一下最复杂的业务场景</h2>
+<h2 id="你们制定了哪些数仓规范分别说一下">你们制定了哪些数仓规范，分别说一下</h2>
+<h2 id="hdfs的读写过程clientnamenodedatanode">HDFS的读写过程（client，namenode，datanode）</h2>
+<h2 id="数据倾斜的场景与解决方法">数据倾斜的场景与解决方法</h2>
+<h2 id="spark宽依赖窄依赖区别">Spark宽依赖，窄依赖区别</h2>
+<p>Spark 中 RDD 的高效与 DAG（有向无环图）有着莫大的关系，在 DAG 调度中我们需要对计算过程划分 stage，而划分依据就是 RDD 之间的依赖关系。</p>
+<ol>
+<li>宽依赖：是指 1 个父 RDD 分区对应多个子 RDD 的分区</li>
+<li>窄依赖：是指一个或多个父 RDD 分区对应一个子 RDD 分区</li>
+</ol>
+<p>宽依赖就是 1 对多，窄依赖就是一对一或者多对一。如图：</p>
+<figure><a class="lightgallery" href="/images/kuan1.png" title="/images/kuan1.png" data-thumbnail="/images/kuan1.png" data-sub-html="<h2>窄依赖</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/kuan1.png"
+            data-srcset="/images/kuan1.png, /images/kuan1.png 1.5x, /images/kuan1.png 2x"
+            data-sizes="auto"
+            alt="/images/kuan1.png" width="350" />
+    </a><figcaption class="image-caption">窄依赖</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/images/kuan2.png" title="/images/kuan2.png" data-thumbnail="/images/kuan2.png" data-sub-html="<h2>窄依赖</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/kuan2.png"
+            data-srcset="/images/kuan2.png, /images/kuan2.png 1.5x, /images/kuan2.png 2x"
+            data-sizes="auto"
+            alt="/images/kuan2.png" width="350" />
+    </a><figcaption class="image-caption">窄依赖</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/images/kuan3.png" title="/images/kuan3.png" data-thumbnail="/images/kuan3.png" data-sub-html="<h2>宽依赖</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/kuan3.png"
+            data-srcset="/images/kuan3.png, /images/kuan3.png 1.5x, /images/kuan3.png 2x"
+            data-sizes="auto"
+            alt="/images/kuan3.png" width="350" />
+    </a><figcaption class="image-caption">宽依赖</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/images/kuan4.png" title="/images/kuan4.png" data-thumbnail="/images/kuan4.png" data-sub-html="<h2>宽窄依赖</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/kuan4.png"
+            data-srcset="/images/kuan4.png, /images/kuan4.png 1.5x, /images/kuan4.png 2x"
+            data-sizes="auto"
+            alt="/images/kuan4.png" width="450" />
+    </a><figcaption class="image-caption">宽窄依赖</figcaption>
+    </figure>
+<p>窄依赖是将其聚合到一起，收拢数据，这样我们就可以考虑到我们的一些算子就做此功能比如：</p>
+<ul>
+<li>map</li>
+<li>filter</li>
+<li>union</li>
+<li>join(父RDD是hash-partitioned )</li>
+<li>mapPartitions</li>
+<li>mapValues</li>
+</ul>
+<p>宽依赖将其数据进行打散分开，走 <code>shuffle</code> 机制与 <code>mapreduce</code> 相同。他主要将一些数据进行洗牌和重新分组发牌。这里也有一些算子做此功能：</p>
+<ul>
+<li>groupByKey</li>
+<li>join(父RDD不是hash-partitioned )</li>
+<li>partitionBy</li>
+<li>sort</li>
+</ul>
+<h2 id="join的实现原理">join的实现原理</h2>
+<h3 id="join-背景">Join 背景</h3>
+<p>当前 <code>SparkSQL</code> 支持三种 <code>join</code> 算法：</p>
+<ul>
+<li>Shuffle Hash Join</li>
+<li>Broadcast Hash Join</li>
+<li>Sort Merge Join</li>
+</ul>
+<p>其中前两者归根到底都属于 <code>Hash Join</code>，只不过在 <code>Hash Join</code> 之前需要先 <code>Shuffle</code> 还是先 <code>Broadcast</code>。其实，<code>Hash Join</code> 算法来自于传统数据库，而 <code>Shuffle</code> 和 <code>Broadcast</code> 是大数据在分布式情况下的概念，两者结合的产物。因此可以说，大数据的根就是<strong>传统数据库</strong>。<code>Hash Join</code>是<strong>内核</strong>。</p>
+<h2 id="离线数仓最大的挑战是什么如何克服的是否沉淀方法论">离线数仓最大的挑战是什么，如何克服的，是否沉淀方法论</h2>
+<h2 id="实时数仓如何保障数据质量有哪些手段和方式">实时数仓如何保障数据质量，有哪些手段和方式</h2>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -290,5 +386,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["xiaohao890809"],"clientID":"f3ac41074cdc28d2e1c9","clientSecret":"61ff9b3b17917a9629db7004d1b8ac74b649e1b9","id":"2022-11-03T16:11:45+08:00","owner":"xiaohao890809","repo":"comment_of_blog","title":"数仓之学无止境"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["xiaohao890809"],"clientID":"f3ac41074cdc28d2e1c9","clientSecret":"61ff9b3b17917a9629db7004d1b8ac74b649e1b9","id":"2022-11-03T16:11:45+08:00","owner":"xiaohao890809","repo":"comment_of_blog","title":"数仓之学无止境"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

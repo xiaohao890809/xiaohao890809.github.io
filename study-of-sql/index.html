@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xiaohao890809.github.io\/study-of-sql\/"
-        },"genre": "posts","keywords": "数仓, SQL","wordcount":  3362 ,
+        },"genre": "posts","keywords": "数仓, SQL","wordcount":  4287 ,
         "url": "https:\/\/xiaohao890809.github.io\/study-of-sql\/","datePublished": "2022-11-07T16:11:45+08:00","dateModified": "2022-11-14T19:20:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">数仓之SQL篇</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>浩子</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-07">2022-11-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3362 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-07">2022-11-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4287 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 9 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -125,12 +125,23 @@
           </ul>
         </li>
         <li><a href="#日期时间函数">日期时间函数</a></li>
+        <li><a href="#流程函数">流程函数</a></li>
+        <li><a href="#数学函数">数学函数</a></li>
+        <li><a href="#字符串函数">字符串函数</a></li>
       </ul>
     </li>
     <li><a href="#支付金额在前-20-的用户">支付金额在前 20% 的用户</a></li>
     <li><a href="#连续-7-天都登陆平台">连续 7 天都登陆平台</a></li>
     <li><a href="#平均活跃天数和月活人数">平均活跃天数和月活人数</a></li>
     <li><a href="#每天的日活数及新用户占比">每天的日活数及新用户占比</a></li>
+    <li><a href="#用户留存分析">用户留存分析</a></li>
+    <li><a href="#列转行">列转行</a>
+      <ul>
+        <li><a href="#使用-union">使用 union</a></li>
+        <li><a href="#采用concat_ws--posexplode方法">采用concat_ws() + posexplode()方法</a></li>
+        <li><a href="#采用explodecase-when方法">采用explode()+case when方法</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>本文主要摘抄数仓中的一些 SQL 问题，包括一些常用的语法和练习题，以便后续查阅复习。</p>
@@ -353,6 +364,30 @@
 <li><code>%H</code> 两位数字表示小时，24小时制（01,02,&hellip;）</li>
 </ul>
 </li>
+</ul>
+<h3 id="流程函数">流程函数</h3>
+<ul>
+<li><code>IF(value,t ,f)</code> 如果 <code>value</code> 是真，返回 <code>t</code>，否则返回 <code>f</code></li>
+<li><code>IFNULL(value1, value2)</code> 如果 <code>value1</code> 不为空，返回 <code>value1</code>，否则返回 <code>value2</code></li>
+<li><code>CASE WHEN</code></li>
+</ul>
+<h3 id="数学函数">数学函数</h3>
+<ul>
+<li><code>ABS(x)</code> 返回 <code>x</code> 的绝对值</li>
+<li><code>CEIL(x)</code> 返回大于 <code>x</code> 的最小整数值</li>
+<li><code>FLOOR(x)</code> 返回小于 <code>x</code> 的最大整数值</li>
+<li><code>MOD(x,y)</code> 返回 <code>x/y</code> 的模</li>
+<li><code>RAND(x)</code> 返回 0~1 的随机值，<code>x</code>可以不写</li>
+<li><code>ROUND(x,y)</code> 返回参数 <code>x</code> 的四舍五入的有 <code>y</code> 位的小数的值</li>
+<li><code>TRUNCATE(x,y)</code> 返回数字 <code>x</code> 截断为 <code>y</code> 位小数的结果</li>
+<li><code>SQRT(x)</code> 返回 <code>x</code> 的平方根</li>
+<li><code>POW(x,y)</code> 返回 <code>x</code> 的 <code>y</code> 次方</li>
+</ul>
+<h3 id="字符串函数">字符串函数</h3>
+<ul>
+<li><code>CONCAT(S1,S2,......,Sn)</code> 连接 <code>S1, S2, ......, Sn</code> 为一个字符串</li>
+<li><code>CONCAT_WS(separator, S1, S2, ......, Sn)</code> 同 <code>CONCAT(s1, s2, ...)</code> 函数，但是每个字符串之间要加上分隔符 <strong><ruby>separator<rt>分隔符</rt></ruby></strong></li>
+<li><code>TRIM(s)</code> 去掉字符串 <code>s</code> 开始与结尾的空格</li>
 </ul>
 <h2 id="支付金额在前-20-的用户">支付金额在前 20% 的用户</h2>
 <div class="details admonition tip open">
@@ -886,6 +921,7 @@
 </span><span class="lnt">25
 </span><span class="lnt">26
 </span><span class="lnt">27
+</span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">with</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">as</span><span class="w">
@@ -907,6 +943,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">row_number</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">uid</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">dt</span><span class="p">)</span><span class="w"> </span><span class="n">rn</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">获得答案</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dt</span><span class="p">,</span><span class="w">
@@ -956,6 +993,7 @@
 </span><span class="lnt">27
 </span><span class="lnt">28
 </span><span class="lnt">29
+</span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">with</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">as</span><span class="w">
@@ -978,6 +1016,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">uid</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">dt</span><span class="p">,</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">uid</span><span class="p">)</span><span class="w"> </span><span class="n">dau</span><span class="p">,</span><span class="w">
@@ -987,6 +1026,234 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">uid</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">reg_dt</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">dt</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">dt</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="用户留存分析">用户留存分析</h2>
+<p>n日留存率 = 第 n 天还在登录的用户数/新增的用户数，假如某日新增了 100 个用户，第二天登录了 50 个，则次日留存率为 50/100 = 50%，第三天登录了 30 个，则第二日留存率为 30/100 = 30%，以此类推，第 7 天登录了 10 个用户，则 7 日留存率就是 10/100 = 10%。</p>
+<p>首先，我们需要计算出每个user的首次登录日期，也就是下面的代码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">user_id</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">MIN</span><span class="p">(</span><span class="n">log_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">first_log_date</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">user_log</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">user_id</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后，我们和 <code>user_log</code> 表进行关联之后再进行日期差的计算，这就得到了某一天登录离第一次登录有多长时间。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">--用户留存计算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">first_log_date</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">t3</span><span class="p">.</span><span class="n">diff_days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">day_0</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">t3</span><span class="p">.</span><span class="n">diff_days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">day_1</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">t3</span><span class="p">.</span><span class="n">diff_days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">day_2</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">t3</span><span class="p">.</span><span class="n">diff_days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">day_3</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">t3</span><span class="p">.</span><span class="n">diff_days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">day_4</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">t3</span><span class="p">.</span><span class="n">diff_days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">day_5</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">t3</span><span class="p">.</span><span class="n">diff_days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">day_6</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">t3</span><span class="p">.</span><span class="n">diff_days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">day_7</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">t1</span><span class="p">.</span><span class="n">user_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">t2</span><span class="p">.</span><span class="n">first_log_date</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="k">DAY</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">first_log_date</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">log_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">diff_days</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">user_log</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">user_id</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">MIN</span><span class="p">(</span><span class="n">log_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">first_log_date</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">user_log</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">user_id</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">t2</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">user_id</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t3</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">first_log_date</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="列转行">列转行</h2>
+<p>数据准备</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">as</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">,</span><span class="s1">&#39;mike&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">,</span><span class="s1">&#39;22&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">gender</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">union</span><span class="w"> </span><span class="k">all</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="p">,</span><span class="s1">&#39;kangkang&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">,</span><span class="s1">&#39;19&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">gender</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="使用-union">使用 union</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">type</span><span class="p">,</span><span class="n">name</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">union</span><span class="w"> </span><span class="k">all</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">type</span><span class="p">,</span><span class="n">age</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">union</span><span class="w"> </span><span class="k">all</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="s1">&#39;gender&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">type</span><span class="p">,</span><span class="n">gender</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">id</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="采用concat_ws--posexplode方法">采用concat_ws() + posexplode()方法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">type</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">select</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">t1</span><span class="p">.</span><span class="n">pos1</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">t1</span><span class="p">.</span><span class="n">value1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">t2</span><span class="p">.</span><span class="n">pos2</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">t2</span><span class="p">.</span><span class="n">type2</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="k">type</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">from</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">select</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">id</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">concat_ws</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">gender</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nb">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;gender&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">type</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">lateral</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">posexplode</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">))</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">pos1</span><span class="p">,</span><span class="w"> </span><span class="n">value1</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">lateral</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">posexplode</span><span class="p">(</span><span class="n">t</span><span class="p">.</span><span class="k">type</span><span class="p">)</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">pos2</span><span class="p">,</span><span class="w"> </span><span class="n">type2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">pos1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">pos2</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>SQL简化如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="n">type2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">type</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">value1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">lateral</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">posexplode</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">concat_ws</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">gender</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">))</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">pos1</span><span class="p">,</span><span class="w"> </span><span class="n">value1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">lateral</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">posexplode</span><span class="p">(</span><span class="nb">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;gender&#39;</span><span class="p">))</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">pos2</span><span class="p">,</span><span class="w"> </span><span class="n">type2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">pos1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">pos2</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="采用explodecase-when方法">采用explode()+case when方法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">type</span><span class="p">,</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">type</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="s1">&#39;age&#39;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">age</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="s1">&#39;gender&#39;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">gender</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">lateral</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">explode</span><span class="p">(</span><span class="nb">array</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;gender&#39;</span><span class="p">))</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">type</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">

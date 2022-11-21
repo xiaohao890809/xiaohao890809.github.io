@@ -122,6 +122,30 @@ FROM employee;
     - `%d` 两位数字表示月中的天数(01,02...)
     - `%H` 两位数字表示小时，24小时制（01,02,...）
 
+### 流程函数
+
+- `IF(value,t ,f)` 如果 `value` 是真，返回 `t`，否则返回 `f`
+- `IFNULL(value1, value2)` 如果 `value1` 不为空，返回 `value1`，否则返回 `value2`
+- `CASE WHEN`
+
+### 数学函数
+
+- `ABS(x)` 返回 `x` 的绝对值
+- `CEIL(x)` 返回大于 `x` 的最小整数值
+- `FLOOR(x)` 返回小于 `x` 的最大整数值
+- `MOD(x,y)` 返回 `x/y` 的模
+- `RAND(x)` 返回 0~1 的随机值，`x`可以不写
+- `ROUND(x,y)` 返回参数 `x` 的四舍五入的有 `y` 位的小数的值
+- `TRUNCATE(x,y)` 返回数字 `x` 截断为 `y` 位小数的结果
+- `SQRT(x)` 返回 `x` 的平方根
+- `POW(x,y)` 返回 `x` 的 `y` 次方
+
+### 字符串函数
+
+- `CONCAT(S1,S2,......,Sn)` 连接 `S1, S2, ......, Sn` 为一个字符串
+- `CONCAT_WS(separator, S1, S2, ......, Sn)` 同 `CONCAT(s1, s2, ...)` 函数，但是每个字符串之间要加上分隔符 [separator]^(分隔符)
+- `TRIM(s)` 去掉字符串 `s` 开始与结尾的空格
+
 ## 支付金额在前 20% 的用户
 
 {{< admonition tip "思路" true>}}
@@ -323,6 +347,7 @@ t2 as
         row_number() over(partition by uid order by dt) rn
     from t1
 )
+
 # 获得答案
 select
     dt,
@@ -358,6 +383,7 @@ t2 as
     from t1
     group by uid
 )
+
 select
     dt,
     count(t1.uid) dau,
@@ -368,6 +394,145 @@ left join t2
 group by dt
 order by dt;
 ```
+
+## 用户留存分析
+
+n日留存率 = 第 n 天还在登录的用户数/新增的用户数，假如某日新增了 100 个用户，第二天登录了 50 个，则次日留存率为 50/100 = 50%，第三天登录了 30 个，则第二日留存率为 30/100 = 30%，以此类推，第 7 天登录了 10 个用户，则 7 日留存率就是 10/100 = 10%。
+
+首先，我们需要计算出每个user的首次登录日期，也就是下面的代码。
+
+```sql
+SELECT 
+    user_id, 
+    MIN(log_date) AS first_log_date 
+FROM user_log 
+GROUP BY user_id
+```
+
+然后，我们和 `user_log` 表进行关联之后再进行日期差的计算，这就得到了某一天登录离第一次登录有多长时间。
+
+```sql
+--用户留存计算
+SELECT
+    first_log_date,
+    SUM(CASE WHEN t3.diff_days = 0 THEN 1 ELSE 0 END) AS day_0,
+    SUM(CASE WHEN t3.diff_days = 1 THEN 1 ELSE 0 END) AS day_1,
+    SUM(CASE WHEN t3.diff_days = 2 THEN 1 ELSE 0 END) AS day_2,
+    SUM(CASE WHEN t3.diff_days = 3 THEN 1 ELSE 0 END) AS day_3,
+    SUM(CASE WHEN t3.diff_days = 4 THEN 1 ELSE 0 END) AS day_4,
+    SUM(CASE WHEN t3.diff_days = 5 THEN 1 ELSE 0 END) AS day_5,
+    SUM(CASE WHEN t3.diff_days = 6 THEN 1 ELSE 0 END) AS day_6,
+    SUM(CASE WHEN t3.diff_days = 7 THEN 1 ELSE 0 END) AS day_7 
+FROM
+(
+    SELECT
+        t1.user_id,
+        t2.first_log_date,
+        DATEDIFF(DAY, t2.first_log_date, t1.log_date) AS diff_days 
+    FROM user_log AS t1
+    LEFT JOIN 
+    (
+        SELECT 
+            user_id, 
+            MIN(log_date) AS first_log_date 
+        FROM user_log 
+        GROUP BY user_id 
+    ) as t2 
+        ON t1.user_id = t2.user_id 
+) AS t3 
+GROUP BY first_log_date
+```
+
+## 列转行
+
+数据准备 
+
+```sql
+create table t1 as 
+select '1' as id ,'mike' as name ,'22' as age,'0' as gender
+union all      
+select '2' as id ,'kangkang' as name ,'19' as age,'1' as gender
+```
+
+### 使用 union 
+
+```sql
+select id,'name' as type,name as value
+from t1
+union all
+select id,'age' as type,age as value
+from t1
+union all
+select id,'gender' as type,gender as value
+from t1
+order by id
+```
+
+### 采用concat_ws() + posexplode()方法
+
+```sql
+select 
+    id, 
+    type, 
+    value
+from 
+(
+    select 
+        t.id, 
+        t1.pos1, 
+        t1.value1 as value,
+        t2.pos2, 
+        t2.type2  as type
+    from 
+    (
+        select 
+            id, 
+            concat_ws(',', name, age, gender) as value, 
+            array('name', 'age', 'gender') as type
+        from t1
+    ) t
+    lateral view posexplode(split(t.value, ',')) t1 as pos1, value1 
+    lateral view posexplode(t.type) t2 as pos2, type2
+) t
+where t.pos1 = t.pos2
+```
+
+SQL简化如下：
+
+```sql
+select 
+    id, 
+    b.type2 as type, 
+    a.value1 as value
+from t1
+    lateral view posexplode(split(concat_ws(',', t1.name, t1.age, t1.gender), ',')) a as pos1, value1
+    lateral view posexplode(array('name', 'age', 'gender')) b as pos2, type2
+where a.pos1 = b.pos2
+```
+
+### 采用explode()+case when方法
+
+```sql
+select 
+    id, 
+    type, 
+    case type
+        when 'name' then name
+        when 'age' then age
+        when 'gender' then gender
+        else null end as value
+from t1 lateral view explode(array('name', 'age', 'gender')) t2 as type
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
