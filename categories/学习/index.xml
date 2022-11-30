@@ -4,15 +4,7 @@
         <link>https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/</link>
         <description>学习 - 分类 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 29 Nov 2022 16:41:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
-    <title>力扣-数组中重复的数据</title>
-    <link>https://xiaohao890809.github.io/duplicates/</link>
-    <pubDate>Tue, 29 Nov 2022 16:41:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/duplicates/</guid>
-    <description><![CDATA[🔗 题目链接 给你一个长度为 n 的整数数组 nums ，其中 nums 的所有整数都在范围 [1, n] 内，且每个整数出现一次或两次。请你找出所有出现两次的整数，并以数组形式返]]></description>
-</item>
-<item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 29 Nov 2022 16:31:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
     <title>Inmon 范式建模和 Kimball 维度建模</title>
     <link>https://xiaohao890809.github.io/kimball/</link>
     <pubDate>Tue, 29 Nov 2022 16:31:45 &#43;0800</pubDate>

@@ -12,5 +12,13 @@
     <guid>https://xiaohao890809.github.io/two-sum/</guid>
     <description><![CDATA[🔗 题目链接 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值 target 的那两个整数，并返回它们的数组下标。 你可以假设每种输]]></description>
 </item>
+<item>
+    <title>力扣-数组中重复的数据</title>
+    <link>https://xiaohao890809.github.io/duplicates/</link>
+    <pubDate>Tue, 29 Nov 2022 16:41:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/duplicates/</guid>
+    <description><![CDATA[🔗 题目链接 给你一个长度为 n 的整数数组 nums ，其中 nums 的所有整数都在范围 [1, n] 内，且每个整数出现一次或两次。请你找出所有出现两次的整数，并以数组形式返]]></description>
+</item>
 </channel>
 </rss>
