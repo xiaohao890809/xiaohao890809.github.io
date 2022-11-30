@@ -4,39 +4,39 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>学习之力扣刷题Part1 - 追寻原风景的博客</title><meta name="Description" content="学习之力扣刷题"><meta property="og:title" content="学习之力扣刷题Part1" />
-<meta property="og:description" content="学习之力扣刷题" />
+        <title>力扣-数组中重复的数据 - 追寻原风景的博客</title><meta name="Description" content="力扣-数组中重复的数据"><meta property="og:title" content="力扣-数组中重复的数据" />
+<meta property="og:description" content="力扣-数组中重复的数据" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xiaohao890809.github.io/study-of-leetcode/" /><meta property="og:image" content="https://xiaohao890809.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-11-08T16:21:45+08:00" />
-<meta property="article:modified_time" content="2022-11-08T19:20:51+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta property="og:url" content="https://xiaohao890809.github.io/duplicates/" /><meta property="og:image" content="https://xiaohao890809.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-29T16:41:45+08:00" />
+<meta property="article:modified_time" content="2022-11-30T19:20:51+08:00" /><meta property="og:site_name" content="我的网站" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xiaohao890809.github.io/logo.png"/>
 
-<meta name="twitter:title" content="学习之力扣刷题Part1"/>
-<meta name="twitter:description" content="学习之力扣刷题"/>
+<meta name="twitter:title" content="力扣-数组中重复的数据"/>
+<meta name="twitter:description" content="力扣-数组中重复的数据"/>
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xiaohao890809.github.io/study-of-leetcode/" /><link rel="prev" href="https://xiaohao890809.github.io/study-of-interview/" /><link rel="next" href="https://xiaohao890809.github.io/study-of-liantong/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xiaohao890809.github.io/duplicates/" /><link rel="prev" href="https://xiaohao890809.github.io/kimball/" /><link rel="next" href="https://xiaohao890809.github.io/two-sum/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "学习之力扣刷题Part1",
+        "headline": "力扣-数组中重复的数据",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/xiaohao890809.github.io\/study-of-leetcode\/"
-        },"genre": "posts","keywords": "力扣","wordcount":  1116 ,
-        "url": "https:\/\/xiaohao890809.github.io\/study-of-leetcode\/","datePublished": "2022-11-08T16:21:45+08:00","dateModified": "2022-11-08T19:20:51+08:00","publisher": {
+            "@id": "https:\/\/xiaohao890809.github.io\/duplicates\/"
+        },"genre": "posts","keywords": "力扣","wordcount":  1090 ,
+        "url": "https:\/\/xiaohao890809.github.io\/duplicates\/","datePublished": "2022-11-29T16:41:45+08:00","dateModified": "2022-11-30T19:20:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "浩子"
-            },"description": "学习之力扣刷题"
+                "name": "耗子"
+            },"description": "力扣-数组中重复的数据"
     }
     </script></head>
     <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -102,9 +102,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">学习之力扣刷题Part1</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>浩子</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-08">2022-11-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1116 字&nbsp;
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">力扣-数组中重复的数据</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>耗子</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-29">2022-11-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1090 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -113,16 +113,11 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#数组中重复的数据httpsleetcodecnproblemsfind-all-duplicates-in-an-array"><a href="https://leetcode.cn/problems/find-all-duplicates-in-an-array">数组中重复的数据</a></a>
-      <ul>
-        <li><a href="#方法一将元素交换到对应的位置">方法一：将元素交换到对应的位置</a></li>
-        <li><a href="#方法二使用正负号作为标记">方法二：使用正负号作为标记</a></li>
-      </ul>
-    </li>
+    <li><a href="#方法一将元素交换到对应的位置">方法一：将元素交换到对应的位置</a></li>
+    <li><a href="#方法二使用正负号作为标记">方法二：使用正负号作为标记</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>本文主要摘抄一些力扣的题目，以便后续查阅复习。</p>
-<h2 id="数组中重复的数据httpsleetcodecnproblemsfind-all-duplicates-in-an-array"><a href="https://leetcode.cn/problems/find-all-duplicates-in-an-array" target="_blank" rel="noopener noreffer ">数组中重复的数据</a></h2>
+            </div><div class="content" id="content"><p>🔗 <a href="https://leetcode.cn/problems/find-all-duplicates-in-an-array" target="_blank" rel="noopener noreffer ">题目链接</a></p>
 <p>给你一个长度为 <code>n</code> 的整数数组 <code>nums</code> ，其中 <code>nums</code> 的所有整数都在范围 <code>[1, n]</code> 内，且每个整数出现<strong>一次</strong>或<strong>两次</strong>。请你找出所有出现<strong>两次</strong>的整数，并以数组形式返回。</p>
 <p>你必须设计并实现一个时间复杂度为 <code>O(n)</code> 且仅使用常量额外空间的算法解决此问题。</p>
 <div class="details admonition example open">
@@ -152,7 +147,7 @@
 <strong>输出</strong>：[]</div>
         </div>
     </div>
-<h3 id="方法一将元素交换到对应的位置">方法一：将元素交换到对应的位置</h3>
+<h2 id="方法一将元素交换到对应的位置">方法一：将元素交换到对应的位置</h2>
 <blockquote>
 <p>思路与算法</p>
 </blockquote>
@@ -186,7 +181,7 @@
 <li>时间复杂度：$O(n)$。每一次交换操作会使得至少一个元素被交换到对应的正确位置，因此交换的次数为 $O(n)$，总时间复杂度为 $O(n)$。</li>
 <li>空间复杂度：$O(1)$。返回值不计入空间复杂度。</li>
 </ul>
-<h3 id="方法二使用正负号作为标记">方法二：使用正负号作为标记</h3>
+<h2 id="方法二使用正负号作为标记">方法二：使用正负号作为标记</h2>
 <p><strong>思路与算法</strong></p>
 <p>我们也可以给 $nums[i]$ 加上「负号」表示数 $i+1$ 已经出现过一次。具体地，我们首先对数组进行一次遍历。当遍历到位置 $i$ 时，我们考虑 $nums[nums[i]−1]$ 的正负性：</p>
 <ul>
@@ -230,18 +225,19 @@
 <ul>
 <li>时间复杂度：$O(n)$。我们只需要对数组 $nums$ 进行一次遍历。</li>
 <li>空间复杂度：$O(1)$。返回值不计入空间复杂度。</li>
-</ul></div><div class="post-footer" id="post-footer">
+</ul>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2022-11-08</span>
+                <span>更新于 2022-11-30</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/study-of-leetcode/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="/duplicates/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xiaohao890809.github.io/study-of-leetcode/" data-title="学习之力扣刷题Part1" data-ralateuid="1735838740"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://xiaohao890809.github.io/study-of-leetcode/" data-title="学习之力扣刷题Part1"><i data-svg-src="/lib/simple-icons/icons/baidu.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://xiaohao890809.github.io/study-of-leetcode/" data-title="学习之力扣刷题Part1"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xiaohao890809.github.io/duplicates/" data-title="力扣-数组中重复的数据" data-ralateuid="1735838740"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://xiaohao890809.github.io/duplicates/" data-title="力扣-数组中重复的数据"><i data-svg-src="/lib/simple-icons/icons/baidu.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://xiaohao890809.github.io/duplicates/" data-title="力扣-数组中重复的数据"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -253,8 +249,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/study-of-interview/" class="prev" rel="prev" title="学习之基础知识篇"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>学习之基础知识篇</a>
-            <a href="/study-of-liantong/" class="next" rel="next" title="学习之联通沃音乐">学习之联通沃音乐<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/kimball/" class="prev" rel="prev" title="Inmon 范式建模和 Kimball 维度建模"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Inmon 范式建模和 Kimball 维度建模</a>
+            <a href="/two-sum/" class="next" rel="next" title="力扣-两数之和">力扣-两数之和<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="gitalk" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
@@ -270,5 +266,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["xiaohao890809"],"clientID":"f3ac41074cdc28d2e1c9","clientSecret":"61ff9b3b17917a9629db7004d1b8ac74b649e1b9","id":"2022-11-08T16:21:45+08:00","owner":"xiaohao890809","repo":"comment_of_blog","title":"学习之力扣刷题Part1"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["xiaohao890809"],"clientID":"f3ac41074cdc28d2e1c9","clientSecret":"61ff9b3b17917a9629db7004d1b8ac74b649e1b9","id":"2022-11-29T16:41:45+08:00","owner":"xiaohao890809","repo":"comment_of_blog","title":"力扣-数组中重复的数据"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

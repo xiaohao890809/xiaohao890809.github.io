@@ -4,23 +4,47 @@
         <link>https://xiaohao890809.github.io/</link>
         <description>耗子的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 16 Nov 2022 16:21:45 &#43;0800</lastBuildDate>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 29 Nov 2022 16:42:45 &#43;0800</lastBuildDate>
             <atom:link href="https://xiaohao890809.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>力扣-两数之和</title>
+    <link>https://xiaohao890809.github.io/two-sum/</link>
+    <pubDate>Tue, 29 Nov 2022 16:42:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/two-sum/</guid>
+    <description><![CDATA[🔗 题目链接 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值 target 的那两个整数，并返回它们的数组下标。 你可以假设每种输]]></description>
+</item>
+<item>
+    <title>力扣-数组中重复的数据</title>
+    <link>https://xiaohao890809.github.io/duplicates/</link>
+    <pubDate>Tue, 29 Nov 2022 16:41:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/duplicates/</guid>
+    <description><![CDATA[🔗 题目链接 给你一个长度为 n 的整数数组 nums ，其中 nums 的所有整数都在范围 [1, n] 内，且每个整数出现一次或两次。请你找出所有出现两次的整数，并以数组形式返]]></description>
+</item>
+<item>
+    <title>Inmon 范式建模和 Kimball 维度建模</title>
+    <link>https://xiaohao890809.github.io/kimball/</link>
+    <pubDate>Tue, 29 Nov 2022 16:31:45 &#43;0800</pubDate>
+    <author>YLY</author>
+    <guid>https://xiaohao890809.github.io/kimball/</guid>
+    <description><![CDATA[<p>本文开始先简单理解两种建模的核心思想，然后根据一个具体的例子，分别使用这两种建模方式进行建模，大家便会一目了然！ 😏。</p>]]></description>
+</item>
+<item>
+    <title>三范式</title>
+    <link>https://xiaohao890809.github.io/3nf/</link>
+    <pubDate>Tue, 29 Nov 2022 16:21:45 &#43;0800</pubDate>
+    <author>Alder&#39;s</author>
+    <guid>https://xiaohao890809.github.io/3nf/</guid>
+    <description><![CDATA[<p>三范式都有哪些？举例说明具体含义 😏。</p>]]></description>
+</item>
+<item>
     <title>学习之联通沃音乐</title>
     <link>https://xiaohao890809.github.io/study-of-liantong/</link>
     <pubDate>Wed, 16 Nov 2022 16:21:45 &#43;0800</pubDate>
     <author>浩子</author>
     <guid>https://xiaohao890809.github.io/study-of-liantong/</guid>
     <description><![CDATA[<p>本文主要摘联通沃音乐的一些题目，以便后续查阅复习 😋。</p>]]></description>
-</item>
-<item>
-    <title>学习之力扣刷题Part1</title>
-    <link>https://xiaohao890809.github.io/study-of-leetcode/</link>
-    <pubDate>Tue, 08 Nov 2022 16:21:45 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/study-of-leetcode/</guid>
-    <description><![CDATA[<p>本文主要摘抄一些力扣的题目，以便后续查阅复习。</p>]]></description>
 </item>
 <item>
     <title>学习之基础知识篇</title>
@@ -61,30 +85,6 @@
     <author>李商隐</author>
     <guid>https://xiaohao890809.github.io/poetry-of-lishangyin/</guid>
     <description><![CDATA[<p>李商隐（约813年～约858年），字义山，号玉谿生，怀州河内（今河南省沁阳市）人。晚唐著名诗人，和杜牧合称“小李杜”。</p>]]></description>
-</item>
-<item>
-    <title>股市2022Q4记录</title>
-    <link>https://xiaohao890809.github.io/stock-of-2022q4/</link>
-    <pubDate>Sun, 30 Oct 2022 21:40:00 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/stock-of-2022q4/</guid>
-    <description><![CDATA[碳中和基金的每日总结 日期 Step1 Step2 Step3 Step4 20221101 高开 拉升 下来了一半 然后冲高 20221102 低开 拉升 冲高 震荡 20221103 低开 拉升 震荡 跳水 20221106 高开 拉升 走强 横盘 20221107 平开 拉升 跳水 震荡 20221108 低开 拉]]></description>
-</item>
-<item>
-    <title>学习刷题Part1</title>
-    <link>https://xiaohao890809.github.io/exercise-1/</link>
-    <pubDate>Sun, 30 Oct 2022 20:55:57 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/exercise-1/</guid>
-    <description><![CDATA[比特和波特 关于比特和波特，下面说法正确的是( )。 (A) 比特和波特施一个概念 (B) 比特是码元传输速率单位 (C) 波特是信息量单位 (D) 在某些情况下，“比特/秒”]]></description>
-</item>
-<item>
-    <title>诗歌之李白篇</title>
-    <link>https://xiaohao890809.github.io/poetry-of-libai/</link>
-    <pubDate>Sat, 29 Oct 2022 23:13:45 &#43;0800</pubDate>
-    <author>李白</author>
-    <guid>https://xiaohao890809.github.io/poetry-of-libai/</guid>
-    <description><![CDATA[<p>李白（701年2月28日—762年12月），字太白，号青莲居士，又号“谪仙人”，唐代伟大的浪漫主义诗人，被后人誉为“诗仙”，与杜甫并称为“李杜”。</p>]]></description>
 </item>
 </channel>
 </rss>

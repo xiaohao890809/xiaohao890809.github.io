@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>维度建模 - 标签 - 追寻原风景的博客</title>
+        <link>https://xiaohao890809.github.io/tags/%E7%BB%B4%E5%BA%A6%E5%BB%BA%E6%A8%A1/</link>
+        <description>维度建模 - 标签 - 追寻原风景的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 29 Nov 2022 16:31:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E7%BB%B4%E5%BA%A6%E5%BB%BA%E6%A8%A1/" rel="self" type="application/rss+xml" /><item>
+    <title>Inmon 范式建模和 Kimball 维度建模</title>
+    <link>https://xiaohao890809.github.io/kimball/</link>
+    <pubDate>Tue, 29 Nov 2022 16:31:45 &#43;0800</pubDate>
+    <author>YLY</author>
+    <guid>https://xiaohao890809.github.io/kimball/</guid>
+    <description><![CDATA[<p>本文开始先简单理解两种建模的核心思想，然后根据一个具体的例子，分别使用这两种建模方式进行建模，大家便会一目了然！ 😏。</p>]]></description>
+</item>
+</channel>
+</rss>

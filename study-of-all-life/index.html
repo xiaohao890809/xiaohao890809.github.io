@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xiaohao890809.github.io\/study-of-all-life\/"
-        },"genre": "posts","keywords": "数仓","wordcount":  2482 ,
+        },"genre": "posts","keywords": "数仓","wordcount":  555 ,
         "url": "https:\/\/xiaohao890809.github.io\/study-of-all-life\/","datePublished": "2022-11-03T16:11:45+08:00","dateModified": "2022-11-14T19:20:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">数仓之学无止境</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>浩子</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-03">2022-11-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2482 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-03">2022-11-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 555 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -118,36 +118,8 @@
     <li><a href="#etl-是哪三个单词的缩写">ETL 是哪三个单词的缩写</a></li>
     <li><a href="#知道笛卡尔积吗">知道笛卡尔积吗？</a></li>
     <li><a href="#shuffle-用来干什么">shuffle 用来干什么？</a></li>
-    <li><a href="#数据质量">数据质量</a>
-      <ul>
-        <li><a href="#定义">定义</a></li>
-        <li><a href="#目标">目标</a></li>
-        <li><a href="#实施">实施</a></li>
-        <li><a href="#数据质量标准分类">数据质量标准分类</a></li>
-        <li><a href="#数据质量校验">数据质量校验</a>
-          <ul>
-            <li><a href="#单表数据量监控">单表数据量监控</a></li>
-            <li><a href="#单表空值检测">单表空值检测</a></li>
-            <li><a href="#单表重复值检测">单表重复值检测</a></li>
-            <li><a href="#单表值域检测">单表值域检测</a></li>
-            <li><a href="#跨表数据量对比">跨表数据量对比</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#数仓架构与分层这样分层的好处">数仓架构与分层，这样分层的好处</a></li>
-    <li><a href="#数仓维度建模思想pk维度建模异同与利弊">数仓维度建模思想，PK维度建模异同与利弊</a></li>
-    <li><a href="#数仓有哪些主题域如何划分">数仓有哪些主题域，如何划分</a></li>
-    <li><a href="#讲一下你们公司的业务说一下最复杂的业务场景">讲一下你们公司的业务，说一下最复杂的业务场景</a></li>
-    <li><a href="#你们制定了哪些数仓规范分别说一下">你们制定了哪些数仓规范，分别说一下</a></li>
-    <li><a href="#hdfs的读写过程clientnamenodedatanode">HDFS的读写过程（client，namenode，datanode）</a></li>
     <li><a href="#数据倾斜的场景与解决方法">数据倾斜的场景与解决方法</a></li>
-    <li><a href="#spark宽依赖窄依赖区别">Spark宽依赖，窄依赖区别</a></li>
-    <li><a href="#join的实现原理">join的实现原理</a>
-      <ul>
-        <li><a href="#join-背景">Join 背景</a></li>
-      </ul>
-    </li>
+    <li><a href="#内部表和外部表">内部表和外部表</a></li>
     <li><a href="#离线数仓最大的挑战是什么如何克服的是否沉淀方法论">离线数仓最大的挑战是什么，如何克服的，是否沉淀方法论</a></li>
     <li><a href="#实时数仓如何保障数据质量有哪些手段和方式">实时数仓如何保障数据质量，有哪些手段和方式</a></li>
   </ul>
@@ -179,164 +151,8 @@
 </ol>
 <h2 id="shuffle-用来干什么">shuffle 用来干什么？</h2>
 <p>为了让相同的 key 都到一个 reduce 中进行处理，reduce 要去每个 map 中拉取数据，all-to-all 的过程，跨分区聚集相同的 key。</p>
-<h2 id="数据质量">数据质量</h2>
-<h3 id="定义">定义</h3>
-<blockquote>
-<p>数据质量管理作为数据仓库的一个重要模块，主要可以分为数据的健康标准量化、监控和保障。</p>
-</blockquote>
-<p>数据质量管理是对数据产生、加工、消费的整个数据生命周期的质量管控，具体的维度包括：</p>
-<ul>
-<li>准确性</li>
-<li>完整性</li>
-<li>一致性</li>
-<li>及时性</li>
-<li>有效性</li>
-<li>唯一性</li>
-</ul>
-<p>数据生产阶段：由于系统异常或系统流程等问题，导致的数据缺失或数据的不准确。</p>
-<p>数据加工和消费阶段：加工过程中，数据<strong>抽取</strong>的<strong>完整</strong>性能否与系统产生的数据保持<strong>一致</strong>、数据<strong>产出</strong>是否<strong>及时</strong>等质量问题。</p>
-<h3 id="目标">目标</h3>
-<p>针对数仓体系中的表建立一套质量评估体系，从数据的完整性、准确性、⼀致性、有效性、及时性、唯一性等维度进行评价，去引导对数表的建设和对数表准确性进行合理评估。</p>
-<h3 id="实施">实施</h3>
-<p>简单来说就是通过一系列规则，从全链路、多角度去监测一些指标，形成质量报告，对质量进行评价。这里举一些需要监控的指标的例子：</p>
-<ul>
-<li>表：主键、数据量（行数、占用磁盘大小）；</li>
-<li>字段：空值行数的占比、重复行数、固定值行数、枚举个数、枚举范围、长度；</li>
-<li>SLA：对外承诺的最晚产出时间（任务延迟时报警）；</li>
-</ul>
-<p>每周要进行复盘，对事故、破线、报警个数、报警率、起夜次数进行记录，分析原因，对任务进行优化。</p>
-<h3 id="数据质量标准分类">数据质量标准分类</h3>
-<ul>
-<li>数据完整性：数据不存在大量的缺失值、不缺少某一日期/部门/地点等部分维度的数据，同时在 ETL 过程当中应保证数据的完整不丢失。验证数据时总数应符合正常规律时间推移，记录数总数的增长符合正常的趋势。</li>
-<li>数据一致性：数仓各层的数据，应与上一层保持数据一致，最终经过数据清洗转化（ETL）的宽表/指标能和数据源保持一致。</li>
-</ul>
-<h3 id="数据质量校验">数据质量校验</h3>
-<h4 id="单表数据量监控">单表数据量监控</h4>
-<p>一张表的记录数在一个已知的范围内，或者上下浮动不会超过某个阈值。</p>
-<ul>
-<li>方法：<code>select count（*）from</code> 表 <code>where</code> 时间等过滤条件。</li>
-<li>报警触发条件设置：如果数据量不在 [数值下限, 数值上限]， 则触发报警。</li>
-<li><strong>同比</strong>增加：如果 ((本周的数据量 - 上周的数据量) / 上周的数据量 * 100) 不在 [比例下限，比例上限]，则触发报警。</li>
-<li><strong>环比</strong>增加：如果 ((今天的数据量 - 昨天的数据量) / 昨天的数据量 * 100) 不在 [比例下限，比例上限]，则触发报警。</li>
-<li>报警触发条件设置一定要有。如果没有配置的阈值，不能做监控。</li>
-</ul>
-<p>监控的指标：日活、周活、月活、留存（日周月）、转化率（日、周、月）、GMV（日、周、月）。</p>
-<div class="details admonition example open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-list-ol fa-fw" aria-hidden="true"></i>例如<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">平常复购率（日周月）大约 30%，某天检测发现只有 20%。</div>
-        </div>
-    </div>
-<h4 id="单表空值检测">单表空值检测</h4>
-<p>某个字段为空的记录数在一个范围内，或者占总量的百分比在某个阈值范围内。</p>
-<ul>
-<li>目标字段：选择要监控的字段。</li>
-<li>方法：<code>select count(*) from</code> 表 <code>where</code> 目标字段 <code>is null</code>。</li>
-</ul>
-<p>单次检测：如果（异常数据量）不在 [数值下限, 数值上限]，则触发报警。</p>
-<h4 id="单表重复值检测">单表重复值检测</h4>
-<p>一个或多个字段没有重复记录。</p>
-<ul>
-<li>目标字段：选择要监控的字段。</li>
-<li>第一步先正常统计条数；<code>select count(*) form</code> 表；</li>
-<li>第二步，去重统计；<code>select count(*) from</code> 表 <code>group by</code> 目标字段；</li>
-<li>第一步的值和第二步的值做减法，看是否在上下线阀值之内；</li>
-<li>单次检测：如果（异常数据量）不在 [数值下限, 数值上限]， 则触发报警。</li>
-</ul>
-<h4 id="单表值域检测">单表值域检测</h4>
-<p>一个或多个字段是否满足某些规则。</p>
-<ul>
-<li>目标字段：选择要监控的字段，支持多选。</li>
-<li>检测规则：填写“目标字段”要满足的条件。</li>
-<li>阈值配置与“空值检测”相同。</li>
-</ul>
-<h4 id="跨表数据量对比">跨表数据量对比</h4>
-<p>主要针对同步流程，监控两张表的数据量是否一致</p>
-<ul>
-<li>方法：<code>count</code>（本表） - <code>count</code>（关联表）</li>
-<li>阈值配置与“空值检测”相同。</li>
-</ul>
-<h2 id="数仓架构与分层这样分层的好处">数仓架构与分层，这样分层的好处</h2>
-<h2 id="数仓维度建模思想pk维度建模异同与利弊">数仓维度建模思想，PK维度建模异同与利弊</h2>
-<h2 id="数仓有哪些主题域如何划分">数仓有哪些主题域，如何划分</h2>
-<h2 id="讲一下你们公司的业务说一下最复杂的业务场景">讲一下你们公司的业务，说一下最复杂的业务场景</h2>
-<h2 id="你们制定了哪些数仓规范分别说一下">你们制定了哪些数仓规范，分别说一下</h2>
-<h2 id="hdfs的读写过程clientnamenodedatanode">HDFS的读写过程（client，namenode，datanode）</h2>
 <h2 id="数据倾斜的场景与解决方法">数据倾斜的场景与解决方法</h2>
-<h2 id="spark宽依赖窄依赖区别">Spark宽依赖，窄依赖区别</h2>
-<p>Spark 中 RDD 的高效与 DAG（有向无环图）有着莫大的关系，在 DAG 调度中我们需要对计算过程划分 stage，而划分依据就是 RDD 之间的依赖关系。</p>
-<ol>
-<li>宽依赖：是指 1 个父 RDD 分区对应多个子 RDD 的分区</li>
-<li>窄依赖：是指一个或多个父 RDD 分区对应一个子 RDD 分区</li>
-</ol>
-<p>宽依赖就是 1 对多，窄依赖就是一对一或者多对一。如图：</p>
-<figure><a class="lightgallery" href="/images/kuan1.png" title="/images/kuan1.png" data-thumbnail="/images/kuan1.png" data-sub-html="<h2>窄依赖</h2>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/images/kuan1.png"
-            data-srcset="/images/kuan1.png, /images/kuan1.png 1.5x, /images/kuan1.png 2x"
-            data-sizes="auto"
-            alt="/images/kuan1.png" width="350" />
-    </a><figcaption class="image-caption">窄依赖</figcaption>
-    </figure>
-<figure><a class="lightgallery" href="/images/kuan2.png" title="/images/kuan2.png" data-thumbnail="/images/kuan2.png" data-sub-html="<h2>窄依赖</h2>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/images/kuan2.png"
-            data-srcset="/images/kuan2.png, /images/kuan2.png 1.5x, /images/kuan2.png 2x"
-            data-sizes="auto"
-            alt="/images/kuan2.png" width="350" />
-    </a><figcaption class="image-caption">窄依赖</figcaption>
-    </figure>
-<figure><a class="lightgallery" href="/images/kuan3.png" title="/images/kuan3.png" data-thumbnail="/images/kuan3.png" data-sub-html="<h2>宽依赖</h2>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/images/kuan3.png"
-            data-srcset="/images/kuan3.png, /images/kuan3.png 1.5x, /images/kuan3.png 2x"
-            data-sizes="auto"
-            alt="/images/kuan3.png" width="350" />
-    </a><figcaption class="image-caption">宽依赖</figcaption>
-    </figure>
-<figure><a class="lightgallery" href="/images/kuan4.png" title="/images/kuan4.png" data-thumbnail="/images/kuan4.png" data-sub-html="<h2>宽窄依赖</h2>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/images/kuan4.png"
-            data-srcset="/images/kuan4.png, /images/kuan4.png 1.5x, /images/kuan4.png 2x"
-            data-sizes="auto"
-            alt="/images/kuan4.png" width="450" />
-    </a><figcaption class="image-caption">宽窄依赖</figcaption>
-    </figure>
-<p>窄依赖是将其聚合到一起，收拢数据，这样我们就可以考虑到我们的一些算子就做此功能比如：</p>
-<ul>
-<li>map</li>
-<li>filter</li>
-<li>union</li>
-<li>join(父RDD是hash-partitioned )</li>
-<li>mapPartitions</li>
-<li>mapValues</li>
-</ul>
-<p>宽依赖将其数据进行打散分开，走 <code>shuffle</code> 机制与 <code>mapreduce</code> 相同。他主要将一些数据进行洗牌和重新分组发牌。这里也有一些算子做此功能：</p>
-<ul>
-<li>groupByKey</li>
-<li>join(父RDD不是hash-partitioned )</li>
-<li>partitionBy</li>
-<li>sort</li>
-</ul>
-<h2 id="join的实现原理">join的实现原理</h2>
-<h3 id="join-背景">Join 背景</h3>
-<p>当前 <code>SparkSQL</code> 支持三种 <code>join</code> 算法：</p>
-<ul>
-<li>Shuffle Hash Join</li>
-<li>Broadcast Hash Join</li>
-<li>Sort Merge Join</li>
-</ul>
-<p>其中前两者归根到底都属于 <code>Hash Join</code>，只不过在 <code>Hash Join</code> 之前需要先 <code>Shuffle</code> 还是先 <code>Broadcast</code>。其实，<code>Hash Join</code> 算法来自于传统数据库，而 <code>Shuffle</code> 和 <code>Broadcast</code> 是大数据在分布式情况下的概念，两者结合的产物。因此可以说，大数据的根就是<strong>传统数据库</strong>。<code>Hash Join</code>是<strong>内核</strong>。</p>
+<h2 id="内部表和外部表">内部表和外部表</h2>
 <h2 id="离线数仓最大的挑战是什么如何克服的是否沉淀方法论">离线数仓最大的挑战是什么，如何克服的，是否沉淀方法论</h2>
 <h2 id="实时数仓如何保障数据质量有哪些手段和方式">实时数仓如何保障数据质量，有哪些手段和方式</h2>
 <div class="footnotes" role="doc-endnotes">

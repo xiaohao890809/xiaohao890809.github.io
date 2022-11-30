@@ -4,21 +4,45 @@
         <link>https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/</link>
         <description>学习 - 分类 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 16 Nov 2022 16:21:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 29 Nov 2022 16:42:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-两数之和</title>
+    <link>https://xiaohao890809.github.io/two-sum/</link>
+    <pubDate>Tue, 29 Nov 2022 16:42:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/two-sum/</guid>
+    <description><![CDATA[🔗 题目链接 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值 target 的那两个整数，并返回它们的数组下标。 你可以假设每种输]]></description>
+</item>
+<item>
+    <title>力扣-数组中重复的数据</title>
+    <link>https://xiaohao890809.github.io/duplicates/</link>
+    <pubDate>Tue, 29 Nov 2022 16:41:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/duplicates/</guid>
+    <description><![CDATA[🔗 题目链接 给你一个长度为 n 的整数数组 nums ，其中 nums 的所有整数都在范围 [1, n] 内，且每个整数出现一次或两次。请你找出所有出现两次的整数，并以数组形式返]]></description>
+</item>
+<item>
+    <title>Inmon 范式建模和 Kimball 维度建模</title>
+    <link>https://xiaohao890809.github.io/kimball/</link>
+    <pubDate>Tue, 29 Nov 2022 16:31:45 &#43;0800</pubDate>
+    <author>YLY</author>
+    <guid>https://xiaohao890809.github.io/kimball/</guid>
+    <description><![CDATA[<p>本文开始先简单理解两种建模的核心思想，然后根据一个具体的例子，分别使用这两种建模方式进行建模，大家便会一目了然！ 😏。</p>]]></description>
+</item>
+<item>
+    <title>三范式</title>
+    <link>https://xiaohao890809.github.io/3nf/</link>
+    <pubDate>Tue, 29 Nov 2022 16:21:45 &#43;0800</pubDate>
+    <author>Alder&#39;s</author>
+    <guid>https://xiaohao890809.github.io/3nf/</guid>
+    <description><![CDATA[<p>三范式都有哪些？举例说明具体含义 😏。</p>]]></description>
+</item>
+<item>
     <title>学习之联通沃音乐</title>
     <link>https://xiaohao890809.github.io/study-of-liantong/</link>
     <pubDate>Wed, 16 Nov 2022 16:21:45 &#43;0800</pubDate>
     <author>浩子</author>
     <guid>https://xiaohao890809.github.io/study-of-liantong/</guid>
     <description><![CDATA[<p>本文主要摘联通沃音乐的一些题目，以便后续查阅复习 😋。</p>]]></description>
-</item>
-<item>
-    <title>学习之力扣刷题Part1</title>
-    <link>https://xiaohao890809.github.io/study-of-leetcode/</link>
-    <pubDate>Tue, 08 Nov 2022 16:21:45 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/study-of-leetcode/</guid>
-    <description><![CDATA[<p>本文主要摘抄一些力扣的题目，以便后续查阅复习。</p>]]></description>
 </item>
 <item>
     <title>学习之基础知识篇</title>
