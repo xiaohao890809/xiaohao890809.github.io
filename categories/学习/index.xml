@@ -4,7 +4,15 @@
         <link>https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/</link>
         <description>学习 - 分类 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 29 Nov 2022 16:31:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 30 Nov 2022 16:42:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>【数仓】事实表设计</title>
+    <link>https://xiaohao890809.github.io/fact-tab/</link>
+    <pubDate>Wed, 30 Nov 2022 16:42:45 &#43;0800</pubDate>
+    <author>BigDataNotes</author>
+    <guid>https://xiaohao890809.github.io/fact-tab/</guid>
+    <description><![CDATA[<p>今天学习第 11 章事实表设计。</p>]]></description>
+</item>
+<item>
     <title>Inmon 范式建模和 Kimball 维度建模</title>
     <link>https://xiaohao890809.github.io/kimball/</link>
     <pubDate>Tue, 29 Nov 2022 16:31:45 &#43;0800</pubDate>
@@ -19,14 +27,6 @@
     <author>Alder&#39;s</author>
     <guid>https://xiaohao890809.github.io/3nf/</guid>
     <description><![CDATA[<p>三范式都有哪些？举例说明具体含义 😏。</p>]]></description>
-</item>
-<item>
-    <title>学习之联通沃音乐</title>
-    <link>https://xiaohao890809.github.io/study-of-liantong/</link>
-    <pubDate>Wed, 16 Nov 2022 16:21:45 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/study-of-liantong/</guid>
-    <description><![CDATA[<p>本文主要摘联通沃音乐的一些题目，以便后续查阅复习 😋。</p>]]></description>
 </item>
 <item>
     <title>学习之基础知识篇</title>

@@ -4,7 +4,23 @@
         <link>https://xiaohao890809.github.io/posts/</link>
         <description>所有文章 | 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 29 Nov 2022 16:42:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 30 Nov 2022 17:42:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>dub老师给滴题目准备</title>
+    <link>https://xiaohao890809.github.io/dub-exercise/</link>
+    <pubDate>Wed, 30 Nov 2022 17:42:45 &#43;0800</pubDate>
+    <author>dubhe</author>
+    <guid>https://xiaohao890809.github.io/dub-exercise/</guid>
+    <description><![CDATA[<p>头条大佬 dubhe 老师给的题目准备，好好刷一下。</p>]]></description>
+</item>
+<item>
+    <title>【数仓】事实表设计</title>
+    <link>https://xiaohao890809.github.io/fact-tab/</link>
+    <pubDate>Wed, 30 Nov 2022 16:42:45 &#43;0800</pubDate>
+    <author>BigDataNotes</author>
+    <guid>https://xiaohao890809.github.io/fact-tab/</guid>
+    <description><![CDATA[<p>今天学习第 11 章事实表设计。</p>]]></description>
+</item>
+<item>
     <title>力扣-两数之和</title>
     <link>https://xiaohao890809.github.io/two-sum/</link>
     <pubDate>Tue, 29 Nov 2022 16:42:45 &#43;0800</pubDate>
@@ -67,22 +83,6 @@
     <author>浩子</author>
     <guid>https://xiaohao890809.github.io/study-of-all-life/</guid>
     <description><![CDATA[<p>本文主要摘抄数仓面试中的一些常见问题，以便后续查阅复习。</p>]]></description>
-</item>
-<item>
-    <title>诗歌之荟萃</title>
-    <link>https://xiaohao890809.github.io/poetry-of-others/</link>
-    <pubDate>Thu, 03 Nov 2022 16:01:45 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/poetry-of-others/</guid>
-    <description><![CDATA[<p>本文主要汇总一些诗人的著名诗篇，这些作者留下的诗篇不多，但是都是非常经典的，比如张若虚的<strong>春江花月夜</strong>。</p>]]></description>
-</item>
-<item>
-    <title>诗歌之李商隐</title>
-    <link>https://xiaohao890809.github.io/poetry-of-lishangyin/</link>
-    <pubDate>Wed, 02 Nov 2022 20:01:45 &#43;0800</pubDate>
-    <author>李商隐</author>
-    <guid>https://xiaohao890809.github.io/poetry-of-lishangyin/</guid>
-    <description><![CDATA[<p>李商隐（约813年～约858年），字义山，号玉谿生，怀州河内（今河南省沁阳市）人。晚唐著名诗人，和杜牧合称“小李杜”。</p>]]></description>
 </item>
 </channel>
 </rss>
