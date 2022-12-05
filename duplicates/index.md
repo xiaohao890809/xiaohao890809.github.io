@@ -22,6 +22,8 @@
 **输出**：[]
 {{< /admonition >}}
 
+参考链接：数组中重复的数据[^1]
+
 ## 方法一：将元素交换到对应的位置
 
 > 思路与算法
@@ -84,7 +86,7 @@ def findDuplicates(nums: List[int]) -> List[int]:
 - 时间复杂度：$O(n)$。我们只需要对数组 $nums$ 进行一次遍历。
 - 空间复杂度：$O(1)$。返回值不计入空间复杂度。
 
-
+[^1]: [参考链接：数组中重复的数据](https://leetcode.cn/problems/find-all-duplicates-in-an-array/solutions/1473718/shu-zu-zhong-zhong-fu-de-shu-ju-by-leetc-782l/?languageTags=python3%2Cpython)
 
 
 

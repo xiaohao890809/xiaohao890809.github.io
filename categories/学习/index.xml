@@ -4,7 +4,47 @@
         <link>https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/</link>
         <description>学习 - 分类 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 30 Nov 2022 16:42:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 01 Dec 2022 15:42:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>什么是分区分桶？</title>
+    <link>https://xiaohao890809.github.io/bucket/</link>
+    <pubDate>Thu, 01 Dec 2022 15:42:45 &#43;0800</pubDate>
+    <author>长不大的大灰狼</author>
+    <guid>https://xiaohao890809.github.io/bucket/</guid>
+    <description><![CDATA[<p>分区和分桶面试过程中会经常考察，需要重点掌握。</p>]]></description>
+</item>
+<item>
+    <title>Mysql 面试题</title>
+    <link>https://xiaohao890809.github.io/mysql-ques/</link>
+    <pubDate>Thu, 01 Dec 2022 14:42:45 &#43;0800</pubDate>
+    <author>Java技术驿站</author>
+    <guid>https://xiaohao890809.github.io/mysql-ques/</guid>
+    <description><![CDATA[<p>史上最全的大厂 Mysql 面试题在这里。</p>]]></description>
+</item>
+<item>
+    <title>大数据之 Reduce Join</title>
+    <link>https://xiaohao890809.github.io/reducejoin/</link>
+    <pubDate>Thu, 01 Dec 2022 13:42:45 &#43;0800</pubDate>
+    <author>莫叫石榴姐</author>
+    <guid>https://xiaohao890809.github.io/reducejoin/</guid>
+    <description><![CDATA[<p>介绍 hive 里的 Reduce Join 的一些原理和使用技巧。</p>]]></description>
+</item>
+<item>
+    <title>大表join小表，独钟爱mapjoin</title>
+    <link>https://xiaohao890809.github.io/mapjoin/</link>
+    <pubDate>Thu, 01 Dec 2022 12:42:45 &#43;0800</pubDate>
+    <author>大数据私房菜</author>
+    <guid>https://xiaohao890809.github.io/mapjoin/</guid>
+    <description><![CDATA[<p>在 Hive 调优里面，经常会问到一个很小的表和一个大表进行 join，如何优化。</p>]]></description>
+</item>
+<item>
+    <title>order by,sort by,distribute by,cluster by的区别</title>
+    <link>https://xiaohao890809.github.io/orderby/</link>
+    <pubDate>Thu, 01 Dec 2022 11:42:45 &#43;0800</pubDate>
+    <author>大数据私房菜</author>
+    <guid>https://xiaohao890809.github.io/orderby/</guid>
+    <description><![CDATA[<p>深入探究 order by,sort by,distribute by,cluster by 的区别，并用数据征服你。</p>]]></description>
+</item>
+<item>
     <title>【数仓】事实表设计</title>
     <link>https://xiaohao890809.github.io/fact-tab/</link>
     <pubDate>Wed, 30 Nov 2022 16:42:45 &#43;0800</pubDate>
@@ -43,22 +83,6 @@
     <author>浩子</author>
     <guid>https://xiaohao890809.github.io/study-of-sql/</guid>
     <description><![CDATA[<p>本文主要摘抄数仓中的一些 SQL 问题，包括一些常用的语法和练习题，以便后续查阅复习。</p>]]></description>
-</item>
-<item>
-    <title>数仓之学无止境</title>
-    <link>https://xiaohao890809.github.io/study-of-all-life/</link>
-    <pubDate>Thu, 03 Nov 2022 16:11:45 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/study-of-all-life/</guid>
-    <description><![CDATA[<p>本文主要摘抄数仓面试中的一些常见问题，以便后续查阅复习。</p>]]></description>
-</item>
-<item>
-    <title>学习刷题Part1</title>
-    <link>https://xiaohao890809.github.io/exercise-1/</link>
-    <pubDate>Sun, 30 Oct 2022 20:55:57 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/exercise-1/</guid>
-    <description><![CDATA[比特和波特 关于比特和波特，下面说法正确的是( )。 (A) 比特和波特施一个概念 (B) 比特是码元传输速率单位 (C) 波特是信息量单位 (D) 在某些情况下，“比特/秒”]]></description>
 </item>
 </channel>
 </rss>

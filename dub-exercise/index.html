@@ -19,7 +19,7 @@
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xiaohao890809.github.io/dub-exercise/" /><link rel="prev" href="https://xiaohao890809.github.io/fact-tab/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xiaohao890809.github.io/dub-exercise/" /><link rel="prev" href="https://xiaohao890809.github.io/fact-tab/" /><link rel="next" href="https://xiaohao890809.github.io/orderby/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xiaohao890809.github.io\/dub-exercise\/"
-        },"genre": "posts","keywords": "面试","wordcount":  1198 ,
+        },"genre": "posts","keywords": "面试","wordcount":  1792 ,
         "url": "https:\/\/xiaohao890809.github.io\/dub-exercise\/","datePublished": "2022-11-30T17:42:45+08:00","dateModified": "2022-12-01T19:20:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">dub老师给滴题目准备</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>dubhe</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%88%B7%E9%A2%98/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>刷题</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-30">2022-11-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1198 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-30">2022-11-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1792 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -122,6 +122,15 @@
         <li><a href="#充值额最大的账号">充值额最大的账号</a></li>
         <li><a href="#观看视频">观看视频</a></li>
         <li><a href="#页面-session-时长计算">页面 session 时长计算</a></li>
+        <li><a href="#留存和连续活跃">留存，和连续活跃</a></li>
+      </ul>
+    </li>
+    <li><a href="#算法题">算法题</a>
+      <ul>
+        <li><a href="#x的平方根">x的平方根</a></li>
+        <li><a href="#字符串相加">字符串相加</a></li>
+        <li><a href="#平方数之和">平方数之和</a></li>
+        <li><a href="#最长回文子串">最长回文子串</a></li>
       </ul>
     </li>
   </ul>
@@ -485,7 +494,176 @@ user_id-&gt;2,create_ts-&gt;10003</p>
 <p>解答：应返回 3 条结果，分别是：</p>
 <p>user_id-&gt;1,session-&gt;10s,start_ts-&gt;10000,end_ts-&gt;10010<br>
 user_id-&gt;1,session-&gt;1s,start_ts-&gt;10070,end_ts-&gt;10070<br>
-user_id-&gt;2,session-&gt;3s,start_ts-&gt;10000,end_ts-&gt;10003</p></div><div class="post-footer" id="post-footer">
+user_id-&gt;2,session-&gt;3s,start_ts-&gt;10000,end_ts-&gt;10003</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">end_ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">create_ts</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">end_ts</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">create_ts</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">session</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">start_ts</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">end_ts</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">f_group</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">min</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">create_ts</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">start_ts</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">max</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">create_ts</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">end_ts</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">from</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">a</span><span class="p">.</span><span class="n">create_ts</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">sum</span><span class="p">(</span><span class="n">f_flag</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">create_ts</span><span class="w"> </span><span class="k">desc</span><span class="p">)</span><span class="w"> </span><span class="n">f_group</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">from</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">a</span><span class="p">.</span><span class="n">create_ts</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">diff_create_ts</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">diff_create_ts</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">f_flag</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">from</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">a</span><span class="p">.</span><span class="n">create_ts</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">lead</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">create_ts</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">create_ts</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">create_ts</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">diff_create_ts</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">from</span><span class="w"> </span><span class="n">page_upload_info</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w"> 
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="留存和连续活跃">留存，和连续活跃</h3>
+<p>1、用户活跃模型表：user_daily<br>
+以 imp_date、user_id 为主键，一个用户 1 天只出现一次，出现即表示当日登陆字段：</p>
+<p>字段：<br>
+imp_date 时间，user_id 用户id，is_new 是否新用户，0-老用户，1-新用户</p>
+<p>2、红包领取日志：money_flow</p>
+<p>字段：<br>
+imp_date 时间，report_time 红包领取时间戳，用户id，add_money 领取金额</p>
+<p>题目1：最近 1 个月每日未领红包用户的次日留存率和 7 日留存<br>
+题目2：最近 1 个月，每日 DAU 中，3 天连续活跃用户的占比</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">imp_date</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="o">/</span><span class="k">count</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">f_remain_1d_rate</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="o">/</span><span class="k">count</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">f_remain_7d_rate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">imp_date</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">user_daily</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">money_flow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">b</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">imp_date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">imp_date</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">user_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">date_diff</span><span class="p">(</span><span class="k">current_date</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">imp_date</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">date_diff</span><span class="p">(</span><span class="k">current_date</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">imp_date</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="k">and</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">user_daily</span><span class="w"> </span><span class="n">b</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">date_diff</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">imp_date</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">imp_date</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">user_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">user_daily</span><span class="w"> </span><span class="k">c</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">date_diff</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">imp_date</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">imp_date</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">user_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">imp_date</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">count</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="o">/</span><span class="k">count</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="p">)</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="n">f_3d_continue_rate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">from</span><span class="w"> </span><span class="n">user_daily</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">a</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">user_daily</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">b</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">date_diff</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">imp_date</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">imp_date</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">user_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">user_daily</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">c</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">date_diff</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">imp_date</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">imp_date</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">user_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">where</span><span class="w"> </span><span class="n">date_diff</span><span class="p">(</span><span class="k">current_date</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">imp_date</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="算法题">算法题</h2>
+<h3 id="x的平方根">x的平方根</h3>
+<p>🔗 <a href="https://xiaohao890809.github.io/sqrtx" target="_blank" rel="noopener noreffer ">x的平方根</a></p>
+<h3 id="字符串相加">字符串相加</h3>
+<p>🔗 <a href="https://xiaohao890809.github.io/add-strings" target="_blank" rel="noopener noreffer ">字符串相加</a></p>
+<h3 id="平方数之和">平方数之和</h3>
+<p>🔗 <a href="https://xiaohao890809.github.io/sum-of-square-numbers" target="_blank" rel="noopener noreffer ">字符串相加</a></p>
+<h3 id="最长回文子串">最长回文子串</h3>
+<p>🔗 <a href="https://xiaohao890809.github.io/longest-palindromic-substring" target="_blank" rel="noopener noreffer ">最长回文子串</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -508,7 +686,8 @@ user_id-&gt;2,session-&gt;3s,start_ts-&gt;10000,end_ts-&gt;10003</p></div><div c
         </section>
     </div>
 
-    <div class="post-nav"><a href="/fact-tab/" class="prev" rel="prev" title="【数仓】事实表设计"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>【数仓】事实表设计</a></div>
+    <div class="post-nav"><a href="/fact-tab/" class="prev" rel="prev" title="【数仓】事实表设计"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>【数仓】事实表设计</a>
+            <a href="/orderby/" class="next" rel="next" title="order by,sort by,distribute by,cluster by的区别">order by,sort by,distribute by,cluster by的区别<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="gitalk" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>mysql - 标签 - 追寻原风景的博客</title>
+        <link>https://xiaohao890809.github.io/tags/mysql/</link>
+        <description>mysql - 标签 - 追寻原风景的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 01 Dec 2022 14:42:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/mysql/" rel="self" type="application/rss+xml" /><item>
+    <title>Mysql 面试题</title>
+    <link>https://xiaohao890809.github.io/mysql-ques/</link>
+    <pubDate>Thu, 01 Dec 2022 14:42:45 &#43;0800</pubDate>
+    <author>Java技术驿站</author>
+    <guid>https://xiaohao890809.github.io/mysql-ques/</guid>
+    <description><![CDATA[<p>史上最全的大厂 Mysql 面试题在这里。</p>]]></description>
+</item>
+</channel>
+</rss>

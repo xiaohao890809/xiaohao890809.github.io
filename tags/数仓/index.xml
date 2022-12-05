@@ -4,7 +4,39 @@
         <link>https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/</link>
         <description>数仓 - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 30 Nov 2022 16:42:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 01 Dec 2022 15:42:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+    <title>什么是分区分桶？</title>
+    <link>https://xiaohao890809.github.io/bucket/</link>
+    <pubDate>Thu, 01 Dec 2022 15:42:45 &#43;0800</pubDate>
+    <author>长不大的大灰狼</author>
+    <guid>https://xiaohao890809.github.io/bucket/</guid>
+    <description><![CDATA[<p>分区和分桶面试过程中会经常考察，需要重点掌握。</p>]]></description>
+</item>
+<item>
+    <title>大数据之 Reduce Join</title>
+    <link>https://xiaohao890809.github.io/reducejoin/</link>
+    <pubDate>Thu, 01 Dec 2022 13:42:45 &#43;0800</pubDate>
+    <author>莫叫石榴姐</author>
+    <guid>https://xiaohao890809.github.io/reducejoin/</guid>
+    <description><![CDATA[<p>介绍 hive 里的 Reduce Join 的一些原理和使用技巧。</p>]]></description>
+</item>
+<item>
+    <title>大表join小表，独钟爱mapjoin</title>
+    <link>https://xiaohao890809.github.io/mapjoin/</link>
+    <pubDate>Thu, 01 Dec 2022 12:42:45 &#43;0800</pubDate>
+    <author>大数据私房菜</author>
+    <guid>https://xiaohao890809.github.io/mapjoin/</guid>
+    <description><![CDATA[<p>在 Hive 调优里面，经常会问到一个很小的表和一个大表进行 join，如何优化。</p>]]></description>
+</item>
+<item>
+    <title>order by,sort by,distribute by,cluster by的区别</title>
+    <link>https://xiaohao890809.github.io/orderby/</link>
+    <pubDate>Thu, 01 Dec 2022 11:42:45 &#43;0800</pubDate>
+    <author>大数据私房菜</author>
+    <guid>https://xiaohao890809.github.io/orderby/</guid>
+    <description><![CDATA[<p>深入探究 order by,sort by,distribute by,cluster by 的区别，并用数据征服你。</p>]]></description>
+</item>
+<item>
     <title>【数仓】事实表设计</title>
     <link>https://xiaohao890809.github.io/fact-tab/</link>
     <pubDate>Wed, 30 Nov 2022 16:42:45 &#43;0800</pubDate>

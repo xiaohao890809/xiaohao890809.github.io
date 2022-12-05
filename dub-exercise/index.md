@@ -232,6 +232,114 @@ user_id->1,session->10s,start_ts->10000,end_ts->10010<br>
 user_id->1,session->1s,start_ts->10070,end_ts->10070<br>
 user_id->2,session->3s,start_ts->10000,end_ts->10003
 
+```sql
+select
+    a.user_id,
+    case when a.end_ts = a.create_ts then 1 else a.end_ts - a.create_ts end as session,
+    a.start_ts,
+    a.end_ts
+from 
+(
+    select
+        a.user_id,
+        a.f_group,
+        min(a.create_ts) as start_ts,
+        max(a.create_ts) as end_ts
+    from 
+    (
+        select
+            a.user_id,
+            a.create_ts,
+            sum(f_flag) over (partition a.user_id order by a.create_ts desc) f_group
+        from 
+        (
+            select
+                a.user_id,
+                a.create_ts,
+                case when a.diff_create_ts >= 30 or a.diff_create_ts is null then 1 else 0 end as f_flag
+            from 
+            (
+                select
+                    a.user_id,
+                    a.create_ts,
+                    lead(a.create_ts, 1, null) over (partition by a.user_id order by a.create_ts) - a.create_ts as diff_create_ts
+                from page_upload_info as a
+            ) a 
+        ) a
+    ) a
+    group by 1,2
+) a 
+```
+
+### 留存，和连续活跃
+
+1、用户活跃模型表：user_daily<br>
+以 imp_date、user_id 为主键，一个用户 1 天只出现一次，出现即表示当日登陆字段：
+
+字段：<br>
+imp_date 时间，user_id 用户id，is_new 是否新用户，0-老用户，1-新用户
+
+2、红包领取日志：money_flow
+
+字段：<br>
+imp_date 时间，report_time 红包领取时间戳，用户id，add_money 领取金额
+
+题目1：最近 1 个月每日未领红包用户的次日留存率和 7 日留存<br>
+题目2：最近 1 个月，每日 DAU 中，3 天连续活跃用户的占比
+
+```sql
+select
+    a.imp_date,
+    count(case when b.user_id is not null then a.user_id end)/count(a.user_id) as f_remain_1d_rate,
+    count(case when c.user_id is not null then a.user_id end)/count(a.user_id) as f_remain_7d_rate
+from 
+(
+    select
+        a.imp_date,
+        a.user_id
+    from user_daily as a
+    left join money_flow as b 
+        on a.imp_date = b.imp_date and a.user_id = b.user_id
+    where date_diff(current_date, a.imp_date) <= 30 and date_diff(current_date, b.imp_date) <= 30
+          and b.user_id is null 
+) a
+left join user_daily b 
+    on date_diff(b.imp_date, a.imp_date) = 1 and a.user_id = b.user_id
+left join user_daily c 
+    on date_diff(c.imp_date, a.imp_date) = 7 and a.user_id = c.user_id
+group by 1
+```
+
+```sql
+select
+    a.imp_date,
+    count(case when b.user_id is not null and c.user_id is not null then a.user_id end)/count(a.user_id)  as f_3d_continue_rate
+from user_daily as a 
+left join user_daily as b 
+    on date_diff(a.imp_date, b.imp_date) = 1 and a.user_id = b.user_id
+left join user_daily as c
+    on date_diff(a.imp_date, c.imp_date) = 2 and a.user_id = c.user_id
+where date_diff(current_date, a.imp_date) <= 30
+group by 1
+```
+
+## 算法题
+
+### x的平方根
+
+:link: [x的平方根](https://xiaohao890809.github.io/sqrtx)
+
+### 字符串相加
+
+:link: [字符串相加](https://xiaohao890809.github.io/add-strings)
+
+### 平方数之和
+
+:link: [字符串相加](https://xiaohao890809.github.io/sum-of-square-numbers)
+
+### 最长回文子串
+
+:link: [最长回文子串](https://xiaohao890809.github.io/longest-palindromic-substring)
 
 
 
