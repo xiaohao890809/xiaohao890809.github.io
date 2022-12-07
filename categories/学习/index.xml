@@ -4,7 +4,23 @@
         <link>https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/</link>
         <description>学习 - 分类 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 01 Dec 2022 15:42:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sun, 04 Dec 2022 13:43:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>groupby和reduceby的区别</title>
+    <link>https://xiaohao890809.github.io/reduceby/</link>
+    <pubDate>Sun, 04 Dec 2022 13:43:45 &#43;0800</pubDate>
+    <author>yangzp</author>
+    <guid>https://xiaohao890809.github.io/reduceby/</guid>
+    <description><![CDATA[<p>rdd 里面 <code>groupby</code> 和 <code>reduceby</code> 有什么区别。</p>]]></description>
+</item>
+<item>
+    <title>技术选型：Kylin、Druid、ClickHouse如何选择？</title>
+    <link>https://xiaohao890809.github.io/olap/</link>
+    <pubDate>Sun, 04 Dec 2022 13:42:45 &#43;0800</pubDate>
+    <author>数据仓库与Python大数据</author>
+    <guid>https://xiaohao890809.github.io/olap/</guid>
+    <description><![CDATA[<p>Kylin、Druid、ClickHouse 是目前主流的 <code>OLAP</code> 引擎，本文尝试从数据模型和索引结构两个角度，分析这几个引擎的核心技术，并做简单对比。在阅读本文之前希望能对 Kylin、Druid、ClickHouse 有所理解。</p>]]></description>
+</item>
+<item>
     <title>什么是分区分桶？</title>
     <link>https://xiaohao890809.github.io/bucket/</link>
     <pubDate>Thu, 01 Dec 2022 15:42:45 &#43;0800</pubDate>
@@ -67,22 +83,6 @@
     <author>Alder&#39;s</author>
     <guid>https://xiaohao890809.github.io/3nf/</guid>
     <description><![CDATA[<p>三范式都有哪些？举例说明具体含义 😏。</p>]]></description>
-</item>
-<item>
-    <title>学习之基础知识篇</title>
-    <link>https://xiaohao890809.github.io/study-of-interview/</link>
-    <pubDate>Tue, 08 Nov 2022 16:11:45 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/study-of-interview/</guid>
-    <description><![CDATA[<p>本文主要摘抄一些面试过程可能会遇到的一些基础知识问题，以便后续查阅复习。</p>]]></description>
-</item>
-<item>
-    <title>数仓之SQL篇</title>
-    <link>https://xiaohao890809.github.io/study-of-sql/</link>
-    <pubDate>Mon, 07 Nov 2022 16:11:45 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/study-of-sql/</guid>
-    <description><![CDATA[<p>本文主要摘抄数仓中的一些 SQL 问题，包括一些常用的语法和练习题，以便后续查阅复习。</p>]]></description>
 </item>
 </channel>
 </rss>

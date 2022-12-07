@@ -27,7 +27,7 @@
 
 根据笛卡尔积的定义，JOIN 的两表中的任意一行都会形成一组关系对，如果 A 表有 N 条记录，B 表有 M 条记录，A X B 会生产 N*M 条数据。 [^1]
 
-1. 可 以 通 过 `CROSS JOIN` 来实现笛卡尔积 `select * from A cross join b`
+1. 可以通过 `CROSS JOIN` 来实现笛卡尔积 `select * from A cross join b`
 1. 如果不支持 `CROSS JOIN` 的情况下，可以采用 `select * from A join B on 1 = 1` 的方式实现。
 1. 第二种方法可能在语法检测阶段就报错不支持，可以转成如下语法 `select * from (select * , '1' as flag from A) t1 on (select *, '1' as flag from B) t2 where t1.flag = t2.flag`
 

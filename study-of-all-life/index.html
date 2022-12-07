@@ -145,7 +145,7 @@
 <h2 id="知道笛卡尔积吗">知道笛卡尔积吗？</h2>
 <p>根据笛卡尔积的定义，JOIN 的两表中的任意一行都会形成一组关系对，如果 A 表有 N 条记录，B 表有 M 条记录，A X B 会生产 N*M 条数据。 <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <ol>
-<li>可 以 通 过 <code>CROSS JOIN</code> 来实现笛卡尔积 <code>select * from A cross join b</code></li>
+<li>可以通过 <code>CROSS JOIN</code> 来实现笛卡尔积 <code>select * from A cross join b</code></li>
 <li>如果不支持 <code>CROSS JOIN</code> 的情况下，可以采用 <code>select * from A join B on 1 = 1</code> 的方式实现。</li>
 <li>第二种方法可能在语法检测阶段就报错不支持，可以转成如下语法 <code>select * from (select * , '1' as flag from A) t1 on (select *, '1' as flag from B) t2 where t1.flag = t2.flag</code></li>
 </ol>

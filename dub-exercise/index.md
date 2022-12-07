@@ -341,9 +341,74 @@ group by 1
 
 :link: [最长回文子串](https://xiaohao890809.github.io/longest-palindromic-substring)
 
+### 查询两个字符串的最长公共子串
+
+:link: [查询两个字符串的最长公共子串](https://xiaohao890809.github.io/longest)
+
+### 单词拆分
+
+:link: [单词拆分](https://xiaohao890809.github.io/word-break)
 
 
+## 编程类
 
+### 统计kv
+
+有一份数据有 n 行，每一行是一个由逗号、冒号间隔的字符串（例如 "a:10,b,20,c:30"），逗号拆分后每个都是字符串类型的 "key:value"。现需要统计每个 key 的 value 求和，可尝试用 python 或 hive/sql 或 spark 实现。
+
+(1) 若 python 实现，则输入为一个list：`lis1 = ['a:10,b:20,c:30', 'a:100,dog:200', 'hi:40,b:10', 'dog:20']`<br>
+(2) 若 hive/sql 实现，则输入可设为一个表 A，且仅一列数据。
+
+| info       | 
+| :--------: |
+| a:10,b:20,c:30 | 
+| a:100,dog:200 | 
+| hi:40,b:10 |
+| dog:20 | 
+| ...... | 
+
+(3) 若 saprk 实现，则输入可设为一个 rdd/dateframe
+
+最终求得：a: 110, b: 30, c: 30, dog: 220, hi: 40。
+
+答：
+
+```python
+lis1 = ['a:10,b:20,c:30', 'a:100,dog:200', 'hi:40,b:10', 'dog:20']
+
+ret_dict = {}
+
+for item in lis1:
+    item_list = item.split(',')
+    for i in item_list:
+        k = i.split(':')[0]
+        v = int(i.split(':')[1])
+        if k in ret_dict:
+            ret_dict[k] += v
+        else:
+            ret_dict[k] = v
+
+print(ret_dict)
+```
+
+```sql
+select
+    concat_ws(',', collect_list(concat(k,':',v))) as ret
+from 
+(
+    select
+        k,
+        sum(v) as v 
+    from 
+    (
+        select 
+            split(value1, ':')[0] as k,
+            cast(split(value1, ':')[1] as int) as v
+        from tmp_2022120501 t lateral view explode(split(t.my_str, ',')) t1 as value1
+    ) as a 
+    group by 1
+) as a 
+```
 
 
 

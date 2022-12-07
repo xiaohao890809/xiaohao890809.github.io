@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>技术选型：Kylin、Druid、ClickHouse如何选择？ - 追寻原风景的博客</title><meta name="Description" content="技术选型：Kylin、Druid、ClickHouse如何选择？"><meta property="og:title" content="技术选型：Kylin、Druid、ClickHouse如何选择？" />
+<meta property="og:description" content="技术选型：Kylin、Druid、ClickHouse如何选择？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xiaohao890809.github.io/olap/" /><meta property="og:image" content="https://xiaohao890809.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-04T13:42:45+08:00" />
+<meta property="article:modified_time" content="2022-12-05T19:20:51+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xiaohao890809.github.io/logo.png"/>
+
+<meta name="twitter:title" content="技术选型：Kylin、Druid、ClickHouse如何选择？"/>
+<meta name="twitter:description" content="技术选型：Kylin、Druid、ClickHouse如何选择？"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xiaohao890809.github.io/olap/" /><link rel="prev" href="https://xiaohao890809.github.io/longest-palindromic-substring/" /><link rel="next" href="https://xiaohao890809.github.io/reduceby/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "技术选型：Kylin、Druid、ClickHouse如何选择？",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xiaohao890809.github.io\/olap\/"
+        },"genre": "posts","keywords": "数仓","wordcount":  2186 ,
+        "url": "https:\/\/xiaohao890809.github.io\/olap\/","datePublished": "2022-12-04T13:42:45+08:00","dateModified": "2022-12-05T19:20:51+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "数据仓库与Python大数据"
+            },"description": "技术选型：Kylin、Druid、ClickHouse如何选择？"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="追寻原风景的博客"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>追寻原风景</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="追寻原风景的博客"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>追寻原风景</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">技术选型：Kylin、Druid、ClickHouse如何选择？</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://mp.weixin.qq.com/s/jhzKjJYFD2Bxe9cfXW2Tcg" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>数据仓库与Python大数据</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-04">2022-12-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2186 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#kylin">Kylin</a>
+      <ul>
+        <li><a href="#kylin-数据模型">Kylin 数据模型</a></li>
+        <li><a href="#kylin索引结构">Kylin索引结构</a></li>
+        <li><a href="#kylin小结">Kylin小结</a></li>
+      </ul>
+    </li>
+    <li><a href="#druid">Druid</a>
+      <ul>
+        <li><a href="#druid-数据模型">Druid 数据模型</a></li>
+        <li><a href="#druid索引结构">Druid索引结构</a></li>
+        <li><a href="#druid小结">Druid小结</a></li>
+      </ul>
+    </li>
+    <li><a href="#clickhouse">ClickHouse</a>
+      <ul>
+        <li><a href="#clickhouse-索引结构">Clickhouse 索引结构</a></li>
+        <li><a href="#clickhouse小结">Clickhouse小结</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Kylin、Druid、ClickHouse 是目前主流的 <code>OLAP</code> 引擎，本文尝试从数据模型和索引结构两个角度，分析这几个引擎的核心技术，并做简单对比。在阅读本文之前希望能对 Kylin、Druid、ClickHouse 有所理解。</p>
+<h2 id="kylin">Kylin</h2>
+<h3 id="kylin-数据模型">Kylin 数据模型</h3>
+<p>Kylin 的数据模型本质上是将二维表（Hive表）转换为 <code>Cube</code>，然后将 <code>Cube</code> 存储到 <code>HBase</code> 表中，也就是两次转换。</p>
+<p>第一次转换，其实就是传统数据库的 <code>Cube</code> 化，Cube 由 <code>CuboId</code> 组成，下图每个节点都被称为一个 CuboId，CuboId 表示固定列的数据数据集合，比如 &ldquo;AB&rdquo; 两个维度组成的 CuboId 的数据集合等价于以下 <code>SQL</code> 的数据集合：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">M</span><span class="p">),</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><figure><a class="lightgallery" href="/images/kylin1.png" title="/images/kylin1.png" data-thumbnail="/images/kylin1.png" data-sub-html="<h2>kylin</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/kylin1.png"
+            data-srcset="/images/kylin1.png, /images/kylin1.png 1.5x, /images/kylin1.png 2x"
+            data-sizes="auto"
+            alt="/images/kylin1.png" width="400" />
+    </a><figcaption class="image-caption">kylin</figcaption>
+    </figure>
+<p>第二次转换，是将 <code>Cube中</code> 的数据存储到 <code>HBase</code> 中，转换的时候 <code>CuboId</code> 和维度信息序列化到 <code>rowkey</code>，度量列组成列簇。在转换的时候数据进行了预聚合。下图展示了 <code>Cube</code> 数据在 <code>HBase</code> 中的存储方式。</p>
+<figure><a class="lightgallery" href="/images/kylin2.png" title="/images/kylin2.png" data-thumbnail="/images/kylin2.png" data-sub-html="<h2>kylin</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/kylin2.png"
+            data-srcset="/images/kylin2.png, /images/kylin2.png 1.5x, /images/kylin2.png 2x"
+            data-sizes="auto"
+            alt="/images/kylin2.png" width="650" />
+    </a><figcaption class="image-caption">kylin</figcaption>
+    </figure>
+<h3 id="kylin索引结构">Kylin索引结构</h3>
+<p>因为 <code>Kylin</code> 将数据存储到 <code>HBase</code> 中，所以 <code>kylin</code> 的数据索引就是 <code>HBase</code> 的索引。<code>HBase</code> 的索引是简化版本的 <strong>B+树</strong>，相比于 B+树，<code>HFile</code> 没有对数据文件的更新操作。</p>
+<p><code>HFile</code> 的索引是按照 <code>rowkey</code> 排序的聚簇索引，索引树一般为二层或者三层，索引节点比 <code>MySQL</code> 的 B+树大，默认是64KB。数据查找的时候通过树形结构定位到节点，节点内部数据是按照 <code>rowkey</code> 有序的，可以通过二分查找快速定位到目标。</p>
+<figure><a class="lightgallery" href="/images/kylin3.png" title="/images/kylin3.png" data-thumbnail="/images/kylin3.png" data-sub-html="<h2>kylin</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/kylin3.png"
+            data-srcset="/images/kylin3.png, /images/kylin3.png 1.5x, /images/kylin3.png 2x"
+            data-sizes="auto"
+            alt="/images/kylin3.png" width="550" />
+    </a><figcaption class="image-caption">kylin</figcaption>
+    </figure>
+<h3 id="kylin小结">Kylin小结</h3>
+<p>适用于聚合查询场景；</p>
+<ul>
+<li>因为数据预聚合，<code>Kylin</code> 可以说是最快的查询引擎（<code>group-by</code> 查询这样的复杂查询，可能只需要扫描 1 条数据）；</li>
+<li>Kylin 查询效率取决于是否命中 <code>CuboId</code>，查询波动较大；</li>
+<li><code>HBase</code> 索引有点类似 <code>MySQL</code> 中的联合索引，维度在 <code>rowkey</code> 中的排序和查询维度组合对查询效率影响巨大；</li>
+<li>所以 <code>Kylin</code> 建表需要业务专家参与。</li>
+</ul>
+<h2 id="druid">Druid</h2>
+<h3 id="druid-数据模型">Druid 数据模型</h3>
+<p>Druid 数据模型比较简单，它将数据进行预聚合，只不过预聚合的方式与 <code>Kylin</code> 不同，Kylin 是 <code>Cube</code> 化，Druid 的预聚合方式是将所有维度进行 <code>Group-by</code>，可以参考下图：</p>
+<figure><a class="lightgallery" href="/images/druid1.png" title="/images/druid1.png" data-thumbnail="/images/druid1.png" data-sub-html="<h2>Druid</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/druid1.png"
+            data-srcset="/images/druid1.png, /images/druid1.png 1.5x, /images/druid1.png 2x"
+            data-sizes="auto"
+            alt="/images/druid1.png" width="550" />
+    </a><figcaption class="image-caption">Druid</figcaption>
+    </figure>
+<h3 id="druid索引结构">Druid索引结构</h3>
+<p>Druid 索引结构使用自定义的数据结构，整体上它是一种列式存储结构，每个列独立一个逻辑文件（实际上是一个物理文件，在物理文件内部标记了每个列的start和offset）。对于维度列设计了索引，它的索引以 <code>Bitmap</code> 为核心。</p>
+<p>下图为 &ldquo;city&rdquo; 列的索引结构：</p>
+<figure><a class="lightgallery" href="/images/druid2.png" title="/images/druid2.png" data-thumbnail="/images/druid2.png" data-sub-html="<h2>Druid</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/druid2.png"
+            data-srcset="/images/druid2.png, /images/druid2.png 1.5x, /images/druid2.png 2x"
+            data-sizes="auto"
+            alt="/images/druid2.png" width="550" />
+    </a><figcaption class="image-caption">Druid</figcaption>
+    </figure>
+<p>首先将该列所有的唯一值排序，并生成一个字典，然后对于每个唯一值生成一个 <code>Bitmap</code>，<code>Bitmap</code> 的长度为数据集的总行数，每个 <code>bit</code> 代表对应的行的数据是否是该值。<code>Bitmap</code> 的下标位置和行号是一一对应的，所以可以定位到度量列，<code>Bitmap</code> 可以说是反向索引。同时数据结构中保留了字典编码后的所有列值，其为正向的索引。
+那么查询如何使用索引呢？以以下查询为例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="n">site</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">pv</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">xx</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;bj&#39;</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">site</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>city 列中二分查找 <code>dictionary</code>并找到 <code>'bj'</code> 对应的 bitmap</li>
+<li>遍历 city 列，对于每一个字典值对应的 bitmap 与 <code>'bj'</code> 的 bitmap 做与操作</li>
+<li>每个相与后的 bitmap 即为 city = <code>'bj'</code> 查询条件下的 site 的一个 group 的 pv 的索引</li>
+<li>通过索引在 pv 列中查找到相应的行，并做 agg</li>
+<li>后续计算</li>
+</ol>
+<h3 id="druid小结">Druid小结</h3>
+<p>Druid 适用于<strong>聚合查询场景但是不适合有超高基维度</strong>的场景；存储全维度 <code>group-by</code> 后的数据，相当于只存储了 Kylin Cube 的 Base-CuboID；每个维度都有创建索引，所以每个查询都很快，并且没有类似 Kylin 的巨大的查询效率波动。</p>
+<h2 id="clickhouse">ClickHouse</h2>
+<h3 id="clickhouse-索引结构">Clickhouse 索引结构</h3>
+<p>此处只讨论 <code>MergeTree</code> 引擎。</p>
+<p>因为 <code>Clickhouse</code> 数据模型就是普通二维表，这里不做介绍，只讨论索引结构。整体上 <code>Clickhouse</code> 的索引也是列式索引结构，每个列一个文件。</p>
+<p>Clickhouse索引的大致思路是：</p>
+<ol>
+<li>首先选取部分列作为索引列，整个数据文件的数据按照索引列有序，这点类似 MySQL 的联合索引</li>
+<li>其次将排序后的数据每隔 8194 行选取出一行，记录其索引值和序号，注意这里的序号不是行号，序号是从零开始并递增的，Clickhouse 中序号被称作 <code>Mark’s number</code></li>
+<li>然后对于每个列（索引列和非索引列），记录 <code>Mark’s number</code> 与对应行的数据的 <code>offset</code>。</li>
+</ol>
+<p>下图中以一个二维表（date, city, action）为例介绍了整个索引结构，其中（date,city）是索引列。</p>
+<figure><a class="lightgallery" href="/images/clk1.png" title="/images/clk1.png" data-thumbnail="/images/clk1.png" data-sub-html="<h2>Clickhouse</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/clk1.png"
+            data-srcset="/images/clk1.png, /images/clk1.png 1.5x, /images/clk1.png 2x"
+            data-sizes="auto"
+            alt="/images/clk1.png" width="600" />
+    </a><figcaption class="image-caption">Clickhouse</figcaption>
+    </figure>
+<p>那么查询如何使用索引呢？以以下查询为例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="k">distinct</span><span class="w"> </span><span class="n">action</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">toDate</span><span class="p">(</span><span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;bj&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>二分查找 <code>primary.idx</code> 并找到对应的 <code>mark’s number</code>集合（即数据 block 集合）</li>
+<li>在上一步骤中的 block 中，在 date 和 city 列中查找对应的值的行号集合，并做交集，确认行号集合</li>
+<li>将行号转换为 <code>mark’s number</code> 和 <code>offset in block</code>（注意这里的 offset 以行为单位而不是 byte）</li>
+<li>在 <code>action</code> 列中，根据 <code>mark’s number</code> 和 ``.mark<code>文件确认数据</code>block<code>在</code>bin<code>文件中的</code>offset<code>，然后根据 </code>offset in block` 定位到具体的列值。</li>
+<li>后续计算</li>
+</ol>
+<p>该实例中包含了对于列的正反两个方向的查找过程。</p>
+<ul>
+<li>反向：查找 date = toDate(2020-01-01) and city = &lsquo;bj&rsquo; 数据的行号；</li>
+<li>正向：根据行号查找 action 列的值。</li>
+</ul>
+<p>对于反向查找，只有在查找条件匹配最左前缀的时候，才能剪枝掉大量数据，其它时候并不高效。</p>
+<h3 id="clickhouse小结">Clickhouse小结</h3>
+<ul>
+<li><code>MergeTree Family</code> 作为主要引擎系列，其中包含适合明细数据的场景和适合聚合数据的场景；</li>
+<li>Clickhouse 的索引有点类似 MySQL 的联合索引，当查询前缀元组能命中的时候效率最高，可是一旦不能命中，几乎会扫描整个表，效率波动巨大；</li>
+<li>所以建表需要业务专家，这一点跟 Kylin 类似。</li>
+</ul>
+<h2 id="总结">总结</h2>
+<ul>
+<li>Kylin、Druid 只适合聚合场景，ClickHouse 适合明细和聚合场景</li>
+<li>聚合场景，查询效率排序：Kylin &gt; Druid &gt; ClickHouse</li>
+<li>Kylin、ClickHouse 建表都需要业务专家参与</li>
+<li>Kylin、ClickHouse 查询效率都可能产生巨大差异</li>
+<li>ClickHouse 在向量化方面做得的最好，Druid 少量算子支持向量化、Kylin 目前还不支持向量化计算</li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-12-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/olap/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xiaohao890809.github.io/olap/" data-title="技术选型：Kylin、Druid、ClickHouse如何选择？" data-ralateuid="1735838740"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://xiaohao890809.github.io/olap/" data-title="技术选型：Kylin、Druid、ClickHouse如何选择？"><i data-svg-src="/lib/simple-icons/icons/baidu.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://xiaohao890809.github.io/olap/" data-title="技术选型：Kylin、Druid、ClickHouse如何选择？"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%95%B0%E4%BB%93/">数仓</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/longest-palindromic-substring/" class="prev" rel="prev" title="力扣-最长回文子串 "><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>力扣-最长回文子串 </a>
+            <a href="/reduceby/" class="next" rel="next" title="groupby和reduceby的区别">groupby和reduceby的区别<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.104.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">浩子</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["xiaohao890809"],"clientID":"f3ac41074cdc28d2e1c9","clientSecret":"61ff9b3b17917a9629db7004d1b8ac74b649e1b9","id":"2022-12-04T13:42:45+08:00","owner":"xiaohao890809","repo":"comment_of_blog","title":"技术选型：Kylin、Druid、ClickHouse如何选择？"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

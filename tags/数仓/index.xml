@@ -4,7 +4,23 @@
         <link>https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/</link>
         <description>数仓 - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 01 Dec 2022 15:42:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sun, 04 Dec 2022 13:43:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+    <title>groupby和reduceby的区别</title>
+    <link>https://xiaohao890809.github.io/reduceby/</link>
+    <pubDate>Sun, 04 Dec 2022 13:43:45 &#43;0800</pubDate>
+    <author>yangzp</author>
+    <guid>https://xiaohao890809.github.io/reduceby/</guid>
+    <description><![CDATA[<p>rdd 里面 <code>groupby</code> 和 <code>reduceby</code> 有什么区别。</p>]]></description>
+</item>
+<item>
+    <title>技术选型：Kylin、Druid、ClickHouse如何选择？</title>
+    <link>https://xiaohao890809.github.io/olap/</link>
+    <pubDate>Sun, 04 Dec 2022 13:42:45 &#43;0800</pubDate>
+    <author>数据仓库与Python大数据</author>
+    <guid>https://xiaohao890809.github.io/olap/</guid>
+    <description><![CDATA[<p>Kylin、Druid、ClickHouse 是目前主流的 <code>OLAP</code> 引擎，本文尝试从数据模型和索引结构两个角度，分析这几个引擎的核心技术，并做简单对比。在阅读本文之前希望能对 Kylin、Druid、ClickHouse 有所理解。</p>]]></description>
+</item>
+<item>
     <title>什么是分区分桶？</title>
     <link>https://xiaohao890809.github.io/bucket/</link>
     <pubDate>Thu, 01 Dec 2022 15:42:45 &#43;0800</pubDate>

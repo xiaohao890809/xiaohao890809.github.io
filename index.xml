@@ -4,9 +4,41 @@
         <link>https://xiaohao890809.github.io/</link>
         <description>耗子的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sat, 03 Dec 2022 17:52:45 &#43;0800</lastBuildDate>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 06 Dec 2022 17:52:45 &#43;0800</lastBuildDate>
             <atom:link href="https://xiaohao890809.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>力扣-单词拆分 </title>
+    <link>https://xiaohao890809.github.io/word-break/</link>
+    <pubDate>Tue, 06 Dec 2022 17:52:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/word-break/</guid>
+    <description><![CDATA[🔗 题目链接 给你一个字符串 s 和一个字符串列表 wordDict 作为字典。请你判断是否可以利用字典中出现的单词拼接出 s。 注意：不要求字典中出现的单词全部都使用，]]></description>
+</item>
+<item>
+    <title>力扣-查询两个字符串的最长公共子串 </title>
+    <link>https://xiaohao890809.github.io/longest/</link>
+    <pubDate>Mon, 05 Dec 2022 17:42:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/longest/</guid>
+    <description><![CDATA[查询两个字符串的最长公共子串。 用 Python 实现查找两个字符串 a,b 中的最长公共子串1 Python——查询两个字符串的最长公共子串2 循环查找 思路： 通过字符]]></description>
+</item>
+<item>
+    <title>groupby和reduceby的区别</title>
+    <link>https://xiaohao890809.github.io/reduceby/</link>
+    <pubDate>Sun, 04 Dec 2022 13:43:45 &#43;0800</pubDate>
+    <author>yangzp</author>
+    <guid>https://xiaohao890809.github.io/reduceby/</guid>
+    <description><![CDATA[<p>rdd 里面 <code>groupby</code> 和 <code>reduceby</code> 有什么区别。</p>]]></description>
+</item>
+<item>
+    <title>技术选型：Kylin、Druid、ClickHouse如何选择？</title>
+    <link>https://xiaohao890809.github.io/olap/</link>
+    <pubDate>Sun, 04 Dec 2022 13:42:45 &#43;0800</pubDate>
+    <author>数据仓库与Python大数据</author>
+    <guid>https://xiaohao890809.github.io/olap/</guid>
+    <description><![CDATA[<p>Kylin、Druid、ClickHouse 是目前主流的 <code>OLAP</code> 引擎，本文尝试从数据模型和索引结构两个角度，分析这几个引擎的核心技术，并做简单对比。在阅读本文之前希望能对 Kylin、Druid、ClickHouse 有所理解。</p>]]></description>
+</item>
+<item>
     <title>力扣-最长回文子串 </title>
     <link>https://xiaohao890809.github.io/longest-palindromic-substring/</link>
     <pubDate>Sat, 03 Dec 2022 17:52:45 &#43;0800</pubDate>
@@ -53,38 +85,6 @@
     <author>Java技术驿站</author>
     <guid>https://xiaohao890809.github.io/mysql-ques/</guid>
     <description><![CDATA[<p>史上最全的大厂 Mysql 面试题在这里。</p>]]></description>
-</item>
-<item>
-    <title>大数据之 Reduce Join</title>
-    <link>https://xiaohao890809.github.io/reducejoin/</link>
-    <pubDate>Thu, 01 Dec 2022 13:42:45 &#43;0800</pubDate>
-    <author>莫叫石榴姐</author>
-    <guid>https://xiaohao890809.github.io/reducejoin/</guid>
-    <description><![CDATA[<p>介绍 hive 里的 Reduce Join 的一些原理和使用技巧。</p>]]></description>
-</item>
-<item>
-    <title>大表join小表，独钟爱mapjoin</title>
-    <link>https://xiaohao890809.github.io/mapjoin/</link>
-    <pubDate>Thu, 01 Dec 2022 12:42:45 &#43;0800</pubDate>
-    <author>大数据私房菜</author>
-    <guid>https://xiaohao890809.github.io/mapjoin/</guid>
-    <description><![CDATA[<p>在 Hive 调优里面，经常会问到一个很小的表和一个大表进行 join，如何优化。</p>]]></description>
-</item>
-<item>
-    <title>order by,sort by,distribute by,cluster by的区别</title>
-    <link>https://xiaohao890809.github.io/orderby/</link>
-    <pubDate>Thu, 01 Dec 2022 11:42:45 &#43;0800</pubDate>
-    <author>大数据私房菜</author>
-    <guid>https://xiaohao890809.github.io/orderby/</guid>
-    <description><![CDATA[<p>深入探究 order by,sort by,distribute by,cluster by 的区别，并用数据征服你。</p>]]></description>
-</item>
-<item>
-    <title>dub老师给滴题目准备</title>
-    <link>https://xiaohao890809.github.io/dub-exercise/</link>
-    <pubDate>Wed, 30 Nov 2022 17:42:45 &#43;0800</pubDate>
-    <author>dubhe</author>
-    <guid>https://xiaohao890809.github.io/dub-exercise/</guid>
-    <description><![CDATA[<p>头条大佬 dubhe 老师给的题目准备，好好刷一下。</p>]]></description>
 </item>
 </channel>
 </rss>

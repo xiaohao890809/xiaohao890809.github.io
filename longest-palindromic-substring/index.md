@@ -13,7 +13,7 @@
 
 {{< admonition example "示例 2：" true>}}
 **输入**：s = "cbbd"<br>
-**输出**"bb"<br>
+**输出**："bb"
 {{< /admonition >}}
 
 **提示**：
