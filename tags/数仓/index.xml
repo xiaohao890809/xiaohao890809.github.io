@@ -4,7 +4,31 @@
         <link>https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/</link>
         <description>数仓 - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 11:45:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 13:56:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+    <title>ORC 和 Parquet 文件存储格式</title>
+    <link>https://xiaohao890809.github.io/orc/</link>
+    <pubDate>Wed, 07 Dec 2022 13:56:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/orc/</guid>
+    <description><![CDATA[<p>ORC 与 Parquet 的较量。</p>]]></description>
+</item>
+<item>
+    <title>详解MapReduce Shuffle与Spark Shuffle</title>
+    <link>https://xiaohao890809.github.io/shuffle/</link>
+    <pubDate>Wed, 07 Dec 2022 13:55:55 &#43;0800</pubDate>
+    <author>阿雅Yage</author>
+    <guid>https://xiaohao890809.github.io/shuffle/</guid>
+    <description><![CDATA[<p>本文介绍 <code>MapReduce Shuffle</code> 与 <code>Spark Shuffle</code> 的详情和区别。</p>]]></description>
+</item>
+<item>
+    <title>大数据——Hive SQL优化</title>
+    <link>https://xiaohao890809.github.io/hive-youhua/</link>
+    <pubDate>Wed, 07 Dec 2022 12:55:55 &#43;0800</pubDate>
+    <author>长不大的大灰狼</author>
+    <guid>https://xiaohao890809.github.io/hive-youhua/</guid>
+    <description><![CDATA[<p>本文介绍一些 <code>hive</code> 的常见优化方案。</p>]]></description>
+</item>
+<item>
     <title>图文详解 MapReduce 工作流程</title>
     <link>https://xiaohao890809.github.io/mapreduce/</link>
     <pubDate>Wed, 07 Dec 2022 11:45:55 &#43;0800</pubDate>
@@ -59,30 +83,6 @@
     <author>莫叫石榴姐</author>
     <guid>https://xiaohao890809.github.io/reducejoin/</guid>
     <description><![CDATA[<p>介绍 hive 里的 Reduce Join 的一些原理和使用技巧。</p>]]></description>
-</item>
-<item>
-    <title>大表join小表，独钟爱mapjoin</title>
-    <link>https://xiaohao890809.github.io/mapjoin/</link>
-    <pubDate>Thu, 01 Dec 2022 12:42:45 &#43;0800</pubDate>
-    <author>大数据私房菜</author>
-    <guid>https://xiaohao890809.github.io/mapjoin/</guid>
-    <description><![CDATA[<p>在 Hive 调优里面，经常会问到一个很小的表和一个大表进行 join，如何优化。</p>]]></description>
-</item>
-<item>
-    <title>order by,sort by,distribute by,cluster by的区别</title>
-    <link>https://xiaohao890809.github.io/orderby/</link>
-    <pubDate>Thu, 01 Dec 2022 11:42:45 &#43;0800</pubDate>
-    <author>大数据私房菜</author>
-    <guid>https://xiaohao890809.github.io/orderby/</guid>
-    <description><![CDATA[<p>深入探究 order by,sort by,distribute by,cluster by 的区别，并用数据征服你。</p>]]></description>
-</item>
-<item>
-    <title>【数仓】事实表设计</title>
-    <link>https://xiaohao890809.github.io/fact-tab/</link>
-    <pubDate>Wed, 30 Nov 2022 16:42:45 &#43;0800</pubDate>
-    <author>BigDataNotes</author>
-    <guid>https://xiaohao890809.github.io/fact-tab/</guid>
-    <description><![CDATA[<p>今天学习第 11 章事实表设计。</p>]]></description>
 </item>
 </channel>
 </rss>

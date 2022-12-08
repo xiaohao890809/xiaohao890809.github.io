@@ -4,9 +4,41 @@
         <link>https://xiaohao890809.github.io/</link>
         <description>耗子的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 11:45:55 &#43;0800</lastBuildDate>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 13:56:55 &#43;0800</lastBuildDate>
             <atom:link href="https://xiaohao890809.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>ORC 和 Parquet 文件存储格式</title>
+    <link>https://xiaohao890809.github.io/orc/</link>
+    <pubDate>Wed, 07 Dec 2022 13:56:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/orc/</guid>
+    <description><![CDATA[<p>ORC 与 Parquet 的较量。</p>]]></description>
+</item>
+<item>
+    <title>详解MapReduce Shuffle与Spark Shuffle</title>
+    <link>https://xiaohao890809.github.io/shuffle/</link>
+    <pubDate>Wed, 07 Dec 2022 13:55:55 &#43;0800</pubDate>
+    <author>阿雅Yage</author>
+    <guid>https://xiaohao890809.github.io/shuffle/</guid>
+    <description><![CDATA[<p>本文介绍 <code>MapReduce Shuffle</code> 与 <code>Spark Shuffle</code> 的详情和区别。</p>]]></description>
+</item>
+<item>
+    <title>大数据——Hive SQL优化</title>
+    <link>https://xiaohao890809.github.io/hive-youhua/</link>
+    <pubDate>Wed, 07 Dec 2022 12:55:55 &#43;0800</pubDate>
+    <author>长不大的大灰狼</author>
+    <guid>https://xiaohao890809.github.io/hive-youhua/</guid>
+    <description><![CDATA[<p>本文介绍一些 <code>hive</code> 的常见优化方案。</p>]]></description>
+</item>
+<item>
+    <title>SQL-MySQL窗口函数和单行函数的使用</title>
+    <link>https://xiaohao890809.github.io/sql-window/</link>
+    <pubDate>Wed, 07 Dec 2022 12:45:55 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/sql-window/</guid>
+    <description><![CDATA[<p>窗口函数也叫OLAP函数（<strong><ruby>Online Anallytical Processing<rt>联机分析处理</rt></ruby></strong>），可以对数据进行实时分析处理。窗口函数是面试中考察的重点。窗口函数通常用来解决统计<strong>汇总</strong>、<strong>排名</strong>、<strong>TopN</strong>、<strong>连续登录天数</strong>等问题。</p>]]></description>
+</item>
+<item>
     <title>图文详解 MapReduce 工作流程</title>
     <link>https://xiaohao890809.github.io/mapreduce/</link>
     <pubDate>Wed, 07 Dec 2022 11:45:55 &#43;0800</pubDate>
@@ -53,38 +85,6 @@
     <author>莫叫石榴姐</author>
     <guid>https://xiaohao890809.github.io/mr-reduce/</guid>
     <description><![CDATA[如果 ReduceTask 数量过多，一个 ReduceTask 会产生一个结果文件，这样就会生成很多小文件，那么如果这些结果文件会作为下一个 Job 的输入，则会出现小文件需要进行合并的问题]]></description>
-</item>
-<item>
-    <title>MR中如何控制map的数量</title>
-    <link>https://xiaohao890809.github.io/mr-map/</link>
-    <pubDate>Tue, 06 Dec 2022 22:42:45 &#43;0800</pubDate>
-    <author>莫叫石榴姐</author>
-    <guid>https://xiaohao890809.github.io/mr-map/</guid>
-    <description><![CDATA[hadooop 提供了一个设置 map 个数的参数 mapred.map.tasks，我们可以通过这个参数来控制 map 的个数。但是通过这种方式设置 map 的个数，并不是每次都]]></description>
-</item>
-<item>
-    <title>Python 线性查找 </title>
-    <link>https://xiaohao890809.github.io/python-linear-search/</link>
-    <pubDate>Tue, 06 Dec 2022 19:54:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/python-linear-search/</guid>
-    <description><![CDATA[线性查找指按一定的顺序检查数组中每一个元素，直到找到所要寻找的特定值为止。1 线性查找 1 2 3 4 5 def linearSearch(s, x): for i in range(len(s)): if s[i] == x: return i return -1 Python 线性查找&#1]]></description>
-</item>
-<item>
-    <title>Python 二分查找 </title>
-    <link>https://xiaohao890809.github.io/python-binary-search/</link>
-    <pubDate>Tue, 06 Dec 2022 19:53:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/python-binary-search/</guid>
-    <description><![CDATA[二分搜索是一种在有序数组中查找某一特定元素的搜索算法。1 搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束； 如果某]]></description>
-</item>
-<item>
-    <title>Python 冒泡排序 </title>
-    <link>https://xiaohao890809.github.io/python-bubble-sort/</link>
-    <pubDate>Tue, 06 Dec 2022 18:53:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/python-bubble-sort/</guid>
-    <description><![CDATA[冒泡排序（Bubble Sort）也是一种简单直观的排序算法。1 它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过]]></description>
 </item>
 </channel>
 </rss>

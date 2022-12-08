@@ -4,7 +4,15 @@
         <link>https://xiaohao890809.github.io/tags/sql/</link>
         <description>SQL - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 10:45:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 12:45:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+    <title>SQL-MySQL窗口函数和单行函数的使用</title>
+    <link>https://xiaohao890809.github.io/sql-window/</link>
+    <pubDate>Wed, 07 Dec 2022 12:45:55 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/sql-window/</guid>
+    <description><![CDATA[<p>窗口函数也叫OLAP函数（<strong><ruby>Online Anallytical Processing<rt>联机分析处理</rt></ruby></strong>），可以对数据进行实时分析处理。窗口函数是面试中考察的重点。窗口函数通常用来解决统计<strong>汇总</strong>、<strong>排名</strong>、<strong>TopN</strong>、<strong>连续登录天数</strong>等问题。</p>]]></description>
+</item>
+<item>
     <title>SQL-英雄出场排名top3的出场次数及出场率</title>
     <link>https://xiaohao890809.github.io/sql-hero-top/</link>
     <pubDate>Wed, 07 Dec 2022 10:45:55 &#43;0800</pubDate>
