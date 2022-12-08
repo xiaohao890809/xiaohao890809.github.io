@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>排序 - 标签 - 追寻原风景的博客</title>
+        <link>https://xiaohao890809.github.io/tags/%E6%8E%92%E5%BA%8F/</link>
+        <description>排序 - 标签 - 追寻原风景的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 06 Dec 2022 18:53:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%8E%92%E5%BA%8F/" rel="self" type="application/rss+xml" /><item>
+    <title>Python 冒泡排序 </title>
+    <link>https://xiaohao890809.github.io/python-bubble-sort/</link>
+    <pubDate>Tue, 06 Dec 2022 18:53:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/python-bubble-sort/</guid>
+    <description><![CDATA[冒泡排序（Bubble Sort）也是一种简单直观的排序算法。1 它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过]]></description>
+</item>
+<item>
+    <title>Python 插入排序 </title>
+    <link>https://xiaohao890809.github.io/python-insertion-sort/</link>
+    <pubDate>Tue, 06 Dec 2022 18:52:46 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/python-insertion-sort/</guid>
+    <description><![CDATA[插入排序（英语：Insertion Sort）是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前]]></description>
+</item>
+<item>
+    <title>Python 选择排序 </title>
+    <link>https://xiaohao890809.github.io/python-selection-sort/</link>
+    <pubDate>Tue, 06 Dec 2022 18:52:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/python-selection-sort/</guid>
+    <description><![CDATA[选择排序（Selection sort）是一种简单直观的排序算法。它的工作原理如下。1 首先在未排序序列中找到最小（大）元素，存放到排序序列的起]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>图文详解 MapReduce 工作流程 - 追寻原风景的博客</title><meta name="Description" content="图文详解 MapReduce 工作流程"><meta property="og:title" content="图文详解 MapReduce 工作流程" />
+<meta property="og:description" content="图文详解 MapReduce 工作流程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xiaohao890809.github.io/mapreduce/" /><meta property="og:image" content="https://xiaohao890809.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-12-07T11:45:55+08:00" />
+<meta property="article:modified_time" content="2022-12-08T19:20:51+08:00" /><meta property="og:site_name" content="我的网站" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://xiaohao890809.github.io/logo.png"/>
+
+<meta name="twitter:title" content="图文详解 MapReduce 工作流程"/>
+<meta name="twitter:description" content="图文详解 MapReduce 工作流程"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xiaohao890809.github.io/mapreduce/" /><link rel="prev" href="https://xiaohao890809.github.io/sql-hero-top/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "图文详解 MapReduce 工作流程",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/xiaohao890809.github.io\/mapreduce\/"
+        },"genre": "posts","keywords": "数仓","wordcount":  1608 ,
+        "url": "https:\/\/xiaohao890809.github.io\/mapreduce\/","datePublished": "2022-12-07T11:45:55+08:00","dateModified": "2022-12-08T19:20:51+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Shockang"
+            },"description": "图文详解 MapReduce 工作流程"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="追寻原风景的博客"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>追寻原风景</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="追寻原风景的博客"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>追寻原风景</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">图文详解 MapReduce 工作流程</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://blog.csdn.net/Shockang/article/details/117970151" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Shockang</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-07">2022-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1608 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#mapreduce-编程模型">MapReduce 编程模型</a></li>
+    <li><a href="#整体流程">整体流程</a>
+      <ul>
+        <li><a href="#分片格式化数据源">分片、格式化数据源</a></li>
+        <li><a href="#执行-maptask">执行 MapTask</a></li>
+        <li><a href="#执行-shuffle-过程">执行 Shuffle 过程</a></li>
+        <li><a href="#执行-reducetask">执行 ReduceTask</a></li>
+        <li><a href="#写入文件">写入文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#maptask">MapTask</a></li>
+    <li><a href="#reducetask">ReduceTask</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>本文会详解 <code>MapReduce</code> 工作流程。</p>
+<figure><a class="lightgallery" href="/images/map.png" title="/images/map.png" data-thumbnail="/images/map.png" data-sub-html="<h2>MR工作流程</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/map.png"
+            data-srcset="/images/map.png, /images/map.png 1.5x, /images/map.png 2x"
+            data-sizes="auto"
+            alt="/images/map.png" width="750" />
+    </a><figcaption class="image-caption">MR工作流程</figcaption>
+    </figure>
+<h2 id="mapreduce-编程模型">MapReduce 编程模型</h2>
+<p><code>MapReduce</code> 编程模型开发简单且功能强大，专门为并行处理大规模数据量而设计，接下来，通过一张图来描述 <code>MapReduce</code> 的工作过程，如图所示。</p>
+<figure><a class="lightgallery" href="/images/%e5%b7%a5%e4%bd%9c%e6%b5%81%e7%a8%8b.png" title="/images/工作流程.png" data-thumbnail="/images/工作流程.png" data-sub-html="<h2>工作流程</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/%e5%b7%a5%e4%bd%9c%e6%b5%81%e7%a8%8b.png"
+            data-srcset="/images/%e5%b7%a5%e4%bd%9c%e6%b5%81%e7%a8%8b.png, /images/%e5%b7%a5%e4%bd%9c%e6%b5%81%e7%a8%8b.png 1.5x, /images/%e5%b7%a5%e4%bd%9c%e6%b5%81%e7%a8%8b.png 2x"
+            data-sizes="auto"
+            alt="/images/工作流程.png" width="700" />
+    </a><figcaption class="image-caption">工作流程</figcaption>
+    </figure>
+<h2 id="整体流程">整体流程</h2>
+<p>在上图中， <code>MapReduce</code>5 的工作流程大致可以分为5步，具体如下:</p>
+<figure><a class="lightgallery" href="/images/5%e6%ad%a5.png" title="/images/5步.png" data-thumbnail="/images/5步.png" data-sub-html="<h2>5步</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/5%e6%ad%a5.png"
+            data-srcset="/images/5%e6%ad%a5.png, /images/5%e6%ad%a5.png 1.5x, /images/5%e6%ad%a5.png 2x"
+            data-sizes="auto"
+            alt="/images/5步.png" width="200" />
+    </a><figcaption class="image-caption">5步</figcaption>
+    </figure>
+<h3 id="分片格式化数据源">分片、格式化数据源</h3>
+<p>输入 <code>Map</code> 阶段的数据源，必须经过<strong>分片和格式化</strong>操作。</p>
+<ul>
+<li>分片操作：指的是将源文件划分为大小相等的小数据块(Hadoop 2.x 中默认 128MB)，也就是分片(split)，Hadoop 会为每一个分片构建一个 <code>Map</code> 任务，并由该任务运行自定义的 map() 函数，从而处理分片里的每一条记录;</li>
+<li>格式化操作：将划分好的分片(split)格式化为键值对 <code>&lt;key,value&gt;</code> 形式的数据，其中，key 代表偏移量，value 代表每一行内容。</li>
+</ul>
+<h3 id="执行-maptask">执行 MapTask</h3>
+<p>每个 <code>Map</code> 任务都有一个<strong><ruby>内存缓冲区<rt>缓冲区大小100MB</rt></ruby></strong>，输入的<strong><ruby>分片<rt>split</rt></ruby></strong>数据经过 Map 任务处理后的中间结果会写入内存缓冲区中。</p>
+<p>如果写入的数据达到<strong><ruby>内存缓冲的阈值<rt>80MB</rt></ruby></strong>，会启动一个线程将内存中的溢出数据写入磁盘，同时不影响 Map 中间结果继续写入缓冲区。</p>
+<p>在溢写过程中， MapReduce 框架会对 key 进行排序，如果中间结果比较大，会形成多个溢写文件，最后的缓冲区数据也会全部溢写入磁盘形成一个溢写文件，如果是多个溢写文件，则最后合并所有的溢写文件为一个文件。</p>
+<h3 id="执行-shuffle-过程">执行 Shuffle 过程</h3>
+<p><code>MapReduce</code> 工作过程中， <code>Map</code> 阶段处理的数据如何传递给 <code>Reduce</code> 阶段，这是 <code>MapReduce</code> 框架中关键的一个过程，这个过程叫作 <code>Shuffle</code>。</p>
+<p><code>Shuffle</code> 会将 <code>MapTask</code> 输出的处理结果数据分发给 <code>ReduceTask</code>，并在分发的过程中，对数据按 <code>key</code> 进行<strong>分区和排序</strong>。</p>
+<h3 id="执行-reducetask">执行 ReduceTask</h3>
+<p>输入 <code>ReduceTask</code> 的数据流是 <code>&lt;key, {value list}&gt;</code> 形式，用户可以自定义 <code>reduce()</code> 方法进行逻辑处理，最终以 <code>&lt;key, value&gt;</code> 的形式输出。</p>
+<h3 id="写入文件">写入文件</h3>
+<p><code>MapReduce</code> 框架会自动把 <code>ReduceTask</code> 生成的 <code>&lt;key, value&gt;</code> 传入 <code>OutputFormat</code> 的 <code>write</code> 方法，实现文件的写入操作。</p>
+<h2 id="maptask">MapTask</h2>
+<figure><a class="lightgallery" href="/images/MapTask.png" title="/images/MapTask.png" data-thumbnail="/images/MapTask.png" data-sub-html="<h2>MapTask</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/MapTask.png"
+            data-srcset="/images/MapTask.png, /images/MapTask.png 1.5x, /images/MapTask.png 2x"
+            data-sizes="auto"
+            alt="/images/MapTask.png" width="600" />
+    </a><figcaption class="image-caption">MapTask</figcaption>
+    </figure>
+<ol>
+<li>Read 阶段：<code>MapTask</code> 通过用户编写的 <code>RecordReader</code>，从输入的 <code>InputSplit</code> 中解析出一个个 key / value 。</li>
+<li>Map 阶段：将解析出的 key / value 交给用户编写的 Map() 函数处理，并产生一系列新的 key / value。</li>
+<li>Collect 阶段：在用户编写的 map() 函数中，数据处理完成后，一般会调用 outputCollector.collect() 输出结果，在该函数内部，它会将生成的 key / value 分片(通过调用 partitioner)，并写入一个<strong>环形内存缓冲区</strong>中(该缓冲区默认大小是 100MB )。</li>
+<li>Spill 阶段：即“溢写”，当缓冲区快要溢出时(默认达到缓冲区大小的 80 %)，会在本地文件系统创建一个溢出文件，<strong>将该缓冲区的数据写入这个文件</strong>。</li>
+</ol>
+<blockquote>
+<p>将数据写入本地磁盘前，先要对数据进行一次本地排序，并在必要时对数据进行合并、压缩等操作。<br>
+写入磁盘之前，线程会根据 ReduceTask 的数量，将数据分区，一个 Reduce 任务对应一个分区的数据。<br>
+这样做的目的是为了避免有些 Reduce 任务分配到大量数据，而有些 Reduce 任务分到很少的数据，甚至没有分到数据的尴尬局面。<br>
+如果此时设置了 Combiner ，将排序后的结果进行 Combine 操作，这样做的目的是尽可能少地执行数据写入磁盘的操作。</p>
+</blockquote>
+<ol start="5">
+<li>Combine 阶段：当所有数据处理完成以后， <code>MapTask</code> 会对所有临时文件进行一次合并，以确保最终只会生成一个数据文件</li>
+</ol>
+<h2 id="reducetask">ReduceTask</h2>
+<figure><a class="lightgallery" href="/images/ReduceTask.png" title="/images/ReduceTask.png" data-thumbnail="/images/ReduceTask.png" data-sub-html="<h2>ReduceTask</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/images/ReduceTask.png"
+            data-srcset="/images/ReduceTask.png, /images/ReduceTask.png 1.5x, /images/ReduceTask.png 2x"
+            data-sizes="auto"
+            alt="/images/ReduceTask.png" width="700" />
+    </a><figcaption class="image-caption">ReduceTask</figcaption>
+    </figure>
+<ol>
+<li>Copy 阶段： Reduce 会从各个 MapTask 上远程复制一片数据（每个 MapTask 传来的数据都是有序的），并针对某一片数据，如果其大小超过一定國值，则写到磁盘上，否则直接放到内存中</li>
+<li>Merge 阶段：在远程复制数据的同时， ReduceTask 会启动两个后台线程，分别对内存和磁盘上的文件进行合并，以防止内存使用过多或者磁盘文件过多。</li>
+<li>Sort 阶段：用户编写 reduce() 方法输入数据是按 key 进行聚集的一组数据。</li>
+</ol>
+<blockquote>
+<p>为了将 key 相同的数据聚在一起， Hadoop 采用了基于排序的策略。<br>
+由于各个 MapTask 已经实现对自己的处理结果进行了局部排序，因此， ReduceTask 只需对所有数据进行一次归并排序即可。</p>
+</blockquote>
+<ol start="4">
+<li>Reduce 阶段：对排序后的键值对调用 reduce() 方法，键相等的键值对调用一次 reduce()方法，每次调用会产生零个或者多个键值对，最后把这些输出的键值对写入到 HDFS 中</li>
+<li>Write 阶段：reduce() 函数将计算结果写到 HDFS 上。</li>
+</ol>
+<blockquote>
+<p>合并的过程中会产生许多的中间文件(写入磁盘了)，但 MapReduce 会让写入磁盘的数据尽可能地少，并且最后一次合并的结果并没有写入磁盘，而是直接输入到 Reduce 函数。</p>
+</blockquote></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-12-08</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/mapreduce/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://xiaohao890809.github.io/mapreduce/" data-title="图文详解 MapReduce 工作流程" data-ralateuid="1735838740"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://xiaohao890809.github.io/mapreduce/" data-title="图文详解 MapReduce 工作流程"><i data-svg-src="/lib/simple-icons/icons/baidu.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://xiaohao890809.github.io/mapreduce/" data-title="图文详解 MapReduce 工作流程"><i class="fab fa-evernote fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%95%B0%E4%BB%93/">数仓</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/sql-hero-top/" class="prev" rel="prev" title="SQL-英雄出场排名top3的出场次数及出场率"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>SQL-英雄出场排名top3的出场次数及出场率</a></div>
+</div>
+<div id="comments"><div id="gitalk" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.104.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">浩子</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/gitalk/gitalk.min.css"><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/gitalk/gitalk.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"gitalk":{"admin":["xiaohao890809"],"clientID":"f3ac41074cdc28d2e1c9","clientSecret":"61ff9b3b17917a9629db7004d1b8ac74b649e1b9","id":"2022-12-07T11:45:55+08:00","owner":"xiaohao890809","repo":"comment_of_blog","title":"图文详解 MapReduce 工作流程"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

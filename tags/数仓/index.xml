@@ -4,7 +4,31 @@
         <link>https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/</link>
         <description>数仓 - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sun, 04 Dec 2022 13:43:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 11:45:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+    <title>图文详解 MapReduce 工作流程</title>
+    <link>https://xiaohao890809.github.io/mapreduce/</link>
+    <pubDate>Wed, 07 Dec 2022 11:45:55 &#43;0800</pubDate>
+    <author>Shockang</author>
+    <guid>https://xiaohao890809.github.io/mapreduce/</guid>
+    <description><![CDATA[<p>本文会详解 <code>MapReduce</code> 工作流程。</p>]]></description>
+</item>
+<item>
+    <title>如何设置ReduceTask并行度</title>
+    <link>https://xiaohao890809.github.io/mr-reduce/</link>
+    <pubDate>Tue, 06 Dec 2022 22:43:45 &#43;0800</pubDate>
+    <author>莫叫石榴姐</author>
+    <guid>https://xiaohao890809.github.io/mr-reduce/</guid>
+    <description><![CDATA[如果 ReduceTask 数量过多，一个 ReduceTask 会产生一个结果文件，这样就会生成很多小文件，那么如果这些结果文件会作为下一个 Job 的输入，则会出现小文件需要进行合并的问题]]></description>
+</item>
+<item>
+    <title>MR中如何控制map的数量</title>
+    <link>https://xiaohao890809.github.io/mr-map/</link>
+    <pubDate>Tue, 06 Dec 2022 22:42:45 &#43;0800</pubDate>
+    <author>莫叫石榴姐</author>
+    <guid>https://xiaohao890809.github.io/mr-map/</guid>
+    <description><![CDATA[hadooop 提供了一个设置 map 个数的参数 mapred.map.tasks，我们可以通过这个参数来控制 map 的个数。但是通过这种方式设置 map 的个数，并不是每次都]]></description>
+</item>
+<item>
     <title>groupby和reduceby的区别</title>
     <link>https://xiaohao890809.github.io/reduceby/</link>
     <pubDate>Sun, 04 Dec 2022 13:43:45 &#43;0800</pubDate>
@@ -59,22 +83,6 @@
     <author>BigDataNotes</author>
     <guid>https://xiaohao890809.github.io/fact-tab/</guid>
     <description><![CDATA[<p>今天学习第 11 章事实表设计。</p>]]></description>
-</item>
-<item>
-    <title>数仓之SQL篇</title>
-    <link>https://xiaohao890809.github.io/study-of-sql/</link>
-    <pubDate>Mon, 07 Nov 2022 16:11:45 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/study-of-sql/</guid>
-    <description><![CDATA[<p>本文主要摘抄数仓中的一些 SQL 问题，包括一些常用的语法和练习题，以便后续查阅复习。</p>]]></description>
-</item>
-<item>
-    <title>数仓之学无止境</title>
-    <link>https://xiaohao890809.github.io/study-of-all-life/</link>
-    <pubDate>Thu, 03 Nov 2022 16:11:45 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/study-of-all-life/</guid>
-    <description><![CDATA[<p>本文主要摘抄数仓面试中的一些常见问题，以便后续查阅复习。</p>]]></description>
 </item>
 </channel>
 </rss>

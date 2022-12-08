@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>查找 - 标签 - 追寻原风景的博客</title>
+        <link>https://xiaohao890809.github.io/tags/%E6%9F%A5%E6%89%BE/</link>
+        <description>查找 - 标签 - 追寻原风景的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 06 Dec 2022 19:54:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%9F%A5%E6%89%BE/" rel="self" type="application/rss+xml" /><item>
+    <title>Python 线性查找 </title>
+    <link>https://xiaohao890809.github.io/python-linear-search/</link>
+    <pubDate>Tue, 06 Dec 2022 19:54:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/python-linear-search/</guid>
+    <description><![CDATA[线性查找指按一定的顺序检查数组中每一个元素，直到找到所要寻找的特定值为止。1 线性查找 1 2 3 4 5 def linearSearch(s, x): for i in range(len(s)): if s[i] == x: return i return -1 Python 线性查找&#1]]></description>
+</item>
+<item>
+    <title>Python 二分查找 </title>
+    <link>https://xiaohao890809.github.io/python-binary-search/</link>
+    <pubDate>Tue, 06 Dec 2022 19:53:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/python-binary-search/</guid>
+    <description><![CDATA[二分搜索是一种在有序数组中查找某一特定元素的搜索算法。1 搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束； 如果某]]></description>
+</item>
+</channel>
+</rss>

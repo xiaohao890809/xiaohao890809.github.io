@@ -4,7 +4,63 @@
         <link>https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/</link>
         <description>学习 - 分类 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sun, 04 Dec 2022 13:43:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 11:45:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>图文详解 MapReduce 工作流程</title>
+    <link>https://xiaohao890809.github.io/mapreduce/</link>
+    <pubDate>Wed, 07 Dec 2022 11:45:55 &#43;0800</pubDate>
+    <author>Shockang</author>
+    <guid>https://xiaohao890809.github.io/mapreduce/</guid>
+    <description><![CDATA[<p>本文会详解 <code>MapReduce</code> 工作流程。</p>]]></description>
+</item>
+<item>
+    <title>SQL-英雄出场排名top3的出场次数及出场率</title>
+    <link>https://xiaohao890809.github.io/sql-hero-top/</link>
+    <pubDate>Wed, 07 Dec 2022 10:45:55 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/sql-hero-top/</guid>
+    <description><![CDATA[<p>求英雄的出场排名 <code>top3</code> 的出场次数及出场率。<code>names</code> 代表英雄名字。</p>]]></description>
+</item>
+<item>
+    <title>SQL-列转行</title>
+    <link>https://xiaohao890809.github.io/sql-row-col/</link>
+    <pubDate>Wed, 07 Dec 2022 10:44:55 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/sql-row-col/</guid>
+    <description><![CDATA[<p>常用操作<strong>列转行</strong>的几种方法。</p>]]></description>
+</item>
+<item>
+    <title>SQL-连续 7 天都登陆平台</title>
+    <link>https://xiaohao890809.github.io/sql-7d-login/</link>
+    <pubDate>Wed, 07 Dec 2022 10:44:45 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/sql-7d-login/</guid>
+    <description><![CDATA[<p>找出连续 7 天都登陆平台的用户。</p>]]></description>
+</item>
+<item>
+    <title>SQL-支付金额在前 20% 的用户</title>
+    <link>https://xiaohao890809.github.io/sql-20-per/</link>
+    <pubDate>Wed, 07 Dec 2022 10:43:45 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/sql-20-per/</guid>
+    <description><![CDATA[<p>找出支付金额在前 20% 的用户。</p>]]></description>
+</item>
+<item>
+    <title>如何设置ReduceTask并行度</title>
+    <link>https://xiaohao890809.github.io/mr-reduce/</link>
+    <pubDate>Tue, 06 Dec 2022 22:43:45 &#43;0800</pubDate>
+    <author>莫叫石榴姐</author>
+    <guid>https://xiaohao890809.github.io/mr-reduce/</guid>
+    <description><![CDATA[如果 ReduceTask 数量过多，一个 ReduceTask 会产生一个结果文件，这样就会生成很多小文件，那么如果这些结果文件会作为下一个 Job 的输入，则会出现小文件需要进行合并的问题]]></description>
+</item>
+<item>
+    <title>MR中如何控制map的数量</title>
+    <link>https://xiaohao890809.github.io/mr-map/</link>
+    <pubDate>Tue, 06 Dec 2022 22:42:45 &#43;0800</pubDate>
+    <author>莫叫石榴姐</author>
+    <guid>https://xiaohao890809.github.io/mr-map/</guid>
+    <description><![CDATA[hadooop 提供了一个设置 map 个数的参数 mapred.map.tasks，我们可以通过这个参数来控制 map 的个数。但是通过这种方式设置 map 的个数，并不是每次都]]></description>
+</item>
+<item>
     <title>groupby和reduceby的区别</title>
     <link>https://xiaohao890809.github.io/reduceby/</link>
     <pubDate>Sun, 04 Dec 2022 13:43:45 &#43;0800</pubDate>
@@ -27,62 +83,6 @@
     <author>长不大的大灰狼</author>
     <guid>https://xiaohao890809.github.io/bucket/</guid>
     <description><![CDATA[<p>分区和分桶面试过程中会经常考察，需要重点掌握。</p>]]></description>
-</item>
-<item>
-    <title>Mysql 面试题</title>
-    <link>https://xiaohao890809.github.io/mysql-ques/</link>
-    <pubDate>Thu, 01 Dec 2022 14:42:45 &#43;0800</pubDate>
-    <author>Java技术驿站</author>
-    <guid>https://xiaohao890809.github.io/mysql-ques/</guid>
-    <description><![CDATA[<p>史上最全的大厂 Mysql 面试题在这里。</p>]]></description>
-</item>
-<item>
-    <title>大数据之 Reduce Join</title>
-    <link>https://xiaohao890809.github.io/reducejoin/</link>
-    <pubDate>Thu, 01 Dec 2022 13:42:45 &#43;0800</pubDate>
-    <author>莫叫石榴姐</author>
-    <guid>https://xiaohao890809.github.io/reducejoin/</guid>
-    <description><![CDATA[<p>介绍 hive 里的 Reduce Join 的一些原理和使用技巧。</p>]]></description>
-</item>
-<item>
-    <title>大表join小表，独钟爱mapjoin</title>
-    <link>https://xiaohao890809.github.io/mapjoin/</link>
-    <pubDate>Thu, 01 Dec 2022 12:42:45 &#43;0800</pubDate>
-    <author>大数据私房菜</author>
-    <guid>https://xiaohao890809.github.io/mapjoin/</guid>
-    <description><![CDATA[<p>在 Hive 调优里面，经常会问到一个很小的表和一个大表进行 join，如何优化。</p>]]></description>
-</item>
-<item>
-    <title>order by,sort by,distribute by,cluster by的区别</title>
-    <link>https://xiaohao890809.github.io/orderby/</link>
-    <pubDate>Thu, 01 Dec 2022 11:42:45 &#43;0800</pubDate>
-    <author>大数据私房菜</author>
-    <guid>https://xiaohao890809.github.io/orderby/</guid>
-    <description><![CDATA[<p>深入探究 order by,sort by,distribute by,cluster by 的区别，并用数据征服你。</p>]]></description>
-</item>
-<item>
-    <title>【数仓】事实表设计</title>
-    <link>https://xiaohao890809.github.io/fact-tab/</link>
-    <pubDate>Wed, 30 Nov 2022 16:42:45 &#43;0800</pubDate>
-    <author>BigDataNotes</author>
-    <guid>https://xiaohao890809.github.io/fact-tab/</guid>
-    <description><![CDATA[<p>今天学习第 11 章事实表设计。</p>]]></description>
-</item>
-<item>
-    <title>Inmon 范式建模和 Kimball 维度建模</title>
-    <link>https://xiaohao890809.github.io/kimball/</link>
-    <pubDate>Tue, 29 Nov 2022 16:31:45 &#43;0800</pubDate>
-    <author>YLY</author>
-    <guid>https://xiaohao890809.github.io/kimball/</guid>
-    <description><![CDATA[<p>本文开始先简单理解两种建模的核心思想，然后根据一个具体的例子，分别使用这两种建模方式进行建模，大家便会一目了然！ 😏。</p>]]></description>
-</item>
-<item>
-    <title>三范式</title>
-    <link>https://xiaohao890809.github.io/3nf/</link>
-    <pubDate>Tue, 29 Nov 2022 16:21:45 &#43;0800</pubDate>
-    <author>Alder&#39;s</author>
-    <guid>https://xiaohao890809.github.io/3nf/</guid>
-    <description><![CDATA[<p>三范式都有哪些？举例说明具体含义 😏。</p>]]></description>
 </item>
 </channel>
 </rss>

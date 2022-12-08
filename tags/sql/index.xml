@@ -4,7 +4,39 @@
         <link>https://xiaohao890809.github.io/tags/sql/</link>
         <description>SQL - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Mon, 07 Nov 2022 16:11:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 10:45:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+    <title>SQL-英雄出场排名top3的出场次数及出场率</title>
+    <link>https://xiaohao890809.github.io/sql-hero-top/</link>
+    <pubDate>Wed, 07 Dec 2022 10:45:55 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/sql-hero-top/</guid>
+    <description><![CDATA[<p>求英雄的出场排名 <code>top3</code> 的出场次数及出场率。<code>names</code> 代表英雄名字。</p>]]></description>
+</item>
+<item>
+    <title>SQL-列转行</title>
+    <link>https://xiaohao890809.github.io/sql-row-col/</link>
+    <pubDate>Wed, 07 Dec 2022 10:44:55 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/sql-row-col/</guid>
+    <description><![CDATA[<p>常用操作<strong>列转行</strong>的几种方法。</p>]]></description>
+</item>
+<item>
+    <title>SQL-连续 7 天都登陆平台</title>
+    <link>https://xiaohao890809.github.io/sql-7d-login/</link>
+    <pubDate>Wed, 07 Dec 2022 10:44:45 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/sql-7d-login/</guid>
+    <description><![CDATA[<p>找出连续 7 天都登陆平台的用户。</p>]]></description>
+</item>
+<item>
+    <title>SQL-支付金额在前 20% 的用户</title>
+    <link>https://xiaohao890809.github.io/sql-20-per/</link>
+    <pubDate>Wed, 07 Dec 2022 10:43:45 &#43;0800</pubDate>
+    <author>浩子</author>
+    <guid>https://xiaohao890809.github.io/sql-20-per/</guid>
+    <description><![CDATA[<p>找出支付金额在前 20% 的用户。</p>]]></description>
+</item>
+<item>
     <title>数仓之SQL篇</title>
     <link>https://xiaohao890809.github.io/study-of-sql/</link>
     <pubDate>Mon, 07 Nov 2022 16:11:45 &#43;0800</pubDate>
