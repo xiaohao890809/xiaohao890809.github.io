@@ -4,7 +4,15 @@
         <link>https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/</link>
         <description>数仓 - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 14 Dec 2022 09:59:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 14 Dec 2022 10:01:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+    <title>driver 的功能是什么</title>
+    <link>https://xiaohao890809.github.io/driver/</link>
+    <pubDate>Wed, 14 Dec 2022 10:01:55 &#43;0800</pubDate>
+    <author>大数据技术团队</author>
+    <guid>https://xiaohao890809.github.io/driver/</guid>
+    <description><![CDATA[<p>driver 的功能是什么？</p>]]></description>
+</item>
+<item>
     <title>cache 和 persist 区别</title>
     <link>https://xiaohao890809.github.io/persist/</link>
     <pubDate>Wed, 14 Dec 2022 09:59:55 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/hdfs-write/</guid>
     <description><![CDATA[<p>Hdfs 写数据流程也介绍一下。</p>]]></description>
-</item>
-<item>
-    <title>Hdfs 读数据流程</title>
-    <link>https://xiaohao890809.github.io/hdfs-read/</link>
-    <pubDate>Thu, 08 Dec 2022 14:56:55 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/hdfs-read/</guid>
-    <description><![CDATA[<p>那 Hdfs 读数据流程你了解吗？</p>]]></description>
 </item>
 </channel>
 </rss>

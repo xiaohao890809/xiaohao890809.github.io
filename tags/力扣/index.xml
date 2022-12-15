@@ -4,13 +4,53 @@
         <link>https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/</link>
         <description>力扣 - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Mon, 12 Dec 2022 22:52:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 14 Dec 2022 13:01:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-二分查找</title>
+    <link>https://xiaohao890809.github.io/binary-search/</link>
+    <pubDate>Wed, 14 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/binary-search/</guid>
+    <description><![CDATA[🔗 题目链接 给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返]]></description>
+</item>
+<item>
+    <title>力扣-爬楼梯</title>
+    <link>https://xiaohao890809.github.io/climbing-stairs/</link>
+    <pubDate>Wed, 14 Dec 2022 12:55:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/climbing-stairs/</guid>
+    <description><![CDATA[🔗 题目链接 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？ 示例 1： 输入：n = 2 输出：]]></description>
+</item>
+<item>
+    <title>力扣-打家劫舍 III</title>
+    <link>https://xiaohao890809.github.io/house-robber-iii/</link>
+    <pubDate>Wed, 14 Dec 2022 12:54:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/house-robber-iii/</guid>
+    <description><![CDATA[🔗 题目链接 小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为 root。 除了 root 之外，每栋房子有且只有一个“父”房子与之相连。一]]></description>
+</item>
+<item>
+    <title>力扣-打家劫舍 II</title>
+    <link>https://xiaohao890809.github.io/house-robber-ii/</link>
+    <pubDate>Wed, 14 Dec 2022 12:53:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/house-robber-ii/</guid>
+    <description><![CDATA[🔗 题目链接 你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都围成一圈，这意味着第一个房屋和最后一个房屋是]]></description>
+</item>
+<item>
+    <title>力扣-打家劫舍</title>
+    <link>https://xiaohao890809.github.io/house-robber/</link>
+    <pubDate>Wed, 14 Dec 2022 12:52:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/house-robber/</guid>
+    <description><![CDATA[🔗 题目链接 你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如]]></description>
+</item>
+<item>
     <title>力扣-有效三角形的个数 </title>
     <link>https://xiaohao890809.github.io/valid-triangle-number/</link>
     <pubDate>Mon, 12 Dec 2022 22:52:45 &#43;0800</pubDate>
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/valid-triangle-number/</guid>
-    <description><![CDATA[🔗 题目链接 给定一个包含非负整数的数组 nums，返回其中可以组成三角形三条边的三元组个数。 示例 1： 输入：nums = [2,2,3,4] 输出3 解释：有效的组合是:]]></description>
+    <description><![CDATA[🔗 题目链接 给定一个包含非负整数的数组 nums，返回其中可以组成三角形三条边的三元组个数。 示例 1： 输入：nums = [2,2,3,4] 输出：3 解释：有效的组合是]]></description>
 </item>
 <item>
     <title>力扣-无重复字符的最长子串 </title>
@@ -43,46 +83,6 @@
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/longest-palindromic-substring/</guid>
     <description><![CDATA[🔗 题目链接 给你一个字符串 s，找到 s 中最长的回文子串。 示例 1： 输入：s = &ldquo;babad&rdquo; 输出：&ldquo;bab&rdquo; 解释：&ldquo;aba&]]></description>
-</item>
-<item>
-    <title>力扣-平方数之和 </title>
-    <link>https://xiaohao890809.github.io/sum-of-square-numbers/</link>
-    <pubDate>Fri, 02 Dec 2022 17:52:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/sum-of-square-numbers/</guid>
-    <description><![CDATA[🔗 题目链接 给定一个非负整数 $c$，你要判断是否存在两个整数 $a$ 和 $b$，使得 $a^2 + b^2 = c$。 示例 1： 输入：c = 5 输出：true 解释：1 * 1 + 2 *]]></description>
-</item>
-<item>
-    <title>力扣-字符串相加 </title>
-    <link>https://xiaohao890809.github.io/add-strings/</link>
-    <pubDate>Fri, 02 Dec 2022 17:42:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/add-strings/</guid>
-    <description><![CDATA[🔗 题目链接 给定两个字符串形式的非负整数 num1 和 num2，计算它们的和并同样以字符串形式返回。 你不能使用任何內建的用于处理大整数的库（比如 BigI]]></description>
-</item>
-<item>
-    <title>力扣-x的平方根 </title>
-    <link>https://xiaohao890809.github.io/sqrtx/</link>
-    <pubDate>Fri, 02 Dec 2022 16:42:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/sqrtx/</guid>
-    <description><![CDATA[🔗 题目链接 给你一个非负整数 x ，计算并返回 x 的算术平方根。 由于返回类型是整数，结果只保留整数部分，小数部分将被舍去。 注意：不允许使用任何内置指]]></description>
-</item>
-<item>
-    <title>力扣-两数之和</title>
-    <link>https://xiaohao890809.github.io/two-sum/</link>
-    <pubDate>Tue, 29 Nov 2022 16:42:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/two-sum/</guid>
-    <description><![CDATA[🔗 题目链接 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值 target 的那两个整数，并返回它们的数组下标。 你可以假设每种输]]></description>
-</item>
-<item>
-    <title>力扣-数组中重复的数据</title>
-    <link>https://xiaohao890809.github.io/duplicates/</link>
-    <pubDate>Tue, 29 Nov 2022 16:41:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/duplicates/</guid>
-    <description><![CDATA[🔗 题目链接 给你一个长度为 n 的整数数组 nums ，其中 nums 的所有整数都在范围 [1, n] 内，且每个整数出现一次或两次。请你找出所有出现两次的整数，并以数组形式返]]></description>
 </item>
 </channel>
 </rss>

@@ -5,10 +5,9 @@
 
 给定一个包含非负整数的数组 `nums`，返回其中可以组成三角形三条边的三元组个数。
 
-
 {{< admonition example "示例 1：" true>}}
 **输入**：nums = [2,2,3,4]<br>
-**输出**3<br>
+**输出**：3<br>
 **解释**：有效的组合是: <br>
 2,3,4 (使用第一个 2)<br>
 2,3,4 (使用第二个 2)<br>
@@ -96,8 +95,6 @@ def triangleNumber(nums: List[int]) -> int:
 
 - 时间复杂度：$O(n^{2}log⁡n)$，其中 $n$ 是数组 $nums$ 的长度。我们需要 $O(nlog⁡n)$ 的时间对数组 $nums$ 进行排序，随后需要 $O(n^{2}log⁡n)$ 的时间使用二重循环枚举 $a,b$ 的下标以及使用二分查找得到 $c$ 的下标范围。
 - 空间复杂度：$O(log⁡n)$，即为排序需要的栈空间。
-
-
 
 [^1]: [有效三角形的个数](https://leetcode.cn/problems/valid-triangle-number/solutions/914061/you-xiao-san-jiao-xing-de-ge-shu-by-leet-t2td)
 

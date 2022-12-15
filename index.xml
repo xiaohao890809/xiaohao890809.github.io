@@ -4,9 +4,57 @@
         <link>https://xiaohao890809.github.io/</link>
         <description>耗子的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 14 Dec 2022 09:59:55 &#43;0800</lastBuildDate>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 14 Dec 2022 13:01:45 &#43;0800</lastBuildDate>
             <atom:link href="https://xiaohao890809.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>力扣-二分查找</title>
+    <link>https://xiaohao890809.github.io/binary-search/</link>
+    <pubDate>Wed, 14 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/binary-search/</guid>
+    <description><![CDATA[🔗 题目链接 给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返]]></description>
+</item>
+<item>
+    <title>力扣-爬楼梯</title>
+    <link>https://xiaohao890809.github.io/climbing-stairs/</link>
+    <pubDate>Wed, 14 Dec 2022 12:55:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/climbing-stairs/</guid>
+    <description><![CDATA[🔗 题目链接 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？ 示例 1： 输入：n = 2 输出：]]></description>
+</item>
+<item>
+    <title>力扣-打家劫舍 III</title>
+    <link>https://xiaohao890809.github.io/house-robber-iii/</link>
+    <pubDate>Wed, 14 Dec 2022 12:54:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/house-robber-iii/</guid>
+    <description><![CDATA[🔗 题目链接 小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为 root。 除了 root 之外，每栋房子有且只有一个“父”房子与之相连。一]]></description>
+</item>
+<item>
+    <title>力扣-打家劫舍 II</title>
+    <link>https://xiaohao890809.github.io/house-robber-ii/</link>
+    <pubDate>Wed, 14 Dec 2022 12:53:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/house-robber-ii/</guid>
+    <description><![CDATA[🔗 题目链接 你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都围成一圈，这意味着第一个房屋和最后一个房屋是]]></description>
+</item>
+<item>
+    <title>力扣-打家劫舍</title>
+    <link>https://xiaohao890809.github.io/house-robber/</link>
+    <pubDate>Wed, 14 Dec 2022 12:52:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/house-robber/</guid>
+    <description><![CDATA[🔗 题目链接 你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如]]></description>
+</item>
+<item>
+    <title>driver 的功能是什么</title>
+    <link>https://xiaohao890809.github.io/driver/</link>
+    <pubDate>Wed, 14 Dec 2022 10:01:55 &#43;0800</pubDate>
+    <author>大数据技术团队</author>
+    <guid>https://xiaohao890809.github.io/driver/</guid>
+    <description><![CDATA[<p>driver 的功能是什么？</p>]]></description>
+</item>
+<item>
     <title>cache 和 persist 区别</title>
     <link>https://xiaohao890809.github.io/persist/</link>
     <pubDate>Wed, 14 Dec 2022 09:59:55 &#43;0800</pubDate>
@@ -20,7 +68,7 @@
     <pubDate>Mon, 12 Dec 2022 22:52:45 &#43;0800</pubDate>
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/valid-triangle-number/</guid>
-    <description><![CDATA[🔗 题目链接 给定一个包含非负整数的数组 nums，返回其中可以组成三角形三条边的三元组个数。 示例 1： 输入：nums = [2,2,3,4] 输出3 解释：有效的组合是:]]></description>
+    <description><![CDATA[🔗 题目链接 给定一个包含非负整数的数组 nums，返回其中可以组成三角形三条边的三元组个数。 示例 1： 输入：nums = [2,2,3,4] 输出：3 解释：有效的组合是]]></description>
 </item>
 <item>
     <title>left semi join 和 left join 区别</title>
@@ -37,54 +85,6 @@
     <author>数仓宝贝库</author>
     <guid>https://xiaohao890809.github.io/star-snow/</guid>
     <description><![CDATA[<p>星型模型和雪花模型的区别以及各自优点。</p>]]></description>
-</item>
-<item>
-    <title>HQL 转换为 MR 任务流程</title>
-    <link>https://xiaohao890809.github.io/sql-mr/</link>
-    <pubDate>Sun, 11 Dec 2022 19:59:55 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/sql-mr/</guid>
-    <description><![CDATA[<p>sql 如何转化为 <code>MR</code>，整体流程讲一下。</p>]]></description>
-</item>
-<item>
-    <title>力扣-无重复字符的最长子串 </title>
-    <link>https://xiaohao890809.github.io/longest-substring-without-repeating-characters/</link>
-    <pubDate>Sun, 11 Dec 2022 17:52:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/longest-substring-without-repeating-characters/</guid>
-    <description><![CDATA[🔗 题目链接 给定一个字符串 s，请你找出其中不含有重复字符的最长子串的长度。 示例 1： 输入：s = &ldquo;abcabcbb&rdquo; 输出：3 解释：因为无重复字符的最长子串是 &ldq]]></description>
-</item>
-<item>
-    <title>理解 spark 中的 job、stage、task</title>
-    <link>https://xiaohao890809.github.io/stage/</link>
-    <pubDate>Sat, 10 Dec 2022 15:59:55 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/stage/</guid>
-    <description><![CDATA[<p>一般我们在提交s <code>park</code> 任务的时候，都会去其 <code>UI</code> 界面查看任务运行状况。其中就有 <code>job、stage、task</code> 的一些执行进度展示。今天，就详细说明一下这些名词术语的含义。</p>]]></description>
-</item>
-<item>
-    <title>Mapreduce 工作原理</title>
-    <link>https://xiaohao890809.github.io/mapreduce-flow/</link>
-    <pubDate>Fri, 09 Dec 2022 15:59:55 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/mapreduce-flow/</guid>
-    <description><![CDATA[<p>介绍一下 <code>Mapreduce</code> 工作原理？</p>]]></description>
-</item>
-<item>
-    <title>RDD 和 DataFrame 的区别是什么</title>
-    <link>https://xiaohao890809.github.io/df-rdd/</link>
-    <pubDate>Thu, 08 Dec 2022 15:59:55 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/df-rdd/</guid>
-    <description><![CDATA[<p><code>RDD</code> 和 <code>DataFrame</code> 的区别是什么？</p>]]></description>
-</item>
-<item>
-    <title>Spark 为什么比 MapReduce 快</title>
-    <link>https://xiaohao890809.github.io/spark-fast/</link>
-    <pubDate>Thu, 08 Dec 2022 15:58:55 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/spark-fast/</guid>
-    <description><![CDATA[<p>Spark 为什么比 MapReduce 快?</p>]]></description>
 </item>
 </channel>
 </rss>
