@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>spark - 标签 - 追寻原风景的博客</title>
+        <link>https://xiaohao890809.github.io/tags/spark/</link>
+        <description>spark - 标签 - 追寻原风景的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 14 Dec 2022 09:59:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/spark/" rel="self" type="application/rss+xml" /><item>
+    <title>cache 和 persist 区别</title>
+    <link>https://xiaohao890809.github.io/persist/</link>
+    <pubDate>Wed, 14 Dec 2022 09:59:55 &#43;0800</pubDate>
+    <author>等你下课_</author>
+    <guid>https://xiaohao890809.github.io/persist/</guid>
+    <description><![CDATA[<p>cache 和 pesist 的区别？</p>]]></description>
+</item>
+<item>
+    <title>Spark 为什么比 MapReduce 快</title>
+    <link>https://xiaohao890809.github.io/spark-fast/</link>
+    <pubDate>Thu, 08 Dec 2022 15:58:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/spark-fast/</guid>
+    <description><![CDATA[<p>Spark 为什么比 MapReduce 快?</p>]]></description>
+</item>
+<item>
+    <title>Spark 任务执行流程?</title>
+    <link>https://xiaohao890809.github.io/spark-flow/</link>
+    <pubDate>Thu, 08 Dec 2022 13:56:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/spark-flow/</guid>
+    <description><![CDATA[<p>Spark 执行流程详解。</p>]]></description>
+</item>
+</channel>
+</rss>

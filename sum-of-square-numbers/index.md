@@ -13,7 +13,7 @@
 
 {{< admonition example "示例 2：" true>}}
 **输入**：c = 3<br>
-**输出**：false<br>
+**输出**：false
 {{< /admonition >}}
 
 **提示**：

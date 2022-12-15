@@ -4,87 +4,87 @@
         <link>https://xiaohao890809.github.io/</link>
         <description>耗子的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 13:56:55 &#43;0800</lastBuildDate>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 14 Dec 2022 09:59:55 &#43;0800</lastBuildDate>
             <atom:link href="https://xiaohao890809.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>ORC 和 Parquet 文件存储格式</title>
-    <link>https://xiaohao890809.github.io/orc/</link>
-    <pubDate>Wed, 07 Dec 2022 13:56:55 &#43;0800</pubDate>
+    <title>cache 和 persist 区别</title>
+    <link>https://xiaohao890809.github.io/persist/</link>
+    <pubDate>Wed, 14 Dec 2022 09:59:55 &#43;0800</pubDate>
+    <author>等你下课_</author>
+    <guid>https://xiaohao890809.github.io/persist/</guid>
+    <description><![CDATA[<p>cache 和 pesist 的区别？</p>]]></description>
+</item>
+<item>
+    <title>力扣-有效三角形的个数 </title>
+    <link>https://xiaohao890809.github.io/valid-triangle-number/</link>
+    <pubDate>Mon, 12 Dec 2022 22:52:45 &#43;0800</pubDate>
     <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/orc/</guid>
-    <description><![CDATA[<p>ORC 与 Parquet 的较量。</p>]]></description>
+    <guid>https://xiaohao890809.github.io/valid-triangle-number/</guid>
+    <description><![CDATA[🔗 题目链接 给定一个包含非负整数的数组 nums，返回其中可以组成三角形三条边的三元组个数。 示例 1： 输入：nums = [2,2,3,4] 输出3 解释：有效的组合是:]]></description>
 </item>
 <item>
-    <title>详解MapReduce Shuffle与Spark Shuffle</title>
-    <link>https://xiaohao890809.github.io/shuffle/</link>
-    <pubDate>Wed, 07 Dec 2022 13:55:55 &#43;0800</pubDate>
-    <author>阿雅Yage</author>
-    <guid>https://xiaohao890809.github.io/shuffle/</guid>
-    <description><![CDATA[<p>本文介绍 <code>MapReduce Shuffle</code> 与 <code>Spark Shuffle</code> 的详情和区别。</p>]]></description>
+    <title>left semi join 和 left join 区别</title>
+    <link>https://xiaohao890809.github.io/left-semi-join/</link>
+    <pubDate>Mon, 12 Dec 2022 21:59:55 &#43;0800</pubDate>
+    <author>大数据私房菜</author>
+    <guid>https://xiaohao890809.github.io/left-semi-join/</guid>
+    <description><![CDATA[<p>left semi join 和 left join 有啥区别呢？</p>]]></description>
 </item>
 <item>
-    <title>大数据——Hive SQL优化</title>
-    <link>https://xiaohao890809.github.io/hive-youhua/</link>
-    <pubDate>Wed, 07 Dec 2022 12:55:55 &#43;0800</pubDate>
-    <author>长不大的大灰狼</author>
-    <guid>https://xiaohao890809.github.io/hive-youhua/</guid>
-    <description><![CDATA[<p>本文介绍一些 <code>hive</code> 的常见优化方案。</p>]]></description>
+    <title>星型模型和雪花模型</title>
+    <link>https://xiaohao890809.github.io/star-snow/</link>
+    <pubDate>Sun, 11 Dec 2022 21:59:55 &#43;0800</pubDate>
+    <author>数仓宝贝库</author>
+    <guid>https://xiaohao890809.github.io/star-snow/</guid>
+    <description><![CDATA[<p>星型模型和雪花模型的区别以及各自优点。</p>]]></description>
 </item>
 <item>
-    <title>SQL-MySQL窗口函数和单行函数的使用</title>
-    <link>https://xiaohao890809.github.io/sql-window/</link>
-    <pubDate>Wed, 07 Dec 2022 12:45:55 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/sql-window/</guid>
-    <description><![CDATA[<p>窗口函数也叫OLAP函数（<strong><ruby>Online Anallytical Processing<rt>联机分析处理</rt></ruby></strong>），可以对数据进行实时分析处理。窗口函数是面试中考察的重点。窗口函数通常用来解决统计<strong>汇总</strong>、<strong>排名</strong>、<strong>TopN</strong>、<strong>连续登录天数</strong>等问题。</p>]]></description>
+    <title>HQL 转换为 MR 任务流程</title>
+    <link>https://xiaohao890809.github.io/sql-mr/</link>
+    <pubDate>Sun, 11 Dec 2022 19:59:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/sql-mr/</guid>
+    <description><![CDATA[<p>sql 如何转化为 <code>MR</code>，整体流程讲一下。</p>]]></description>
 </item>
 <item>
-    <title>图文详解 MapReduce 工作流程</title>
-    <link>https://xiaohao890809.github.io/mapreduce/</link>
-    <pubDate>Wed, 07 Dec 2022 11:45:55 &#43;0800</pubDate>
-    <author>Shockang</author>
-    <guid>https://xiaohao890809.github.io/mapreduce/</guid>
-    <description><![CDATA[<p>本文会详解 <code>MapReduce</code> 工作流程。</p>]]></description>
+    <title>力扣-无重复字符的最长子串 </title>
+    <link>https://xiaohao890809.github.io/longest-substring-without-repeating-characters/</link>
+    <pubDate>Sun, 11 Dec 2022 17:52:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/longest-substring-without-repeating-characters/</guid>
+    <description><![CDATA[🔗 题目链接 给定一个字符串 s，请你找出其中不含有重复字符的最长子串的长度。 示例 1： 输入：s = &ldquo;abcabcbb&rdquo; 输出：3 解释：因为无重复字符的最长子串是 &ldq]]></description>
 </item>
 <item>
-    <title>SQL-英雄出场排名top3的出场次数及出场率</title>
-    <link>https://xiaohao890809.github.io/sql-hero-top/</link>
-    <pubDate>Wed, 07 Dec 2022 10:45:55 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/sql-hero-top/</guid>
-    <description><![CDATA[<p>求英雄的出场排名 <code>top3</code> 的出场次数及出场率。<code>names</code> 代表英雄名字。</p>]]></description>
+    <title>理解 spark 中的 job、stage、task</title>
+    <link>https://xiaohao890809.github.io/stage/</link>
+    <pubDate>Sat, 10 Dec 2022 15:59:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/stage/</guid>
+    <description><![CDATA[<p>一般我们在提交s <code>park</code> 任务的时候，都会去其 <code>UI</code> 界面查看任务运行状况。其中就有 <code>job、stage、task</code> 的一些执行进度展示。今天，就详细说明一下这些名词术语的含义。</p>]]></description>
 </item>
 <item>
-    <title>SQL-列转行</title>
-    <link>https://xiaohao890809.github.io/sql-row-col/</link>
-    <pubDate>Wed, 07 Dec 2022 10:44:55 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/sql-row-col/</guid>
-    <description><![CDATA[<p>常用操作<strong>列转行</strong>的几种方法。</p>]]></description>
+    <title>Mapreduce 工作原理</title>
+    <link>https://xiaohao890809.github.io/mapreduce-flow/</link>
+    <pubDate>Fri, 09 Dec 2022 15:59:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/mapreduce-flow/</guid>
+    <description><![CDATA[<p>介绍一下 <code>Mapreduce</code> 工作原理？</p>]]></description>
 </item>
 <item>
-    <title>SQL-连续 7 天都登陆平台</title>
-    <link>https://xiaohao890809.github.io/sql-7d-login/</link>
-    <pubDate>Wed, 07 Dec 2022 10:44:45 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/sql-7d-login/</guid>
-    <description><![CDATA[<p>找出连续 7 天都登陆平台的用户。</p>]]></description>
+    <title>RDD 和 DataFrame 的区别是什么</title>
+    <link>https://xiaohao890809.github.io/df-rdd/</link>
+    <pubDate>Thu, 08 Dec 2022 15:59:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/df-rdd/</guid>
+    <description><![CDATA[<p><code>RDD</code> 和 <code>DataFrame</code> 的区别是什么？</p>]]></description>
 </item>
 <item>
-    <title>SQL-支付金额在前 20% 的用户</title>
-    <link>https://xiaohao890809.github.io/sql-20-per/</link>
-    <pubDate>Wed, 07 Dec 2022 10:43:45 &#43;0800</pubDate>
-    <author>浩子</author>
-    <guid>https://xiaohao890809.github.io/sql-20-per/</guid>
-    <description><![CDATA[<p>找出支付金额在前 20% 的用户。</p>]]></description>
-</item>
-<item>
-    <title>如何设置ReduceTask并行度</title>
-    <link>https://xiaohao890809.github.io/mr-reduce/</link>
-    <pubDate>Tue, 06 Dec 2022 22:43:45 &#43;0800</pubDate>
-    <author>莫叫石榴姐</author>
-    <guid>https://xiaohao890809.github.io/mr-reduce/</guid>
-    <description><![CDATA[如果 ReduceTask 数量过多，一个 ReduceTask 会产生一个结果文件，这样就会生成很多小文件，那么如果这些结果文件会作为下一个 Job 的输入，则会出现小文件需要进行合并的问题]]></description>
+    <title>Spark 为什么比 MapReduce 快</title>
+    <link>https://xiaohao890809.github.io/spark-fast/</link>
+    <pubDate>Thu, 08 Dec 2022 15:58:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/spark-fast/</guid>
+    <description><![CDATA[<p>Spark 为什么比 MapReduce 快?</p>]]></description>
 </item>
 </channel>
 </rss>

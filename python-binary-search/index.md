@@ -11,13 +11,17 @@
 {{<image src="/images/Binary_search_into_array.png" caption="冒泡排序" width="400">}}
 
 ```python
-def bubbleSort(s):
-    n = len(s)
-    for i in range(n):
-        for j in range(n-i-1):
-            if s[j+1] < s[j]:
-                s[j+1], s[j] = s[j], s[j+1]
-    return s
+def binarySearch(s, l , r, x):
+    if r >= l:
+        mid = (l + r) // 2
+        if s[mid] == x:
+            return mid
+        elif s[mid] > x:
+            return binarySearch(s, l, mid-1, x)
+        else:
+            return binarySearch(s, mid+1, r, x)
+    else:
+        return -1
 ```
 
 [^1]: [Python 二分查找](https://www.runoob.com/python3/python-binary-search.html)

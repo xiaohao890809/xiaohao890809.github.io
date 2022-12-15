@@ -4,85 +4,85 @@
         <link>https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/</link>
         <description>数仓 - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 13:56:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
-    <title>ORC 和 Parquet 文件存储格式</title>
-    <link>https://xiaohao890809.github.io/orc/</link>
-    <pubDate>Wed, 07 Dec 2022 13:56:55 &#43;0800</pubDate>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 14 Dec 2022 09:59:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E6%95%B0%E4%BB%93/" rel="self" type="application/rss+xml" /><item>
+    <title>cache 和 persist 区别</title>
+    <link>https://xiaohao890809.github.io/persist/</link>
+    <pubDate>Wed, 14 Dec 2022 09:59:55 &#43;0800</pubDate>
+    <author>等你下课_</author>
+    <guid>https://xiaohao890809.github.io/persist/</guid>
+    <description><![CDATA[<p>cache 和 pesist 的区别？</p>]]></description>
+</item>
+<item>
+    <title>星型模型和雪花模型</title>
+    <link>https://xiaohao890809.github.io/star-snow/</link>
+    <pubDate>Sun, 11 Dec 2022 21:59:55 &#43;0800</pubDate>
+    <author>数仓宝贝库</author>
+    <guid>https://xiaohao890809.github.io/star-snow/</guid>
+    <description><![CDATA[<p>星型模型和雪花模型的区别以及各自优点。</p>]]></description>
+</item>
+<item>
+    <title>HQL 转换为 MR 任务流程</title>
+    <link>https://xiaohao890809.github.io/sql-mr/</link>
+    <pubDate>Sun, 11 Dec 2022 19:59:55 &#43;0800</pubDate>
     <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/orc/</guid>
-    <description><![CDATA[<p>ORC 与 Parquet 的较量。</p>]]></description>
+    <guid>https://xiaohao890809.github.io/sql-mr/</guid>
+    <description><![CDATA[<p>sql 如何转化为 <code>MR</code>，整体流程讲一下。</p>]]></description>
 </item>
 <item>
-    <title>详解MapReduce Shuffle与Spark Shuffle</title>
-    <link>https://xiaohao890809.github.io/shuffle/</link>
-    <pubDate>Wed, 07 Dec 2022 13:55:55 &#43;0800</pubDate>
-    <author>阿雅Yage</author>
-    <guid>https://xiaohao890809.github.io/shuffle/</guid>
-    <description><![CDATA[<p>本文介绍 <code>MapReduce Shuffle</code> 与 <code>Spark Shuffle</code> 的详情和区别。</p>]]></description>
+    <title>理解 spark 中的 job、stage、task</title>
+    <link>https://xiaohao890809.github.io/stage/</link>
+    <pubDate>Sat, 10 Dec 2022 15:59:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/stage/</guid>
+    <description><![CDATA[<p>一般我们在提交s <code>park</code> 任务的时候，都会去其 <code>UI</code> 界面查看任务运行状况。其中就有 <code>job、stage、task</code> 的一些执行进度展示。今天，就详细说明一下这些名词术语的含义。</p>]]></description>
 </item>
 <item>
-    <title>大数据——Hive SQL优化</title>
-    <link>https://xiaohao890809.github.io/hive-youhua/</link>
-    <pubDate>Wed, 07 Dec 2022 12:55:55 &#43;0800</pubDate>
-    <author>长不大的大灰狼</author>
-    <guid>https://xiaohao890809.github.io/hive-youhua/</guid>
-    <description><![CDATA[<p>本文介绍一些 <code>hive</code> 的常见优化方案。</p>]]></description>
+    <title>Mapreduce 工作原理</title>
+    <link>https://xiaohao890809.github.io/mapreduce-flow/</link>
+    <pubDate>Fri, 09 Dec 2022 15:59:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/mapreduce-flow/</guid>
+    <description><![CDATA[<p>介绍一下 <code>Mapreduce</code> 工作原理？</p>]]></description>
 </item>
 <item>
-    <title>图文详解 MapReduce 工作流程</title>
-    <link>https://xiaohao890809.github.io/mapreduce/</link>
-    <pubDate>Wed, 07 Dec 2022 11:45:55 &#43;0800</pubDate>
-    <author>Shockang</author>
-    <guid>https://xiaohao890809.github.io/mapreduce/</guid>
-    <description><![CDATA[<p>本文会详解 <code>MapReduce</code> 工作流程。</p>]]></description>
+    <title>RDD 和 DataFrame 的区别是什么</title>
+    <link>https://xiaohao890809.github.io/df-rdd/</link>
+    <pubDate>Thu, 08 Dec 2022 15:59:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/df-rdd/</guid>
+    <description><![CDATA[<p><code>RDD</code> 和 <code>DataFrame</code> 的区别是什么？</p>]]></description>
 </item>
 <item>
-    <title>如何设置ReduceTask并行度</title>
-    <link>https://xiaohao890809.github.io/mr-reduce/</link>
-    <pubDate>Tue, 06 Dec 2022 22:43:45 &#43;0800</pubDate>
-    <author>莫叫石榴姐</author>
-    <guid>https://xiaohao890809.github.io/mr-reduce/</guid>
-    <description><![CDATA[如果 ReduceTask 数量过多，一个 ReduceTask 会产生一个结果文件，这样就会生成很多小文件，那么如果这些结果文件会作为下一个 Job 的输入，则会出现小文件需要进行合并的问题]]></description>
+    <title>Spark 为什么比 MapReduce 快</title>
+    <link>https://xiaohao890809.github.io/spark-fast/</link>
+    <pubDate>Thu, 08 Dec 2022 15:58:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/spark-fast/</guid>
+    <description><![CDATA[<p>Spark 为什么比 MapReduce 快?</p>]]></description>
 </item>
 <item>
-    <title>MR中如何控制map的数量</title>
-    <link>https://xiaohao890809.github.io/mr-map/</link>
-    <pubDate>Tue, 06 Dec 2022 22:42:45 &#43;0800</pubDate>
-    <author>莫叫石榴姐</author>
-    <guid>https://xiaohao890809.github.io/mr-map/</guid>
-    <description><![CDATA[hadooop 提供了一个设置 map 个数的参数 mapred.map.tasks，我们可以通过这个参数来控制 map 的个数。但是通过这种方式设置 map 的个数，并不是每次都]]></description>
+    <title>为什么要对数仓进行分层</title>
+    <link>https://xiaohao890809.github.io/dw-level/</link>
+    <pubDate>Thu, 08 Dec 2022 15:57:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/dw-level/</guid>
+    <description><![CDATA[<p>根据项目中的介绍，谈谈为什么要对数仓进行分层？。</p>]]></description>
 </item>
 <item>
-    <title>groupby和reduceby的区别</title>
-    <link>https://xiaohao890809.github.io/reduceby/</link>
-    <pubDate>Sun, 04 Dec 2022 13:43:45 &#43;0800</pubDate>
-    <author>yangzp</author>
-    <guid>https://xiaohao890809.github.io/reduceby/</guid>
-    <description><![CDATA[<p>rdd 里面 <code>groupby</code> 和 <code>reduceby</code> 有什么区别。</p>]]></description>
+    <title>Hdfs 写数据流程</title>
+    <link>https://xiaohao890809.github.io/hdfs-write/</link>
+    <pubDate>Thu, 08 Dec 2022 14:57:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/hdfs-write/</guid>
+    <description><![CDATA[<p>Hdfs 写数据流程也介绍一下。</p>]]></description>
 </item>
 <item>
-    <title>技术选型：Kylin、Druid、ClickHouse如何选择？</title>
-    <link>https://xiaohao890809.github.io/olap/</link>
-    <pubDate>Sun, 04 Dec 2022 13:42:45 &#43;0800</pubDate>
-    <author>数据仓库与Python大数据</author>
-    <guid>https://xiaohao890809.github.io/olap/</guid>
-    <description><![CDATA[<p>Kylin、Druid、ClickHouse 是目前主流的 <code>OLAP</code> 引擎，本文尝试从数据模型和索引结构两个角度，分析这几个引擎的核心技术，并做简单对比。在阅读本文之前希望能对 Kylin、Druid、ClickHouse 有所理解。</p>]]></description>
-</item>
-<item>
-    <title>什么是分区分桶？</title>
-    <link>https://xiaohao890809.github.io/bucket/</link>
-    <pubDate>Thu, 01 Dec 2022 15:42:45 &#43;0800</pubDate>
-    <author>长不大的大灰狼</author>
-    <guid>https://xiaohao890809.github.io/bucket/</guid>
-    <description><![CDATA[<p>分区和分桶面试过程中会经常考察，需要重点掌握。</p>]]></description>
-</item>
-<item>
-    <title>大数据之 Reduce Join</title>
-    <link>https://xiaohao890809.github.io/reducejoin/</link>
-    <pubDate>Thu, 01 Dec 2022 13:42:45 &#43;0800</pubDate>
-    <author>莫叫石榴姐</author>
-    <guid>https://xiaohao890809.github.io/reducejoin/</guid>
-    <description><![CDATA[<p>介绍 hive 里的 Reduce Join 的一些原理和使用技巧。</p>]]></description>
+    <title>Hdfs 读数据流程</title>
+    <link>https://xiaohao890809.github.io/hdfs-read/</link>
+    <pubDate>Thu, 08 Dec 2022 14:56:55 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/hdfs-read/</guid>
+    <description><![CDATA[<p>那 Hdfs 读数据流程你了解吗？</p>]]></description>
 </item>
 </channel>
 </rss>

@@ -4,7 +4,15 @@
         <link>https://xiaohao890809.github.io/tags/sql/</link>
         <description>SQL - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 07 Dec 2022 12:45:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Mon, 12 Dec 2022 21:59:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/sql/" rel="self" type="application/rss+xml" /><item>
+    <title>left semi join 和 left join 区别</title>
+    <link>https://xiaohao890809.github.io/left-semi-join/</link>
+    <pubDate>Mon, 12 Dec 2022 21:59:55 &#43;0800</pubDate>
+    <author>大数据私房菜</author>
+    <guid>https://xiaohao890809.github.io/left-semi-join/</guid>
+    <description><![CDATA[<p>left semi join 和 left join 有啥区别呢？</p>]]></description>
+</item>
+<item>
     <title>SQL-MySQL窗口函数和单行函数的使用</title>
     <link>https://xiaohao890809.github.io/sql-window/</link>
     <pubDate>Wed, 07 Dec 2022 12:45:55 &#43;0800</pubDate>
