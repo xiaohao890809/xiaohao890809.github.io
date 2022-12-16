@@ -4,7 +4,15 @@
         <link>https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/</link>
         <description>力扣 - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 14 Dec 2022 13:01:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 15 Dec 2022 13:01:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-两数相加</title>
+    <link>https://xiaohao890809.github.io/add-two-numbers/</link>
+    <pubDate>Thu, 15 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/add-two-numbers/</guid>
+    <description><![CDATA[🔗 题目链接 给你两个非空的链表，表示两个非负的整数。它们每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。 请你将两个数相加，并以]]></description>
+</item>
+<item>
     <title>力扣-二分查找</title>
     <link>https://xiaohao890809.github.io/binary-search/</link>
     <pubDate>Wed, 14 Dec 2022 13:01:45 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/longest/</guid>
     <description><![CDATA[查询两个字符串的最长公共子串。 用 Python 实现查找两个字符串 a,b 中的最长公共子串1 Python——查询两个字符串的最长公共子串2 循环查找 思路： 通过字符]]></description>
-</item>
-<item>
-    <title>力扣-最长回文子串 </title>
-    <link>https://xiaohao890809.github.io/longest-palindromic-substring/</link>
-    <pubDate>Sat, 03 Dec 2022 17:52:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/longest-palindromic-substring/</guid>
-    <description><![CDATA[🔗 题目链接 给你一个字符串 s，找到 s 中最长的回文子串。 示例 1： 输入：s = &ldquo;babad&rdquo; 输出：&ldquo;bab&rdquo; 解释：&ldquo;aba&]]></description>
 </item>
 </channel>
 </rss>

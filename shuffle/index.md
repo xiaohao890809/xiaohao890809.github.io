@@ -27,7 +27,7 @@ Spark 丰富了任务类型，有些任务之间数据流转不需要通过 Shuf
 ## Spark 与 MapReduce Shuffle 的异同
 
 1. 从整体功能上看，两者并没有大的差别。都是将 mapper（Spark 里是 ShuffleMapTask）的输出进行 partition，不同的 partition 送到不同的 reducer。
-1. 从流程的上看，两者差别不小。MapReduce 是 sort-based，进入 combine 和 reduce的 records 必须**先 sort**。这样的好处在于 combine/reduce 可以处理大规模的数据，因为其输入数据可以通过外排得到（mapper 对每段数据先做排序，reducer 的 shuffle 对排好序的每段数据做归并）。以前 Spark 默认选择的是 hash-based，通常使用 HashMap 来对 shuffle 来的数据进行合并，**不会对数据进行提前排序**。如果用户需要经过排序的数据，那么需要自己调用类似 sortByKey 的操作。
+1. 从流程的上看，两者差别不小。MapReduce 是 sort-based，进入 combine 和 reduce 的 records 必须**先 sort**。这样的好处在于 combine/reduce 可以处理大规模的数据，因为其输入数据可以通过外排得到（mapper 对每段数据先做排序，reducer 的 shuffle 对排好序的每段数据做归并）。以前 Spark 默认选择的是 hash-based，通常使用 HashMap 来对 shuffle 来的数据进行合并，**不会对数据进行提前排序**。如果用户需要经过排序的数据，那么需要自己调用类似 sortByKey 的操作。
 1. 从流程实现角度来看，两者也有不少差别。MapReduce 将处理流程划分出明显的几个阶段：map, spill, merge, shuffle, sort, reduce 等。每个阶段各司其职，可以按照过程式的编程思想来逐一实现每个阶段的功能。在 Spark 中，没有这样功能明确的阶段，只有**不同的 stage** 和一系列的 transformation，所以 spill, merge, aggregate 等操作需要蕴含在 transformation中。
 1. 与 MapReduce 完全不一样的是，在 MapReduce 中，map task 必须将所有的数据都写入本地磁盘文件以后，才能启动 reduce 操作，来拉取数据。为什么？因为 mapreduce 要实现默认的根据 key 的排序！所以要排序，肯定得**写完所有数据，才能排序**，然后 reduce 来拉取。<br>
 但是 Spark 不需要，spark 默认情况下，是不会对数据进行排序的。因此 ShuffleMapTask 每写入一点数据，ResultTask 就可以拉取一点数据，然后在本地执行我们定义的聚合函数和算子，进行计算。

@@ -4,7 +4,15 @@
         <link>https://xiaohao890809.github.io/categories/%E5%88%B7%E9%A2%98/</link>
         <description>刷题 - 分类 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 14 Dec 2022 13:01:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%88%B7%E9%A2%98/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 15 Dec 2022 13:01:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/categories/%E5%88%B7%E9%A2%98/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-两数相加</title>
+    <link>https://xiaohao890809.github.io/add-two-numbers/</link>
+    <pubDate>Thu, 15 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/add-two-numbers/</guid>
+    <description><![CDATA[🔗 题目链接 给你两个非空的链表，表示两个非负的整数。它们每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。 请你将两个数相加，并以]]></description>
+</item>
+<item>
     <title>力扣-二分查找</title>
     <link>https://xiaohao890809.github.io/binary-search/</link>
     <pubDate>Wed, 14 Dec 2022 13:01:45 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/python-binary-search/</guid>
     <description><![CDATA[二分搜索是一种在有序数组中查找某一特定元素的搜索算法。1 搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束； 如果某]]></description>
-</item>
-<item>
-    <title>Python 冒泡排序 </title>
-    <link>https://xiaohao890809.github.io/python-bubble-sort/</link>
-    <pubDate>Tue, 06 Dec 2022 18:53:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/python-bubble-sort/</guid>
-    <description><![CDATA[冒泡排序（Bubble Sort）也是一种简单直观的排序算法。1 它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过]]></description>
 </item>
 </channel>
 </rss>

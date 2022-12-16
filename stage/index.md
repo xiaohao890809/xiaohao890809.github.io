@@ -30,7 +30,7 @@ Transformation 算子的代码不会真正被执行。只有当我**们的程序
 - foreach
 - saveAsTextFile 等
 
-当在程序中遇到一个 `action` 算子的时候，就会提交一个 `job`，执行前面的一系列操作。因此平时要注意，如果声明了数据需要 `cache` 或者 `persist`，但在 `action` 操作前释放掉的话，该数据实际上并没有被缓存。
+当在程序中**遇到一个 `action` 算子的时候，就会提交一个 `job`**，执行前面的一系列操作。因此平时要注意，如果声明了数据需要 `cache` 或者 `persist`，但在 `action` 操作前释放掉的话，该数据实际上并没有被缓存。
 
 通常一个任务会有多个 `job`，`job` 之间是按照串行的方式执行的。一个 `job` 执行完成后，才会起下一个 `job`。
 
@@ -42,6 +42,11 @@ Transformation 算子的代码不会真正被执行。只有当我**们的程序
 - 否则，就会形成 [wide dependency]^(宽依赖)，一般也称为 `shuffle` 依赖，比如 `groupByKey` 等操作。
 
 `job` 中 `stage` 的划分就是根据 `shuffle` 依赖进行的。`shuffle` 依赖是两个 `stage` 的分界点。`shuffle` 操作一般都是任务中最耗时耗资源的部分。因为数据可能存放在 `HDFS` 不同的节点上，下一个 `stage` 的执行首先要去拉取上一个 `stage`的数据（shuffle read操作），保存在自己的节点上，就会增加网络通信和 IO。
+
+按照宽窄依赖：
+
+- 宽：reparation coalesce join（shuffle 参数设置位 TRUE）
+- 窄：union filter map flatmap  mappartition
 
 ## Task
 

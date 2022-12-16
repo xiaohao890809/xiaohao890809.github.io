@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xiaohao890809.github.io\/shuffle\/"
-        },"genre": "posts","keywords": "数仓","wordcount":  1366 ,
+        },"genre": "posts","keywords": "数仓","wordcount":  1361 ,
         "url": "https:\/\/xiaohao890809.github.io\/shuffle\/","datePublished": "2022-12-07T13:55:55+08:00","dateModified": "2022-12-08T19:20:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">详解MapReduce Shuffle与Spark Shuffle</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://blog.csdn.net/u012369535/article/details/90757029" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>阿雅Yage</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-07">2022-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1366 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-07">2022-12-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1361 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -142,7 +142,7 @@
 <h2 id="spark-与-mapreduce-shuffle-的异同">Spark 与 MapReduce Shuffle 的异同</h2>
 <ol>
 <li>从整体功能上看，两者并没有大的差别。都是将 mapper（Spark 里是 ShuffleMapTask）的输出进行 partition，不同的 partition 送到不同的 reducer。</li>
-<li>从流程的上看，两者差别不小。MapReduce 是 sort-based，进入 combine 和 reduce的 records 必须<strong>先 sort</strong>。这样的好处在于 combine/reduce 可以处理大规模的数据，因为其输入数据可以通过外排得到（mapper 对每段数据先做排序，reducer 的 shuffle 对排好序的每段数据做归并）。以前 Spark 默认选择的是 hash-based，通常使用 HashMap 来对 shuffle 来的数据进行合并，<strong>不会对数据进行提前排序</strong>。如果用户需要经过排序的数据，那么需要自己调用类似 sortByKey 的操作。</li>
+<li>从流程的上看，两者差别不小。MapReduce 是 sort-based，进入 combine 和 reduce 的 records 必须<strong>先 sort</strong>。这样的好处在于 combine/reduce 可以处理大规模的数据，因为其输入数据可以通过外排得到（mapper 对每段数据先做排序，reducer 的 shuffle 对排好序的每段数据做归并）。以前 Spark 默认选择的是 hash-based，通常使用 HashMap 来对 shuffle 来的数据进行合并，<strong>不会对数据进行提前排序</strong>。如果用户需要经过排序的数据，那么需要自己调用类似 sortByKey 的操作。</li>
 <li>从流程实现角度来看，两者也有不少差别。MapReduce 将处理流程划分出明显的几个阶段：map, spill, merge, shuffle, sort, reduce 等。每个阶段各司其职，可以按照过程式的编程思想来逐一实现每个阶段的功能。在 Spark 中，没有这样功能明确的阶段，只有<strong>不同的 stage</strong> 和一系列的 transformation，所以 spill, merge, aggregate 等操作需要蕴含在 transformation中。</li>
 <li>与 MapReduce 完全不一样的是，在 MapReduce 中，map task 必须将所有的数据都写入本地磁盘文件以后，才能启动 reduce 操作，来拉取数据。为什么？因为 mapreduce 要实现默认的根据 key 的排序！所以要排序，肯定得<strong>写完所有数据，才能排序</strong>，然后 reduce 来拉取。<br>
 但是 Spark 不需要，spark 默认情况下，是不会对数据进行排序的。因此 ShuffleMapTask 每写入一点数据，ResultTask 就可以拉取一点数据，然后在本地执行我们定义的聚合函数和算子，进行计算。</li>

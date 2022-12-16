@@ -4,9 +4,25 @@
         <link>https://xiaohao890809.github.io/</link>
         <description>耗子的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Wed, 14 Dec 2022 13:01:45 &#43;0800</lastBuildDate>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 15 Dec 2022 17:01:55 &#43;0800</lastBuildDate>
             <atom:link href="https://xiaohao890809.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Sqoop or Datax</title>
+    <link>https://xiaohao890809.github.io/sqoop/</link>
+    <pubDate>Thu, 15 Dec 2022 17:01:55 &#43;0800</pubDate>
+    <author>大数据私房菜</author>
+    <guid>https://xiaohao890809.github.io/sqoop/</guid>
+    <description><![CDATA[<p>sqoop 和 datax 作为 2 款优秀的数据同步工具，备受数据开发人员喜爱。</p>]]></description>
+</item>
+<item>
+    <title>力扣-两数相加</title>
+    <link>https://xiaohao890809.github.io/add-two-numbers/</link>
+    <pubDate>Thu, 15 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/add-two-numbers/</guid>
+    <description><![CDATA[🔗 题目链接 给你两个非空的链表，表示两个非负的整数。它们每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。 请你将两个数相加，并以]]></description>
+</item>
+<item>
     <title>力扣-二分查找</title>
     <link>https://xiaohao890809.github.io/binary-search/</link>
     <pubDate>Wed, 14 Dec 2022 13:01:45 &#43;0800</pubDate>
@@ -69,22 +85,6 @@
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/valid-triangle-number/</guid>
     <description><![CDATA[🔗 题目链接 给定一个包含非负整数的数组 nums，返回其中可以组成三角形三条边的三元组个数。 示例 1： 输入：nums = [2,2,3,4] 输出：3 解释：有效的组合是]]></description>
-</item>
-<item>
-    <title>left semi join 和 left join 区别</title>
-    <link>https://xiaohao890809.github.io/left-semi-join/</link>
-    <pubDate>Mon, 12 Dec 2022 21:59:55 &#43;0800</pubDate>
-    <author>大数据私房菜</author>
-    <guid>https://xiaohao890809.github.io/left-semi-join/</guid>
-    <description><![CDATA[<p>left semi join 和 left join 有啥区别呢？</p>]]></description>
-</item>
-<item>
-    <title>星型模型和雪花模型</title>
-    <link>https://xiaohao890809.github.io/star-snow/</link>
-    <pubDate>Sun, 11 Dec 2022 21:59:55 &#43;0800</pubDate>
-    <author>数仓宝贝库</author>
-    <guid>https://xiaohao890809.github.io/star-snow/</guid>
-    <description><![CDATA[<p>星型模型和雪花模型的区别以及各自优点。</p>]]></description>
 </item>
 </channel>
 </rss>
