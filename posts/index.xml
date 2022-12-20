@@ -4,7 +4,23 @@
         <link>https://xiaohao890809.github.io/posts/</link>
         <description>所有文章 | 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 15 Dec 2022 17:01:55 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Mon, 19 Dec 2022 13:01:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-反转链表 II</title>
+    <link>https://xiaohao890809.github.io/reverse-linked-list-ii/</link>
+    <pubDate>Mon, 19 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/reverse-linked-list-ii/</guid>
+    <description><![CDATA[🔗 题目链接 给你单链表的头指针 head 和两个整数 left 和 right，其中 left &lt;= right。请你反转从位置 left 到位置 right 的链表节点，返回反转后的链表。 示例1 示例]]></description>
+</item>
+<item>
+    <title>力扣-反转链表</title>
+    <link>https://xiaohao890809.github.io/reverse-linked-list/</link>
+    <pubDate>Sun, 18 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/reverse-linked-list/</guid>
+    <description><![CDATA[🔗 题目链接 给你单链表的头节点 head，请你反转链表，并返回反转后的链表。 示例1 示例 1： 输入：head = [1,2,3,4,5] 输出：[5,4,3,2,1] 示例2 示]]></description>
+</item>
+<item>
     <title>Sqoop or Datax</title>
     <link>https://xiaohao890809.github.io/sqoop/</link>
     <pubDate>Thu, 15 Dec 2022 17:01:55 &#43;0800</pubDate>
@@ -67,22 +83,6 @@
     <author>大数据技术团队</author>
     <guid>https://xiaohao890809.github.io/driver/</guid>
     <description><![CDATA[<p>driver 的功能是什么？</p>]]></description>
-</item>
-<item>
-    <title>cache 和 persist 区别</title>
-    <link>https://xiaohao890809.github.io/persist/</link>
-    <pubDate>Wed, 14 Dec 2022 09:59:55 &#43;0800</pubDate>
-    <author>等你下课_</author>
-    <guid>https://xiaohao890809.github.io/persist/</guid>
-    <description><![CDATA[<p>cache 和 pesist 的区别？</p>]]></description>
-</item>
-<item>
-    <title>力扣-有效三角形的个数 </title>
-    <link>https://xiaohao890809.github.io/valid-triangle-number/</link>
-    <pubDate>Mon, 12 Dec 2022 22:52:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/valid-triangle-number/</guid>
-    <description><![CDATA[🔗 题目链接 给定一个包含非负整数的数组 nums，返回其中可以组成三角形三条边的三元组个数。 示例 1： 输入：nums = [2,2,3,4] 输出：3 解释：有效的组合是]]></description>
 </item>
 </channel>
 </rss>

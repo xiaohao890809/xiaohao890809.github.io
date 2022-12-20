@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>双指针 - 标签 - 追寻原风景的博客</title>
+        <link>https://xiaohao890809.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/</link>
+        <description>双指针 - 标签 - 追寻原风景的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sun, 18 Dec 2022 13:01:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-反转链表</title>
+    <link>https://xiaohao890809.github.io/reverse-linked-list/</link>
+    <pubDate>Sun, 18 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/reverse-linked-list/</guid>
+    <description><![CDATA[🔗 题目链接 给你单链表的头节点 head，请你反转链表，并返回反转后的链表。 示例1 示例 1： 输入：head = [1,2,3,4,5] 输出：[5,4,3,2,1] 示例2 示]]></description>
+</item>
+</channel>
+</rss>

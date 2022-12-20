@@ -4,7 +4,23 @@
         <link>https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/</link>
         <description>力扣 - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 15 Dec 2022 13:01:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Mon, 19 Dec 2022 13:01:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-反转链表 II</title>
+    <link>https://xiaohao890809.github.io/reverse-linked-list-ii/</link>
+    <pubDate>Mon, 19 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/reverse-linked-list-ii/</guid>
+    <description><![CDATA[🔗 题目链接 给你单链表的头指针 head 和两个整数 left 和 right，其中 left &lt;= right。请你反转从位置 left 到位置 right 的链表节点，返回反转后的链表。 示例1 示例]]></description>
+</item>
+<item>
+    <title>力扣-反转链表</title>
+    <link>https://xiaohao890809.github.io/reverse-linked-list/</link>
+    <pubDate>Sun, 18 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/reverse-linked-list/</guid>
+    <description><![CDATA[🔗 题目链接 给你单链表的头节点 head，请你反转链表，并返回反转后的链表。 示例1 示例 1： 输入：head = [1,2,3,4,5] 输出：[5,4,3,2,1] 示例2 示]]></description>
+</item>
+<item>
     <title>力扣-两数相加</title>
     <link>https://xiaohao890809.github.io/add-two-numbers/</link>
     <pubDate>Thu, 15 Dec 2022 13:01:45 &#43;0800</pubDate>
@@ -67,22 +83,6 @@
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/longest-substring-without-repeating-characters/</guid>
     <description><![CDATA[🔗 题目链接 给定一个字符串 s，请你找出其中不含有重复字符的最长子串的长度。 示例 1： 输入：s = &ldquo;abcabcbb&rdquo; 输出：3 解释：因为无重复字符的最长子串是 &ldq]]></description>
-</item>
-<item>
-    <title>力扣-单词拆分 </title>
-    <link>https://xiaohao890809.github.io/word-break/</link>
-    <pubDate>Tue, 06 Dec 2022 17:52:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/word-break/</guid>
-    <description><![CDATA[🔗 题目链接 给你一个字符串 s 和一个字符串列表 wordDict 作为字典。请你判断是否可以利用字典中出现的单词拼接出 s。 注意：不要求字典中出现的单词全部都使用，]]></description>
-</item>
-<item>
-    <title>力扣-查询两个字符串的最长公共子串 </title>
-    <link>https://xiaohao890809.github.io/longest/</link>
-    <pubDate>Mon, 05 Dec 2022 17:42:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/longest/</guid>
-    <description><![CDATA[查询两个字符串的最长公共子串。 用 Python 实现查找两个字符串 a,b 中的最长公共子串1 Python——查询两个字符串的最长公共子串2 循环查找 思路： 通过字符]]></description>
 </item>
 </channel>
 </rss>

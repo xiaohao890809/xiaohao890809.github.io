@@ -12,5 +12,13 @@
     <guid>https://xiaohao890809.github.io/binary-search/</guid>
     <description><![CDATA[🔗 题目链接 给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返]]></description>
 </item>
+<item>
+    <title>力扣-x的平方根 </title>
+    <link>https://xiaohao890809.github.io/sqrtx/</link>
+    <pubDate>Fri, 02 Dec 2022 16:42:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/sqrtx/</guid>
+    <description><![CDATA[🔗 题目链接 给你一个非负整数 x ，计算并返回 x 的算术平方根。 由于返回类型是整数，结果只保留整数部分，小数部分将被舍去。 注意：不允许使用任何内置指]]></description>
+</item>
 </channel>
 </rss>

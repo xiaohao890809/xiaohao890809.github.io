@@ -56,7 +56,7 @@
 
 **判断重复字符**
 
-在上面的流程中，我们还需要使用一种数据结构来判断 是否有重复的字符，常用的数据结构为哈希集合（即 `C++` 中的 `std::unordered_set`，`Java` 中的 `HashSet`，`Python` 中的 `set`, `JavaScript` 中的 `Set`）。在左指针向右移动的时候，我们从哈希集合中移除一个字符，在右指针向右移动的时候，我们往哈希集合中添加一个字符。
+在上面的流程中，我们还需要使用一种数据结构来判断**是否有重复的字符**，常用的数据结构为哈希集合（即 `C++` 中的 `std::unordered_set`，`Java` 中的 `HashSet`，`Python` 中的 `set`, `JavaScript` 中的 `Set`）。在左指针向右移动的时候，我们从哈希集合中移除一个字符，在右指针向右移动的时候，我们往哈希集合中添加一个字符。
 
 至此，我们就完美解决了本题。
 
@@ -73,7 +73,6 @@ def lengthOfLongestSubstring(s: str) -> int:
             occ.remove(s[i - 1])
         while rk + 1 < n and s[rk + 1] not in occ:
             # 不断地移动右指针
-            print(rk + 1, s[rk + 1])
             occ.add(s[rk + 1])
             rk += 1
         # 第 i 到 rk 个字符是一个极长的无重复字符子串

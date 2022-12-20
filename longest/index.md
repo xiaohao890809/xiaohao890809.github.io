@@ -34,7 +34,7 @@ def getLongestSameStr(str1, str2):
     return f1
 ```
 
-[^1]: [用Python实现查找两个字符串a,b中的最长公共子串）](https://blog.csdn.net/weixin_42968460/article/details/123132521/)
+[^1]: [用Python实现查找两个字符串a,b中的最长公共子串](https://blog.csdn.net/weixin_42968460/article/details/123132521/)
 [^2]: [Python——查询两个字符串的最长公共子串](https://www.cnblogs.com/alunzuishuai/p/16344936.html)
 
 

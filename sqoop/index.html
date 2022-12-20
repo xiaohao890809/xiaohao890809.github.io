@@ -19,7 +19,7 @@
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xiaohao890809.github.io/sqoop/" /><link rel="prev" href="https://xiaohao890809.github.io/add-two-numbers/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xiaohao890809.github.io/sqoop/" /><link rel="prev" href="https://xiaohao890809.github.io/add-two-numbers/" /><link rel="next" href="https://xiaohao890809.github.io/reverse-linked-list/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xiaohao890809.github.io\/sqoop\/"
-        },"genre": "posts","keywords": "数仓","wordcount":  262 ,
+        },"genre": "posts","keywords": "数仓","wordcount":  556 ,
         "url": "https:\/\/xiaohao890809.github.io\/sqoop\/","datePublished": "2022-12-15T17:01:55+08:00","dateModified": "2022-12-16T19:20:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Sqoop or Datax</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://mp.weixin.qq.com/s/RjLMPja5rC-q6B-iwzdHhA" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>大数据私房菜</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-15">2022-12-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 262 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-15">2022-12-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 556 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -123,8 +123,10 @@
       <ul>
         <li><a href="#简介">简介</a></li>
         <li><a href="#核心架构">核心架构</a></li>
+        <li><a href="#核心模块介绍">核心模块介绍</a></li>
       </ul>
     </li>
+    <li><a href="#总结">总结</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>sqoop 和 datax 作为 2 款优秀的数据同步工具，备受数据开发人员喜爱。</p>
@@ -166,7 +168,18 @@
             data-sizes="auto"
             alt="/images/核心架构.png" width="600" />
     </a><figcaption class="image-caption">核心架构</figcaption>
-    </figure></div><div class="post-footer" id="post-footer">
+    </figure>
+<p><code>DataX</code> 本身作为离线数据同步框架，采用 <code>Framework + plugin</code> 架构构建。将数据源读取和写入抽象成为 <code>Reader/Writer</code> 插件，纳入到整个同步框架中。</p>
+<h3 id="核心模块介绍">核心模块介绍</h3>
+<p>举例来说，用户提交了一个 <code>DataX</code> 作业，并且配置了 <code>20</code> 个并发，目的是将一个 <code>100</code> 张分表的 <code>mysql</code> 数据同步到 <code>odps</code> 里面。</p>
+<p>DataX 的调度决策思路是：</p>
+<ol>
+<li><code>DataXJob</code> 根据分库分表切分成了 100 个 <code>Task</code>。</li>
+<li>根据 20 个并发，<code>DataX</code> 计算共需要分配 4 个 <code>TaskGroup</code>。</li>
+<li>4 个 <code>TaskGroup</code> 平分切分好的 100 个Task，每个 <code>TaskGroup</code> 负责以 5 个并发共计运行 25 个 <code>Task</code>。</li>
+</ol>
+<h2 id="总结">总结</h2>
+<p>对于 <code>sqoop</code> 和 <code>datax</code>，如果只是单纯的数据同步，其实两者都是 ok 的，但是如果需要集成在大数据平台，还是比较推荐使用 <code>datax</code>，原因就是<strong>支持流量控制，支持运行信息收集，及时跟踪数据同步情况</strong>。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -189,7 +202,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/add-two-numbers/" class="prev" rel="prev" title="力扣-两数相加"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>力扣-两数相加</a></div>
+    <div class="post-nav"><a href="/add-two-numbers/" class="prev" rel="prev" title="力扣-两数相加"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>力扣-两数相加</a>
+            <a href="/reverse-linked-list/" class="next" rel="next" title="力扣-反转链表">力扣-反转链表<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="gitalk" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.

@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xiaohao890809.github.io\/longest-substring-without-repeating-characters\/"
-        },"genre": "posts","keywords": "力扣","wordcount":  1434 ,
+        },"genre": "posts","keywords": "力扣","wordcount":  1427 ,
         "url": "https:\/\/xiaohao890809.github.io\/longest-substring-without-repeating-characters\/","datePublished": "2022-12-11T17:52:45+08:00","dateModified": "2022-12-12T19:20:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">力扣-无重复字符的最长子串 </h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>耗子</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%88%B7%E9%A2%98/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>刷题</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-11">2022-12-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1434 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-11">2022-12-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1427 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -176,7 +176,7 @@
 <li>在枚举结束后，我们找到的最长的子串的长度即为答案。</li>
 </ul>
 <p><strong>判断重复字符</strong></p>
-<p>在上面的流程中，我们还需要使用一种数据结构来判断 是否有重复的字符，常用的数据结构为哈希集合（即 <code>C++</code> 中的 <code>std::unordered_set</code>，<code>Java</code> 中的 <code>HashSet</code>，<code>Python</code> 中的 <code>set</code>, <code>JavaScript</code> 中的 <code>Set</code>）。在左指针向右移动的时候，我们从哈希集合中移除一个字符，在右指针向右移动的时候，我们往哈希集合中添加一个字符。</p>
+<p>在上面的流程中，我们还需要使用一种数据结构来判断<strong>是否有重复的字符</strong>，常用的数据结构为哈希集合（即 <code>C++</code> 中的 <code>std::unordered_set</code>，<code>Java</code> 中的 <code>HashSet</code>，<code>Python</code> 中的 <code>set</code>, <code>JavaScript</code> 中的 <code>Set</code>）。在左指针向右移动的时候，我们从哈希集合中移除一个字符，在右指针向右移动的时候，我们往哈希集合中添加一个字符。</p>
 <p>至此，我们就完美解决了本题。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -197,7 +197,6 @@
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">lengthOfLongestSubstring</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
@@ -212,7 +211,6 @@
 </span></span><span class="line"><span class="cl">            <span class="n">occ</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">rk</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">s</span><span class="p">[</span><span class="n">rk</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">occ</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">            <span class="c1"># 不断地移动右指针</span>
-</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="n">rk</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="n">rk</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">            <span class="n">occ</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">rk</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">            <span class="n">rk</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 第 i 到 rk 个字符是一个极长的无重复字符子串</span>
