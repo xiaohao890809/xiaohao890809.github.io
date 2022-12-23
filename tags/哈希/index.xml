@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>哈希 - 标签 - 追寻原风景的博客</title>
+        <link>https://xiaohao890809.github.io/tags/%E5%93%88%E5%B8%8C/</link>
+        <description>哈希 - 标签 - 追寻原风景的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 22 Dec 2022 16:43:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E5%93%88%E5%B8%8C/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-最长连续序列</title>
+    <link>https://xiaohao890809.github.io/longest-consecutive-sequence/</link>
+    <pubDate>Thu, 22 Dec 2022 16:43:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/longest-consecutive-sequence/</guid>
+    <description><![CDATA[🔗 题目链接 给定一个未排序的整数数组 nums，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。 请你设计并实现时间复杂度为 O(n) 的算法]]></description>
+</item>
+<item>
+    <title>力扣-两数之和</title>
+    <link>https://xiaohao890809.github.io/two-sum/</link>
+    <pubDate>Tue, 29 Nov 2022 16:42:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/two-sum/</guid>
+    <description><![CDATA[🔗 题目链接 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值 target 的那两个整数，并返回它们的数组下标。 你可以假设每种输]]></description>
+</item>
+</channel>
+</rss>

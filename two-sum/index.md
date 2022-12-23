@@ -80,7 +80,7 @@ def twoSum(nums: List[int], target: int) -> List[int]:
 - 时间复杂度：$O(N)$，其中 $N$ 是数组中的元素数量。对于每一个元素 `x`，我们可以 $O(1)$ 地寻找 `target - x`。
 - 空间复杂度：$O(N)$，其中 $N$ 是数组中的元素数量。主要为哈希表的开销。
 
-[^1]: [参考链接：两数之和](https://leetcode.cn/problems/two-sum/solutions/434597/liang-shu-zhi-he-by-leetcode-solution/?languageTags=python3%2Cpython)
+[^1]: [参考链接：两数之和](https://leetcode.cn/problems/two-sum/solutions/434597/liang-shu-zhi-he-by-leetcode-solution)
 
 
 

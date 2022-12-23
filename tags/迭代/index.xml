@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>迭代 - 标签 - 追寻原风景的博客</title>
+        <link>https://xiaohao890809.github.io/tags/%E8%BF%AD%E4%BB%A3/</link>
+        <description>迭代 - 标签 - 追寻原风景的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 20 Dec 2022 13:01:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E8%BF%AD%E4%BB%A3/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-子集</title>
+    <link>https://xiaohao890809.github.io/subsets/</link>
+    <pubDate>Tue, 20 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/subsets/</guid>
+    <description><![CDATA[🔗 题目链接 给你一个整数数组 nums，数组中的元素互不相同。返回该数组所有可能的子集（幂集）。 解集不能包含重复的子集。你可以按任意顺序返回解集]]></description>
+</item>
+</channel>
+</rss>

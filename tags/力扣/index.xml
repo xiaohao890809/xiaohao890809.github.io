@@ -4,7 +4,47 @@
         <link>https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/</link>
         <description>力扣 - 标签 - 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Mon, 19 Dec 2022 13:01:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 22 Dec 2022 16:43:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E5%8A%9B%E6%89%A3/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-最长连续序列</title>
+    <link>https://xiaohao890809.github.io/longest-consecutive-sequence/</link>
+    <pubDate>Thu, 22 Dec 2022 16:43:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/longest-consecutive-sequence/</guid>
+    <description><![CDATA[🔗 题目链接 给定一个未排序的整数数组 nums，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。 请你设计并实现时间复杂度为 O(n) 的算法]]></description>
+</item>
+<item>
+    <title>力扣-最长公共前缀</title>
+    <link>https://xiaohao890809.github.io/longest-common-prefix/</link>
+    <pubDate>Tue, 20 Dec 2022 16:43:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/longest-common-prefix/</guid>
+    <description><![CDATA[🔗 题目链接 编写一个函数来查找字符串数组中的最长公共前缀。 如果不存在公共前缀，返回空字符串 &quot;&quot;。 示例 1： 输入：strs = [&ldquo;flower&rdquo;,&ldquo;flow&rdquo;,&ldquo;flight&rdquo;]]]></description>
+</item>
+<item>
+    <title>力扣-三数之和</title>
+    <link>https://xiaohao890809.github.io/3sum/</link>
+    <pubDate>Tue, 20 Dec 2022 16:42:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/3sum/</guid>
+    <description><![CDATA[🔗 题目链接 给你一个整数数组 $nums$，判断是否存在三元组 $[nums[i], nums[j], nums[k]]$ 满足 $i != j、i != k 且 j != k$，同时还满足 $nums[i] + nums[j] + nums[k] == 0$。 请你返回所有和为 0]]></description>
+</item>
+<item>
+    <title>力扣-反转字符串</title>
+    <link>https://xiaohao890809.github.io/reverse-string/</link>
+    <pubDate>Tue, 20 Dec 2022 13:11:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/reverse-string/</guid>
+    <description><![CDATA[🔗 题目链接 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 s 的形式给出。 不要给另外的数组分配额外的空间，你必须原地修改输入]]></description>
+</item>
+<item>
+    <title>力扣-子集</title>
+    <link>https://xiaohao890809.github.io/subsets/</link>
+    <pubDate>Tue, 20 Dec 2022 13:01:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/subsets/</guid>
+    <description><![CDATA[🔗 题目链接 给你一个整数数组 nums，数组中的元素互不相同。返回该数组所有可能的子集（幂集）。 解集不能包含重复的子集。你可以按任意顺序返回解集]]></description>
+</item>
+<item>
     <title>力扣-反转链表 II</title>
     <link>https://xiaohao890809.github.io/reverse-linked-list-ii/</link>
     <pubDate>Mon, 19 Dec 2022 13:01:45 &#43;0800</pubDate>
@@ -43,46 +83,6 @@
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/climbing-stairs/</guid>
     <description><![CDATA[🔗 题目链接 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？ 示例 1： 输入：n = 2 输出：]]></description>
-</item>
-<item>
-    <title>力扣-打家劫舍 III</title>
-    <link>https://xiaohao890809.github.io/house-robber-iii/</link>
-    <pubDate>Wed, 14 Dec 2022 12:54:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/house-robber-iii/</guid>
-    <description><![CDATA[🔗 题目链接 小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为 root。 除了 root 之外，每栋房子有且只有一个“父”房子与之相连。一]]></description>
-</item>
-<item>
-    <title>力扣-打家劫舍 II</title>
-    <link>https://xiaohao890809.github.io/house-robber-ii/</link>
-    <pubDate>Wed, 14 Dec 2022 12:53:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/house-robber-ii/</guid>
-    <description><![CDATA[🔗 题目链接 你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都围成一圈，这意味着第一个房屋和最后一个房屋是]]></description>
-</item>
-<item>
-    <title>力扣-打家劫舍</title>
-    <link>https://xiaohao890809.github.io/house-robber/</link>
-    <pubDate>Wed, 14 Dec 2022 12:52:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/house-robber/</guid>
-    <description><![CDATA[🔗 题目链接 你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如]]></description>
-</item>
-<item>
-    <title>力扣-有效三角形的个数 </title>
-    <link>https://xiaohao890809.github.io/valid-triangle-number/</link>
-    <pubDate>Mon, 12 Dec 2022 22:52:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/valid-triangle-number/</guid>
-    <description><![CDATA[🔗 题目链接 给定一个包含非负整数的数组 nums，返回其中可以组成三角形三条边的三元组个数。 示例 1： 输入：nums = [2,2,3,4] 输出：3 解释：有效的组合是]]></description>
-</item>
-<item>
-    <title>力扣-无重复字符的最长子串 </title>
-    <link>https://xiaohao890809.github.io/longest-substring-without-repeating-characters/</link>
-    <pubDate>Sun, 11 Dec 2022 17:52:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/longest-substring-without-repeating-characters/</guid>
-    <description><![CDATA[🔗 题目链接 给定一个字符串 s，请你找出其中不含有重复字符的最长子串的长度。 示例 1： 输入：s = &ldquo;abcabcbb&rdquo; 输出：3 解释：因为无重复字符的最长子串是 &ldq]]></description>
 </item>
 </channel>
 </rss>

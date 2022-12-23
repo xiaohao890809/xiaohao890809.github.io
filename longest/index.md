@@ -34,6 +34,20 @@ def getLongestSameStr(str1, str2):
     return f1
 ```
 
+## 滑动窗口
+
+```python
+def LCS(str1: str, str2: str) -> str:
+    res = ""
+    left = 0
+    for i in range(len(str1)+1):
+        if str1[left:i+1] in str2:
+            res = str1[left:i+1]
+        else:
+            left = left+1
+    return res
+```
+
 [^1]: [用Python实现查找两个字符串a,b中的最长公共子串](https://blog.csdn.net/weixin_42968460/article/details/123132521/)
 [^2]: [Python——查询两个字符串的最长公共子串](https://www.cnblogs.com/alunzuishuai/p/16344936.html)
 

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>反转 - 标签 - 追寻原风景的博客</title>
+        <link>https://xiaohao890809.github.io/tags/%E5%8F%8D%E8%BD%AC/</link>
+        <description>反转 - 标签 - 追寻原风景的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Tue, 20 Dec 2022 13:11:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/tags/%E5%8F%8D%E8%BD%AC/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-反转字符串</title>
+    <link>https://xiaohao890809.github.io/reverse-string/</link>
+    <pubDate>Tue, 20 Dec 2022 13:11:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/reverse-string/</guid>
+    <description><![CDATA[🔗 题目链接 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 s 的形式给出。 不要给另外的数组分配额外的空间，你必须原地修改输入]]></description>
+</item>
+</channel>
+</rss>

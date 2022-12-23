@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xiaohao890809.github.io/exercise-1/" /><meta property="og:image" content="https://xiaohao890809.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-10-30T20:55:57+08:00" />
-<meta property="article:modified_time" content="2022-10-30T20:57:51+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta property="article:modified_time" content="2022-12-21T20:57:51+08:00" /><meta property="og:site_name" content="我的网站" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://xiaohao890809.github.io/logo.png"/>
@@ -19,7 +19,7 @@
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xiaohao890809.github.io/exercise-1/" /><link rel="prev" href="https://xiaohao890809.github.io/poetry-of-libai/" /><link rel="next" href="https://xiaohao890809.github.io/stock-of-2022q4/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://xiaohao890809.github.io/exercise-1/" /><link rel="prev" href="https://xiaohao890809.github.io/poetry-of-libai/" /><link rel="next" href="https://xiaohao890809.github.io/poetry-of-lishangyin/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -30,8 +30,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/xiaohao890809.github.io\/exercise-1\/"
-        },"genre": "posts","keywords": "牛客, 刷题","wordcount":  162 ,
-        "url": "https:\/\/xiaohao890809.github.io\/exercise-1\/","datePublished": "2022-10-30T20:55:57+08:00","dateModified": "2022-10-30T20:57:51+08:00","publisher": {
+        },"genre": "posts","keywords": "牛客, 刷题","wordcount":  868 ,
+        "url": "https:\/\/xiaohao890809.github.io\/exercise-1\/","datePublished": "2022-10-30T20:55:57+08:00","dateModified": "2022-12-21T20:57:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">学习刷题Part1</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>浩子</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-30">2022-10-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 162 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-30">2022-10-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 868 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -114,6 +114,9 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#比特和波特">比特和波特</a></li>
+    <li><a href="#hive内外表">Hive内外表</a></li>
+    <li><a href="#hive的orc">Hive的ORC</a></li>
+    <li><a href="#相关性分析">相关性分析</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="比特和波特">比特和波特</h2>
@@ -127,8 +130,7 @@
             <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>参考答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content"><h2 id="比特和波特">比特和波特</h2>
-<p>正确答案: D</p>
+            <div class="admonition-content"><p>正确答案: D</p>
 <ul>
 <li><u>比特</u> 比特率是信息量传送速率单位，即每秒传输二 进制代码位数。bit/s</li>
 <li><u>波特</u> 波特率是码元传输速率单位，他说明单位时间 传输了多少个码元</li>
@@ -136,11 +138,69 @@
 </div>
         </div>
     </div>
+<h2 id="hive内外表">Hive内外表</h2>
+<p>下面关于Hive内外表描述正确的是（）</p>
+<p>(A) 内部表数据由HDFS自身管理，外部表数据由Hive管理；</p>
+<p>(B) 内部表数据存储的位置是hive.metastore.warehouse.dir设置配置（默认：/user/hive/warehouse）</p>
+<p>(C) 外表存储必须指定LOCATION</p>
+<p>(D) 内外表删除时，都会删除元数据和存储</p>
+<div class="details admonition question">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>参考答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>正确答案: B</p>
+<ul>
+<li>A.错误，内部表数据由Hive自身管理，外部表数据由HDFS管理；</li>
+<li>B.正确，Hive config默认设置</li>
+<li>C.错误，外表存储不指定LOCATION时，Hive将在HDFS上的/user/hive/warehouse文件夹下以外部表的表名创建一个文件夹，并将属于这个表的数据存放在这里</li>
+<li>D.错误，只有内表删除时，才会删除元数据和存储；外表只会删掉元数据</li>
+</ul>
+</div>
+        </div>
+    </div>
+<h2 id="hive的orc">Hive的ORC</h2>
+<p>下面关于Hive的ORC格式描述正确的是（）</p>
+<p>(A) ORC的存储方式：数据按行分块 每块按照列存储</p>
+<p>(B) ORC不可以进行压缩</p>
+<p>(C) RC效率比ORC高，是ORC的改良版本</p>
+<p>(D) ORC格式是Hive默认的建表格式</p>
+<div class="details admonition question">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>参考答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>正确答案: A</p>
+<ul>
+<li>A.正确，ORC文件的规范是数据按行分块，在由块按照列存储</li>
+<li>B.错误，ORC可以进行快速的存取和压缩</li>
+<li>C.错误，ORC效率比RC高，是RC的改良版本</li>
+<li>D.错误，TEXTFILE格式是Hive默认的建表格式</li>
+</ul>
+</div>
+        </div>
+    </div>
+<h2 id="相关性分析">相关性分析</h2>
+<p>在相关性分析中需要相关的两个变量（）</p>
+<p>(A) 因变量是随机的量，自变量也是随机的量</p>
+<p>(B) 因变量是随机的量，自变量是控制的量</p>
+<p>(C) 因变量是控制的量，自变量是随机的量</p>
+<p>(D) 因变量是控制的量，自变量也是控制的量</p>
+<div class="details admonition question">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>参考答案<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>正确答案: A</p>
+<p>进行相关性分析时，不必事先确定两个变量中哪个是自变量哪个是因变量，相关性分析中两个变量都是随机的变量。</p>
+</div>
+        </div>
+    </div>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2022-10-30</span>
+                <span>更新于 2022-12-21</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
@@ -160,7 +220,7 @@
     </div>
 
     <div class="post-nav"><a href="/poetry-of-libai/" class="prev" rel="prev" title="诗歌之李白篇"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>诗歌之李白篇</a>
-            <a href="/stock-of-2022q4/" class="next" rel="next" title="股市2022Q4记录">股市2022Q4记录<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+            <a href="/poetry-of-lishangyin/" class="next" rel="next" title="诗歌之李商隐">诗歌之李商隐<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="gitalk" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://github.com/gitalk/gitalk"></a>Gitalk</a>.
