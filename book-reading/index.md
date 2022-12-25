@@ -6,7 +6,7 @@
 
 ## 2022年
 
-- [秋园](https://book.douban.com/subject/34998019/)（杨本芬）:star::star::star::star::star:
+- [秋园](https://book.douban.com/subject/34998019/)（杨本芬）
 
 
 

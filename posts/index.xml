@@ -4,7 +4,15 @@
         <link>https://xiaohao890809.github.io/posts/</link>
         <description>所有文章 | 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Thu, 22 Dec 2022 16:43:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sat, 24 Dec 2022 16:43:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>力扣-2 的幂</title>
+    <link>https://xiaohao890809.github.io/power-of-two/</link>
+    <pubDate>Sat, 24 Dec 2022 16:43:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/power-of-two/</guid>
+    <description><![CDATA[🔗 题目链接 给你一个整数 n，请你判断该整数是否是 2 的幂次方。如果是，返回 true；否则，返回 false。 如果存在一个整数 $x$ 使得 $n == 2^x$ ，则认为 $n$]]></description>
+</item>
+<item>
     <title>力扣-最长连续序列</title>
     <link>https://xiaohao890809.github.io/longest-consecutive-sequence/</link>
     <pubDate>Thu, 22 Dec 2022 16:43:45 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/reverse-linked-list/</guid>
     <description><![CDATA[🔗 题目链接 给你单链表的头节点 head，请你反转链表，并返回反转后的链表。 示例1 示例 1： 输入：head = [1,2,3,4,5] 输出：[5,4,3,2,1] 示例2 示]]></description>
-</item>
-<item>
-    <title>Sqoop or Datax</title>
-    <link>https://xiaohao890809.github.io/sqoop/</link>
-    <pubDate>Thu, 15 Dec 2022 17:01:55 &#43;0800</pubDate>
-    <author>大数据私房菜</author>
-    <guid>https://xiaohao890809.github.io/sqoop/</guid>
-    <description><![CDATA[<p>sqoop 和 datax 作为 2 款优秀的数据同步工具，备受数据开发人员喜爱。</p>]]></description>
 </item>
 </channel>
 </rss>
