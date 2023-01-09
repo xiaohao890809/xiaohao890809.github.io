@@ -4,7 +4,23 @@
         <link>https://xiaohao890809.github.io/posts/</link>
         <description>所有文章 | 追寻原风景的博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiaohao890809@126.com (浩子)</managingEditor>
-            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sat, 24 Dec 2022 16:43:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiaohao890809@126.com (浩子)</webMaster><lastBuildDate>Sat, 07 Jan 2023 16:43:45 &#43;0800</lastBuildDate><atom:link href="https://xiaohao890809.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>B站视频收藏Part1</title>
+    <link>https://xiaohao890809.github.io/yejiaying-10lessons/</link>
+    <pubDate>Sat, 07 Jan 2023 16:43:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/yejiaying-10lessons/</guid>
+    <description><![CDATA[收藏一些自己喜欢的视频，供后期反复观看复习。 叶嘉莹讲十家词]]></description>
+</item>
+<item>
+    <title>力扣-反转字符串中的单词</title>
+    <link>https://xiaohao890809.github.io/reverse-words-in-a-string/</link>
+    <pubDate>Mon, 02 Jan 2023 16:43:45 &#43;0800</pubDate>
+    <author>耗子</author>
+    <guid>https://xiaohao890809.github.io/reverse-words-in-a-string/</guid>
+    <description><![CDATA[🔗 题目链接 给你一个字符串 s，请你反转字符串中单词的顺序。 单词是由非空格字符组成的字符串。s中使用至少一个空格将字符串中的单词分隔开。 返回单词]]></description>
+</item>
+<item>
     <title>力扣-2 的幂</title>
     <link>https://xiaohao890809.github.io/power-of-two/</link>
     <pubDate>Sat, 24 Dec 2022 16:43:45 &#43;0800</pubDate>
@@ -67,22 +83,6 @@
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/subsets/</guid>
     <description><![CDATA[🔗 题目链接 给你一个整数数组 nums，数组中的元素互不相同。返回该数组所有可能的子集（幂集）。 解集不能包含重复的子集。你可以按任意顺序返回解集]]></description>
-</item>
-<item>
-    <title>力扣-反转链表 II</title>
-    <link>https://xiaohao890809.github.io/reverse-linked-list-ii/</link>
-    <pubDate>Mon, 19 Dec 2022 13:01:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/reverse-linked-list-ii/</guid>
-    <description><![CDATA[🔗 题目链接 给你单链表的头指针 head 和两个整数 left 和 right，其中 left &lt;= right。请你反转从位置 left 到位置 right 的链表节点，返回反转后的链表。 示例1 示例]]></description>
-</item>
-<item>
-    <title>力扣-反转链表</title>
-    <link>https://xiaohao890809.github.io/reverse-linked-list/</link>
-    <pubDate>Sun, 18 Dec 2022 13:01:45 &#43;0800</pubDate>
-    <author>耗子</author>
-    <guid>https://xiaohao890809.github.io/reverse-linked-list/</guid>
-    <description><![CDATA[🔗 题目链接 给你单链表的头节点 head，请你反转链表，并返回反转后的链表。 示例1 示例 1： 输入：head = [1,2,3,4,5] 输出：[5,4,3,2,1] 示例2 示]]></description>
 </item>
 </channel>
 </rss>
