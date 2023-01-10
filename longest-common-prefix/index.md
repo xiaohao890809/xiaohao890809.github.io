@@ -8,13 +8,13 @@
 如果不存在公共前缀，返回空字符串 `""`。
 
 {{< admonition example "示例 1：" true>}}
-**输入**：strs = ["flower","flow","flight"]<br>
-**输出**："fl"
+**输入**：strs = `["flower","flow","flight"]`<br>
+**输出**：`"fl"`
 {{< /admonition >}}
 
 {{< admonition example "示例 2：" true>}}
-**输入**：strs = ["dog","racecar","car"]<br>
-**输出**：""<br>
+**输入**：strs = `["dog","racecar","car"]`<br>
+**输出**：`""`<br>
 **解释**：输入不存在公共前缀。
 {{< /admonition >}}
 

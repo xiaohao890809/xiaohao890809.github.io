@@ -8,7 +8,7 @@
 {{< admonition example "示例 1：" true>}}
 **输入**：c = 5<br>
 **输出**：true<br>
-**解释**：1 * 1 + 2 * 2 = 5
+**解释**：`1 * 1 + 2 * 2 = 5`
 {{< /admonition >}}
 
 {{< admonition example "示例 2：" true>}}

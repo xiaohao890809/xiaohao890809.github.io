@@ -6,14 +6,14 @@
 给你一个字符串 `s`，找到 `s` 中最长的回文子串。
 
 {{< admonition example "示例 1：" true>}}
-**输入**：s = "babad"<br>
-**输出**："bab"<br>
-**解释**："aba" 同样是符合题意的答案。
+**输入**：s = `"babad"`<br>
+**输出**：`"bab"`<br>
+**解释**：`"aba"` 同样是符合题意的答案。
 {{< /admonition >}}
 
 {{< admonition example "示例 2：" true>}}
-**输入**：s = "cbbd"<br>
-**输出**："bb"
+**输入**：s = `"cbbd"`<br>
+**输出**：`"bb"`
 {{< /admonition >}}
 
 **提示**：

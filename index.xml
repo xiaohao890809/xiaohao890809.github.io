@@ -60,7 +60,7 @@
     <pubDate>Tue, 20 Dec 2022 16:43:45 &#43;0800</pubDate>
     <author>耗子</author>
     <guid>https://xiaohao890809.github.io/longest-common-prefix/</guid>
-    <description><![CDATA[🔗 题目链接 编写一个函数来查找字符串数组中的最长公共前缀。 如果不存在公共前缀，返回空字符串 &quot;&quot;。 示例 1： 输入：strs = [&ldquo;flower&rdquo;,&ldquo;flow&rdquo;,&ldquo;flight&rdquo;]]]></description>
+    <description><![CDATA[🔗 题目链接 编写一个函数来查找字符串数组中的最长公共前缀。 如果不存在公共前缀，返回空字符串 &quot;&quot;。 示例 1： 输入：strs = [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]]]></description>
 </item>
 <item>
     <title>力扣-三数之和</title>

@@ -8,20 +8,20 @@
 **注意**：不要求字典中出现的单词全部都使用，并且字典中的单词可以重复使用。
 
 {{< admonition example "示例 1：" true>}}
-**输入**：s = "leetcode", wordDict = ["leet", "code"]<br>
+**输入**：s = `"leetcode", wordDict = ["leet", "code"]`<br>
 **输出**：true<br>
-**解释**：返回 true 因为 "leetcode" 可以由 "leet" 和 "code" 拼接成。
+**解释**：返回 true 因为 `"leetcode"` 可以由 `"leet"` 和 `"code"` 拼接成。
 {{< /admonition >}}
 
 {{< admonition example "示例 2：" true>}}
-**输入**：s = "applepenapple", wordDict = ["apple", "pen"]<br>
+**输入**：s = `"applepenapple", wordDict = ["apple", "pen"]`<br>
 **输出**：true<br>
-**解释**：返回 true 因为 "applepenapple" 可以由 "apple" "pen" "apple" 拼接成。注意，你可以重复使用字典中的单词。
+**解释**：返回 true 因为 `"applepenapple"` 可以由 `"apple" "pen" "apple"` 拼接成。注意，你可以重复使用字典中的单词。
 {{< /admonition >}}
 
 {{< admonition example "示例 3：" true>}}
-**输入**：s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]<br>
-**输出**false
+**输入**：s = `"catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]`<br>
+**输出**：false
 {{< /admonition >}}
 
 **提示**：
